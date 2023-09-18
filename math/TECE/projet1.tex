@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+\def \sinc {{\rm sinc}}
+\def \cotan {{\rm cotan}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent\hrulefill\par}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\usepackage{listings}
+\definecolor{purple2}{RGB}{153,0,153} % there’s actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a
+\lstset{%
+language=Python, % 
+basicstyle=\normalsize\ttfamily, % 
+% Color settings to match IDLE style 
+keywordstyle=\color{orange}, % 
+keywordstyle={[2]\color{purple2}}, % 
+stringstyle=\color{green2}, 
+commentstyle=\color{red}, 
+upquote=true, %
+}
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=25mm,
+ right=25mm,
+ top=20mm,
+ bottom=20mm,
+ }
+\usepackage{wrapfig}
+\title{Concours d'entrée à l'ESTP}
+%\author{Ibrahim ALAME}
+\date{}
+  \begin{document}
+  \lstset{
+    frame       = single,
+    numbers     = left,
+    showspaces  = false,
+    showstringspaces    = false,
+    captionpos  = t,
+    caption     = \lstname
+}
+%\maketitle
+\begin{center}
+\section*{TECE Module 1: Suites et séries numériques}
+%\section*{TECE Module 1: Étude d'une suite vectorielle en dim n}
+\end{center}
+
+\subsubsection*{Exercice 1}
+Une suite arithmétique $(u_n)$ de raison 5 est telle que $u_0=2$. Soit $n$ un nombre entier tel que : $\sum_{k=3}^nu_k=6456$. Calculer la valeur de $n$.
+\subsubsection*{Exercice 2}
+Indiquer avec une brève justification si chacun des énoncés suivants est vrai pour deux suites de réels $U=(u_n)$ et $V=(v_n)$.
+\begin{itemize}
+\item  Si $U$ est croissante et convergente, elle est majorée.
+\item   Si $U$ est majorée et convergente, elle est croissante.
+\item   Si $U$ est décroissante et positive, elle converge.
+\item   Si $U$ est croissante et non majorée, alors : $\lim_{n\to\infty}u_n=+\infty$.
+\item   Si $U$ tend vers 0, $UV$ tend vers 0.
+\end{itemize}
+
+\subsubsection*{Exercice 3}
+Soit $(u_n)$ une suite de nombres réels strictement positifs. Pour tout $n\in\mathbb{N}$, on pose : 
+\[S_n=u_0+u_1+\cdots+u_n\quad \mbox{ et }\quad v_n=u_n/S_n\]
+\begin{enumerate}
+\item    Montrer que si la série de terme général $u_n$ est convergente, alors la série de terme général $v_n$ est convergente.
+\item    Montrer que pour tout $n\in\mathbb{N}$, on a :$\prod_{k=1}^n(1-v_k)=\frac{u_0}{S_n}$
+\item    On suppose que $\sum v_n$ est convergente.
+\begin{enumerate}
+\item     Quelle est la nature de $\sum\ln(1-v_n)$?
+\item   Montrer que $\sum u_n$ est convergente.
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Exercice 4}
+Pour tout $n\in\mathbb{N}^*$, on pose $u_n=\frac{(-1)^n}{\sqrt n}\exp\left(\frac{(-1)^n}{\sqrt n}\right)$ et $v_n=u_n-\frac{(-1)^n}{\sqrt n}$ 
+\begin{enumerate}
+\item      Montrer que $\sum v_n$ est divergente.
+\item  La série $\sum u_n$ est-elle convergente ?
+\end{enumerate}
+\subsubsection*{Exercice 5}
+Soit $f_n$ une fonction réelle définie pour tout entier $n$ sur l'intervalle $[-\pi,\pi]$ par:
+\[f_n(x)=\sum_{k=1}^n\frac {\sin kx}k\]
+\begin{enumerate}
+
+\item  Démontrer que, pour $x\neq 0$; $f'_n(x)=\frac{\cos(n+1)\frac x2\,\sin\frac{nx}{2}}{\sin\frac x2}$
+%\[=\frac 12\left[\frac{\sin(2n+1)\frac x2}{\sin\frac x2}-1\right]\]
+
+En déduire les zéros de $f'_n(x)$ sur $[0,\pi[$.
+
+\item Soit $f$ la fonction $2\pi$-périodique impaire dont la restriction sur l'intervalle $[0,\pi]$ est donnée par
+\[\left\{\begin{array}{l}
+f(t)=\frac 12(\pi-t)\quad \forall t\in\,]0,\pi]\\
+f(0)=0
+\end{array}\right.\]
+ Calculer, pour tout $k\in\mathbb{N}$:
+\[c_k=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)e^{-ikt}\de t\]
+
+\item \begin{enumerate}
+\item Vérifier que, pour tout entier $n\geq 1$, la fonction $f_n$  est telle que:
+\[\forall x\in\,[-\pi,+\pi],\quad f_n(x)=\sum_{k=-n}^{n}c_k e^{ikx}\]
+\item Calculer, pour tout $\alpha$ réel, la somme: $\sum_{k=1}^ne^{ ik\alpha}$.
+
+\item En déduire que:
+\[f_n(x)=\frac{1}{2\pi}\int_{-\pi}^\pi f(t)\frac{\sin(2n+1)\frac{t-x}2}{\sin\frac{t-x}2}\de t\]
+
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+\end{document}
+
+
+
+On désigne par ${\cal M}_{np}(\mathbb{R})$ l'espace vectoriel des matrices à $n$ lignes et $p$ colonnes. ${\cal M}_{nn}(\mathbb{R})$ est noté  ${\cal M}_{n}(\mathbb{R})$. Étant donné un vecteur $\overrightarrow{V}$ de $\mathbb{R}^n$, on notera $V$ la matrice de ${\cal M}_{n1}(\mathbb{R})$ représentant $\overrightarrow{V}$ dans la base canonique de $\mathbb{R}^n$. \\
+\subsubsection*{Partie I}
+\begin{enumerate}
+\item  Montrer que l'application 
+\[M\mapsto \|M\|=\sup_{1\leq i\leq n}\sum_{j=1}^p |m_{ij}|\]
+est une norme sur ${\cal M}_{np}(\mathbb{R})$, où $M=(m_{ij})_{1\leq i\leq n,\,1\leq j\leq p}$.
+\item Montrer que pour $A\in {\cal M}_{np}(\mathbb{R})$ et $B\in {\cal M}_{pq}(\mathbb{R})$ on a: $\|AB\|\leq \|A\| \; \|B\|$
+\item Montrer que
+\[\forall \; A\in {\cal M}_{n}(\mathbb{R}) \quad \|A\|<1\Longrightarrow \lim_{k\to\infty}A^k=0\]
+%\item  Soit $A\in {\cal M}_{n}(\mathbb{R})$. Pour $k\in\mathbb{N}$, montrer que $\displaystyle \lim_{k\to\infty}A^k=0\;\Longrightarrow\; \rho(A)<1$
+%\item  Montrer que si  $A\in {\cal M}_{n}(\mathbb{R})$ est diagonalisable alors  $\displaystyle \lim_{k\to\infty}A^k=0\;\Longleftrightarrow\; \rho(A)<1$
+\end{enumerate}
+
+\subsubsection*{Partie II}
+Soit $A\in {\cal M}_{n}(\mathbb{R})$ une matrice à diagonale strictement dominante, c'est-à-dire:
+\[\forall \, i=1,2,\cdots , n\quad |a_{ii}|\;>\sum_{j=1,\,j\neq i}^n|a_{ij}|\]
+\begin{enumerate}
+\item Démontrer que A est inversible : on démontrera pour cela, par l'absurde, que le système $AX = 0$ n'a pas de solution non nulle, en écrivant une équation bien choisie de ce système.
+\item Soient $D$ une matrice diagonale de ${\cal M}_{n}(\mathbb{R})$ constituée de la diagonale de $A$ et $b$ une matrice colonne dans ${\cal M}_{n1}(\mathbb{R})$. On pose $B=I-D^{-1}A$ et $c=D^{-1}b$ où $I$ est la matrice unité de $ {\cal M}_{n}(\mathbb{R})$. On considère  la suite $(X_k)_{k\in\mathbb{N}}$ à valeurs dans ${\cal M}_{n1}(\mathbb{R})$ définie par
+\[X_{k+1}=B\;X_{k} +c\qquad \mbox{avec} \quad X_0=0 \]
+
+\item Montrer que si la suite $(X_k)_{k\in\mathbb{N}}$ converge alors elle converge vers la solution du système $Ax=b$ que l'on note $X$.
+\item Montrer par récurrence que la suite $(X_k)_{k\in\mathbb{N}}$ vérifie:
+\[\forall \, k\in\mathbb{N}\quad X_k=(I-B^k)X\]
+
+\item  Montrer que $\|B \|< 1$. En déduire que $(X_k)_{k\in\mathbb{N}}$ converge.
+\end{enumerate}
+
+\subsubsection*{Partie III}
+Dans cette partie on choisit:
+\[A=\left(\begin{array}{cccc}
+4&-1&-1&0\\
+-1&4&0&-1\\
+-1&0&4&-1\\
+0&-1&-1&4
+\end{array}\right)\]
+\begin{enumerate}
+\item Montrer que $B^3=\frac 14 B$. En déduire la norme $\|B^k\|$.
+\item Exprimer $(I-B)^{-1}$ en fonction de $I,B$ et $B^2$. En déduire une majoration de $\|X\|$ en fonction de $\|b\|$.
+\item Montrer que pour tout $k\in\mathbb{N}$, on a:
+\[\|X_k-X\|\leq \frac{1}{2^{k+1}}\|b\|\]\\
+\end{enumerate}
+
+  \end{document}
+  
+ 
+
+
+
+
