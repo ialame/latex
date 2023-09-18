@@ -114,7 +114,7 @@ et la condition initiale $u_0=a$.
 \[2^{k+1}(2a-u_{k+1})=2^k(2a-u_k)+\left(\frac{2}{e}\right)^ku_k\]
 \item En déduire que pour tout $n\geq 1$
 \[2^n(2a-u_n)=a+\sum_{k=0}^{n-1}\left(\frac{2}{e}\right)^ku_k\]
-\item Montrer que la série de terme général $\left(\left(\frac{2}{e}\right)^ku_k\right)_k$ converge. En déduire que la suite $(u_n)$ converge vers $2a$ et que \[2a-u_n\sim \frac{K}{2^n}\] où $K$ est une constante réelle que l'on déterminera.
+\item Montrer que la série \[\sum_{k=0}^\infty\left(\frac{2}{e}\right)^ku_k\] converge. En déduire que la suite $(u_n)$ converge vers $2a$ et que \[2a-u_n\sim \frac{K}{2^n}\] où $K$ est une constante réelle que l'on déterminera.
 \end{enumerate}
 
 \subsection*{Problème 2}
@@ -124,6 +124,33 @@ Soit $n$ un nombre entier naturel non nul. On considère les fonction numérique
 \begin{enumerate}
 \item Étudier les variations de $h_n$. En déduire les variations de $g_n$. Montrer qu'il existe un élément $x_n$ de $[0,n]$ et un seul tel que, pour tout élément $t$ de $[0,n]$, $g_n(t)\leq g_n(x_n)$.
 \item Montrer que $g_n(x_n)\leq \frac{1}{ne}$.
+\item Soit $x$ un nombre strictement positif. Étudier la convergence des intégrales:
+\[I_n(x)=\int_0^nf_n(t)t^{x-1}\de t\quad\mbox{ et }\quad \Gamma(x)=\int_0^ne^{-t}t^{x-1}\de t\]
+\item Soit $c$ un réel strictement positif. Montrer que si $n\geq c$, alors:
+\[0\leq \Gamma(x) - I_n(x)\leq \int_0^cg_n(t)t^{x-1}\de t +\int_c^\infty e^{-t}t^{x-1}\de t\]
+\item En déduire que la suite de terme général $I_n(x)$ converge vers $\Gamma(x)$.
+\end{enumerate}
+\subsubsection*{Partie 2}
+On admet la formule de Stirling:
+\[n!\sim \left(\frac ne\right)^n\sqrt{2n\pi}\]
+Soit $\alpha$ un nombre réel strictement positif. On pose:
+\[P_0(\alpha)=1\quad\mbox{ et }\quad \forall n\geq 1,\quad P_n(\alpha)=\prod_{k=0}^{n-1}1+k\alpha\]
+\[J_0(\alpha)=1\quad\mbox{ et }\quad \forall n\geq 1,\quad J_n(\alpha)=\int_{0}^{1}(1-t^\alpha)^n\de t\]
+\begin{enumerate}
+\item Montrer que pour tout nombre entier naturel non nul $n$: 
+\[(1+n\alpha)J_n(\alpha)= n\alpha J_{n-1}(\alpha)\].
+\item En déduire la valeur de $J_n(\alpha)$, que l'on exprimera à l'aide de $P_n(\alpha)$.
+\item En effectuant un changement de variable, trouver une relation entre $J_n(\alpha)$ et $I_n(\frac 1{\alpha})$. En déduire un équivalent de la suite de terme général $P_n(\alpha)$.
+\item Soit désormais $x$ un nombre réel strictement positif. Pour tout nombre entier naturel non nul $p$, on pose:
+\[Q_n(p,x)=\prod_{k=0}^{n-1}x+kp\]
+Exprimer $Q_n(p,x)$ à l'aide de $P_n(\frac px)$. En déduire un équivalent de la suite de terme général $Q_n(p,x)$, les nombre $p$ et $x$ étant fixés.
+\item \begin{enumerate}
+\item Montrer que pour tout entier naturel $n$ : 
+\[Q_n(2,x)\times  Q_n(2,x+1) =Q_{2n}(1,x)\]
+\item En déduire une relation entre $\Gamma(x)$, $\Gamma(\frac x2)$ et $\Gamma(\frac {x+1}2)$.
+\item En déduire la valeur de $Gamma(\frac 12)$, puis à l'aide d'un changement de variable, la convergence et la valeur de 
+\[\int_0^\infty e^{-t^2}\de t\]
+\end{enumerate}
 \end{enumerate}
   \end{document}
   
