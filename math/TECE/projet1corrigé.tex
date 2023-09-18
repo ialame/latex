@@ -1,0 +1,223 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+\def \sinc {{\rm sinc}}
+\def \cotan {{\rm cotan}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent\hrulefill\par}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\usepackage{listings}
+\definecolor{purple2}{RGB}{153,0,153} % there’s actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a
+\lstset{%
+language=Python, % 
+basicstyle=\normalsize\ttfamily, % 
+% Color settings to match IDLE style 
+keywordstyle=\color{orange}, % 
+keywordstyle={[2]\color{purple2}}, % 
+stringstyle=\color{green2}, 
+commentstyle=\color{red}, 
+upquote=true, %
+}
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=25mm,
+ right=25mm,
+ top=20mm,
+ bottom=20mm,
+ }
+\usepackage{wrapfig}
+\title{Concours d'entrée à l'ESTP}
+%\author{Ibrahim ALAME}
+\date{}
+  \begin{document}
+  \lstset{
+    frame       = single,
+    numbers     = left,
+    showspaces  = false,
+    showstringspaces    = false,
+    captionpos  = t,
+    caption     = \lstname
+}
+%\maketitle
+\begin{center}
+\section*{TECE Module 1: Suites et séries numériques}
+%\section*{TECE Module 1: Étude d'une suite vectorielle en dim n}
+\end{center}
+\subsection*{Problème 1}
+On a $u_0=a$ et
+\[\forall n\in \mathbb{N},\quad u_{n+1}=a+\frac{1-e^{-n}}{2}u_n\]
+\begin{enumerate}
+\item Par récurrence.
+\item On commence par montrer que
+ \[2a-u_{k+1}=\frac 12 (2a-u_k)+\frac{e^{-k}}2 u_k\]
+ puis on multiplie les deux membres par $2^{k+1}$:
+\[2^{k+1}(2a-u_{k+1})=2^k(2a-u_k)+\left(\frac{2}{e}\right)^ku_k\]
+\item On fait une somme télescopique entre $k=0$ et $k=n-1$:
+\[2^n(2a-u_n)=a+\sum_{k=0}^{n-1}\left(\frac{2}{e}\right)^ku_k\]
+\item  \[\sum_{k=0}^\infty\left(\frac{2}{e}\right)^ku_k\leq 2a \sum_{k=0}^\infty\left(\frac{2}{e}\right)^k =\frac{2a}{1-\frac 2e}<\infty\] 
+Donc \[2^n(2a-u_n)\sim a+S\] où $S$ est la somme de la série du second membre $S=\sum_{k=0}^\infty\left(\frac{2}{e}\right)^ku_k$.
+ Donc \[2a-u_n\sim\frac{a+S}{2^n}= \frac{K}{2^n}\] 
+ Donc $(u_n)$ converge géométriquement vers $\ell=2a$.
+\end{enumerate}
+
+\subsection*{Problème 2}
+\subsubsection*{Partie 1}
+On a pour  $t\in [0,n]$ les expressions:
+\[f_n(t)=(1-\frac tn)^n,\quad g_n(t)=e^{-t}-(1-\frac tn)^n,\quad h_n(t)=e^tg'_n(t)\] 
+\begin{enumerate}
+\item \[h(t)=e^t \left(1-\frac tn\right)^{n-1}-1\]
+\[h'(t)=e^t \left(1-\frac tn\right)^{n-2}\frac{1-t}{n}\]
+
+\[\begin{array}{c|lcccccr}
+t&&&1&&x_n&&n \\ \hline
+h'&0&+&0&-&&-&\\ \hline
+h&0&\nearrow &e(1-\frac 1n)^{n-1}-1&\searrow&0&\searrow&-1\\ \hline
+\end{array}\]
+$h_n$ décroit sur $[1,n]$ en changeant de signe donc d'après le TVI, elle s'annule en un unique $x_n\in[1,n]$. Donc $g'_n(x_n)=0$.
+
+\[\begin{array}{c|lcccr}
+t&0&&x_n&&n \\ \hline
+g'_n&&+&0&-&\\ \hline
+g_n&0&\nearrow &g_n(x_n)&\searrow&e^{-n}\\ \hline
+\end{array}\]
+On a donc $g_n$ positif et admet un maximum en $x_n$:
+\[0\leq g_n(t)\leq g_n(x_n)\]
+
+\item On a $h_n(x_n)=0 \Longrightarrow (1-\frac{x_n}{n})^{n-1}=e^{-x_n}$ donc
+\[g_n(x_n)=e^{-x_n}-(1-\frac{x_n}{n})^{n}=e^{-x_n}-e^{-x_n}(1-\frac{x_n}{n})=\frac{x_n e^{-x_n}}{n}\]
+La fonction $x\mapsto xe^{-x}$ étant décroissante sur $[0,n]$, on a alors
+ \[g_n(x_n)\leq \frac{1}{ne}\]
+\item 
+\[I_n(x)=\int_0^nf_n(t)t^{x-1}\de t\quad\mbox{ et }\quad \Gamma(x)=\int_0^\infty  e^{-t}t^{x-1}\de t\]
+\begin{itemize}
+\item En 0: $f_n(t)t^{x-1}\sim \frac{1}{t^{1-x}}$ et $1-x<1$
+\item à l'infini: $f_n(t)t^{x-1}\sim e^{-t}t^{1-x}=o(\frac{1}{t^2})$
+\end{itemize}
+Donc d'après le critère de Riemann l'intégrale $I_n(x)$ converge. Pour la deuxième intégrale nous avons les mêmes équivalences donc $\Gamma(x)$ converge également.
+\item La suite $(f_n(t))_n$ est croissante et converge vers $e^{-t}$ donc $f_n(t)\leq e^{-t}$ d'où la première inégalité: $0\leq \Gamma(x) - I_n(x)$. D'autre part
+
+\[\begin{array}{rcl}
+\Gamma(x) - I_n(x)&=&\displaystyle \int_0^\infty e^{-t}t^{x-1}\de t -\int_0^n f_n(t)t^{x-1}\de t\\  \\
+&=&\displaystyle \left[ \int_0^c e^{-t}t^{x-1}\de t + \int_c^\infty e^{-t}t^{x-1}\de t\right] -\left[ \int_0^c f_n(t)t^{x-1}\de t +\int_c^n f_n(t)t^{x-1}\de t\right] \\  \\
+&=&\displaystyle \int_0^c g_n(t)t^{x-1}\de t + \int_c^\infty e^{-t}t^{x-1}\de t -\int_0^c f_n(t)t^{x-1}\de t \\  \\
+&\leq &\displaystyle \int_0^c g_n(t)t^{x-1}\de t + \int_c^\infty e^{-t}t^{x-1}\de t 
+\end{array} \]
+
+\item Par passage à la limite (à justifier)
+\[0\leq \Gamma(x) - \lim_{n\to\infty}I_n(x)\leq \int_c^\infty e^{-t}t^{x-1}\de t \]
+$c$ étant arbitraire, en faisant tendre $c$ vers l'infini, on a 
+\[\Gamma(x) = \lim_{n\to\infty}I_n(x)\]
+\end{enumerate}
+\subsubsection*{Partie 2}
+Formule de Stirling:
+\[n!\sim \left(\frac ne\right)^n\sqrt{2n\pi}\]
+On a:
+\[P_0(\alpha)=1\quad\mbox{ et }\quad \forall n\geq 1,\quad P_n(\alpha)=\prod_{k=0}^{n-1}1+k\alpha\]
+\[J_0(\alpha)=1\quad\mbox{ et }\quad \forall n\geq 1,\quad J_n(\alpha)=\int_{0}^{1}(1-t^\alpha)^n\de t\]
+\begin{enumerate}
+\item On a : 
+\[ J_n(\alpha)=\int_{0}^{1}(1-t^\alpha)^n\de t = \int_{0}^{1}(1-t^\alpha)(1-t^\alpha)^{n-1}\de t=  J_{n-1}(\alpha) - \int_{0}^{1}t\times t^{\alpha-1}(1-t^\alpha)^{n-1}\de t\]
+Ensuite, on fait une intégration par parties et on obtient
+\[(1+n\alpha)J_n(\alpha)= n\alpha J_{n-1}(\alpha)\].
+\item On trouve
+\[J_n(\alpha)=\frac{n!\alpha^n}{(1+n\alpha)P_n(\alpha)}\]
+\item On a 
+\[I_n(\frac{1}{\alpha})=\int_0^n (1-\frac{t}{n})^{n}t^{\frac{1}{\alpha}-1}\de t\]
+On fait le changement de variable $\frac tn=u^\alpha$ et on obtient:
+\[I_n(\frac{1}{\alpha})=\alpha n^{\frac{1}{\alpha}}J_n(\alpha)\]
+
+On a
+\[P_n(\alpha)=\frac{n!\alpha^n}{(1+n\alpha)J_n(\alpha)} \sim \frac{n!\alpha^n \alpha n^{\frac{1}{\alpha}}}{n\alpha I_n(\frac 1{\alpha})} \sim \frac{n!\alpha^n  n^{\frac{1}{\alpha}-1}}{ \Gamma(\frac 1{\alpha})} \]
+Compte tenu de la formule de Stirling, on obtient
+\[P_n(\alpha) \sim \frac{\sqrt{2\pi}}{ \Gamma(\frac 1{\alpha})} \left(\frac{\alpha}{e}\right)^n  n^{n+\frac{1}{\alpha}-\frac 12} \]
+\item On pose:
+\[Q_n(p,x)=\prod_{k=0}^{n-1}x+kp\]
+On a donc
+\[Q_n(p,x)=x^nP_n(\frac px)\]
+
+\item \begin{enumerate}
+\item On a
+\[Q_n(2,x)\times  Q_n(2,x+1)=\prod_{k=0}^{n-1}(x+2k)\prod_{k=0}^{n-1}(x+2k+1) =\prod_{i=0}^{2n-1}(x+i)=Q_{2n}(1,x)\]
+On a donc
+\[P_n(\frac 2x)P_n(\frac 2{x+1})=P_{2n}(\frac 1x)\]
+\item Par passage à l'équivalent:
+
+\[\frac{\sqrt{2\pi}}{ \Gamma(\frac x2)} \left(\frac{2}{ex}\right)^n  n^{n+\frac x2-\frac 12} \frac{\sqrt{2\pi}}{ \Gamma(\frac {x+1}2)} \left(\frac{2}{e(x+1)}\right)^n  n^{n+\frac {x}2}\sim \frac{\sqrt{2\pi}}{ \Gamma(x)} \left(\frac{x}{ex}\right)^{2n}  (2n)^{2n+\frac{1}{\alpha}-\frac 12} \]
+
+
+Après simplification on obtient
+ \[\Gamma(\frac x2)\Gamma(\frac {x+1}2) =\sqrt\pi 2^{1-x} \Gamma(x)\]
+\item On fait $x=1$ et on obtient
+\[\Gamma(\frac 12)=\sqrt\pi\]
+puis à l'aide d'un changement de variable, on obtient 
+\[\int_0^\infty e^{-t^2}\de t=\frac{\sqrt\pi}{2}\]
+\end{enumerate}
+\end{enumerate}
+  \end{document}
+  
+ 
+
+
+
+
