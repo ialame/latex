@@ -200,12 +200,12 @@ On a donc
 \item On a
 \[Q_n(2,x)\times  Q_n(2,x+1)=\prod_{k=0}^{n-1}(x+2k)\prod_{k=0}^{n-1}(x+2k+1) =\prod_{i=0}^{2n-1}(x+i)=Q_{2n}(1,x)\]
 On a donc
-\[P_n(\frac 2x)P_n(\frac 2{x+1})=P_{2n}(\frac 1x)\]
+\[P_n(\frac 2x)P_n(\frac 2{x+1})=\left(\frac{x}{x+1}\right)^n P_{2n}(\frac 1x)\]
 \item Par passage à l'équivalent:
 
-\[\frac{\sqrt{2\pi}}{ \Gamma(\frac x2)} \left(\frac{2}{ex}\right)^n  n^{n+\frac x2-\frac 12} \frac{\sqrt{2\pi}}{ \Gamma(\frac {x+1}2)} \left(\frac{2}{e(x+1)}\right)^n  n^{n+\frac {x}2}\sim \frac{\sqrt{2\pi}}{ \Gamma(x)} \left(\frac{x}{ex}\right)^{2n}  (2n)^{2n+\frac{1}{\alpha}-\frac 12} \]
-
-
+\[\frac{\sqrt{2\pi}}{ \Gamma(\frac x2)} \left(\frac{2}{ex}\right)^n  n^{n+\frac x2-\frac 12} \frac{\sqrt{2\pi}}{ \Gamma(\frac {x+1}2)} \left(\frac{2}{e(x+1)}\right)^n  n^{n+\frac {x}2}\sim \left(\frac{x}{x+1}\right)^n \frac{\sqrt{2\pi}}{ \Gamma(x)} \left(\frac{1}{ex}\right)^{2n}  (2n)^{2n+x-\frac 12} \]
+soit
+\[\frac{2\pi}{ \Gamma(\frac x2) \Gamma(\frac {x+1}2)} \left(\frac{1}{ex}\right)^{2n}\left(\frac{x}{x+1}\right)^n 2^{2n}  n^{2n+x-\frac 12}   \sim \left(\frac{x}{x+1}\right)^n \frac{\sqrt{2\pi}}{ \Gamma(x)} \left(\frac{1}{ex}\right)^{2n} 2^{2n+x-\frac 12}  n^{2n+x-\frac 12} \]
 Après simplification on obtient
  \[\Gamma(\frac x2)\Gamma(\frac {x+1}2) =\sqrt\pi 2^{1-x} \Gamma(x)\]
 \item On fait $x=1$ et on obtient
