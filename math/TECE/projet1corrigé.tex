@@ -101,7 +101,7 @@ upquote=true, %
 }
 %\maketitle
 \begin{center}
-\section*{TECE Module 1: Suites et séries numériques}
+\section*{TECE Projet 1: Suites et séries numériques}
 %\section*{TECE Module 1: Étude d'une suite vectorielle en dim n}
 \end{center}
 \subsection*{Problème 1}
@@ -126,13 +126,13 @@ Donc \[2^n(2a-u_n)\sim a+S\] où $S$ est la somme de la série du second membre 
 On a pour  $t\in [0,n]$ les expressions:
 \[f_n(t)=(1-\frac tn)^n,\quad g_n(t)=e^{-t}-(1-\frac tn)^n,\quad h_n(t)=e^tg'_n(t)\] 
 \begin{enumerate}
-\item \[h(t)=e^t \left(1-\frac tn\right)^{n-1}-1\]
-\[h'(t)=e^t \left(1-\frac tn\right)^{n-2}\frac{1-t}{n}\]
+\item \[h_n(t)=e^t \left(1-\frac tn\right)^{n-1}-1\]
+\[h'_n(t)=e^t \left(1-\frac tn\right)^{n-2}\frac{1-t}{n}\]
 
 \[\begin{array}{c|lcccccr}
-t&&&1&&x_n&&n \\ \hline
-h'&0&+&0&-&&-&\\ \hline
-h&0&\nearrow &e(1-\frac 1n)^{n-1}-1&\searrow&0&\searrow&-1\\ \hline
+t&0&&1&&x_n&&n \\ \hline
+h'_n&&+&0&-&&-&\\ \hline
+h_n&0&\nearrow &e(1-\frac 1n)^{n-1}-1&\searrow&0&\searrow&-1\\ \hline
 \end{array}\]
 $h_n$ décroit sur $[1,n]$ en changeant de signe donc d'après le TVI, elle s'annule en un unique $x_n\in[1,n]$. Donc $g'_n(x_n)=0$.
 
@@ -146,7 +146,7 @@ On a donc $g_n$ positif et admet un maximum en $x_n$:
 
 \item On a $h_n(x_n)=0 \Longrightarrow (1-\frac{x_n}{n})^{n-1}=e^{-x_n}$ donc
 \[g_n(x_n)=e^{-x_n}-(1-\frac{x_n}{n})^{n}=e^{-x_n}-e^{-x_n}(1-\frac{x_n}{n})=\frac{x_n e^{-x_n}}{n}\]
-La fonction $x\mapsto xe^{-x}$ étant décroissante sur $[0,n]$, on a alors
+La fonction $x\mapsto xe^{-x}$ étant décroissante sur $[1,n]$, on a alors
  \[g_n(x_n)\leq \frac{1}{ne}\]
 \item 
 \[I_n(x)=\int_0^nf_n(t)t^{x-1}\de t\quad\mbox{ et }\quad \Gamma(x)=\int_0^\infty  e^{-t}t^{x-1}\de t\]
@@ -167,7 +167,7 @@ Donc d'après le critère de Riemann l'intégrale $I_n(x)$ converge. Pour la deu
 \item Par passage à la limite (à justifier)
 \[0\leq \Gamma(x) - \lim_{n\to\infty}I_n(x)\leq \int_c^\infty e^{-t}t^{x-1}\de t \]
 $c$ étant arbitraire, en faisant tendre $c$ vers l'infini, on a 
-\[\Gamma(x) = \lim_{n\to\infty}I_n(x)\]
+\[\myredbox{\Gamma(x) = \lim_{n\to\infty}I_n(x)}\]
 \end{enumerate}
 \subsubsection*{Partie 2}
 Formule de Stirling:
@@ -181,7 +181,7 @@ On a:
 Ensuite, on fait une intégration par parties et on obtient
 \[(1+n\alpha)J_n(\alpha)= n\alpha J_{n-1}(\alpha)\].
 \item On trouve
-\[J_n(\alpha)=\frac{n!\alpha^n}{(1+n\alpha)P_n(\alpha)}\]
+\[\myredbox{J_n(\alpha)=\frac{n!\alpha^n}{(1+n\alpha)P_n(\alpha)}}\]
 \item On a 
 \[I_n(\frac{1}{\alpha})=\int_0^n (1-\frac{t}{n})^{n}t^{\frac{1}{\alpha}-1}\de t\]
 On fait le changement de variable $\frac tn=u^\alpha$ et on obtient:
@@ -190,28 +190,28 @@ On fait le changement de variable $\frac tn=u^\alpha$ et on obtient:
 On a
 \[P_n(\alpha)=\frac{n!\alpha^n}{(1+n\alpha)J_n(\alpha)} \sim \frac{n!\alpha^n \alpha n^{\frac{1}{\alpha}}}{n\alpha I_n(\frac 1{\alpha})} \sim \frac{n!\alpha^n  n^{\frac{1}{\alpha}-1}}{ \Gamma(\frac 1{\alpha})} \]
 Compte tenu de la formule de Stirling, on obtient
-\[P_n(\alpha) \sim \frac{\sqrt{2\pi}}{ \Gamma(\frac 1{\alpha})} \left(\frac{\alpha}{e}\right)^n  n^{n+\frac{1}{\alpha}-\frac 12} \]
+\[\myredbox{P_n(\alpha) \sim \frac{\sqrt{2\pi}}{ \Gamma(\frac 1{\alpha})} \left(\frac{\alpha}{e}\right)^n  n^{n+\frac{1}{\alpha}-\frac 12}} \]
 \item On pose:
 \[Q_n(p,x)=\prod_{k=0}^{n-1}x+kp\]
 On a donc
-\[Q_n(p,x)=x^nP_n(\frac px)\]
+\[\myredbox{Q_n(p,x)=x^nP_n(\frac px)}\]
 
 \item \begin{enumerate}
 \item On a
 \[Q_n(2,x)\times  Q_n(2,x+1)=\prod_{k=0}^{n-1}(x+2k)\prod_{k=0}^{n-1}(x+2k+1) =\prod_{i=0}^{2n-1}(x+i)=Q_{2n}(1,x)\]
 On a donc
-\[P_n(\frac 2x)P_n(\frac 2{x+1})=\left(\frac{x}{x+1}\right)^n P_{2n}(\frac 1x)\]
+\[\myredbox{P_n(\frac 2x)P_n(\frac 2{x+1})=\left(\frac{x}{x+1}\right)^n P_{2n}(\frac 1x)}\]
 \item Par passage à l'équivalent:
 
 \[\frac{\sqrt{2\pi}}{ \Gamma(\frac x2)} \left(\frac{2}{ex}\right)^n  n^{n+\frac x2-\frac 12} \frac{\sqrt{2\pi}}{ \Gamma(\frac {x+1}2)} \left(\frac{2}{e(x+1)}\right)^n  n^{n+\frac {x}2}\sim \left(\frac{x}{x+1}\right)^n \frac{\sqrt{2\pi}}{ \Gamma(x)} \left(\frac{1}{ex}\right)^{2n}  (2n)^{2n+x-\frac 12} \]
 soit
 \[\frac{2\pi}{ \Gamma(\frac x2) \Gamma(\frac {x+1}2)} \left(\frac{1}{ex}\right)^{2n}\left(\frac{x}{x+1}\right)^n 2^{2n}  n^{2n+x-\frac 12}   \sim \left(\frac{x}{x+1}\right)^n \frac{\sqrt{2\pi}}{ \Gamma(x)} \left(\frac{1}{ex}\right)^{2n} 2^{2n+x-\frac 12}  n^{2n+x-\frac 12} \]
 Après simplification on obtient
- \[\Gamma(\frac x2)\Gamma(\frac {x+1}2) =\sqrt\pi 2^{1-x} \Gamma(x)\]
+ \[\myredbox{\Gamma(\frac x2)\Gamma(\frac {x+1}2) =\sqrt\pi 2^{1-x} \Gamma(x)}\]
 \item On fait $x=1$ et on obtient
 \[\Gamma(\frac 12)=\sqrt\pi\]
 puis à l'aide d'un changement de variable, on obtient 
-\[\int_0^\infty e^{-t^2}\de t=\frac{\sqrt\pi}{2}\]
+\[\myredbox{\int_0^\infty e^{-t^2}\de t=\frac{\sqrt\pi}{2}}\]
 \end{enumerate}
 \end{enumerate}
   \end{document}

@@ -98,30 +98,16 @@
 
 
 
-\title{TP 1}
+\title{TD 1}
 \author{Ibrahim ALAME}
-\date{19/10/2022}
+\date{26/09/2023}
 \begin{document}
 \maketitle
 
 
-\section{Niveau 1}
-\subsection{Expression booléenne}
+
+\section{Expression booléenne}
 \begin{enumerate}
-\item Compléter le programme {\tt inorder.py} suivant en écrivant l'expression manquante. Les premières lignes du programme récupèrent 3 entiers $a$, $b$ et $c$ à l'aide de commande {\tt input}. Votre expression doit avoir la valeur {\tt True} si les nombres sont en ordre croissant ou décroissant, et {\tt False} autrement.
-
-Votre programme ne peut inclure qu'un booléen, c'est-à-dire  {\tt inorder}  est une expression qui prend la valeur ,  {\tt True} ou  {\tt False} sans utiliser l'instruction conditionnelle  {\tt if}.
-\begin{lstlisting}
-# 1.  Expression booléenne
-a = int(input("a="))
-b = int(input("b="))
-c = int(input("c="))
-inorder = ........
-print(inorder);
-
-\end{lstlisting}
-
-
 \item Écrire un programme {\tt sort.py} qui prend les valeurs de trois variables $a$, $b$ et $c$ et les affiche dans l'ordre croissant.
 \begin{lstlisting}
 
@@ -165,7 +151,7 @@ True
 False
 \end{verbatim}
 \end{enumerate}
-\subsection{Opérateurs arithmétique}
+\section{Opérateurs arithmétique}
 \begin{enumerate}
 \item Écrire une fonction qui prend un entier en paramètre et qui l'affiche à l'envers. Par exemple, si on l'appelle avec 123456, la fonction affiche 654321. Pour cela il faudra utiliser la division et le modulo. Rappel : 153 \% 10 = 3 et 153//10 = 15.
 
@@ -239,7 +225,7 @@ else:
 \end{lstlisting}
 
  \end{enumerate}
-\subsection{Chaîne de caractères}
+\section{Chaîne de caractères}
 \begin{enumerate}
 \item Écrivez un programme qui prend un caractère comme argument et affiche s'il s'agit d'une voyelle ou non.
 Votre programme ne peut contenir que des affectations et des expressions booléennes, sans instructions conditionnelles.
@@ -304,9 +290,7 @@ conditionals 5
 \end{enumerate}
 
 
-\section{Niveau 2}
-
-\subsection{Boucles}
+\section{Boucles}
 \begin{enumerate}
 \item Un palindrome est un mot ou groupe de mots qui peut se lire indifféremment de gauche à droite ou de droite à gauche en gardant le même sens (ex. radar; laval; la mariee ira mal ; Roma Amor)..  Écrire un programme {\tt palindrome.py} qui lit une chaîne depuis la ligne de commande et détecte s'il s'agit ou non d'un palindrome. Ne pas utiliser une nouvelle chaîne dans votre programme. Vous devez plutôt parcourir la chaîne pour déterminer s'il s'agit d'un palindrome ou non.
 \begin{verbatim}
@@ -368,230 +352,6 @@ et demande ensuite à l'utilisateur de répondre honnêtement par vrai ou faux �
 Votre programme doit utiliser la stratégie suivante pour deviner: choisissez le milieu de l'intervalle de recherche comme
 la valeur de $x$ à chaque itération. La fonction Python {\tt input ()} peut être utilisée pour obtenir l'entrée de l'utilisateur pendant que le programme est en cours d'exécution.
 
-\item Dans ce programme, nous utiliserons le module {\tt Turtle} pour dessiner un polygone à $n$ côtés. Une tortue qui dessine peut bouger vers l'avant et vers l'arrière d'un nombre spécifié de pixels, et peut tourner dans le sens trigonométrique direct par un nombre spécifié de degrés. Écrivez un programme {\tt polygon.py} qui prend deux arguments de ligne de commande, nombre de côtés et longueur de côté et dessine un polygone régulier à n côtés. Par exemple, un hexagone (montré dans la figure) est produit par l'appel de programme suivant:
-
-\begin{verbatim}
-> python polygon.py 6 100
-\end{verbatim}
-
-\begin{center}
- \begin{tikzpicture}[scale=2]
-\draw  [very thin, gray] [->]  (0,0) -- ++ (1,0) -- ++ ( 0.5, 0.86)  -- ++ ( -0.5, 0.86)  -- ++ (-1,0) -- ++ ( -0.5, -0.86) -- ++ ( 0.5, -0.86) ;
-
-\end{tikzpicture}
-\end{center}
 \end{enumerate}
 
-\subsection{Référence contre copie}
- \noindent Examiner la différence entre les lignes suivantes:
-\begin{verbatim}
-a = np.arange(5)
-b = a[2] = -1
-b = a[:]
-b[1] = -1
-b = a.copy()
-b[0] = -1
-\end{verbatim}
-\subsection{Tableaux bidimensionnels et découpage}
- \noindent Créez un tableau $4\times 4$ avec des valeurs arbitraires, puis
- \begin{enumerate}
-\item Extraire les éléments de la deuxième ligne.
-\item  Extraire les éléments de la troisième colonne.
-\item  Attribuez une valeur de 3 à la sous-matrice $2\times 2$ supérieure gauche.
- \end{enumerate}
-
-\subsection{Division et combinaison de tableaux }
-\noindent Continuer avec le tableau $4\times 4$ précédent:
-
-\begin{enumerate}
-\item Utilisez la fonction {\tt np.split()} pour diviser le tableau en deux nouveaux tableaux $2\times 4$.
-Reconstruisez le tableau $4\times 4$ d'origine en utilisant {\tt np.concatenate()}.
-\item Répétez l'exercice ci-dessus, mais créez maintenant des sous-tableaux $4\times 2$, puis combinez-les.
-\end{enumerate}
-\begin{itemize}
-\item[$\bullet$] {\tt np.split(ary,indices\_ou\_sections, axis=0)}
-\begin{itemize}
-\item {\tt ary}: le tableau ndarray à diviser en sous-tableaux
-\item {\tt indices\_ou\_sections} est un nombre entier, $N$, le tableau sera divisé en $N$ tableaux égaux le long de l’axe. Si une telle division n'est pas possible, une erreur est générée.
- Si {\tt  indices\_ou\_sections} est un tableau 1D d'entiers triés, les entrées indiquent où, le long de l'axe, le tableau est divisé.
-\item Axis: int, facultatif, 0 par défaut
-\end{itemize}
-\item[$\bullet$] {\tt np.concatenate((ary1,ary2),axis,out=None)}
-\begin{itemize}
-\item {\tt ary1, ary2}: les tableaux doivent avoir la même forme, sauf dans la dimension correspondant à l'axe
-\item {\tt axis}: int, facultatif, l'axe le long duquel les tableaux seront joints
-\item {\tt out}: la destination pour placer le résultat.
-\end{itemize}
-\end{itemize}
-
-\subsection{Graphique simple}
-\noindent Les dérivés peuvent être calculés numériquement avec la méthode des différences finies comme suit:
-\[f'(x_i)=\frac{f(x_i+\Delta x)-f(x_i-\Delta x)}{2\Delta x}
-\]
-Construire un tableau 1D Numpy contenant une discrétisation  $(x_i)_{i=1,N}$ de l'intervalle $[-2\pi , +2\pi ]$. Évaluez numériquement la dérivée de $x\mapsto \cos (2x)-\cos x$ dans cet intervalle (à l'exclusion des bornes) à l'aide de la formule ci-dessus. Essayez d'éviter les boucles. Comparez le résultat de la dérivation approchée à la fonction dérivée exacte $x\mapsto -2\sin (2x)+\sin x$ dans le même intervalle. Tracez les trois fonctions sur trois graphiques séparés. Enregistrez la figure au format {\tt .png} .
-{\em Pour cet exercice on demande de commenter chaque ligne du code suivant:}
-\begin{lstlisting}
-# Différentiation numérique
-import matplotlib.pyplot as plt
-import numpy as np
-
-def f(x):
-    return np.cos(2*x)/2-np.cos(x)
-
-def df(x):
-    return -np.sin(2*x)+np.sin(x)
-
-def df_app(f,x):
-    a=np.min(x)
-    b=np.max(x)
-    n=len(x)
-    dx=(b-a)/(n-1)
-    return (f(x+dx)-f(x-dx))/2/dx
-
-a=-2*np.pi
-b=2*np.pi
-x=np.linspace(a,b,30)
-X=np.linspace(a,b,100)
-plt.subplot(3,1,1)
-plt.plot(X,f(X),label="f ")
-plt.legend()
-plt.subplot(3,1,2)
-plt.plot(X,df(X),color="green",label="f '")
-plt.legend()
-plt.subplot(3,1,3)
-plt.plot(x,df_app(f,x),color="red",label="f ' approchée")
-plt.legend()
-plt.savefig("diffNum.png")
-plt.show()
-\end{lstlisting}
-
- \begin{center}
- \includegraphics[width=0.7\textwidth]{diffNum.png}
-\end{center}
-
-\subsection{Polynômes}
-Approcher un polynôme du second degré aux données de l'exercice précédent en utilisant {\tt numpy.polyfit()}. Tracer le graphique représentant toutes les données.
-\subsection{Algèbre linéaire}
-Construire deux matrices $2\times 2$ symétriques $A$ et $B$.
-(indice: une matrice symétrique peut être construite facilement comme $A_{sym} = A + A^t$)
-Calculez le produit de la matrice $C = A * B$ en utilisant {\tt numpy.dot()}.
-Calculez les valeurs propres de la matrice $C$ avec {\tt numpy.linalg.eigvals()}.
-
-\subsection{Intégration}
- Le module d’intégration {\tt scipy.integrate} contient des outils d’intégration numérique. Utilisez le module pour évaluer les intégrales
- \[\int_1^{3.5}(1+x^2){\mbox d}x \quad {\mbox et}\quad \int_0^\infty \exp(-x^2) {\mbox d}x \]
- \subsection{Optimisation}
- Trouver, s'il existe, le minimum de la fonction réelle définie par
- \[ f(x)=(x+4)(x+1)(x-1)(x-3)\]
-en utilisant la fonction {\tt minimize\_scalar()} du module {\tt scipy.optimize}.
-\subsection{Série de Riemann}
-Une méthode simple pour évaluer numériquement les intégrales est la somme de Riemann du milieu
-
-\[ S=\sum_{i=1}^nf(x'_i)\Delta x \]
-
-où $x’_i = \frac{x_i + x_{i-1}}2$. Utilisez le même intervalle que dans le premier exercice et déterminez dans quelle mesure la somme de Riemann diffère de $0.1$ de la valeur de l'intégrale correspondant. Évitez les boucles. Recherchez également comment les résultats changent avec le choix de $\Delta x$.
-\section{Niveau 3}
-\subsection{Mécanique du point: Pendule simple à ressort}
-%  06 7779 3344  René
-Comme vous vous en doutez, {\tt Scipy} a une routine \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html} {\tt odeint()}  qui résout les équations différentielles. Cette fonction est disponible sous {\tt scipy.integrate.odeint()}. Elle utilise des tailles de pas variables et des méthodes de vérification des erreurs pour obtenir des résultats très précis, de manière efficace. Appelez cette routine avec une fonction dérivative, une valeur d'état initiale (qui peut-être un tableau, comme d'habitude) et un tableau de fois (plutôt qu'un pas de temps). La fonction {\tt scipy.integrate.odeint()} retournera un tableau de valeurs d'état en fonction du temps.
-
- \begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-% \includegraphics[scale=0.3]{pendule.png}
- \includegraphics[width=0.25\textwidth]{pendule.png}
-\end{wrapfigure}
- Une masse $m$ est attachée à un ressort de raideur $k$, qui est attachée à un point de support, comme indiqué dans la figure ci-dessous. La longueur du pendule résultant à un instant donné est égale à la longueur de repos du ressort $\ell_0$ plus l'allongement (ou la compression) $\ell$, et l'angle du pendule par rapport à la verticale est égal à $\theta$. Voici un exemple de système oscillateur couplé: les oscillations «pendulaires» d'écart $\theta$ interagissent avec les oscillations «de ressort» d'allongement $\ell$, produisant un mélange complexe des deux. Les équations différentielles pour ce système sont données par
- \[ \ell''=(\ell_0+\ell)\theta'^2-\frac{k}{m}\ell+g\cos\theta \]
-  \[ \theta''=-\frac 1{\ell_0+\ell}\left(2\ell' \theta'+g\sin\theta\right) \]
-
-  Les valeurs initiales sont $\ell_0=1$, $\ell=0.15$ , $v=\ell'=0$, $\theta=1.3$  et  $\omega=\theta’=0$. Le problème consiste à écrire un programme qui trace le mouvement de la masse pour une $\theta \neq 0$  initiale. Suivez alors les étapes suivantes:
-
-\begin{enumerate}
-\item Nous avons en fait quatre paramètres à suivre (position et vitesse). On pose  alors \[Y=(\ell ,\quad \ell',\quad \theta,\quad  \theta’)^t\]
-
-\item Écrire le système différentielle comme une équation vectorielle de la forme
-
-\[ \left\{\begin{array}{l}
-Y'=F(Y,t)\\
-Y_0 \; \mbox{ donné}
-\end{array}	\right.
-\]
-\item Soit $\tau$ une subdivision de l'intervalle $[0,T]$ avec un pas $\Delta t=\frac{T}{N-1}$. La fonction {\tt odeint($F,Y_0,\tau$)} de la librairie {\tt scipy.integrate} permet de résoudre le système différentielle. Elle renvoie un tableau de taille $N\times 4$ où $N$ est la taille de la subdivision et chaque ligne du tableau est une valeur approchée du vecteur $Y(t_i)$ d'où $\ell$ et $\theta$ à chaque instant $t_i$ pour $i=0,1,... N-1$.
-
-\item Définir les pas de temps pour par exemple $N = 1000$ (nombre de pas de temps) et un temps de simulation de $T = 25 s$ et résoudre numériquement le problème à l'aide de {\tt odeint}.
-
-\item Enfin, représenter graphiquement le résultat.
-\end{enumerate}
-{\em Pour cet exercice on demande de commenter chaque ligne du code suivant:}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{lstlisting}
-
-# 3. Pendule simple
-import numpy as np
-from math import *
-import matplotlib.pylab as plt
-from scipy.integrate import odeint
-
-k = 100.   #  N/m
-m = 0.2   # kg
-gravity = 9.8   # m/s2
-
-L_0 = 1.0
-L = 0.15
-v_0 = 0.0
-theta_0 = 1.3
-omega_0 = 0.0
-
-N = 1000  # number of steps to take
-T=25
-dt=T/N
-time = np.linspace(0, T, N)
-
-y = np.zeros([4])
-
-y[0] = L
-y[1] = v_0
-y[2] = theta_0
-y[3] = omega_0
-
-def F(y, t):
-    f0 = y[1]
-    f1 = (L_0 + y[0]) * y[3] * y[3] - k / m * y[0] + gravity * cos(y[2])
-    f2 = y[3]
-    f3 = -(gravity * sin(y[2]) + 2.0 * y[1] * y[3]) / (L_0 + y[0])
-    print(f0, f1, f2, f3)
-    return (np.array([f0, f1, f2, f3]))
-
-# Now we do the calculations.
-answer = odeint(F, y, time)
-
-x = []
-y = []
-q = answer[:, 2]
-w = answer[:, 0]
-plt.figure(1)
-fig, ax = plt.subplots(subplot_kw={'aspect': 'equal'})
-plt.xlim(-1.5, 1.5)
-plt.ylim(-1.5, 0)
-for i in range(len(q) - 1):
-    X = (L_0 + w[i]) * sin(q[i])
-    Y = -(L_0 + w[i]) * cos(q[i])
-    Xl = X * 0.75
-    Yl = Y * 0.75
-    masse = plt.Circle((X, Y), 0.03, color='r')
-    ressort = plt.plot([0,Xl],[0,Yl],color='#C0C0C0')
-    ax.add_artist(masse)
-    plt.pause(dt) # pause avec duree en secondes
-    ressort = plt.plot([0, Xl], [0, Yl], linewidth=1.5, color='#FFFFFF')
-    masse = plt.Circle((X, Y), 0.032, color='#FFFFFF')
-    ax.add_artist(masse)
-
-plt.show()
-plt.close()
-
-\end{lstlisting}
- \begin{center}
- \includegraphics[width=0.7\textwidth]{mouvement.png}
-\end{center}
 \end{document}

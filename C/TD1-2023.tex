@@ -1,0 +1,160 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+
+\title{TD 1  Programmation C 3E-LE1}
+\author{Ibrahim ALAME}
+\date{22/09/2022}
+\begin{document}
+\maketitle
+\section{Les variables simples, les E/S}
+\begin{enumerate}
+\item Écrire un programme C qui lit une température exprimée en degrés Farenheit et la convertit en degrés Celsius avec une précision d'un dixième de degré. La formule de conversion est :
+\[ C=\frac{5(F-32)}9\]
+Exemple :
+\begin{verbatim}
+> donner le degré en Farenheit : 45
+ il correspond à 7.2 degré Celsius
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item (modulo \%, division entière /)
+On indique a l'ordinateur une somme entière comprise entre 0 et 999 euros a remettre. Afficher le nombre
+\begin{itemize}
+\item de billets de 100 euros,
+\item de billets de 20 euros,
+\item de pièces de 5 euros,
+\item de pièces de 1 euro,
+à remettre. Écrire le programme en C.
+\end{itemize}
+Exemple :
+\begin{verbatim}
+> combien voulez-vous remettre ? : 423
+ vous devez me donner:
+ 4 billets de 100 euros = 400 euros
+ 1 billet de 20 euros = 20 euros
+ 0 billet de 5 euros = 0 euros
+ 3 pièces de 1 euro = 3 euros
+Total = 423 euros
+\end{verbatim}
+Généraliser.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Le poids idéal d'une personne est donné par la formule de Lorentz : il est fonction de la taille, exprimée en cm
+
+\begin{itemize}
+\item pour un homme, $65 + \frac 34$ de la taille au delà de $150$ cm.
+\item pour une femme, $90\%$ de celle d'un homme.
+\end{itemize}
+Demander la taille en cm puis afficher le poids idéal (à un centième de kilo près) d'un homme et d'une lemme de cette taille.
+
+Exemple :
+\begin{verbatim}
+> quelle est la taille en cm ?: 174
+ le poids idéal selon Lorentz est:
+pour un homme : 83
+pour une femme : 74.7
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\item 
+%On indique les relevés de 0 a 99999 d'un compteur kilométrique de voiture lors de deux pleins consécutifs ainsi que nombre de litres d'essence nécessaires pour faire ce plein. Afficher alors la consommation aux 100 kms.
+%
+%Exemple :
+%\begin{verbatim}
+%> kilométrage avant le plein : 53000
+% kilométrage après : 53250
+% nombre de litres d'essence : 15
+% la consommation de votre véhicule est de 6 litres aux 100 kms
+%\end{verbatim}
+%
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{les structures conditionnelles}
+\begin{enumerate}
+%\item Afficher l'un des 3 messages suivants en fonction de deux valeurs entières saisies par l'utilisateur :
+%\begin{enumerate}
+%\item La première valeur est plus grande que la seconde.
+%\item Les 2 valeurs sont identiques.
+%\item la deuxième valeur est plus grande que la première.
+%\end{enumerate}
+%Exemple :
+%\begin{verbatim}
+%> donner 2 valeurs entières SVP: 45 65
+%la deuxième valeur est plus grande que la première
+%\end{verbatim}
+%
+
+\item (Affichage du médium de 3 nombres)
+
+Afficher le nombre ni plus grand, ni plus petit de 3 nombres saisis à l'écran après les avoir classés dans l'ordre croissant.
+Exemples
+\begin{verbatim}
+>  5 8 3
+   Le médium de 3 5 8 est 5
+>  5 5 3
+   Le médium de 3 5 5 est 5
+\end{verbatim}
+Généraliser
+
+\item Afficher la mention qui corresponde à la note saisie :
+\begin{itemize}
+\item  si la note est inférieure à 10, alors mention "ajourné"
+\item  si la note est supérieure à 10 et strictement inférieure à 12, alors mention "passable"
+\item  si la note est supérieure à 12 et strictement intérieure à 14, alors mention "assez bien"
+\item  si la note est supérieure à 14 et strictement inférieure à 16, alors mention "bien"
+\item  si la note est supérieure à 16 et strictement inférieure à 18, alors mention "très bien"
+\item  si la note est supérieure à 18 , alors mention "honorable avec félicitation du jury"
+\end{itemize}
+
+
+
+\item A partir de la date sous forme de "jour" et "mois" saisis par l'utilisateur, afficher son signe zodiacal correspond. On suppose que la date entrée est correcte.
+
+\begin{itemize}
+\item  du 21-3 au 20-4 $\Longrightarrow$ BÉLIER
+\item  du 21-4 au 20-5  $\Longrightarrow$ TAUREAU
+\item  du 21-5 au 21-6  $\Longrightarrow$ GÉMEAUX
+\item  du 22-6 au 22-7  $\Longrightarrow$ CANCER
+\item  du 23-7 au 22-8  $\Longrightarrow$ LION
+\item  du 23-8 au 22-9  $\Longrightarrow$ VIERGE
+\item  du 23-9 au 22-10  $\Longrightarrow$ BALANCE
+\item  du 22-11 au 20-12  $\Longrightarrow$ SCORPION
+\item  du 23-10 au 21-11  $\Longrightarrow$ SAGITTAIRE
+\item  du 21-12 au 20-1  $\Longrightarrow$ CAPRICORNE
+\item  du 21-1 au 19-2  $\Longrightarrow$ VERSEAU
+\item  du 20-2 au 20-3  $\Longrightarrow$ POISSONS
+\end{itemize}
+
+
+\item (La calculatrice de poche)
+
+Lire une expression simple sous la forme
+
+{\tt Opérandel opérateur Opérande2}
+
+ou {\tt Opérandel} et {\tt Opérande2} sont des nombres réels, {\tt opérateur} est un caractère.
+En fonction du signe de l'opérateur $(+,-,*,/,\%)$, afficher le résultat de l'expression où \% est la fonction modulo.\\
+Tests d'erreur :
+
+\begin{itemize}
+\item  afficher "erreur de signe" si aucun des 5 signes ci-dessus n'est lu.
+\item Afficher "division par 0 impossible" si le cas se présente.
+\end{itemize}
+\end{enumerate}
+\end{document}
+
