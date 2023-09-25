@@ -100,7 +100,7 @@
 
 \title{TD 1}
 \author{Ibrahim ALAME}
-\date{26/09/2023}
+\date{25/09/2023}
 \begin{document}
 \maketitle
 
@@ -108,7 +108,7 @@
 
 \section{Expression booléenne}
 \begin{enumerate}
-\item Écrire un programme {\tt sort.py} qui prend les valeurs de trois variables $a$, $b$ et $c$ et les affiche dans l'ordre croissant.
+\item Écrire une fonction qui prend les valeurs de trois variables $a$, $b$ et $c$ et les affiche dans l'ordre croissant.
 \begin{lstlisting}
 
 # 2.  Tri simple
@@ -136,7 +136,7 @@ Exemple d'exécution:
 2 4 7
 \end{verbatim}
 
-\item Écrire un programme {\tt leap.py} qui prend un argument de ligne de commande entier positif représentant une année et affiche {\tt True} si l'année est bissextile et {\tt False} sinon. Une année bissextile est une année divisible par 4 mais pas par 100, ou est divisible par 400. Ne pas utiliser une instruction conditionnelle {\tt if} dans votre programme. Vous auriez besoin d'écrire une expression booléenne appropriée qui évalue la bonne réponse vrai / faux.
+\item Écrire une fonction qui prend en argument un entier positif représentant une année et affiche {\tt True} si l'année est bissextile et {\tt False} sinon. Une année bissextile est une année divisible par 4 mais pas par 100, ou est divisible par 400. Ne pas utiliser une instruction conditionnelle {\tt if} dans votre programme. Vous auriez besoin d'écrire une expression booléenne appropriée qui évalue la bonne réponse vrai / faux.
 \begin{lstlisting}
 # 3. Année bissextile
 a = ........
@@ -166,8 +166,7 @@ while  ........ :
 print()
 \end{lstlisting}
 
-\item Écrire un programme {\tt day.py} qui accepte une date comme entrée et écrit le jour de la semaine de la date donnée. Votre programme doit accepter trois arguments de ligne de commande: $m$ (mois), $d$ (jour) et $a$
-(année). Pour $m$, utilisez 1 pour janvier, 2 pour février, et ainsi de suite. Pour la sortie, écrivez 0 pour dimanche, 1 pour
+\item Écrire une fonction {\tt day(m,j,a)} qui accepte une date comme entrée et écrit le jour de la semaine de la date donnée. Votre programme doit accepter trois arguments de ligne de commande: $m$ (mois), $d$ (jour) et $a$ (année). Pour $m$, utilisez 1 pour janvier, 2 pour février, et ainsi de suite. Pour la sortie, écrivez 0 pour dimanche, 1 pour
 Lundi, 2 pour mardi, et ainsi de suite.
 Utilisez les formules suivantes, pour le calendrier grégorien, et notez que toutes les divisions sont censées être des nombres entiers ( l'opérateur // ).
 \[
@@ -201,7 +200,7 @@ y=1963
 Vendredi
 \end{verbatim}
 
-\item Écrire un programme {\tt qroots.py} qui lit trois réels $a$, $b$, $c$ depuis la ligne de commande puis il calcule et affiche les racines d'un polynôme du second degré  $ax^2 + bx + c = 0$.
+\item Écrire une fonction {\tt roots(a,b,c)} qui lit trois réels $a$, $b$, $c$  puis il calcule et affiche les racines d'un polynôme du second degré  $ax^2 + bx + c = 0$.
 Indication: {\tt math.sqrt()} est la fonction intégrée qui renvoie la racine carrée d'un nombre.
 
 \begin{lstlisting}
@@ -227,8 +226,8 @@ else:
  \end{enumerate}
 \section{Chaîne de caractères}
 \begin{enumerate}
-\item Écrivez un programme qui prend un caractère comme argument et affiche s'il s'agit d'une voyelle ou non.
-Votre programme ne peut contenir que des affectations et des expressions booléennes, sans instructions conditionnelles.
+\item Écrivez une fonction qui prend un caractère comme argument et affiche s'il s'agit d'une voyelle ou non.
+Votre fonction ne peut contenir que des affectations et des expressions booléennes, sans instructions conditionnelles.
 \begin{lstlisting}
 # 7. voyelle
 n = ...............
@@ -242,7 +241,7 @@ True
 False
 \end{verbatim}
 
-\item Écrivez un programme {\tt voyelles.py} qui prend une chaîne en donnée et affiche le nombre de voyelles contenus dans la chaîne.
+\item Écrivez une fonction {\tt voyelles} qui prend une chaîne en donnée et affiche le nombre de voyelles contenus dans la chaîne.
 
 \begin{lstlisting}
 # 8. Voyelles
@@ -257,7 +256,7 @@ def nbVoyelles(mot):
 print(nbVoyelles(n))
 \end{lstlisting}
 
-\item Écrivez un programme {\tt mostvowels.py} qui lit une liste de chaînes de caractères à partir de la ligne de commande et affiche la chaîne qui contient le plus grand nombre de voyelles, ainsi que son nombre de voyelles. En cas de plusieurs chaînes ayant le même numéro, affichez le premier rencontré.
+\item Écrivez une fonction {\tt mostvowels} qui prend en argument une liste de chaînes de caractères et affiche la chaîne qui contient le plus grand nombre de voyelles, ainsi que son nombre de voyelles. En cas de plusieurs chaînes ayant le même numéro, affichez le premier rencontré.
 \begin{lstlisting}
 # 9. Voyelles 2
 text = ...............
@@ -292,7 +291,7 @@ conditionals 5
 
 \section{Boucles}
 \begin{enumerate}
-\item Un palindrome est un mot ou groupe de mots qui peut se lire indifféremment de gauche à droite ou de droite à gauche en gardant le même sens (ex. radar; laval; la mariee ira mal ; Roma Amor)..  Écrire un programme {\tt palindrome.py} qui lit une chaîne depuis la ligne de commande et détecte s'il s'agit ou non d'un palindrome. Ne pas utiliser une nouvelle chaîne dans votre programme. Vous devez plutôt parcourir la chaîne pour déterminer s'il s'agit d'un palindrome ou non.
+\item Un palindrome est un mot ou groupe de mots qui peut se lire indifféremment de gauche à droite ou de droite à gauche en gardant le même sens (ex. radar; laval; la mariee ira mal ; Roma Amor)..  Écrire une fonction {\tt palindrome()} qui accepte en argument une chaîne et détecte s'il s'agit ou non d'un palindrome. Ne pas utiliser une nouvelle chaîne dans votre programme. Vous devez plutôt parcourir la chaîne pour déterminer s'il s'agit d'un palindrome ou non.
 \begin{verbatim}
 > python palindrome.py laval
 True
@@ -303,9 +302,9 @@ True
 \end{verbatim}
 
 
-\item Écrire un programme {\tt factorial.py} qui lit un entier positif $n$ à partir de la ligne de commande, calcule son
+\item Écrire une fonction {\tt factorial(n)} qui prend un entier positif $n$, calcule son
 factorielle et l'affiche.
-\item Écrire un programme {\tt grid.py} qui affiche une  grille de nombres $m\times  n$. Un exemple de grille $5\times  6$ est illustrée ci-dessous. Indication: la valeur de l'emplacement $(i; j)$ peut être calculée comme $i + mj$.
+\item Écrire une fonction {\tt grid(m,n)} qui affiche une  grille de nombres $m\times  n$. Un exemple de grille $5\times  6$ est illustrée ci-dessous. Indication: la valeur de l'emplacement $(i; j)$ peut être calculée comme $i + mj$.
 
 \begin{verbatim}
 > python grid.py 5 6
@@ -317,7 +316,7 @@ factorielle et l'affiche.
 4 9 14 19 24 29
 \end{verbatim}
 
-\item Écrire un programme {\tt triangle.py} qui prend un paramètre de ligne de commande $n$ et affiche un  triangulaire d'étoiles rectangle isocèle de coté $n$ similaire à celui illustré ci-dessous.
+\item Écrire une fonction {\tt triangle(n)} qui prend en paramètre un entier $n$ et affiche un  triangulaire d'étoiles rectangle isocèle de coté $n$ similaire à celui illustré ci-dessous.
 
 \begin{verbatim}
 > python triangle.py 6
@@ -329,7 +328,7 @@ factorielle et l'affiche.
 . . . . * *
 . . . . . *
 \end{verbatim}
-\item Écrivez un programme {\tt arrow.py} qui affiche une forme de flèche de $n$ lignes comme indiqué ci-dessous.
+\item Écrivez une fonction {\tt arrow(n)} qui affiche une forme de flèche de $n$ lignes comme indiqué ci-dessous.
 \begin{verbatim}
 > python arrow.py 4
 
@@ -339,14 +338,13 @@ factorielle et l'affiche.
 *******
 \end{verbatim}
 
-\item Écrire un programme {\tt prime.py} qui lit un entier positif $n$ à partir de la ligne de commande, calcule un booléen
- indiquant si $n$ est premier ou non, et affiche un message approprié comme indiqué ci-dessous.
+\item Écrire une fonction {\tt prime()} qui lit un entier positif $n$, calcule un booléen indiquant si $n$ est premier ou non, et affiche un message approprié comme indiqué ci-dessous.
 \begin{verbatim}
 > python prime.py 221
 221 n'est pas un nombre premier !
 \end{verbatim}
 
-\item Écrire un programme interactif qui invite l'utilisateur à penser à un entier entre un et mille
+\item Écrire une fonction interactif qui invite l'utilisateur à penser à un entier entre un et mille
 et demande ensuite à l'utilisateur de répondre honnêtement par vrai ou faux à la question {\it Est-ce que votre numéro est strictement inférieur  à $x$? } pour différentes valeurs de $x$, jusqu'à ce que le programme puisse déduire l'entier choisi.
 
 Votre programme doit utiliser la stratégie suivante pour deviner: choisissez le milieu de l'intervalle de recherche comme
