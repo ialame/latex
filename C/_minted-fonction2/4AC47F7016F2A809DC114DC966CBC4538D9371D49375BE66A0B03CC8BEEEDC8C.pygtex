@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{,}\PYG{n}{A}\PYG{p}{;}\PYG{+w}{  }\PYG{c+cm}{/* déclaration de X et A en variable globale */}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{MaFonction}\PYG{p}{(}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{  }\PYG{c+cm}{/* déclaration de A en variable locale */}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{;}\PYG{+w}{         }\PYG{c+cm}{/* déclaration de X en variable locale */}
+\PYG{+w}{	}\PYG{p}{.}\PYG{+w}{ }\PYG{p}{.}\PYG{+w}{ }\PYG{p}{.}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{X}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{p}{.}\PYG{+w}{ }\PYG{p}{.}\PYG{+w}{ }\PYG{p}{.}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

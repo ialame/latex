@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{carre}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{C}\PYG{+w}{ }\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{;}\PYG{+w}{   }\PYG{c+cm}{/* déclaration  d\PYGZsq{}une variable locale */}
+\PYG{+w}{        }\PYG{n}{resultat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{C}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+cm}{/* renvoi le résultat dans le paramètre de sortie*/}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{resultat}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,186 @@
+\documentclass{article}[11pt]
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{La Méthode des Éléments Finis: TD2}
+\author{ \textsc{Ibrahim ALAME}}
+\date{05/10/2021}
+  \begin{document}
+  \lstset{
+    frame       = single,
+    numbers     = left,
+    showspaces  = false,
+    showstringspaces    = false,
+    captionpos  = t,
+    caption     = \lstname
+}
+%\maketitle
+
+\begin{center}
+\section*{TECE Projet 5: Calcul Intégral}
+\end{center}
+\subsection*{1}
+\begin{enumerate}
+\item  Calculer les primitives suivantes:
+\[\int \frac{\de x}{x^4 -x^2-2},\qquad \int \frac{x+1}{(x^2+1)^2}\de x\qquad \int \frac{\sin x}{\cos^3x+\sin^3x}\de x\]
+\end{enumerate}
+\subsection*{1}
+Donner une relation de récurrence permettant de calculer les intégrales suivantes:
+\[I_n=\int_0^{\frac{\pi}{4}}\tan^nx\,\de x,\qquad J_n=\int_1^e\ln^nx\,\de x\]
+\subsection*{2}
+Soit l'intégrale $I_n(a)=\displaystyle \int_{-\pi}^{\pi}\frac{\cos nt}{a-\cos t}\de t$ où $a$ est un nombre réel strictement supérieur à 1 et où $n$ est un entier naturel. On pose $a=\ch \alpha$ avec $\alpha>0$.
+\begin{enumerate}
+\item Montrer que $I_0(a)=\frac{2\pi}{\sh\alpha}$.
+\item Calculer $I_1(a)-aI_0(a)$. En déduire la valeur de $I_1(a)$.
+\item Pour $n\geq 2$, montrer que $I_n(a)+I_{n-2}(a)=2aI_{n-1}(a)$.
+\item En déduire que pour tout $n$: $I_n(a)=\frac{2\pi}{\sh\alpha}e^{-n\alpha}$.
+\end{enumerate}
+\subsection*{3}
+On se propose de calculer l'intégrale 
+\[J=\int_0^1\frac{\de t}{(1+t^2)^2}\]
+On pose $g(x)=\displaystyle \int_0^1\frac{\de t}{(1+t^2)(x^2+t^2)}$. Pour $x^2\neq 1$ faire une décomposition en éléments simples de $\displaystyle \frac{1}{(1+t^2)(x^2+t^2)}$ puis calculer $g(x)$. En déduire, par simple passage à la limite la valeur de l'intégrale $J$. On pourra utiliser la règle de l'Hospital.
+
+\subsection*{4}
+\begin{enumerate}
+\item Calculer pour tout réel $x\neq \pm1$, l'intégrale $I(x)=\displaystyle \int_{0}^{\pi}\frac{\de t}{x^2-2x\cos t+1}$ 
+\item En déduire $J(x)=\displaystyle \int_{0}^{\pi}\frac{2(x-\cos t)\de t}{x^2-2x\cos t+1}$ 
+\item Soit $K(x)=\displaystyle \int_{0}^{\pi}\ln(x^2-2x\cos t+1)\de t$ pour tout réel $x\neq \pm1$.  Calculer $K'(x)$. En déduire la valeur de l'intégrale $K(x)$. On distinguera deux cas $|x|<1$ et $|x|>1$.
+\end{enumerate}
+
+
+
+\end{document}
+\begin{enumerate}
+\item Calculer les intégrales de Dirichlet suivant:
+\[I=\int_0^{\frac{\pi}{2}}\ln(\sin t)\de t \quad \mbox{ et }\quad J=\int_0^{\frac{\pi}{2}}\ln(\cos t)\de t \]
+On pourra écrire $\displaystyle I=\frac{I+J}{2}$ et faire des changements de variables simples.
+\item Calculer 
+\[I=\int_0^{\infty}\frac{\de t}{1+t^4}\quad \mbox{ et }\quad J=\int_0^{\infty} \frac{t^2\de t}{1+t^4} \]
+On montrera que $\displaystyle I=\frac{I+J}{2}$  et on fera le changement de variable $x=t-\frac 1t$ dans l'intégrale obtenue.
+\end{enumerate}
+\subsection*{2}
+Soit $f$ une fonction réelle intégrable sur $\mathbb{R}$. On définit la transformée de Fourier de $f$ notée $\hat{f} $ par:
+\[\hat{f}(x)=\int_{-\infty}^\infty f(t) e^{-2i\pi x t}\de t\]
+Si de plus $f$ et $\hat{f}$ sont de carré intégrable on a alors:
+\[\int_{-\infty}^\infty |\hat{f}(x)|^2 \de x =\int_{-\infty}^\infty |f(t)|^2 \de t\]
+Calculer les transformées de Fourier des fonctions $\Pi$ et $\Lambda$ définies sur $\mathbb{R}$ par:
+\[\Pi(x)=\left\{\begin{array}{ll} 1 &\mbox{ si } |x|\leq \frac 12\\
+0 &\mbox{ sinon } \end{array}\right.\quad \mbox{ et }\quad \Lambda(x)=\left\{\begin{array}{ll} 1- |x| &\mbox{ si } |x| \leq 1 \\
+0 &\mbox{ sinon } \end{array}\right.\]
+En déduire les valeurs des intégrales:
+
+\[\int_{-\infty}^\infty \frac{\sin^2x}{x^2} \de x \quad \mbox{ et }\quad\int_{-\infty}^\infty  \frac{\sin^4x}{x^4} \de x\]
+\subsection*{3}
+ Pour $n\in\mathbb{N}$, on définit l'intégrale 
+ \[J_n=\int_0^\infty\frac{1}{(x^3+1)^n}\de x\]
+ \begin{enumerate}
+ \item Étudier pour quelles valeurs de $n\in\mathbb{N}$, l'intégrale $J_n$ est convergente.
+ \item Calculer $J_1$.
+ \item Montrer que pour $n\geq 2$ on a $J_{n+1}=\frac{3n-1}{3n}J_n$.
+ \item En déduire $J_n$ pour $n\geq 1$.
+ \item Étudier la nature des suites et séries de termes généraux $u_n$, $(-1)^nu_n$, $\frac{u_n}{n}$. On pourra étudier la suite $(v_n)$ définie pour $n\geq 1$ par $v_n=\ln(n^{1/3}u_n)$.
+ \item Déterminer la somme de la série de terme général $(-1)^{n-1}u_n$.
+ \end{enumerate}
+ 
+ \subsection*{4}
+ Soit $R>0$. On note les domaines suivants de $\mathbb{R}^2$:
+ \begin{itemize}
+ \item $A_R=[0,R]\times [0,R]$
+ \item $B_R=\left\{(x,y)\in\mathbb{R}^2; x\geq 0,y\geq 0, x^2+y^2\leq R^2\right\}$
+ \end{itemize}
+ On pose 
+ \[I(R)=\int\int_{A_R}\exp(-(x^2+y^2))\de x\de y \quad \mbox{ et }\quad J(R)=\int\int_{B_R}\exp(-(x^2+y^2))\de x\de y\]
+  (On rappelle que si $f(x,y)$ est une fonction positive et que si ${\cal D}_1$ et ${\cal D}_2$ sont deux domaines de $\mathbb{R}^2$ tels que  ${\cal D}_1\subset {\cal D}_2$ alors $\int\int_{{\cal D}_1}\exp(-(x^2+y^2))\de x\de y\leq \int\int_{{\cal D}_2}\exp(-(x^2+y^2))\de x\de y$
+ \begin{enumerate}
+ \item A l'aide d'une majoration appropriée, montrer que l'intégrale 
+ \[\int_0^\infty e^{-t^2}\de t\]
+ est convergente.
+ \item Montrer que $J(R)\leq I(R)\leq J(R\sqrt 2)$.
+ \item En déduire la valeur de $\int_0^\infty e^{-t^2}\de t$.
+ \item Calculer l'intégrale $K=\int_0^\infty t^2e^{-\frac{t^2}2}\de t$.
+ \end{enumerate}
+  \subsection*{5}
+  \begin{enumerate}
+  \item Déterminer l'ensemble de définition de $F:x\mapsto \int_x^{x^2}\frac{\de t}{\ln t}$.
+  \item Calculer les limites de $F$ en 0,1 et $+\infty$. On pourra utiliser l'inégalité de la moyenne.
+  \item On suppose $F$ désormais prolongée par continuité en $0$ et $1$. Déterminer les variation de $F$ et une allure de sa courbe représentative dans un repère orthonormé. Préciser la convexité de $F$.
+  \item Déterminer un développement limité de $F$ à l'ordre 3 en 1.
+  \end{enumerate}
+\end{document}

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{  }\PYG{o}{*}\PYG{n}{pi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{],}\PYG{n}{X}\PYG{p}{;}
+\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{;}\PYG{+w}{		}\PYG{c+c1}{// *pi pointe sur le début du tableau soit le premier élément}
+\PYG{o}{*}\PYG{n}{T}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{		}\PYG{c+c1}{// c\PYGZsq{}est équivalent à T[0] = 0}
+\PYG{o}{*}\PYG{p}{(}\PYG{n}{T}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// c\PYGZsq{}est équivalent à T[2] = 5}
+\PYG{o}{*}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{+}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// équivalent à T[5] = 0;}
+
+\end{Verbatim}

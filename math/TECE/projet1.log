@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  21 SEP 2023 09:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  16 OCT 2023 22:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1210,30 +1210,30 @@ lations-basic-dictionary')
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `french'. on input line 93.
 \c@lstlisting=\count436
-LaTeX Font Info:    Trying to load font information for U+msa on input line 102
-.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
+
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 102
-.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 10
-2.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 94
+.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-02.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 9
+4.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 
-102.
+94.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd) [1
 Non-PDF special ignored!

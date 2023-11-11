@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  20 SEP 2023 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  21 OCT 2023 21:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -516,7 +516,7 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count304
 \l__pdf_internal_box=\box63
 )
-No file TD1-2023.aux.
+(./TD1-2023.aux)
 \openout1 = `TD1-2023.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -535,6 +535,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Info: Redefining \degres on input line 22.
 LaTeX Info: Redefining \up on input line 22.
+
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count305
@@ -622,9 +623,9 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./
 TD1-2023.aux) ) 
 Here is how much of TeX's memory you used:
- 15898 strings out of 478268
- 308811 string characters out of 5846348
- 589264 words of memory out of 5000000
+ 15900 strings out of 478268
+ 308837 string characters out of 5846348
+ 589255 words of memory out of 5000000
  33825 multiletter control sequences out of 15000+600000
  481967 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -639,7 +640,7 @@ pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
 b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on TD1-2023.pdf (2 pages, 139173 bytes).
+Output written on TD1-2023.pdf (2 pages, 139515 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream

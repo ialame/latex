@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pi}\PYG{p}{;}\PYG{+w}{   	}\PYG{c+c1}{// pi est un pointeur pointant sur un entier}
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pc}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// pc est un pointeur pointant sur un char}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pf}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// pf est un pointeur pointant sur un float}
+\end{Verbatim}

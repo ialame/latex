@@ -1,0 +1,19 @@
+#include <stdio.h>
+void cube(int, int*);
+int main(void) {
+    int A=2; /* déclaration locale de A et B */
+    int B;
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */
+    cube( A , &B);//On donne à la fonction cube le contenu de A
+                  // et l'adresse de de la variable B
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */	
+}
+
+void cube(int A, int *B) {/* A est un paramètre de la fonction cube */
+			/* B récupère un pointeur sur un entier */
+    printf("> A=%d, B=%d\n",A,*B);	/* affiche : A=4, B=??   */
+    *B = A*A*A;
+    printf("> A=%d, B=%d\n",A,*B);	/* affiche : A=4, B=8   */
+    return;
+}
+

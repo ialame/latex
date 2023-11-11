@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// pi est un pointeur pointant sur un entier}
+\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{X}\PYG{p}{;}\PYG{+w}{	 }\PYG{c+c1}{// on initialise le pointeur pi}
+\PYG{o}{*}\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// On charge l\PYGZsq{}entier pointé par pi avec la 				}
+\PYG{+w}{             }\PYG{c+c1}{// valeur 5, c\PYGZsq{}est en fait X}
+\end{Verbatim}

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+
+\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{carre}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{C}\PYG{+w}{ }\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// déclaration  d\PYGZsq{}une variable locale}
+\PYG{+w}{    }\PYG{n}{resultat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{C}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{C}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{resultat}\PYG{+w}{ }\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// renvoi le résultat à la sortie}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{ 	}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{  	}\PYG{n}{A}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{carre}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{B}\PYG{+w}{ }\PYG{p}{);}
+\PYG{+w}{ 	}\PYG{n}{printf}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Le carré de \PYGZpc{}f est \PYGZpc{}f\PYGZdq{}}\PYG{p}{,}\PYG{n}{B}\PYG{p}{,}\PYG{n}{A}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

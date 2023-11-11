@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{[]}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{};}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{aide}\PYG{p}{,}\PYG{o}{*}\PYG{n}{p}\PYG{p}{,}\PYG{o}{*}\PYG{n}{k}\PYG{p}{,}\PYG{n}{a}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{p}\PYG{o}{=\PYGZam{}}\PYG{n}{t}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{n}{p}\PYG{o}{=}\PYG{n}{t}\PYG{p}{;}\PYG{n}{p}\PYG{o}{\PYGZlt{}}\PYG{n}{t}\PYG{o}{+}\PYG{n}{a}\PYG{p}{;}\PYG{n}{p}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{n}{k}\PYG{o}{=}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}}\PYG{n}{t}\PYG{o}{+}\PYG{n}{a}\PYG{p}{;}\PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{o}{*}\PYG{n}{p}\PYG{o}{\PYGZgt{}*}\PYG{n}{k}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{aide}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{p}\PYG{p}{;}
+\PYG{+w}{                }\PYG{o}{*}\PYG{n}{p}\PYG{o}{=*}\PYG{n}{k}\PYG{p}{;}
+\PYG{+w}{                }\PYG{o}{*}\PYG{n}{k}\PYG{o}{=}\PYG{n}{aide}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{n}{p}\PYG{o}{=}\PYG{n}{t}\PYG{p}{;}\PYG{n}{p}\PYG{o}{\PYGZlt{}}\PYG{n}{t}\PYG{o}{+}\PYG{n}{a}\PYG{p}{;}\PYG{n}{p}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZdq{}}\PYG{p}{,}\PYG{o}{*}\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

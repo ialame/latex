@@ -1,0 +1,179 @@
+\documentclass{article}[11pt]
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{TECE Projet 5: Calcul matriciel}
+\author{ \textsc{Ibrahim ALAME}}
+\date{09/11/2023}
+\begin{document}
+\maketitle
+\begin{enumerate}
+%\subsection*{1}
+\item Soit ${\cal N}$ l'algèbre des matrices triangulaires supérieurs strictes de $\mathcal{M}_3(\mathbb{R})$.
+\[N\in \mathcal{N} \Longleftrightarrow N=\left(\begin{array}{ccc} 0&a&b\\ 0&0&c\\0&0&0
+\end{array}\right)\]
+On associe à $\mathcal{N}$ l'ensemble  $\mathcal{U}$  des matrices $U=I+N$, où $I$ est la matrice identité de $\mathcal{M}_3(\mathbb{R})$.
+\begin{enumerate}
+\item  Montrer que le produit de trois matrices quelconques de $\mathcal{N}$ est nul. En particulier $N^3=0$ si $N\in\mathcal{N}$.
+\item Montrer que $\mathcal{U}$ est un sous groupe non commutatif du groupe linéaire de $\mathcal{M}_3(\mathbb{R})$.
+\item Pour tout réel $\alpha$, on définit la matrice $U^\alpha$ par
+\[U^\alpha=I+\alpha N+\frac{\alpha(\alpha-1)}{2}N^2\]
+Il sera commode de poser $N_\alpha = \alpha N +\frac{\alpha(\alpha-1)}{2}N^2$. Vérifier que pour $\alpha$ et $\beta$ réels arbitraires, on a
+\[U^\alpha U^\beta =U^{\alpha+\beta}\quad\mbox{ et }\quad (U^\alpha)^\beta=U^{\alpha\beta}\]
+\item Que peut-on dire de $U^\alpha$ pour $\alpha\in\mathbb{Z}$?
+\item On définit une application dite exponentielle, noté exp, de $\mathcal{N}$ dans $\mathcal{U}$:
+\[\forall N\in\mathcal{N},\qquad \exp(N)=I+N+\frac{N^2}{2}\]
+Montrer que l'application exp est une bijection de $\mathcal{N}$ dans $\mathcal{U}$.
+\item On définit également l'application dite logarithme notée ln de $\mathcal{U}$ dans $\mathcal{N}$ par:
+\[\mbox{Si } U=I+N,\quad \ln(U)=N-\frac{N^2}{2}\]
+Prouver que l'application ln est la bijection réciproque de exp.
+\item Établir les formules
+\[\exp(\alpha N)=(\exp(N))^\alpha,\quad \ln(U^\alpha)=\alpha\ln U,\quad U^\alpha=\exp(\alpha\ln U)\]
+\item Application numérique: Soit
+\[U=\left(\begin{array}{ccc} 1&2&3\\ 0&1&2\\0&0&1
+\end{array}\right)\]
+Calculer $\exp(U-I)$, $\ln U$, $U^{-1}$ et $U^n$ pour tout $n\in\mathbb{Z}$.
+\end{enumerate}
+
+%\subsection*{2}
+\item Soit $A$ la matrice: $\displaystyle A=\left(\begin{array}{cc} 0&-1\\1&0 \end{array}\right)$
+\begin{enumerate}
+\item Montrer que pour tout entier $k\in\mathbb{N}$
+\[\left\{\begin{array}{l}
+A^{2k}=(-1)^kI\\
+A^{2k+1}=(-1)^kA
+\end{array}\right.\]
+\item On définit l'exponentielle matricielle par la somme de la série $\displaystyle e^M=\sum_{p=0}^\infty\frac{M^p}{p!}$. Montrer que
+\[e^{tA}=\left(\begin{array}{cc} \cos t&-\sin t\\ \sin t&\cos t
+\end{array}\right)\]
+
+\end{enumerate}
+
+%\subsection*{3}
+\item Montrer que la matrice suivante est diagonalisable:
+$ \displaystyle A=\left(\begin{array}{ccc} 0&a&a^2\\ \frac 1a&0&a\\\frac{1}{a^2}&\frac 1a&0
+\end{array}\right)\qquad (a\neq 0)$
+En déduire $A^{-1}$ et $A^n$ où $n\in\mathbb{Z}$
+
+
+
+%\subsection*{3}
+%On définit sur $\mathcal{M}_n(\mathbb{R})$ une application dite exponentielle par
+%\[e^{M}=I+M+\frac{M^2}{2!}+\cdots + \frac{M^p}{p!}+\cdots \]
+%\begin{enumerate}
+%\item Calculer la puissance $p^{\mbox{ème}}$ de la matrice suivante:
+%\[A=\left(\begin{array}{ccc} 0&1&1\\ 1&0&1\\1&1&0
+%\end{array}\right)\qquad (a\neq 0)\]
+%et montrer qu'elle peut s'écrire $A^p = a_p A+b_p I$. calculer $a_p$ et $b_p$. En déduire  $e^{tA}$.
+%\item Soit $A$ la matrice:
+%\[A=\left(\begin{array}{cc} 0&-1\\1&0
+%\end{array}\right)\]
+%Calculer $A^p$ pour $p\in\mathbb{N}$.  En déduire la somme de la série
+%\[e^{tA}=\left(\begin{array}{cc} \cos t&-\sin t\\ \sin t&\cos t
+%\end{array}\right)\]
+%\end{enumerate}
+%
+
+%\subsection*{4}
+\item Soit la matrice de  $\mathcal{M}_n(\mathbb{R})$ 
+\[A=
+\left(\begin{array}{ccccc}
+0&-1&0&\cdots&0\\
+-1&0&-1&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &-1&0&-1\\
+   0&\cdots &0&-1 &0
+\end{array}\right)
+\] 
+\begin{enumerate}
+\item Montrer que $A$ est diagonalisable.
+\item Montrer que si $\lambda$ est une valeur propre de $A$ alors $0\leq \lambda\leq 2$. On pourra utiliser le théorème d'Hadamart:
+\[\lambda \mbox{ est une valeur propre de } A \Longrightarrow \lambda\in \bigcup_{i=1}^n \left\{z\in \mathbb{C}, |z-a_{i,i}|\leq\sum_{j\neq i}|a_{i,j}|\right\}\]
+\item On pose $\lambda=2\cos\theta$ où $\theta\in[0,\pi]$. Soit le determinant  $D_n=\det(\lambda I_n-A)$. Montrer que 
+\[\left\{\begin{array}{l}
+D_n=2\cos\theta \, D_{n-1}-D_{n-2}, \qquad\forall n\geq 2\\
+D_0=1,\quad D_1=2\cos\theta
+\end{array}\right.\]
+
+\item Calculer $D_n$ en fonction de $n$. En déduire les valeurs propres de $A$.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

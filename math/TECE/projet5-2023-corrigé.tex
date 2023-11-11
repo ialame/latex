@@ -1,0 +1,200 @@
+\documentclass{article}[11pt]
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{TECE Projet 5: Calcul Intégral}
+\author{Ibrahim ALAME}
+\date{2/11/2023}
+\begin{document}
+\maketitle
+\subsection*{1}
+{\color{blue}
+Calculer les primitives suivantes:
+\[\int \frac{\de x}{x^4 -x^2-2}\de x,\qquad \int \frac{x+1}{(x^2+1)^2}\de x\qquad \int \frac{\sin x}{\cos^3x+\sin^3x}\de x\]
+}
+\begin{enumerate}
+\item \[\frac{1}{x^4 -x^2-2}=\frac{1}{(x^2 -2)(x^2+1)}=\frac{1}{3(x^2-2)}-\frac{1}{3(x^2+1)}\]
+et on en déduit
+\[\int \frac{\de x}{x^4 -x^2-2}\de x=\frac{1}{6\sqrt 2}\ln\left|\frac{x-\sqrt 2}{x+\sqrt 2}\right|-\frac 13 \arctan x +k,\quad k\in\mathbb{R}\]
+\item \[\frac{x+1}{(x^2+1)^2}=\frac 12\frac{2x}{(x^2+1)^2}+\frac{1}{(x^2+1)^2}\]
+donc
+\[\int \frac{x+1}{(x^2+1)^2}\de x=-\frac{1}{2(x^2+1)}+\int \frac{1}{(x^2+1)^2}\de x\]
+On fait le changement de variable $x=\tan\theta$, $-\frac{\pi}{2}<\theta<\frac{\pi}{2}$. On a $\de x=(1+\tan^2\theta)\de \theta$ et
+\[\int \frac{1}{(x^2+1)^2}\de x=\int\frac{1}{1+\tan^2\theta}=\int\cos^2\theta\de\theta=\int\frac{1+\cos 2\theta}{2}\de\theta=\frac{\sin 2\theta}{4}+\frac{\theta}{2}+k=\frac{2x}{4(1+x^2)}+\frac 12\arctan x+k\]
+Finalement
+\[\int \frac{x+1}{(x^2+1)^2}\de x=\frac{x-1}{2(1+x^2)}+\frac 12\arctan x+k,\quad k\in\mathbb{R}\]
+\item L'expression intégrée est invariante par le changement de variable $x\to x+\pi$. La règle de Bioche nous invite à faire le changement de variable $t=\tan\theta$. On a alors $\de t=\frac{\de x}{\cos^2x}$ et
+\[\int \frac{\sin x}{\cos^3x+\sin^3x}\de x=\int\frac{\tan x}{1+\tan^3x}\frac{\de x}{\cos^2x}=\int\frac{t}{1+t^3}\de t\]
+Maintenant, la décomposition en éléments simples
+\[\frac{t}{1+t^3}=\frac{t}{(1+t)(1-t+t^2)}=-\frac{1}{3(t+1)}+\frac{t+1}{3(t^2-t+1)}\]
+entraîne
+\[\int\frac{t}{1+t^3}\de t=\int\left(-\frac{1}{3(t+1)}+\frac 16\frac{2t-1}{t^2-t+1}+\frac 12\frac{1}{(t-\frac 12)^2+\frac 34}\right)\de t\]
+donc
+\[\int\frac{t}{1+t^3}\de t=-\frac{1}{3}\ln|t+1|+\frac 16\ln(t^2-t+1)+\frac 12\frac{2}{\sqrt 3}\arctan\left(\frac{2}{\sqrt 3} \left(t-\frac 12\right)\right)\]
+donc
+\[\int \frac{\sin x}{\cos^3x+\sin^3x}\de x=-\frac{1}{3}\ln|\tan x+1|+\frac 16\ln(\tan^2x-\tan x+1)+\frac{1}{\sqrt 3}\arctan\left(\frac{2\tan x-1}{\sqrt 3} \right)\]
+\end{enumerate}
+\subsection*{2}
+{\color{blue}
+Donner une relation de récurrence permettant de calculer les intégrales suivantes:
+\[I_n=\int_0^{\frac{\pi}{4}}\tan^nx\,\de x,\qquad J_n=\int_1^e\ln^nx\,\de x\]
+}
+\begin{enumerate}
+\item Il suffit de remarquer que:
+\[\forall n\in\mathbb{N},\quad I_n+I_{n+2}=\int_0^{\frac{\pi}{4}}\tan^nx(1+\tan^2x)\de x=\left[\frac{\tan^{n+1}x}{n+1}\right]_0^{\frac{\pi}{4}}=\frac{1}{n+1}\]
+Cette relation permet de calculer $I_n$ sachant que
+\[I_0=\frac{\pi}{4}\quad\mbox{ et }I_1=\left[-\ln(\cos x)\right]_0^{\frac{\pi}{4}}=\frac{\ln 2}{2}\]
+\item En intégrant par parties, on a
+\[\forall n\in\mathbb{N^*},\quad I_n=\left[x\ln^nx\right]_1^e-n\int_1^e\ln^{n-1}x\de x=e-nI_{n-1}\]
+Cette relation de récurrence permet de calculer chaque $I_n$, sachant que $I_0=e-1$.
+\end{enumerate}
+\subsection*{3}
+{\color{blue}
+Soit l'intégrale $I_n(a)=\displaystyle \int_{-\pi}^{\pi}\frac{\cos nt}{a-\cos t}\de t$ où $a$ est un nombre réel strictement supérieur à 1 et où $n$ est un entier naturel. On pose $a=\ch \alpha$ avec $\alpha>0$.
+\begin{enumerate}
+\item Montrer que $I_0(a)=\frac{2\pi}{\sh\alpha}$.
+\item Calculer $I_1(a)-aI_0(a)$. En déduire la valeur de $I_1(a)$.
+\item Pour $n\geq 2$, montrer que $I_n(a)+I_{n-2}(a)=2aI_{n-1}(a)$.
+\item En déduire que pour tout $n$: $I_n(a)=\frac{2\pi}{\sh\alpha}e^{-n\alpha}$.
+\end{enumerate}
+}
+\begin{enumerate}
+\item La fonction $f$ définie par: $f(t)=\frac{1}{a-\cos t}$ étant paire:
+\[I_0(a)=\int_{-\pi}^{\pi}\frac{1}{a-\cos t}\de t=2\int_{0}^{\pi}\frac{1}{a-\cos t}\de t\]
+Posons: $\tan\frac t2=\varphi$; alors $\de t=\frac{2\de\varphi}{1+\varphi^2}$ et $\cos t=\frac{1-\varphi^2}{1+\varphi^2}$
+\[I_0(a)=2\int_{0}^{+\infty}\frac{2\varphi}{a(1+\varphi^2)-(1-\varphi^2)}\de \varphi=\frac{4}{a+1}\int_{0}^{+\infty}\frac{\de \varphi}{\varphi^2+\frac{a-1}{a+1}}\]
+Posons $\mu=\frac{a-1}{a+1}$ (licite car $a>1$); il vient:
+\[I_0=\frac{4}{\mu(a+1)}\left[\arctan\left(\tan\frac{\varphi}{\mu}\right)\right]_{0}^{+\infty}=\frac{4\pi}{2\sqrt{a^2-1}}=\frac{2\pi}{\sqrt{a^2-1}}\]
+D'où 
+\[I_0=\frac{2\pi}{\sh\alpha}\]
+\item \[I_1(a)-aI_0(a)=\int_{-\pi}^{\pi}\frac{\cos t -a}{a-\cos t}\de t=-2\pi\]
+D'après la question 1
+\[I_1(a)=aI_0(a)-2\pi=2\pi\left(\frac{a}{\sh\alpha}-1\right)=2\pi\left(\frac{\ch\alpha-\sh\alpha}{\sh\alpha}\right)=\frac{2\pi}{\sh\alpha}e^{-\alpha}\]
+\item \[I_n+I_{n-2}=\int_{-\pi}^{\pi}\frac{\cos nt+\cos (n-2)t}{a-\cos t}\de t=2 \int_{-\pi}^{\pi}\frac{\cos (n-1)t\cos t}{a-\cos t}\de =2 \int_{-\pi}^{\pi}\frac{\cos (n-1)t(\cos t-a+a)}{a-\cos t}\de t\]
+ \[I_n+I_{n-2}=-2\int_{-\pi}^{\pi}\cos (n-1)t\de t+2 a\int_{-\pi}^{\pi}\frac{\cos (n-1)}{a-\cos t}\de =-2\times 0+2a\times I_{n-1}=2aI_{n-1}(a)\]
+ \item Raisonnons par récurrence. Pour $n=0$ et $n=1$ la relation est vérifiée. Supposons-la vérifiée à l'ordre $n$ fixé.
+ \[I_{n+1}=2aI_n-I_{n-1}=2a\left(\frac{2\pi}{\sh\alpha}e^{-n\alpha}\right)-\frac{2\pi}{\sh\alpha}e^{-(n-1)\alpha}=\frac{2\pi}{\sh\alpha}(2a-e^\alpha)e^{-n\alpha}=\frac{2\pi}{\sh\alpha}(2\sh\alpha-e^\alpha)e^{-n\alpha}\]
+ D'où $I_{n+1}=\displaystyle \frac{2\pi}{\sh\alpha}e^{-(n+1)\alpha}$ ce qui achève la démonstration.
+\end{enumerate}
+\subsection*{4}
+{\color{blue}
+On se propose de calculer l'intégrale 
+\[J=\int_0^1\frac{\de t}{(1+t^2)^2}\]
+On pose $g(x)=\displaystyle \int_0^1\frac{\de t}{(1+t^2)(x^2+t^2)}$. Pour $x^2\neq 1$ faire une décomposition en éléments simples de $\displaystyle \frac{1}{(1+t^2)(x^2+t^2)}$ puis calculer $g(x)$. En déduire, par simple passage à la limite la valeur de l'intégrale $J$. On pourra utiliser la règle de l'Hospital.
+}
+
+Si $x^2\neq 1$, $\displaystyle \frac{1}{(X+1)(X+t^2)}=\frac{a}{X+1}+\frac{b}{X+x^2}$ où $a=-b=\frac{1}{x^2-1}$. Donc
+\[g(x)=\int_0^1\frac{\de t}{(1+t^2)(x^2+t^2)}=\frac{1}{x^2-1}\left(\int_0^1\frac{1}{t^2+1}\de t-\int_0^1\frac{1}{t^2+x^2}\de t\right)=\frac{1}{x^2-1}\left[\frac 1x\arctan\frac 1x-\frac{\pi}{4}\right]\]
+La fonction $\displaystyle  f(x,t)=\frac{\de t}{(1+t^2)(x^2+t^2)}$ est continue sur $\mathbb{R}\times [0,1]$ donc $g$ est continue et donc $J=g(1)=\lim_{x\to 1}g(x)=\frac{\pi}{8}+\frac{1}{4}$.
+\subsection*{5}
+{\color{blue}
+\begin{enumerate}
+\item Calculer pour tout réel $x\neq \pm1$, l'intégrale $I(x)=\displaystyle \int_{0}^{\pi}\frac{\de t}{x^2-2x\cos t+1}$ 
+\item En déduire $J(x)=\displaystyle \int_{0}^{\pi}\frac{2(x-\cos t)\de t}{x^2-2x\cos t+1}$ 
+\item Soit $K(x)=\displaystyle \int_{0}^{\pi}\ln(x^2-2x\cos t+1)\de t$ pour tout réel $x\neq \pm1$.  Calculer $K'(x)$. En déduire la valeur de l'intégrale $K(x)$. On distinguera deux cas $|x|<1$ et $|x|>1$. 
+\end{enumerate}
+}
+
+\begin{enumerate}
+\item $1-2x\cos t+x^2=(x-\cos t)^2+\sin^2t=0\Longleftrightarrow \sin t=x-\cos t=0$. ce qui est équivaut à $(x=1$ et $t=0$) ou ($x=-1$ et $t=\pi$) car $t\in[0,\pi]$.
+Soit $f:t\mapsto \frac{1}{x^2-2x\cos t+1}$. $f$ est continue sur $[0,\pi]\times\mathbb{R}$. Donc $I$ est bien définie. Calculons, pour $y\in]0,\pi[$, $F(y)=\int_0^yf(t)\de t$ avec le changement de variable $u=\tan\frac t2$. Si $Y=\tan\frac y2$
+\[F(y)=\int_0^Y\frac{\de u}{(1-x)^2+u^2(1+x)^2}=\frac{2}{1-x^2}\arctan\left(\frac{1-x}{1+x}\tan\frac y2\right)\]
+Or $I(x)=\lim_{y\to\pi}F(y)$, donc $I(x)=\frac{\pi}{1-x^2}$ si $|x|<1$ et $I(x)=\frac{\pi}{x^2-1}$ si $|x|>1$.
+\item Si $x\neq 0$,
+\[\frac{2(x-X)}{1+x^2-2xX}=\frac 1x+\frac{x^2-1}{x}\frac{1}{1+x^2-2xX}\]
+Donc $\forall x\neq 0$, $J(x)=\frac{\pi}{x}+\frac{x^2-1}{x}I(x)$ et $J(0)=-2\int_0^\pi\cos t\de t=0$. De 1) on déduit alors: 
+\[J(x)=0\quad \mbox{si} \quad |x|<1\qquad \mbox{ et } \qquad J(x)=\frac{2\pi}{x}\quad \mbox{si} \quad |x|>1\]
+Si $x\neq 0$ et $t\in[0,\pi]$ la fonction $\varphi(x,t)=\ln(x^2-2x\cos t+1)$ est de classe $C^1$ et $\displaystyle \frac{\partial \varphi}{\partial x}=\frac{2(x-\cos t)}{x^2-2x\cos t+1}$. Du théorème de dérivation sous le signe somme, on en déduit que $K$ est de classe $C^1$ et $K'=J$. 
+
+Il existe $(C_1,C_2,C_3)\in\mathbb{R}^3$ telles que 
+\[K(x)=\left\{\begin{array}{lcl}
+C_1+2\pi\ln x &\mbox{ si } & x\in]1,+\infty[ \\
+C_2+2\pi\ln(-x) &\mbox{ si } & x\in]-\infty,-1[ \\
+C_3 &\mbox{ si } & x\in]-1,+1[ 
+\end{array}\right.
+\]
+$C_3=0=K(0)$. D'autre part, $K(\frac 1x)=K(x)-\pi\ln(x^2)$.
+Donc
+\[K(x)=0\quad \mbox{si} \quad |x|<1\qquad \mbox{ et } \qquad K(x)=\pi\ln(x^2)\quad \mbox{si} \quad |x|>1\]
+
+\end{enumerate}
+
+
+\end{document}

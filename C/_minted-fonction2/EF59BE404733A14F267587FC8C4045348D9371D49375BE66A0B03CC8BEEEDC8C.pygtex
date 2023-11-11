@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{f2}\PYG{p}{(...)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{x}\PYG{o}{=}\PYG{n}{f1}\PYG{p}{(...);}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{...;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

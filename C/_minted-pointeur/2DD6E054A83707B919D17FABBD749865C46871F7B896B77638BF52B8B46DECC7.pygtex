@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{];}
+\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{i}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// *pi représente i car pi pointe sur i}
+\PYG{o}{*}\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// c\PYGZsq{}est équivalent à i = 0}
+\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{T}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}\PYG{c+c1}{// pi pointe maintenant sur le premier élément du tableau T}
+\PYG{+w}{		}\PYG{c+c1}{// *pi représente T[0]}
+\PYG{o}{*}\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{	}\PYG{c+c1}{// équivalent à T[0] = 0;}
+
+\end{Verbatim}

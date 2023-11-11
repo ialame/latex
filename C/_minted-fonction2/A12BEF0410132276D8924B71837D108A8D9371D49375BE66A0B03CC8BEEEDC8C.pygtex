@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{if}\PYG{p}{(}\PYG{c+cm}{/* !condition de convergence */}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{exit}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{k}{if}\PYG{p}{(}\PYG{c+cm}{/*condition d’arrêt*/}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{(}\PYG{c+cm}{/*Ce qu’elle doit retourner*/}\PYG{p}{);}
+\PYG{k}{else}
+\PYG{c+cm}{/*Traitement*/}
+\PYG{c+cm}{/*appel récursif */}
+\PYG{c+cm}{/*Traitement*/}
+\end{Verbatim}

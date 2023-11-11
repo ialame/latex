@@ -1,0 +1,33 @@
+\frametitle{Quelques exemples}
+Une définition de fonction spécifie :
+\begin{itemize}
+\item Le type de la valeur renvoyée par la fonction
+\item Le nom de la fonction
+\item Les paramètres (argument) qui sont passés à la fonction
+\item Les variables locales et externes utilisées par la fonction
+\item D'autre fonctions appelées éventuellement par la fonction
+\item Les instructions que doit exécuter la fonction
+\end{itemize}
+
+Syntaxe d'une fonction:
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+<type_iden_sortie> iden_Fct( <type> ien_1, ... ,<type> iden_N){
+        /* déclaration  des variables locales */
+        <type>  iden_2,...,iden_Z;
+        //
+        // Traitement
+        //
+        /* renvoi le résultat dans le paramètre de sortie*/
+        return(valeur);
+    }
+
+\end{minted}
+

@@ -1,0 +1,180 @@
+\documentclass{article}[11pt]
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+ \renewcommand{\labelitemi}{$\circ$}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{TECE Projet 4: Limites et les développements limités}
+\author{Ibrahim ALAME}
+\date{19/10/2023}
+  \begin{document}
+\maketitle
+\begin{center}
+\end{center}
+\subsection*{Exercice 1}
+{\color{blue}
+A l'aide des accroissements finis, majorer l'erreur faites en prenant 100 comme valeur approchée de $\sqrt{10001}$.}
+
+L'inégalité des accroissements finis appliquée à la fonction $\sqrt x$ entre 10000 et 10001 donne
+\[|\sqrt{10001}-\sqrt{10000}|\leq \max_{10000\leq x\leq 10001}\frac{1}{2\sqrt x} \times|10001-10000|=\frac{1}{200}\]
+Donc on fait une erreur inférieur à $\frac{1}{200}$ en assimilant $\sqrt{10001}$ à 100.
+\subsection*{Exercice 2}
+\begin{enumerate}
+{\color{blue}
+\item Montrer que $\frac{\pi}{4}=4\arctan\frac 15-\arctan\frac{1}{239}$
+}
+
+On utilise la formule
+\[\arctan x +\arctan y =\arctan\frac{x+y}{1-xy}.\quad \mbox{ Si } x.y < 1\]
+\begin{itemize}
+\item[$\bullet$] $\displaystyle \arctan \frac 15 +\arctan \frac 15=\arctan\frac{\frac 25}{1-\frac{1}{25}}=\arctan\frac{5}{12}\quad \mbox{ car } \frac 15.\frac 15 < 1$
+\item[$\bullet$] $\displaystyle 4\arctan\frac 15=2\arctan\frac{5}{12}=\arctan\frac{\frac{10}{12}}{1-\frac{25}{144}}=\arctan\frac{120}{119}$. D'où
+\end{itemize}
+\[4\arctan\frac 15-\arctan\frac{1}{239}=\arctan\frac{120}{119}-\arctan\frac{1}{239}=\arctan\frac{\frac{120}{119}-\frac{1}{239}}{1+\frac{120}{119\times 239}}=\arctan 1=\frac{\pi}{4}\]
+{\color{blue}
+\item Calculer la somme géométrique: $1-x^2+x^4+\cdots +(-1)^nx^{2n}$ où $x$  est un réel tel que $|x|<1$. En déduire que
+\[\forall x\in ]-1,1[,\qquad \frac{1}{1+x^2}=1-x^2+x^4+\cdots +(-1)^nx^{2n}+(-1)^{n+1}\frac{x^{2n+2}}{1+x^2}\]
+}
+Écrivons la somme de la suite géométrique de premier terme 1 et de raison $-x^2$:
+\[1-x^2+x^4+\cdots +(-1)^nx^{2n}=\frac{1-(-x^2)^{n+1}}{1-(-x^2)}=\frac{1-(-1)^{n+1}x^{2n+2}}{1+x^2} \]
+\[1-x^2+x^4+\cdots +(-1)^nx^{2n}=\frac{1}{1+x^2}-(-1)^{n+1}\frac{x^{2n+2}}{1+x^2} \]
+D'où la formule.
+{\color{blue}
+\item Montrer alors que
+\[\forall x\in ]-1,1[,\qquad \arctan x=x-\frac{x^3}3+\frac{x^5}5+\cdots +(-1)^n\frac{x^{2n+1}}{2n+1}+(-1)^{n+1}\int_0^x\frac{t^{2n+2}}{1+t^2}\de t\]
+}
+Il suffit d'intégrer terme à terme l'égalité de la question précédente.
+{\color{blue}
+\item On pose $R_n(x)=\int_0^x\frac{t^{2n+2}}{1+t^2}\de t$. Montrer que $R_n(x)\leq\frac{x^{2n+3}}{2n+3}$ pour $x\geq 0$.}
+\[|R_n(x)|=\int_0^x\frac{t^{2n+2}}{1+t^2}\de t\leq \int_0^xt^{2n+2}\de t\leq \frac{x^{2n+3}}{2n+3}\]
+
+{\color{blue}
+\item Calculer $\arctan\frac 15$ et $\arctan\frac{1}{239}$ à $10^{-9}$ près. En déduire une valeur approchée de $\pi$ à $10^{-8}$ près. 
+}
+Pour calculer $\arctan\frac 15$ à $10^{-9}$ près, il faut que $\frac{\left(\frac 15\right)^{2n+3}}{2n+3}<10^{-9}$ soit $n\geq 5$. Pour $\arctan\frac{1}{239}$ il faut que $n\geq 1$. Par conséquent, on a:
+\begin{itemize}
+\item[$\bullet$] $\displaystyle \arctan\frac 15=\frac 15 -\frac{(0.2)^3}{3}+\frac{(0.2)^5}{5}-\frac{(0.2)^7}{7}+\frac{(0.2)^9}{9}-\frac{(0.2)^{11}}{11}=0.197395560$
+\item[$\bullet$] $\displaystyle \arctan\frac 1{239}=\frac 1{239}-\frac{\left(\frac 1{239}\right)^3}{3}=0.004184076$
+\end{itemize}
+On en déduit alors que $\pi=3.14159264$ à $10^{-8}$ près.
+\end{enumerate}
+\subsection*{Exercice 3}
+\begin{enumerate}
+{\color{blue}
+\item Déterminer la limite, quand $x\to 0$ de :
+\[f(x)=\frac{1}{x^2}\left[\frac{\ln(1+x)+\ln(1-x)}{x^2}+1\right]\]}
+
+On divise par $x^4$ donc on fait un DL à l'ordre 4:
+\[\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+o(x^4),\qquad \ln(1-x)=-x-\frac{x^2}{2}-\frac{x^3}{3}-\frac{x^4}{4}+o(x^4)\]
+\[f(x)=\frac{1}{x^2}\left[\frac{1}{x^2}\left(-x^2-\frac{x^4}{2}+o(x^4)\right)+1\right]=\frac{1}{x^2}\left[-1 -\frac{x^2}{2}+o(x^2)+1\right]=-\frac 12+o(1)\]
+On a donc $f(x)\to -\frac 12$ quand $x\to 0$.
+{\color{blue}
+\item Donner le développement limité à l'ordre 2 en 0 de:
+\[g(x)=\exp\left[\frac{\sqrt{1+2x^2}-1}{x^2}\right]\]}
+
+On divise par $x^2$ donc on effectue un DL à l'ordre 4. On pose $u=2x^2\to 0$ quand $x\to 0$:
+\[\sqrt{1+u}=1+\frac 12x-\frac 18u^2 +o(u^2), \qquad \sqrt{1+2x^2}=1+x^2-\frac {x^4}2 + o(x^4),\] 
+\[\frac{\sqrt{1+2x^2}-1}{x^2}=1-\frac{x^2}{2}+o(x^2),\]
+\[g(x)=\exp\left(1-\frac{x^2}{2}+o(x^2)\right)=e\times \exp\left(-\frac{x^2}{2}+o(x^2)\right)=e\times \left(1-\frac{x^2}{2}+o(x^2)\right)\]
+\end{enumerate}
+\subsection*{Problème}
+Soit $I$ un intervalle ouvert de $\mathbb{R}$ et $f$ une fonction définie sur $I$ et à valeurs dans $\mathbb{R}$.
+\begin{enumerate}
+\item Le but de cette première question est de montrer la formule de Taylor avec reste intégral qui assure que toute fonction qui admet une dérivée d'ordre $n+1$ continue satisfait
+\[f(a+h)=f(a)+hf'(a)+\frac{h^2}{2}f''(a)+\cdots+\frac{h^n}{n!}f^{(n)}(a)+h^{n+1}\int_0^1\frac{(1-\theta)^n}{n!}f^{(n+1)}(a+\theta h)\de \theta\]
+avec $a$ et $a+h$ des éléments de $I$.
+\begin{enumerate}
+\item  Montrer que la formule est vraie pour $n=0$.
+\item  Soit $f$ une fonction qui admet une dérivée d'ordre $n+2$ continue. Montrer que
+\[\int_0^1\frac{f^{(n+1)}(a+\theta h)}{n!}(1-\theta)^n\de \theta=\frac{f^{(n+1)}(a)}{(n+1)!}+h\int_0^1\frac{f^{(n+2)}(a+\theta h)}{(n+1)!}(1-\theta)^{n+1}\de \theta\]
+\item  En utilisant les questions précédentes, montrer par récurrence la formule de Taylor avec reste intégral.
+\item On suppose qu'il existe $M_{n+1}$ tel que $\forall x\in I,  |f^{(n+1)}(x)|\leq M_{n+1}$. Alors on a (la formule de Taylor Lagrange): 
+$$\displaystyle{\forall x\in I,\forall a\in I} \quad\displaystyle{\left\vert f(a+h)-f(a)-\sum_{k=1}^{n}\frac{h^k}{k!}f^{(k)}(a)\right\vert\leq \frac{\vert h\vert^{n+1}}{(n+1)!}}M_{n+1}$$
+\end{enumerate}
+
+\item  On écrit la formule de Taylor avec reste intégral pour $a=0$ et $h=x$; on l'appelle alors formule de Mac-Laurin:
+\[f(x)=f(0)+xf'(0)+\frac{x^2}{2}f''(0)+\cdots+\frac{x^n}{n!}f^{(n)}(0)+h^{n+1}\int_0^1\frac{(1-\theta)^n}{n!}f^{(n+1)}(\theta x)\de \theta\]
+\begin{enumerate}
+\item Appliquer la formule de Mac-Laurin à la fonction $\sin$ et montrer que pour les valeurs de $x$ entre $0$ et $\frac{\pi}{4}$ et pour tout entier $n$, il existe un polynôme $P_n(x)$ que l'on déterminera, tel que:
+\[|\sin x - P_n(x)|\leq \frac{1}{(2n+3)!}\]
+\item Comment faut-il choisir $n$ pour que cette dernière approximation donne $\sin x$ à $10^{-3}$ près pour $x$ entre 0 et $\frac{\pi}{4}$?
+\item Donner une valeur approchée à 3 décimales pour $\sin \frac 14$.
+\end{enumerate}
+\end{enumerate}
+\end{document}

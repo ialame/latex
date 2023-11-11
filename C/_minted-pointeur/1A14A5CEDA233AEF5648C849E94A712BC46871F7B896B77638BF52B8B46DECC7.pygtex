@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{o}{*}\PYG{n+nf}{realloc}\PYG{p}{(}\PYG{n}{pointeur}\PYG{p}{,}\PYG{n}{newtaille}\PYG{p}{);}
+\end{Verbatim}

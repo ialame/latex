@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pi}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// pi pointe sur un objet de type entier	(4 octets)}
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pc}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// pc pointe sur un objet de type char (1 octet)}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pf}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// pf pointe sur un objet de type float (4 octets)}
+\PYG{o}{*}\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{145}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 145 est le contenu de la case mémoire pi}
+\PYG{o}{*}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{200}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 200 est de contenu des cases mémoires 4 cases  après pi}
+\PYG{o}{*}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{500}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 500 est le contenu des cases mémoires 8 cases après pi}
+\PYG{o}{*}\PYG{n}{pc}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}A\PYGZsq{}}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// la case mémoire pc contient le code ASCII de A = 65}
+\PYG{n}{pc}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}\PYG{+w}{	 }\PYG{c+c1}{// on décrémente la valeur du pointeur pc de 1}
+\PYG{o}{*}\PYG{n}{pf}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{1.5}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 1,5 est stocké dans la case mémoire pf et les 4  suivantes}
+\PYG{n}{pf}\PYG{o}{++}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// on incrémente la valeur du pointeur pf de 4 cases mémoires}
+\PYG{+w}{         }\PYG{c+c1}{// qui correspond à la taille d\PYGZsq{}un float}
+\end{Verbatim}

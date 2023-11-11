@@ -1,0 +1,519 @@
+\documentclass{beamer}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+% Code syntax highlighter
+\usepackage[cache=false]{minted}
+
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+%\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\usetheme[options]{Boadilla}
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+
+\definecolor{LightGray}{gray}{0.9}
+%\usepackage{listings}
+
+  \title{Programmation C}
+  \author{ \textsc{Ibrahim ALAME}}\institute{ESIEE}
+\date{07/02/2023}
+  \begin{document}
+
+ \begin{frame}
+ \begin{center}
+ Chapitre 2
+ \end{center}
+  \titlepage
+  \end{frame}
+
+ \begin{frame}
+  \frametitle{Fonctions}
+  \begin{block}{Définition}
+ Une fonction est une suite d'instructions, mais vue du programme principal main(), elle représente une seule action.
+Deux types de fonction:
+\begin{itemize}
+\item Les fonctions prédéfinies ({\tt scanf, printf, strcpy}…)
+\item les fonctions personnelles
+\end{itemize}
+\end{block}
+
+Utilité des fonctions:
+\begin{itemize}
+\item Supprimer les répétitions de code
+\item Structurer des blocs de code indépendants (maintenance)
+\item Création de bibliothèques de fonctions
+\end{itemize}
+
+  \end{frame}
+  
+\begin{frame}[fragile]
+\frametitle{Quelques exemples}
+Une définition de fonction spécifie :
+\begin{itemize}
+\item Le type de la valeur renvoyée par la fonction
+\item Le nom de la fonction
+\item Les paramètres (argument) qui sont passés à la fonction
+\item Les variables locales et externes utilisées par la fonction
+\item D'autre fonctions appelées éventuellement par la fonction
+\item Les instructions que doit exécuter la fonction
+\end{itemize}
+
+Syntaxe d'une fonction:
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+<type_iden_sortie> iden_Fct( <type> ien_1, ... ,<type> iden_N){
+        /* déclaration  des variables locales */
+        <type>  iden_2,...,iden_Z;
+        //
+        // Traitement 
+        //
+        /* renvoi le résultat dans le paramètre de sortie*/
+        return(valeur);
+    }
+
+\end{minted}
+
+\end{frame}
+  
+  
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Quelques exemples}
+Exemple d'une fonction:
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+    Double carre (double C ) {      
+        double resultat;   /* déclaration  d'une variable locale */
+        resultat = C * C;
+        /* renvoi le résultat dans le paramètre de sortie*/
+        return (resultat);
+    }
+\end{minted}
+    Autres caractéristiques des fonctions :
+\begin{itemize}
+\item Une fonction peut en appeler une autre. La fonction appelée doit être déclarée avant celle qui appelle.
+\item On ne peut pas déclarer une fonction à l'intérieur d'une autre fonction.
+\item Une fonction possède un seul point d'entrée, mais éventuellement plusieurs de sortie. 
+\end{itemize}
+
+\end{frame}
+  
+  
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Où déclarer  une fonction? : avant le main()}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>
+
+double carre (double C ) {      
+    double resultat; // déclaration  d'une variable locale
+    resultat = C * C;
+    return( resultat ); // renvoi le résultat à la sortie
+    }
+    
+int main(){
+ 	double A, B=2;
+  	A = carre (B );
+ 	printf ("Le carré de %f est %f",B,A);
+    return 0;
+}
+\end{minted}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Où déclarer  une fonction? : après le main()}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>
+
+double carre (double C ) ; // PROTOTYPE DE LA FONCTION
+
+int main(){
+ 	double A, B=2;
+  	A = carre (B );
+ 	printf ("Le carré de %f est %f",B,A);
+    return 0;
+}
+
+double carre (double C ) {      
+    double resultat; // déclaration  d'une  variable locale
+    resultat = C * C;
+    return( resultat ); // renvoi le résultat à la sortie
+}
+
+\end{minted}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}[fragile]
+\frametitle{Déclaration PROTOTYPE}
+Le prototype de la fonction définie l'interface de la fonction. Lors de la compilation, le compilateur accepte l'appel à une fonction seulement s'il à rencontré au moins le prototype de la fonction. Dans la déclaration prototype il est possible d'omettre les noms des variables mais pas leur type.
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>
+double carre (double) ; // PROTOTYPE SANS NOM DE VARIABLE
+int main(){
+ 	double A, B=2;
+  	A = carre (B );
+ 	printf ("Le carré de %f est %f",B,A);
+    return 0;
+}
+double carre (double C ) {      
+    double resultat; // déclaration  d'une  variable locale
+    resultat = C * C;
+    return( resultat ); // renvoi le résultat à la sortie
+}
+
+\end{minted}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Les fonctions et les échanges de variables }
+Deux types:
+
+\begin{itemize}
+\item Les fonctions sans passage de paramètres et ne renvoyant rien au programme :    
+		
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+void UneFonction ( void ); 
+\end{minted}
+\item Les fonctions avec passage de paramètres et renvoyant un objet au programme :
+		
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+int UneFonction ( int A ): 
+\end{minted} 
+
+\end{itemize}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Les fonctions et les échanges de paramètres : Par des variables globales}
+
+    Une variable globale est déclarée au début du programme.
+    Cette variable sera visible dans toutes les fonctions
+
+    Exemple
+	
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>
+
+int X; /* déclaration de X en variable globale */
+
+void main() {
+...
+
+}
+\end{minted}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}[fragile]
+\frametitle{Les fonctions et les échanges de paramètres : Par des variables locales}
+\begin{itemize}
+\item Une variable locale est déclarée au début d'une fonction.
+\item Cette variable sera visible uniquement dans la fonction.
+\item Une variable globale portant le même nom sera invisible dans la fonction.
+\item Les variables locales ne sont pas initialisées par défaut et perdent leur valeur à chaque nouvel appel de la fonction
+\end{itemize}
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>
+int X,A;  /* déclaration de X et A en variable globale */
+int MaFonction( int A) {  /* déclaration de A en variable locale */ 
+    static int X;         /* déclaration de X en variable locale */
+	. . .
+    return (X);
+}
+void main(void) {
+	. . .
+}
+\end{minted}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Échange entre les fonctions par variables globales}
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>                         
+
+int A,B;
+void cube(void);
+
+int main(void) {
+    A=2; // initialisation de A à 2
+    int B; /* déclaration locale de B */
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=0  */
+    cube();
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=0   */	
+}
+
+void cube() { 	
+    B = A*A*A;
+    return;
+}
+\end{minted}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Échange entre les fonctions par variables locales}
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h> 
+
+int cube(int);
+
+int main(void) {
+    int A=2; //déclaration locale et initialisation de A à 2
+    int B; /* déclaration locale de B */
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */
+    B = cube(A);
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=8   */	
+}
+
+int cube(int X) { /* X est un paramètre de la fonction cube */
+              /* X récupère la valeur de A du main */
+	int resultat;		
+    resultat = X*X*X;
+    return (resultat);
+}
+\end{minted}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Échange entre les fonctions par variables locales}
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h> 
+void cube(int);
+int main(void) {
+    int A=2; //déclaration locale et initialisation de A à 2
+    int B; /* déclaration locale de B */
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */
+    cube(A);
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */	
+}
+
+void cube(int A) { /* A est un paramètre de la fonction cube */
+			/* A récupère la valeur de A du main */
+	int B;		
+	B = A*A*A;
+	printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=8   */	
+	return ;
+}
+\end{minted}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Échange entre les fonctions par variables locales}
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{c}
+#include <stdio.h>                         
+void cube(int, int*);
+int main(void) {
+    int A=2; /* déclaration locale de A et B */
+    int B;
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */
+    cube( A , &B);//On donne à la fonction cube le contenu de A 
+                  // et l'adresse de de la variable B
+    printf("A=%d, B=%d\n",A,B);	/* affiche : A=4, B=??   */	
+}
+
+void cube(int A, int *B) {/* A est un paramètre de la fonction cube */
+			/* B récupère un pointeur sur un entier */
+    printf("> A=%d, B=%d\n",A,*B);	/* affiche : A=4, B=??   */
+    *B = A*A*A;
+    printf("> A=%d, B=%d\n",A,*B);	/* affiche : A=4, B=8   */
+    return;
+}
+
+\end{minted}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Échange entre les fonctions par variables locales\\Introduction: }
+\begin{itemize}
+\item Une fonction récursive est une fonction qui s'appelle elle-même. 
+\begin{itemize}
+\item Directement (si la fonction $P$ appelle directement $P$ , on dit que la récursivité est directe). 
+\item  Indirectement à travers une ou plusieurs fonctions relais (si $P$ appelle une fonction $P_1$ , qui appelle une fonction $P_2$ , ... , qui appelle une fonction $P_n$ et qui enfin appelle $P$ , on dit qu'il s'agit d'une récursivité indirecte).
+\end{itemize}
+\end{itemize}
+\end{frame}
+  \end{document}
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+\frametitle{tableaux sur la pile}
+\begin{enumerate}
+\item solution : allocation dynamique (voir prochain cours)
+\end{enumerate}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+% linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+int * function (int n){
+    int* tab = (int*) malloc(n*sizeof(int));
+    for(int i=0;i<n;i++) tab[i]=i;
+    return tab ;
+}
+int main(){
+    int* tab, n=3;
+    tab = function (n) ;
+    for(int i=0;i<n;i++)
+        printf("%d\n",tab[i]) ;
+    free(tab);
+    return 0;
+}
+\end{minted}

@@ -1,0 +1,63 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+
+\title{Programmation C : TD 2}
+\author{Ibrahim ALAME}
+\date{18/10/2023}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item On utilisera le type: {\tt typedef char mot[NMAX]} où {\tt NMAX} est une constante entière préalablement  définie.
+\begin{enumerate}
+\item Écrire la fonction {\tt longMot} qui retourne la longueur d'une chaîne de caractères comme résultat. 
+\item Écrire la fonction {\tt min2maj} qui convertit toutes les lettres d'une chaîne en majuscules.
+\item Écrire la fonction {\tt ajouteMot} à deux paramètres {\tt mot1} et {\tt mot2} qui copie la chaîne de caractères {\tt mot2} à la fin de la chaîne {\tt mot1}.
+
+\item Écrire et tester une fonction {\tt void  miroire(mot dest,mot src)} écrivant à l'envers un mot donné.
+
+\item Écrire et tester une fonction {\tt int palindrome(mot src)} qui teste si un mot donné est un palindrome.
+
+\end{enumerate}
+\item On utilisera les types suivants:
+\begin{verbatim}
+typedef char mot[NMAX];// adresse d'une chaine de caractère de longueur
+                   // maximal NMAX = 50
+typechar mot txt[TXTMAX];// adresse d'un tableau de mots de longueur
+                   // maximal TXTMAX = 100 dont le dernier valeur est "fin"                   
+\end{verbatim}
+\begin{enumerate}
+\item Écrire une fonction {\tt void afficher(txt t)} affichant à l'écran les mots du texte {\tt t}.
+
+\item Écrire une fonction {\tt int appartient(mot m, txt t)} testant l'appartenance du mot  {\tt m} au texte {\tt t}.
+\item Écrire une fonction {\tt int ajouter(mot m, txt t)} qui ajoute au texte {\tt t} et retourne son indice dans le tableau (ou -1 si m=NULL).
+\item Écrire une fonction {\tt int supprime(mot m, txt t)} qui supprime au texte {\tt t} le mot m.
+
+\end{enumerate}
+\item Codage: On choisit un décalage (par exemple 5), et un {\tt a} sera remplacé par un {\tt f}, un {\tt b} par un {\tt g}, un {\tt c} par un {\tt h}, etc ... On ne cryptera que les lettres sans toucher ni à la ponctuation, ni à la mise en page (caractère blanc, etc.). 
+\begin{enumerate}
+\item Déclarer un tableau de caractères {\tt cMessage} initialisé avec le message en claire.
+\item Écrire une procédure {\tt crypte} de cryptage d'un caractère qui sera passé par adresse.
+\item Écrire le programme principal {\tt main} qui activera {\tt crypt} sur l'ensemble du message et imprimera le résultat.
+
+\end{enumerate}   
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{Tab}\PYG{p}{[]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}UN\PYGZdq{}}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}DEUX\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}TROIS\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}QUATRE\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}CINQ\PYGZdq{}}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{p}{;}
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{**}\PYG{n}{p}\PYG{+w}{		}\PYG{c+c1}{// déclaration d\PYGZsq{}un pointeur de pointeur}
+\PYG{n}{p}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{Tab}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{	}\PYG{c+c1}{// p pointe sur le début du tableau de chaines de caractères}
+\PYG{+w}{		}\PYG{c+c1}{// * =\PYGZgt{} chaine     ** =\PYGZgt{} caractère}
+\PYG{o}{*}\PYG{n}{p}\PYG{+w}{		}\PYG{c+c1}{//  pointe sur \PYGZdq{}UN\PYGZdq{}}
+\PYG{o}{*}\PYG{p}{(}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ 		}\PYG{c+c1}{//  pointe sur \PYGZdq{}DEUX\PYGZdq{}}
+\PYG{o}{**}\PYG{n}{p}\PYG{+w}{		}\PYG{c+c1}{//  retourne sur \PYGZsq{}U\PYGZsq{} de \PYGZdq{}UN\PYGZdq{}}
+\PYG{o}{*}\PYG{p}{(}\PYG{o}{*}\PYG{n}{p}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ 	}\PYG{c+c1}{//  retourne sur \PYGZsq{}N\PYGZsq{} de \PYGZdq{}UN\PYGZdq{}}
+\PYG{o}{*}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{	}\PYG{c+c1}{//  retourne sur \PYGZsq{}U\PYGZsq{} de \PYGZdq{}DEUX\PYGZdq{}}
+
+\end{Verbatim}

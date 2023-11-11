@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZlt{}}\PYG{n}{type\PYGZus{}iden\PYGZus{}sortie}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{iden\PYGZus{}Fct}\PYG{p}{(}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{type}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ien\PYGZus{}1}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{...}\PYG{+w}{ }\PYG{p}{,}\PYG{o}{\PYGZlt{}}\PYG{n}{type}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{iden\PYGZus{}N}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{c+cm}{/* déclaration  des variables locales */}
+\PYG{+w}{        }\PYG{o}{\PYGZlt{}}\PYG{n}{type}\PYG{o}{\PYGZgt{}}\PYG{+w}{  }\PYG{n}{iden\PYGZus{}2}\PYG{p}{,...,}\PYG{n}{iden\PYGZus{}Z}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{//}
+\PYG{+w}{        }\PYG{c+c1}{// Traitement}
+\PYG{+w}{        }\PYG{c+c1}{//}
+\PYG{+w}{        }\PYG{c+cm}{/* renvoi le résultat dans le paramètre de sortie*/}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{(}\PYG{n}{valeur}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

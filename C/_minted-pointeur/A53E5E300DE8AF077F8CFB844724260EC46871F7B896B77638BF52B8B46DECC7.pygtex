@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{o}{*}\PYG{n+nf}{malloc}\PYG{p}{(}\PYG{n}{taille}\PYG{p}{);}
+\end{Verbatim}

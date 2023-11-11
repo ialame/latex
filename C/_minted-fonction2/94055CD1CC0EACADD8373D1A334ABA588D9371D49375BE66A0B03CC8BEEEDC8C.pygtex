@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{hanoi}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}
+\PYG{+w}{          }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{D}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{F}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{I}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{hanoi}\PYG{p}{(}\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{n}{D}\PYG{p}{,}\PYG{n}{I}\PYG{p}{,}\PYG{n}{F}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}c \PYGZhy{}\PYGZhy{}\PYGZgt{} \PYGZpc{}c}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{D}\PYG{p}{,}\PYG{n}{F}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{hanoi}\PYG{p}{(}\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{n}{I}\PYG{p}{,}\PYG{n}{F}\PYG{p}{,}\PYG{n}{D}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{hanoi}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+s+sc}{\PYGZsq{}A\PYGZsq{}}\PYG{p}{,}\PYG{l+s+sc}{\PYGZsq{}B\PYGZsq{}}\PYG{p}{,}\PYG{l+s+sc}{\PYGZsq{}C\PYGZsq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

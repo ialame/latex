@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{o}{*}\PYG{n+nf}{calloc}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,}\PYG{n}{taille}\PYG{p}{);}
+\end{Verbatim}

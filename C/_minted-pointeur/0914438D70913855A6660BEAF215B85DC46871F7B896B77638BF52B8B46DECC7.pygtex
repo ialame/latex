@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{Tab2D}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{][}\PYG{l+m+mi}{7}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZdq{}UN\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}DEUX\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}TROIS\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}QUATRE\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}CINQ\PYGZdq{}}\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

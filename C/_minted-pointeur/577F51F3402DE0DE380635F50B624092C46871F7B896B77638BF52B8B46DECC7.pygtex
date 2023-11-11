@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{pi}\PYG{p}{,}\PYG{o}{*}\PYG{n}{qi}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}\PYG{+w}{   	}
+\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{qi}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// autorisé}
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{qi}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// interdit : on ne peut pas additionner deux pointeurs}
+\PYG{+w}{                 }\PYG{c+c1}{// ça n\PYGZsq{}a pas de sens}
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pi}\PYG{o}{\PYGZhy{}}\PYG{n}{qi}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// autorisé: donne le nombre d\PYGZsq{}objets entre les deux pointeurs}
+\PYG{n}{I}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pi}\PYG{o}{*}\PYG{n}{qi}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// interdit: on ne peut pas multiplier deux pointeurs}
+\PYG{+w}{              }\PYG{c+c1}{// ça n\PYGZsq{}a pas de sens}
+\end{Verbatim}
