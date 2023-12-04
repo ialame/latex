@@ -34,54 +34,10 @@
 
 \item Écrire un programme C permettant à un enseignant de saisir le nombre d'étudiant d'une classe dont il est en charge et allouer dynamiquement l'espace juste nécessaire pour contenir leurs notes. Donner la main à l'enseignant pour saisir ses notes, puis calculer et afficher la moyenne de la classe.
  
-% #include <stdio.h>
-%#include <stdlib.h>
-%
-%int main()
-%{
-%    float *p,sum;
-%    int i,n;
-%    printf("Entrer le nombre des étudiants: ");
-%    scanf("%d",&n);
-%    p=(float*)malloc(n*sizeof(float));
-%    if(p==NULL){
-%        printf("Erreur d'allocation memoire");
-%        exit(1);
-%    }
-%    for(i=0;i<n;i++){
-%        printf("Entrer la note de l'élève %i: ",i);
-%        scanf("%f",p+i);
-%    }
-%    // Calculer la somme
-%    for(i=0;i<n;i++) sum+=*(p+i);
-%    printf("\nMoyenne=%.2f\n",sum/n);
-%
-%    return 0;
-%}
-
-%#include <stdio.h>
-%#include <stdlib.h>
-%typedef struct {
-%    char nom[20];
-%    int note;
-%} eleve;
-%int main(){
-%    eleve* classe[25], e;
-%    int i=-1,j;
-%    do{
-%        printf("\nNom : "); scanf("%s",e.nom);
-%        if(e.nom[0]!='#'){
-%            printf("\nNote : "); scanf("%d",&e.note);
-%            i++;
-%            classe[i] = (eleve*) malloc (sizeof(eleve));
-%            *(classe[i])=e;
-%        }else
-%            break;
-%    } while(i<500);
-%    for(int j=0;j<=i;j++) // affichage
-%        printf("%s : %d\n", classe[j]->nom,classe[j]->note);
-%}
  \item  Écrire un programme C permettant l'allocation dynamique de la mémoire requise pour enregistrer $N$ chaînes de caractères de $M$ caractère chacune. Tester votre programme en saisissant 3 mots.
+\item Écrire un programme C permettant de saisir une chaine de caractère de taille quelconque.
+ \item  Écrire un programme C permettant l'allocation dynamique de la mémoire requise pour enregistrer $N$ chaînes de caractères. Tester votre programme en saisissant 3 mots.
+ \item  Écrire un programme C permettant l'allocation dynamique de la mémoire requise pour enregistrer plusieurs chaînes de caractères.  Tester votre programme en saisissant 3 mots.
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
