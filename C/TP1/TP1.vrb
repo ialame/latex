@@ -1,0 +1,43 @@
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\tiny,%footnotesize,
+% linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct {
+    char nom[20];
+    char tel[10];
+} data;
+int main(){
+    data* repertoire[500], individu;
+    int i=-1,j;
+    do{
+        printf("\nNom : "); scanf("%s",individu.nom);
+        if(individu.nom[0]!='#'){
+            printf("\nTéléphone : "); scanf("%s",individu.tel);
+            i++;
+            repertoire[i] = (data*) malloc (30);
+            *(repertoire[i])=individu;
+        }else
+            break;
+    } while(i<500);
+    for(int j=0;j<=i;j++) // affichage
+        printf("%s : %s\n", repertoire[j]->nom,repertoire[j]->tel);
+}
+\end{minted}
+{\tiny
+\begin{verbatim}
+Nom : Pierre
+Téléphone : 1234567890
+Nom : Jean
+Téléphone : 2345678901
+Nom : #
+
+Pierre : 1234567890
+Jean : 2345678901
+\end{verbatim}
+}

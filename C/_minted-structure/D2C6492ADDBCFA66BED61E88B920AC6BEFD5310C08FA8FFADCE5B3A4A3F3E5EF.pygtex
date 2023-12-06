@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{client}\PYG{p}{\PYGZob{}}\PYG{c+c1}{// client est le nom de la structure}
+\PYG{+w}{    	  }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{nom}\PYG{p}{[}\PYG{l+m+mi}{25}\PYG{p}{];}
+\PYG{+w}{    	  }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{prenom}\PYG{p}{[}\PYG{l+m+mi}{20}\PYG{p}{];}
+\PYG{+w}{    	  }\PYG{k+kt}{int}\PYG{+w}{  }\PYG{n}{anneeNaissance}\PYG{p}{;}
+\PYG{+w}{    	  }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{adresse}\PYG{p}{[}\PYG{l+m+mi}{100}\PYG{p}{];}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{};}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Déclaration de variables :}
+\PYG{+w}{	}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{client}\PYG{+w}{ }\PYG{n}{Un\PYGZus{}Client}\PYG{p}{;}\PYG{c+c1}{// déclaration de la variable Un\PYGZus{}Client}
+\PYG{+w}{	}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{client}\PYG{+w}{ }\PYG{n}{NouveauClient}\PYG{p}{;}\PYG{c+c1}{// déclaration de la variable NouveauClient}
+\PYG{+w}{    }\PYG{c+c1}{// ....}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

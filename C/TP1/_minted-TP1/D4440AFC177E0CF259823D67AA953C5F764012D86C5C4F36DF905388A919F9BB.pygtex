@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Liste}\PYG{+w}{ }\PYG{o}{*}\PYG{n+nf}{initialisation}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Liste}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{liste}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{malloc}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{o}{*}\PYG{n}{liste}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{Element}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{element}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{malloc}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{o}{*}\PYG{n}{element}\PYG{p}{));}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{liste}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{element}\PYG{+w}{ }\PYG{o}{==}\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{exit}\PYG{p}{(}\PYG{n}{EXIT\PYGZus{}FAILURE}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{element}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nombre}\PYG{+w}{ }\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{element}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suivant}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{liste}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{premier}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{element}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{liste}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

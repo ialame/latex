@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  27 NOV 2023 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  6 DEC 2023 04:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**fonction2.tex
-(./fonction2.tex
+**structure.tex
+(./structure.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (/usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamer.cls
@@ -935,11 +935,11 @@ Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "fonction2.w18")...executed.
+runsystem(uname -s > "structure.w18")...executed.
 
 
-(./fonction2.w18)
-runsystem(rm -- "fonction2.w18")...executed.
+(./structure.w18)
+runsystem(rm -- "structure.w18")...executed.
 
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty
@@ -973,11 +973,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@every@listing=\toks52
 \c@listing=\count381
 )
-runsystem(mkdir -p _minted-fonction2)...executed.
+runsystem(mkdir -p _minted-structure)...executed.
 
-runsystem(which pygmentize && touch fonction2.aex)...executed.
+runsystem(which pygmentize && touch structure.aex)...executed.
 
-runsystem(rm fonction2.aex)...executed.
+runsystem(rm structure.aex)...executed.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -985,8 +985,8 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count382
 \l__pdf_internal_box=\box134
 )
-(./fonction2.aux)
-\openout1 = `fonction2.aux'.
+(./structure.aux)
+\openout1 = `structure.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
@@ -1080,9 +1080,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 21.
 LaTeX Info: Redefining \pageref on input line 21.
 LaTeX Info: Redefining \nameref on input line 21.
- (./fonction2.out) (./fonction2.out)
+ (./structure.out) (./structure.out)
 \@outlinefile=\write7
-\openout7 = `fonction2.out'.
+\openout7 = `structure.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 21.
@@ -1165,7 +1165,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/local/texlive/2022/texmf-dist/tex/latex/translator/translator-theorem-dic
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./fonction2.nav)
+) (./structure.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
 (Font)              using `T1/cmss/m/n' instead on input line 21.
@@ -1173,458 +1173,152 @@ LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
 [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+\openout4 = `structure.vrb'.
 
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+(./structure.vrb
+\openout5 = `structure.pyg'.
 
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 12.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
-)
-\openout5 = `fonction2.pyg'.
-
- (./_minted-fonction2/default.pygstyle)
-(./_minted-fonction2/2BCFAE4F1DF8AAA51F540F933F7F205B8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex
+ (./_minted-structure/default.pygstyle)
+(./_minted-structure/D2C6492ADDBCFA66BED61E88B920AC6BEFD5310C08FA8FFADCE5B3A4A3
+F3E5EF.pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 9.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 3.
 ))
-Overfull \vbox (19.14839pt too high) detected at line 77
+Overfull \vbox (32.57877pt too high) detected at line 54
  []
 
-[3
+[2
 
 ]
-\openout4 = `fonction2.vrb'.
+\openout4 = `structure.vrb'.
 
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
+ (./structure.vrb
+\openout5 = `structure.pyg'.
 
 
-(./_minted-fonction2/E8DE9F725FDEA27B6E7E1077A6F827B38D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex
+(./_minted-structure/228809FD23C0AD4EDF8048DF1EE260A3EFD5310C08FA8FFADCE5B3A4A3
+F3E5EF.pygtex
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )))
+[3
+
+]
+\openout4 = `structure.vrb'.
+
+ (./structure.vrb
+\openout5 = `structure.pyg'.
+
+
+(./_minted-structure/387D3E64C683A883B8FE19D032B32250EFD5310C08FA8FFADCE5B3A4A3
+F3E5EF.pygtex))
+Overfull \vbox (18.17325pt too high) detected at line 124
+ []
+
 [4
 
 ]
-\openout4 = `fonction2.vrb'.
+\openout4 = `structure.vrb'.
 
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/9C014FEDF18C40A4D98E9A228433A04B8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [5
+ (./structure.vrb) [5
 
 ]
-\openout4 = `fonction2.vrb'.
+\openout4 = `structure.vrb'.
 
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
+ (./structure.vrb
+\openout5 = `structure.pyg'.
 
 
-(./_minted-fonction2/9CEB5BBA69FFC5AF829D8B6334E908788D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (0.99829pt too high) detected at line 169
- []
-
-[6
+(./_minted-structure/31CE942E554F5421D8074C2A8CD1A306EFD5310C08FA8FFADCE5B3A4A3
+F3E5EF.pygtex)) [6
 
 ]
-\openout4 = `fonction2.vrb'.
+\openout4 = `structure.vrb'.
 
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
+ (./structure.vrb
+\openout5 = `structure.pyg'.
 
 
-(./_minted-fonction2/12A2D36E024A621B823E0CD60FD288688D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (15.79842pt too high) detected at line 201
+(./_minted-structure/A088E1820AAA97D6FD762C1F1B0E96EAEFD5310C08FA8FFADCE5B3A4A3
+F3E5EF.pygtex))
+Overfull \vbox (18.17325pt too high) detected at line 208
  []
 
 [7
 
 ]
-\openout4 = `fonction2.vrb'.
+\openout4 = `structure.vrb'.
 
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/70CC49E9722F2B0056DF0808E9E822C18D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/EC3D71BA27176B2DEF246E5C55FDD26E8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [8
+ (./structure.vrb) [8
 
 ]
-\openout4 = `fonction2.vrb'.
+\openout4 = `structure.vrb'.
 
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/B2005EBA383F161C341672FF5B9656798D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [9
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
+ (./structure.vrb
+\openout5 = `structure.pyg'.
 
 
-(./_minted-fonction2/4AC47F7016F2A809DC114DC966CBC4538D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (9.94838pt too high) detected at line 302
+(./_minted-structure/434363C8C14BBCCCDBFCBF7B586078E3EFD5310C08FA8FFADCE5B3A4A3
+F3E5EF.pygtex
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <6> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 4.
+))
+Overfull \vbox (5.69061pt too high) detected at line 270
  []
 
-[10
+[9
 
 ]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/7BD1938D9B7565FB32A365C7DF1F80068D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (1.74811pt too high) detected at line 335
- []
-
-[11
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/8837AF5D275C76A70810AAABB1228E7C8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (14.94807pt too high) detected at line 369
- []
-
-[12
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/9C33A9DB0F5CA3189CE8A509D80939298D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (1.74811pt too high) detected at line 402
- []
-
-[13
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/FCDA8ACDE41F7247DB6D41A521E390ED8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (27.39822pt too high) detected at line 437
- []
-
-[14
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/C6CBA42A7FD8263D72A731C592E3581D8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/7F68F8063DD5AC75A3E9D526C6CDC76C8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/EF59BE404733A14F267587FC8C4045348D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [15
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb) [16
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/A12BEF0410132276D8924B71837D108A8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [17
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/1A9ABDCF852E162E7C5EE42C6FBEAD2C8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (8.64827pt too high) detected at line 575
- []
-
-[18
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb) [19
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/2B9D125E17ABF0D92E0DE1A1304889628D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [20
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/C2E85DD6374C1404FB49AB70592348778D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [21
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb)
-Overfull \hbox (22.57353pt too wide) in paragraph at lines 3--684
-[][]  
- []
-
-[22
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb) [23
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/AB9D073FDEC40CE66353C9A98705DF628D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [24
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb) [25
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/375C0F06876E8306B28A881D7C0498E28D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [26
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb) [27
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/88CCF62F1EAB6DAF5C7A25BEB340DB2B8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (27.39822pt too high) detected at line 869
- []
-
-[28
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb) [29
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/A3F4124BB91F85CC67270B62EA817F418D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)) [30
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/2E646067134BF7AD5D85008311D2AAA78D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex))
-Overfull \vbox (9.15714pt too high) detected at line 953
- []
-
-[31
-
-]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/94055CD1CC0EACADD8373D1A334ABA588D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)
-<hanoi.png, id=878, 511.9125pt x 145.54375pt>
-File: hanoi.png Graphic file (type png)
-<use hanoi.png>
-Package pdftex.def Info: hanoi.png  used on input line 26.
-(pdftex.def)             Requested size: 127.97781pt x 36.38583pt.
-<hanoi2.png, id=880, 328.22626pt x 197.73875pt>
-File: hanoi2.png Graphic file (type png)
-<use hanoi2.png>
-Package pdftex.def Info: hanoi2.png  used on input line 27.
-(pdftex.def)             Requested size: 131.28816pt x 79.09409pt.
-) [32
-
- <./hanoi.png> <./hanoi2.png>]
-\openout4 = `fonction2.vrb'.
-
- (./fonction2.vrb
-\openout5 = `fonction2.pyg'.
-
-
-(./_minted-fonction2/D53AD97EB9EA28726A8218148AA568BA8D9371D49375BE66A0B03CC8BE
-EEDC8C.pygtex)
-<hanoi3.png, id=909, 419.5675pt x 168.63pt>
-File: hanoi3.png Graphic file (type png)
-<use hanoi3.png>
-Package pdftex.def Info: hanoi3.png  used on input line 25.
-(pdftex.def)             Requested size: 167.82402pt x 67.45079pt.
-
-Overfull \hbox (1.67638pt too wide) in paragraph at lines 25--26
-[][]  
- []
-
-) [33
-
- <./hanoi3.png>]
 \tf@nav=\write8
-\openout8 = `fonction2.nav'.
+\openout8 = `structure.nav'.
 
 \tf@toc=\write9
-\openout9 = `fonction2.toc'.
+\openout9 = `structure.toc'.
 
 \tf@snm=\write10
-\openout10 = `fonction2.snm'.
+\openout10 = `structure.snm'.
 
- (./fonction2.aux)
+ (./structure.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `fonction2.out' has not changed.
+Package rerunfilecheck Info: File `structure.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-runsystem(rm fonction2.pyg)...executed.
+runsystem(rm structure.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 28901 strings out of 478268
- 596009 string characters out of 5846348
- 861688 words of memory out of 5000000
- 46298 multiletter control sequences out of 15000+600000
- 490031 words of font info for 81 fonts, out of 8000000 for 9000
+ 28251 strings out of 478268
+ 575246 string characters out of 5846348
+ 857164 words of memory out of 5000000
+ 45833 multiletter control sequences out of 15000+600000
+ 478011 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,442b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loca
-l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local
-/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive
-/2022/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2
-022/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/202
-2/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2022/te
-xmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on fonction2.pdf (33 pages, 416872 bytes).
+ 128i,15n,122p,442b,711s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfit0800.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/tex
+live/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive
+/2022/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on structure.pdf (9 pages, 214726 bytes).
 PDF statistics:
- 1054 PDF objects out of 1200 (max. 8388607)
- 939 compressed objects within 10 object streams
- 67 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 339 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

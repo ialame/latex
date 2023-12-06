@@ -1,0 +1,274 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{beamer}
+ \usetheme[options]{Boadilla}
+ % paquets pour le français
+ \usepackage{tikz}
+ \usepackage{multicol}
+ \usepackage[T1]{fontenc}
+ \usepackage[utf8]{inputenc}
+\usepackage{minted}
+\definecolor{LightGray}{gray}{0.9}
+  \title{Programmation C: Structure}
+  \author{ \textsc{Ibrahim ALAME}}\institute{ESIEE}
+\date{29/11/2023}
+\begin{document}
+\maketitle
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Les structures}
+\begin{block}{Qu'est-ce qu'une structure ?}
+Une structure est un objet composé de plusieurs champs de types différents, qui sert à représenter un objet. Par exemple un client peut être représenté par son nom, son prénom, son année de naissance, son adresse.
+\end{block}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+% linenos
+]{c}  
+#include <stdio.h>
+struct client{// client est le nom de la structure
+    	  char nom[25];
+    	  char prenom[20];
+    	  int  anneeNaissance;
+    	  char adresse[100];
+        };
+int main(){ 
+    //Déclaration de variables :
+	struct client Un_Client;// déclaration de la variable Un_Client
+	struct client NouveauClient;// déclaration de la variable NouveauClient
+    // ....
+    return 0; 
+}
+\end{minted}
+\end{frame}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  
+\begin{frame}[fragile]
+\frametitle{Définition du type et déclaration de variables?}
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+% linenos
+]{c}  
+#include <stdio.h>
+typedef struct client CLIENT;//création d'un alias CLIENT sur struct client
+struct client{// client est le nom de la structure
+    	  char nom[25];
+    	  char prenom[20];
+    	  int  anneeNaissance;
+    	  char adresse[100];
+        };
+int main(){ 
+    // Déclaration de variables simplifié :
+    CLIENT Un_Client;// déclaration de la variable Un_Client
+    CLIENT NouveauClient;// déclaration de la variable NouveauClient
+
+    // ....
+    return 0; 
+}
+\end{minted}
+\end{frame}
+  
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+%\frametitle{Définition du type et déclaration de variables?}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+% linenos
+]{c}  
+#include <stdio.h>
+#include <string.h>
+typedef struct {
+    char nom[10];
+    int maths;
+    int info;
+    float moyenne;
+} eleve;
+int main(){
+    eleve e1, e2;
+    strcpy(e1.nom,"Pierre");
+    e1.maths =15;
+    e1.info =16;
+    e1.moyenne =(e1.maths+e1.info)/2.;
+    e2=e1;
+    strcpy(e2.nom,"Jean");
+    printf("Moyenne de %s est : %.2f/20\n",e1.nom,e1.moyenne);
+    printf("Moyenne de %s est : %.2f/20\n",e2.nom,e2.moyenne);
+    return 0;
+}
+\end{minted}
+
+\end{frame}
+  
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{}
+
+\begin{verbatim}
+Moyenne de Pierre est : 15.50/20
+Moyenne de Jean est : 15.50/20
+\end{verbatim}
+
+\end{frame}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Les pointeurs de structures:}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+% linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct {
+    int maths;
+    int info;
+} notes;
+int main(){
+    notes *p = (notes *) malloc(sizeof(notes));
+    (*p).maths =15; (*p).info =16;// p->maths=15; p->info=16;
+    //   (*structure).champs  <====>  structure->champs
+    printf("Maths %d/20 ;  Info %d/20\n",(*p).maths,(*p).info);
+    printf("Maths %d/20 ;  Info %d/20\n",p->maths,p->info);
+    return 0;
+}
+\end{minted}
+\begin{verbatim}
+Maths 15/20 ;  Info 16/20
+Maths 15/20 ;  Info 16/20
+\end{verbatim}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+  
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+%\frametitle{Pointeurs: L'arithmétique des pointeurs.}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+% linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+struct date{
+    int jour;
+    int mois;
+    int annee;
+} *p;
+int main(){
+    p = (struct date *) malloc (sizeof(struct date));
+    if(p==NULL){
+        printf("Erreur d'allocation mémoire !!!\n");
+        exit(-1);
+    }
+    printf("Donner le jour : "); scanf("%d",&p->jour);
+    printf("Donner le mois : "); scanf("%d",&p->mois);
+    printf("Donner l'annee : "); scanf("%d",&p->annee);
+    
+    printf("La date est : %d/%d/%d\n",p->jour,p->mois,p->annee);
+    return 0;
+}
+\end{minted}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+%\frametitle{Pointeurs: L'arithmétique des pointeurs.}
+\begin{verbatim}
+Donner le jour : 12
+Donner le mois : 7
+Donner l'annee : 1963
+
+La date est : 12/7/1963
+
+\end{verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+%\frametitle{Exemple}
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\tiny,%footnotesize,
+% linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct {
+    char nom[20];
+    char tel[10];
+} data;
+int main(){
+    data* repertoire[500], individu;
+    int i=-1,j;
+    do{
+        printf("\nNom : "); scanf("%s",individu.nom);
+        if(individu.nom[0]!='#'){
+            printf("\nTéléphone : "); scanf("%s",individu.tel);
+            i++;
+            repertoire[i] = (data*) malloc (30);
+            *(repertoire[i])=individu;
+        }else
+            break;
+    } while(i<500);
+    for(int j=0;j<=i;j++) // affichage
+        printf("%s : %s\n", repertoire[j]->nom,repertoire[j]->tel);
+}
+\end{minted}
+{\tiny
+\begin{verbatim}
+Nom : Pierre
+Téléphone : 1234567890
+Nom : Jean
+Téléphone : 2345678901
+Nom : #
+
+Pierre : 1234567890
+Jean : 2345678901
+\end{verbatim}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

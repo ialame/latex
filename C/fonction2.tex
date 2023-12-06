@@ -17,16 +17,16 @@
 \definecolor{LightGray}{gray}{0.9}
   \title{Programmation C: Fonction}
   \author{ \textsc{Ibrahim ALAME}}\institute{ESIEE}
-\date{07/02/2023}
+\date{27/11/2023}
 \begin{document}
 \maketitle
  \begin{frame}
   \frametitle{Fonctions}
   \begin{block}{Définition}
- Une fonction est une suite d'instructions, mais vue du programme principal main(), elle représente une seule action.
+ Une fonction est une suite d'instructions, mais vue du programme principal {\bf main()}, elle représente une seule action.
 Deux types de fonction:
 \begin{itemize}
-\item Les fonctions prédéfinies ({\tt scanf, printf, strcpy}…)
+\item Les fonctions prédéfinies  {\bf scanf, printf, strcpy}…
 \item les fonctions personnelles
 \end{itemize}
 \end{block}
@@ -52,7 +52,7 @@ Une définition de fonction spécifie :
 \item Les instructions que doit exécuter la fonction
 \end{itemize}
 
-Syntaxe d'une fonction:
+\underline {\em Syntaxe d'une fonction:}
 
 \begin{minted}[
 %frame=lines,
@@ -81,7 +81,7 @@ fontsize=\footnotesize,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Quelques exemples}
-Exemple d'une fonction:
+\underline {\em Exemple d'une fonction:}
 \begin{minted}[
 %frame=lines,
 framesep=2mm,
@@ -204,7 +204,7 @@ double carre (double C ) {
 
 \begin{frame}[fragile]
 \frametitle{Les fonctions et les échanges de variables }
-Deux types:
+\underline {\em Deux types:}
 
 \begin{itemize}
 \item Les fonctions sans passage de paramètres et ne renvoyant rien au programme :    
@@ -245,7 +245,7 @@ int UneFonction ( int A ):
     Une variable globale est déclarée au début du programme.
     Cette variable sera visible dans toutes les fonctions
 
-    Exemple
+    \underline {\em Exemple}
 	
 \begin{minted}[
 %frame=lines,
@@ -581,7 +581,7 @@ int main(void) {
 \begin{itemize}
 \item Lorsqu'une fonction récursive définit des variables locales, un exemplaire de chacune d'entre elles est crée à chaque appel récursif de la fonction. 
 \item Il en est de même des arguments des fonctions.
-\item Exemple - considérons une fonction void miroir() qui lit caractère par caractère une chaîne terminée par '?' et l'affiche dans l'ordre inverse de celui de la lecture.
+\item \underline {\em Exemple} - considérons une fonction {\bf void  miroir()} qui lit caractère par caractère une chaîne terminée par '?' et l'affiche dans l'ordre inverse de celui de la lecture.
 \end{itemize}
 
 

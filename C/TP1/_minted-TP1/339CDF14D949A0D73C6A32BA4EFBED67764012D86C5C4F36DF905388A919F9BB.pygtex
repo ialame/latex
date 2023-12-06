@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Liste}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{L}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{initialisation}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{insertion}\PYG{p}{(}\PYG{n}{L}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{insertion}\PYG{p}{(}\PYG{n}{L}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{insertion}\PYG{p}{(}\PYG{n}{L}\PYG{p}{,}\PYG{l+m+mi}{15}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{afficherListe}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{suppression}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{afficherListe}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

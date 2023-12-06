@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{afficherListe}\PYG{p}{(}\PYG{n}{Liste}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{liste}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{liste}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{exit}\PYG{p}{(}\PYG{n}{EXIT\PYGZus{}FAILURE}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{Element}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{actuel}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{liste}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{premier}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{actuel}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZhy{}\PYGZgt{} \PYGZdq{}}\PYG{p}{,}\PYG{n}{actuel}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nombre}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{actuel}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{actuel}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suivant}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}NULL}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
