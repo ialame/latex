@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  6 DEC 2023 06:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  6 DEC 2023 13:24
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -660,12 +660,12 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 \openout4 = `TP1.pyg'.
 
 
-(./_minted-TP1/C1079D42B79318F2FE61D1BBE1397C29764012D86C5C4F36DF905388A919F9BB
+(./_minted-TP1/A3CABD80B059F84A67626D98EFA58168764012D86C5C4F36DF905388A919F9BB
 .pygtex)
 \openout4 = `TP1.pyg'.
 
 
-(./_minted-TP1/D4440AFC177E0CF259823D67AA953C5F764012D86C5C4F36DF905388A919F9BB
+(./_minted-TP1/78224650C640B103FEA52957FC62F2AF764012D86C5C4F36DF905388A919F9BB
 .pygtex) [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./liste
@@ -673,7 +673,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 <liste02.png, id=20, 751.80875pt x 168.63pt>
 File: liste02.png Graphic file (type png)
 <use liste02.png>
-Package pdftex.def Info: liste02.png  used on input line 90.
+Package pdftex.def Info: liste02.png  used on input line 87.
 (pdftex.def)             Requested size: 187.95172pt x 42.1574pt.
 \openout4 = `TP1.pyg'.
 
@@ -687,8 +687,12 @@ File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ))
 \openout4 = `TP1.pyg'.
 
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -P stripn
+l=False -o _minted-TP1/9A1B98AE6DDE60942F6DE1FB43D2C47F764012D86C5C4F36DF905388
+A919F9BB.pygtex TP1.pyg)...executed.
 
-(./_minted-TP1/0133A0C7453E36D3BCF925C67C303D12764012D86C5C4F36DF905388A919F9BB
+
+(./_minted-TP1/9A1B98AE6DDE60942F6DE1FB43D2C47F764012D86C5C4F36DF905388A919F9BB
 .pygtex)
 \openout4 = `TP1.pyg'.
 
@@ -697,37 +701,47 @@ File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 .pygtex) [2 <./liste02.png>]
 \openout4 = `TP1.pyg'.
 
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -P stripn
+l=False -o _minted-TP1/A2347BDAB304B33C7FDA7F0E5930D497764012D86C5C4F36DF905388
+A919F9BB.pygtex TP1.pyg)...executed.
 
-(./_minted-TP1/339CDF14D949A0D73C6A32BA4EFBED67764012D86C5C4F36DF905388A919F9BB
+
+(./_minted-TP1/A2347BDAB304B33C7FDA7F0E5930D497764012D86C5C4F36DF905388A919F9BB
 .pygtex)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 177.
+(Font)              <7> on input line 174.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 177.
+(Font)              <5> on input line 174.
 
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 183.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 180.
 
 <liste03.png, id=27, 252.945pt x 374.39874pt>
 File: liste03.png Graphic file (type png)
 <use liste03.png>
-Package pdftex.def Info: liste03.png  used on input line 185.
+Package pdftex.def Info: liste03.png  used on input line 182.
 (pdftex.def)             Requested size: 63.23608pt x 93.59946pt.
 [3 <./liste03.png>]
-Overfull \hbox (0.1163pt too wide) in paragraph at lines 196--197
+Overfull \hbox (0.1163pt too wide) in paragraph at lines 193--194
 \T1/cmr/m/n/10 prime de cette liste toutes les oc-cur-rences d'un en-tier en-tr
 é par l'utilisateur. 
  []
+
+runsystem(rm _minted-TP1/0133A0C7453E36D3BCF925C67C303D12764012D86C5C4F36DF9053
+88A919F9BB.pygtex)...executed.
+
+runsystem(rm _minted-TP1/339CDF14D949A0D73C6A32BA4EFBED67764012D86C5C4F36DF9053
+88A919F9BB.pygtex)...executed.
 
 [4] (./TP1.aux)
 runsystem(rm TP1.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 16202 strings out of 478268
- 338807 string characters out of 5846348
- 641322 words of memory out of 5000000
- 34082 multiletter control sequences out of 15000+600000
+ 16208 strings out of 478268
+ 339291 string characters out of 5846348
+ 640310 words of memory out of 5000000
+ 34086 multiletter control sequences out of 15000+600000
  480054 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,7n,104p,673b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -748,7 +762,7 @@ e/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 22/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2022/t
 exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on TP1.pdf (4 pages, 592407 bytes).
+Output written on TP1.pdf (4 pages, 592434 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream

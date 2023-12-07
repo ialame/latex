@@ -1,5 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{suppression}\PYG{p}{(}\PYG{n}{Liste}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{liste}\PYG{p}{)\PYGZob{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{suppressionPremier}\PYG{p}{(}\PYG{n}{Liste}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{liste}\PYG{p}{)\PYGZob{}}
 \PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{liste}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{exit}\PYG{p}{(}\PYG{n}{EXIT\PYGZus{}FAILURE}\PYG{p}{);}
 \PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{liste}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{premier}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)\PYGZob{}}
 \PYG{+w}{        }\PYG{n}{Element}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{aSupprimer}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{liste}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{premier}\PYG{p}{;}

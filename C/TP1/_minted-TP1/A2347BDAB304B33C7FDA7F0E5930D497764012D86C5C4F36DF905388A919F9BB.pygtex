@@ -5,7 +5,7 @@
 \PYG{+w}{    }\PYG{n}{insertion}\PYG{p}{(}\PYG{n}{L}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{);}
 \PYG{+w}{    }\PYG{n}{insertion}\PYG{p}{(}\PYG{n}{L}\PYG{p}{,}\PYG{l+m+mi}{15}\PYG{p}{);}
 \PYG{+w}{    }\PYG{n}{afficherListe}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
-\PYG{+w}{    }\PYG{n}{suppression}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{suppressionPremier}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
 \PYG{+w}{    }\PYG{n}{afficherListe}\PYG{p}{(}\PYG{n}{L}\PYG{p}{);}
 
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}

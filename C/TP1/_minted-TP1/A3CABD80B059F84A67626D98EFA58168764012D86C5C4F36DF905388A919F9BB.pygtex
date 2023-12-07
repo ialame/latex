@@ -1,6 +1,6 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Liste}\PYG{+w}{ }\PYG{n}{Liste}\PYG{p}{;}
 \PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Liste}\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{n}{Element}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{suivant}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Element}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{premier}\PYG{p}{;}
 \PYG{p}{\PYGZcb{};}
 \end{Verbatim}

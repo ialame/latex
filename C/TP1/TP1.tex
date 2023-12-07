@@ -16,7 +16,7 @@
 \definecolor{LightGray}{gray}{0.9}
   \title{Programmation C: TP1}
 \author{ \textsc{Ibrahim ALAME}}
-\date{6/12/2023}
+\date{7/12/2023}
 \begin{document}
 \maketitle
 
@@ -56,7 +56,7 @@ fontsize=\small,%footnotesize,
 ]{c}
 typedef struct Liste Liste;
 struct Liste{
-    Element *suivant;
+    Element *premier;
 };
 \end{minted}
 \subsection{Initialisation}
@@ -71,12 +71,9 @@ fontsize=\small,%footnotesize,
 % linenos
 ]{c}
 Liste *initialisation(){
-    Liste* liste = malloc(sizeof(*liste));
-    Element *element = malloc(sizeof(*element));
-    if(liste == NULL || element ==NULL) exit(EXIT_FAILURE);
-    element->nombre =0;
-    element->suivant = NULL;
-    liste->premier = element;
+    Liste* liste = malloc(sizeof(Liste));
+    if(liste == NULL) exit(EXIT_FAILURE);
+    liste->premier = NULL;
     return liste;
 }
 \end{minted}
@@ -119,7 +116,7 @@ bgcolor=LightGray,
 fontsize=\small,%footnotesize,
 % linenos
 ]{c}
-void suppression(Liste *liste){
+void suppressionPremier(Liste *liste){
     if(liste == NULL) exit(EXIT_FAILURE);
     if(liste->premier != NULL){
         Element *aSupprimer = liste->premier;
@@ -166,7 +163,7 @@ int main(){
     insertion(L,8);
     insertion(L,15);
     afficherListe(L);
-    suppression(L);
+    suppressionPremier(L);
     afficherListe(L);
     
     return 0;
