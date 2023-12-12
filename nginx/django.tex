@@ -1,0 +1,2127 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usepackage[cache=false]{minted}
+
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usepackage{algorithm2e}
+\RestyleAlgo{algoruled}
+  \SetKw{KwFrom}{from} 
+\newenvironment{algo}{
+\begin{algorithm}[H]
+\DontPrintSemicolon \SetAlgoVlined}
+{\end{algorithm}}
+
+
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+
+ \title{Guide pour installer Django Web Framework sur Debian 12}
+\author{Ibrahim ALAME}
+\date{14/02/2023}
+\begin{document}
+\maketitle
+
+Django est un framework Web Python gratuit et open source utilisé pour développer des sites Web et des applications dynamiques. Il est utilisé pour le développement d'applications Python complexes et basées sur des bases de données.
+Django suit l'architecture MVC (Model-View-Controller), qui permet aux développeurs d'écrire moins de code et de créer un nouveau site Web en peu de temps. Django peut être installé sur n'importe quel système d'exploitation exécutant Python, notamment Windows, macOS, Linux/Unix et Solaris.
+
+
+Ce guide vous montrera comment installer le framework web Django sur un serveur Debian 12. Vous commencerez avec Django en créant votre premier projet Django en utilisant PostgreSQL comme base de données par défaut, le serveur Gunicorn WSGI et Nginx comme proxy inverse.
+
+
+
+\section{Conditions préalables}  
+
+Pour commencer, assurez-vous d'avoir les éléments suivants :
+\begin{itemize}
+\item Une machine Debian 12.
+\item Un utilisateur non root avec les privilèges d'administrateur sudo.
+\end{itemize}
+\section{Installation des dépendances}
+Dans la première étape, vous installerez les dépendances de packages pour l'installation de votre framework Web Django, cela inclut les packages suivants :
+\begin{itemize}
+\item Serveur PostgreSQL : Par défaut, Django utilise SQLite, et cet exemple vous montrera comment utiliser PostgreSQL comme base de données pour votre projet Django.
+\item Superviseur : C'est un gestionnaire de processus, et vous exécuterez votre application Django avec Gunicorn et Supervisor.
+\item Serveur Web Nginx : cet exemple vous montrera comment utiliser Nginx comme proxy inverse pour votre projet Django. Cela permet à votre projet Django d'être accessible via un nom de domaine local
+\end{itemize}
+Tout d’abord, exécutez la commande apt ci-dessous pour mettre à jour et actualiser l’index de votre package.
+
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt update
+\end{minted}
+
+Installez maintenant les dépendances de packages telles que l'environnement virtuel Python, le gestionnaire de packages pip, le pilote PostgreSQL et libpq5, Nginx et Supervisor.
+
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install build-essential python3-dev python3-pip python3-venv nginx supervisor 
+postgresql libpq5 libpq-dev
+\end{minted}
+
+Tapez y pour confirmer et procéder à l’installation.
+\begin{center}
+\includegraphics[width=15cm]{images/image01.png}
+\end{center}
+Une fois les dépendances installées, exécutez les commandes suivantes pour vérifier les services PostgreSQL, Nginx et Supervisor et assurez-vous que ces services sont en cours d'exécution et activés.
+
+
+Vérifiez le service PostgreSQL à l'aide de la commande ci-dessous.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo systemctl is-enabled postgresql
+sudo systemctl status postgresql
+\end{minted}
+
+Si PostgreSQL est en cours d'exécution et activé, vous devriez obtenir en dessous de la sortie.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image02.png}
+\end{center}
+Vérifiez le service Nginx à l'aide de la commande ci-dessous.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo systemctl is-enabled nginx
+sudo systemctl status nginx
+\end{minted}
+Si Nginx est en cours d'exécution et activé, vous trouverez ci-dessous le résultat que vous devriez obtenir.
+\begin{center}
+\includegraphics[width=15cm]{images/image03.png}
+\end{center}
+Enfin, vérifiez le superviseur à l'aide de la commande ci-dessous.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo systemctl is-enabled supervisor
+sudo systemctl status supervisor
+\end{minted}
+
+Vous devriez voir que le superviseur est en cours d'exécution et activé.
+\begin{center}
+\includegraphics[width=15cm]{images/image04.png}
+\end{center}
+\section{Installer Django via Pip}
+Le framework Web Django peut être installé de différentes manières, notamment manuellement via Git, via le gestionnaire de packages Pip Python, ou combiné avec un environnement isolé avec le module venv et Pip. Dans cet exemple, vous installerez Django via le gestionnaire de packages Pip sur l'environnement Python isolé.
+
+Connectez-vous à votre utilisateur via la commande ci-dessous.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+su - username
+\end{minted}
+Créez maintenant un nouveau répertoire de projet ~/testdjango et accédez-y.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+mkdir -p ~/testdjango; cd ~/testdjango
+\end{minted}
+
+Ensuite, exécutez la commande suivante pour créer un nouvel environnement virtuel Python appelé venv dans le répertoire de votre projet actuel.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 -m venv venv
+\end{minted}
+
+Activez-le ensuite à l’aide de la commande ci-dessous. Une fois l'environnement virtuel activé, votre invite actuelle deviendra comme (venv) bob@hostname: .
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+source venv/bin/activate
+\end{minted}
+
+\begin{center}
+\includegraphics[width=15cm]{images/image05.png}
+\end{center}
+
+Dans l'environnement virtuel venv, exécutez la commande pip ci-dessous pour installer le framework Web Django. Cela installera Django sous votre environnement virtuel Python, et non à l'échelle du système.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+pip install django
+
+or
+
+pip install django==4.2.4
+\end{minted}
+
+Ci-dessous, l'installation de Django est en cours d'exécution.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image06.png}
+\end{center}
+
+Vérifiez votre version de Django une fois l'installation terminée à l'aide de la commande django-admin ci-dessous.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+django-admin --version
+\end{minted}
+
+Le résultat suivant confirme que Django 4.2.4 est installé dans l'environnement virtuel venv via le gestionnaire de packages Pip Python.
+\begin{center}
+\includegraphics[width=15cm]{images/image07.png}
+\end{center}
+\section{Création du premier projet Django}
+Cette section vous apprendra comment créer le premier projet Django et utiliser le serveur PostgreSQL comme base de données par défaut. Pour y parvenir, procédez comme suit :
+\begin{itemize}
+\item Préparation de la base de données et de l'utilisateur.
+\item Création du projet Django via django-admin.
+\item Migration de base de données et génération de fichiers statiques.
+\item Création d'utilisateurs administrateurs et exécution de Django.
+\end{itemize}
+
+\subsection{Préparer la base de données et l'utilisateur}
+Exécutez la commande pip ci-dessous pour installer le package Python psycopg2 dans votre environnement virtuel. Il s'agit du pilote Python qui sera utilisé par Django pour se connecter au serveur de base de données PostgreSQL.
+
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+pip install psycopg2
+exit
+\end{minted}
+
+\begin{center}
+\includegraphics[width=15cm]{images/image08.png}
+\end{center}
+
+Exécutez maintenant la commande suivante pour vous connecter au shell PostgreSQL.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo -u postgres psql
+\end{minted}
+
+Exécutez les requêtes suivantes pour créer une nouvelle base de données et un nouvel utilisateur pour votre projet Django. L'exemple suivant créera une nouvelle base de données Djangodb, l'utilisateur Django et le mot de passe p4ssw0rd.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+CREATE USER django WITH PASSWORD 'p4ssw0rd';
+CREATE DATABASE djangodb OWNER django;
+\end{minted}
+
+\begin{center}
+\includegraphics[width=15cm]{images/image09.png}
+\end{center}
+
+Ensuite, exécutez les requêtes suivantes pour vérifier la base de données de liste et l'utilisateur sur votre serveur PostgreSQL.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+\du
+\l
+\end{minted}
+
+Vous devriez voir la base de données Djangodb et l'utilisateur Django est créé.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image10.png}
+\end{center}
+
+Tapez quit pour quitter le serveur PostgreSQL.
+
+\subsubsection{Création d'un projet Django}
+Avant de créer le projet Django, connectez-vous à votre utilisateur et activez l'environnement virtuel venv.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+su - bob
+cd testdjango; source venv/bin/activate
+\end{minted}
+
+Pour créer un nouveau projet Django, exécutez la commande django-admin ci-dessous. Dans ce cas, vous créerez un nouveau projet testapp sur votre répertoire de travail actuel.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+django-admin startproject testapp 
+\end{minted}
+
+Une fois le projet créé, le nouveau répertoire testapp sera créé sur votre répertoire de travail.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image11.png}
+\end{center}
+
+Ensuite, exécutez la commande suivante pour générer un secret aléatoire pour votre projet Django. Assurez-vous de copier le résultat, car vous l'utiliserez pour sécuriser votre installation Django.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+\end{minted}
+
+\begin{center}
+\includegraphics[width=15cm]{images/image12.png}
+\end{center}
+
+Utilisez maintenant votre éditeur préféré et ouvrez le fichier testapp/settings.py.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+nano testapp/settings.py
+\end{minted}
+
+En haut de la ligne, insérez la configuration suivante.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+import os
+\end{minted}
+
+Insérez votre clé secrète dans le paramètre SECRET\_KEY.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+SECRET_KEY = 'fzahzbm*wrxoleqb0^-3%%tf^y!b6lsc5-c#2^@#s6gkyrl2ef'
+\end{minted}
+
+Saisissez votre adresse IP locale et votre nom de domaine local dans le paramètre ALLOWED\_HOSTS.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+ALLOWED_HOSTS = ['127.0.0.1','192.168.10.15','first-django.dev']
+\end{minted}
+
+Modifiez la configuration de la base de données par défaut avec les détails du serveur PostgreSQL comme ceci :
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangodb',
+        'USER': 'django',
+        'PASSWORD': 'p4ssw0rd',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+\end{minted}
+
+Enfin, ajoutez le paramètre STATIC\_ROOT pour définir un répertoire de stockage des fichiers statiques.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+\end{minted}
+
+Enregistrez le fichier et quittez l'éditeur lorsque vous avez terminé.
+
+\subsubsection{Migration de base de données et génération de fichiers statiques}
+Avant de migrer la base de données, exécutez la commande suivante pour vous assurer que vous disposez d'une configuration de base de données appropriée.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 manage.py check --database default
+\end{minted}
+
+Si aucune erreur, exécutez la commande suivante pour migrer la base de données.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 manage.py makemigrations
+python3 manage.py migrate
+\end{minted}
+
+Si tout se passe bien, vous devriez voir le processus de migration de la base de données comme ceci :
+
+\begin{center}
+\includegraphics[width=15cm]{images/image13.png}
+\end{center}
+
+Enfin, exécutez la commande suivante pour générer des fichiers statiques pour votre projet Django. Une fois la commande exécutée, le nouveau répertoire statique sera créé et des fichiers statiques y seront générés.
+
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 manage.py collectstatic
+\end{minted}
+
+Vous trouverez ci-dessous le résultat lors de la génération de fichiers statiques.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image14.png}
+\end{center}
+
+\subsubsection{Création d'un utilisateur administrateur et exécution de Django}
+Exécutez la commande suivante pour créer l'utilisateur administrateur pour votre projet Django.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 manage.py createsuperuser
+\end{minted}
+
+Saisissez votre adresse e-mail et votre mot de passe lorsque vous y êtes invité.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image15.png}
+\end{center}
+
+Une fois l'utilisateur administrateur créé, exécutez la commande ci-dessous pour exécuter votre projet Django.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+python3 manage.py runserver 0.0.0.0:8080
+\end{minted}
+
+Une fois la commande exécutée, votre projet Django sera exécuté sur votre adresse IP locale sur le port 8080.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image16.png}
+\end{center}
+
+Ouvrez maintenant votre navigateur Web et visitez l'adresse IP du serveur suivie du port 8080, http://192.168.10.15:8080/ . Si votre installation de Django réussit, vous devriez voir la page Django index.html par défaut comme celle-ci :
+
+\begin{center}
+\includegraphics[width=15cm]{images/image17.png}
+\end{center}
+
+Accédez maintenant à votre administration Django via le chemin URL /admin, http://192.168.10.15:8080/admin . Saisissez votre utilisateur et votre mot de passe administrateur Django, puis cliquez sur Se connecter .
+
+\begin{center}
+\includegraphics[width=15cm]{images/image18.png}
+\end{center}
+
+Vous devriez voir un exemple de tableau de bord utilisateur Django comme celui-ci :
+
+\begin{center}
+\includegraphics[width=15cm]{images/image19.png}
+\end{center}
+
+Appuyez sur Ctrl+c pour terminer le processus.
+
+\section{Exécuter Django avec Gunicorn et Supervisor}
+À ce stade, vous avez terminé l'installation de Django et créé votre premier projet Django. Dans l'étape suivante, vous configurerez Django pour qu'il s'exécute en arrière-plan en utilisant le serveur Gunicorn WSGI et le gestionnaire de processus Supervisor.
+\subsection{Installation de Gunicorn}
+Dans l'environnement virtuel venv, exécutez la commande pip ci-dessous pour installer gunicorn.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+pip install gunicorn
+\end{minted}
+
+\begin{center}
+\includegraphics[width=15cm]{images/image20.png}
+\end{center}
+
+Exécutez maintenant la commande suivante pour désactiver l'environnement virtuel venv et revenir à votre utilisateur root.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+deactivate
+exit
+\end{minted}
+\subsection{Exécuter Django avec Gunicorn et Supervisor}
+Créez une nouvelle configuration de superviseur /etc/supervisor/conf.d/testapp.conf à l'aide de la commande suivante de l'éditeur nano.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo nano /etc/supervisor/conf.d/testapp.conf
+\end{minted}
+
+Insérez la configuration suivante et assurez-vous de modifier les informations détaillées du nom de l'application, du chemin du projet et de l'utilisateur avec vos informations. Dans cet exemple, vous exécuterez votre projet Django sous le socket UNIX /home/bob/testdjango/testapp.sock .
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+[program:testapp] 
+command=/bin/bash -c 'source /home/bob/testdjango/venv/bin/activate; gunicorn -t 3000 --workers 3 --bind unix:unix:/home/bob/testdjango/testapp.sock testapp.wsgi:application -w 2'
+directory=/home/bob/testdjango
+user=bob
+group=www-data
+autostart=true 
+autorestart=true 
+stdout_logfile=/home/bob/testdjango/testapp.log 
+stderr_logfile=/home/bob/testdjango/error.log
+\end{minted}
+
+Enregistrez et quittez le fichier lorsque vous avez terminé.
+
+
+Enfin, exécutez la commande suivante pour redémarrer le service superviseur et appliquer les modifications. Ensuite, vérifiez le service du superviseur pour vous assurer que le service est en cours d'exécution.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo systemctl restart supervisor
+sudo systemctl status supervisor
+\end{minted}
+
+\begin{center}
+\includegraphics[width=15cm]{images/image21.png}
+\end{center}
+
+\subsection{Vérification de Django via Supervisorctl}
+Exécutez la commande superviseurctl ci-dessous pour vérifier l'état de l'application en cours d'exécution dans le superviseur.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo supervisorctl status
+\end{minted}
+
+Vous devriez voir que l' application testapp s'exécute sur le PID 2577 .
+
+\begin{center}
+\includegraphics[width=15cm]{images/image22.png}
+\end{center}
+
+Enfin, vérifiez votre application Django via la commande curl ci-dessous.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+curl --unix-socket /home/bob/testdjango/testapp.sock 127.0.0.1
+\end{minted}
+
+Si tout se passe bien, vous devriez voir le code source de la page index.html de votre projet Django.
+
+\begin{center}
+\includegraphics[width=15cm]{images/image23.png}
+\end{center}
+
+\section{Configurer Nginx comme proxy inverse pour Django}
+Maintenant que votre projet Django s'exécute en arrière-plan, l'étape suivante consiste à configurer Nginx comme proxy inverse pour Django. L'exemple suivant utilisera un nom de domaine local.
+
+Créez une nouvelle configuration de bloc de serveur Nginx /etc/nginx/sites-available/django à l'aide de l'éditeur nano suivant.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo nano /etc/nginx/sites-available/django
+\end{minted}
+
+Insérez la configuration suivante et assurez-vous de modifier le nom de domaine dans le paramètre server\_name .
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+server {
+    listen 80;
+    server_name first-django.dev;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    try_files $uri @django;
+    location /static {
+        alias /home/bob/testdjango/static/;
+    }
+
+    location @django {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://unix:/home/bob/testdjango/testapp.sock;
+    }
+}
+\end{minted}
+
+Enregistrez et quittez le fichier lorsque vous avez terminé.
+
+Exécutez maintenant la commande suivante pour activer le bloc serveur /etc/nginx/sites-available/django , puis vérifiez la syntaxe Nginx pour vous assurer que vous disposez de la syntaxe appropriée.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+$ sudo ln -s /etc/nginx/sites-available/django /etc/nginx/sites-enabled/
+sudo nginx -t
+\end{minted}
+
+Vous devriez obtenir que la syntaxe de sortie est correcte - le test est réussi lorsque vous disposez de la syntaxe Nginx appropriée.
+
+Enfin, redémarrez votre service Nginx en exécutant la commande suivante et en appliquant les modifications que vous avez apportées.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo systemctl restart nginx
+\end{minted}
+
+Avec cela, votre projet Django est accessible via un nom de domaine local.
+Sur votre ordinateur local, modifiez le fichier /etc/hosts pour Linux ou C:\\Windows\\System32\\drivers\\etc\\hosts pour Windows. Ensuite, définissez l'adresse IP et le nom de domaine de votre serveur comme suit.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+192.168.10.15  first-django.dev
+\end{minted}
+
+Enregistrez et quittez le fichier lorsque vous avez terminé.
+Revenez à votre navigateur Web et visitez votre nom de domaine local, vous devriez voir la page index.html par défaut de votre projet Django.
+\section{Conclusion}
+En résumé, en suivant ce guide étape par étape, vous avez installé le framework web Django avec PostgreSQL, Nginx, Gunicorn et Supervisor sur Debian 12. Vous avez appris à créer un projet Django avec PostgreSQL comme base de données par défaut. et exécutez Django avec Gunicorn et Supervisor. Vous pouvez désormais créer et développer votre application avec Django.
+
+
+
+\end{document}
+
+
+
+
+
+\subsection{Achat du nom de domaine}
+\begin{enumerate}
+    \item  Allez dans Web Cloud.
+
+    \item  Noms de domaine.
+
+    \item  Ne prenez pas d'hébergement car nous allons utiliser le VPS que nous venons de prendre.
+\end{enumerate}
+Normalement vous n'aurez besoin de prendre aucune option.
+
+\subsection{Connexion en SSH au serveur VPS}
+Nous allons maintenant nous connecter à notre serveur en ssh afin notamment de pouvoir pull facilement notre projet depuis Gihub ou Gitlab.
+
+\subsubsection{Qu'est-ce que SSH ?}
+Secure SHell (SSH) est un protocole de communication sécurisé permettant d'ouvrir un shell sur une machine distante.
+
+Par défaut, SSH utilise le port 22.
+
+Avec SSH il est possible de se connecter avec utilisateur / mot de passe ou avec une clé privée (il faut au préalable avoir enregistré la clé publique correspondante sur la machine pour qu'elle accepte la connexion).
+
+Un client ssh est normalement installé sur votre machine, par exemple sur Linux c'est souvent OpenSSH.
+
+Vous pouvez regarder si vous avez un client en faisant ssh -V.
+
+Si vous n'en avez pas, téléchargez par exemple putty.
+
+\subsubsection{Connexion au serveur}
+Pour vous connecter il suffit de faire
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+ssh UTILISATEUR@IP_DU_SERVEUR
+\end{minted}
+
+Remplacez par l'utilisateur (souvent root ou ubuntu) et l'ip de votre serveur VPS.
+
+Il vous sera demandé le mot de passe qui vous a été envoyé par email par OVH.
+
+Vous êtes maintenant connecté sur le serveur !
+
+\subsection{Installer l'extension VS Code Remote - SSH}
+L'extension VS Code Remote SSH permet de se connecter sur un hôte distant en SSH et de pouvoir développer avec VS Code directement sur cet hôte distant !
+\begin{center}
+\includegraphics[width=15cm]{images/image9.png}
+\end{center}
+
+Une fois que vous aurez installé l'extension, vous aurez une nouvelle icône en bas à gauche :
+\begin{center}
+\includegraphics[width=5cm]{images/image10.png}
+\end{center}
+
+Si vous cliquez sur ce bouton vous aurez le menu de l'extension qui s'ouvrira :
+\begin{center}
+\includegraphics[width=15cm]{images/image11.png}
+\end{center}
+
+\subsection{Se connecter à un hôte distant}
+Après avoir sélectionné Remote-SSH: Connect to Host…, entrez l'hôte sur lequel vous souhaitez vous connecter en SSH :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+utilisateur@hôte
+\end{minted}
+
+Une fois connecté au serveur en SSH, le nom de celui-ci apparaîtra en bas à gauche.
+
+Vous pouvez ensuite ouvrir n'importe quel dossier sur le serveur distant en allant dans File > Open…, exactement comme en local !
+
+Si vous ouvrez un nouveau terminal (Terminal > New Terminal), celui-ci sera connecté au shell de votre hôte distant automatiquement en SSH !
+
+Pour vous déconnecter de l'hôte il suffit de faire File > Close Remote Connection.
+
+\section{Configuration de la zone DNS}
+\subsection{Configuration DNS}
+Nous avons maintenant un serveur virtuel privé qui possède une IPv4 et une IPv6. Notre objectif va tout simplement de configurer les serveurs DNS de OVH pour faire pointer notre nom de domaine vers l'IP de notre serveur. Vous pouvez donc aller dans Web Cloud puis cliquez sur votre serveur.
+\begin{itemize}
+\item Ensuite, copiez l'IPv4 ou l'IPv6 de votre serveur. 
+\item Allez ensuite dans Web Cloud puis cliquez sur votre domaine dans la colonne de gauche.
+\item Cliquez une nouvelle fois sur le nom de votre domaine.
+\item Allez ensuite dans ZONE DNS.
+\item Si vous avez copiez l'IPv4 cherchez les deux entrées de Type A et copiez l'IP.
+\item Si vous avez copiez l'IPv6 cliquez sur ajouter une entrée puis choisissez Type AAAA et copiez l'IP.
+\item Ensuite confirmez le changement d'IP.
+\end{itemize}
+\subsection{Les entrées A et AAAA dans la zone DNS}
+Les entrées DNS de type A permettent de relier un nom de domaine ou un sous-domaine à l'adresse IPv4 d'un serveur.
+
+Les entrées DNS de type AAAA permettent de relier un nom de domaine ou un sous-domaine à l'adresse IPv6 d'un serveur.
+
+\section{Installation de MySQL sur le serveur et accès root en ssh}
+\subsection{Mise à jour du serveur}
+Une fois connecté en ssh sur le serveur VPS, mettez le à jour en tapant les commandes suivantes :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get autoremove
+sudo reboot
+\end{minted}
+
+Nous vérifions les paquets à mettre à jour, puis nous les mettons tous à jour, nous enlevons les paquets obsolètes et enfin nous redémarrons.
+
+Reconnectez-vous en ssh après le redémarrage du serveur au bout d'une minute.
+
+\subsection{Installation de MySQL}
+Ouvrez un nouveau terminal sur votre distribution famille Debian (Ubuntu, Mint etc). Entrez :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install mysql-server
+\end{minted}
+
+\subsection{Configuration du serveur MySQL}
+Lancez la commande de configuration :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo mysql_secure_installation
+\end{minted}
+Si vous avez l'erreur Failed! Error: SET PASSWORD has no significance for user 'root'@'localhost'..., définissez un mot de passe pour l'utilisateur root en faisant d'abord sudo mysql puis faites ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql\_native\_password by 'UN\_MOT\_DE\_PASSE\_SECURISE';.
+
+Tapez Y puis entrée à la première question et 1 à la seconde.
+
+Choisissez un mot de passe pour l'utilisateur root (administrateur de la base de données).
+
+Tapez Y puis entrée à toutes les questions. Cela supprimera les utilisateurs anonymes et la base de données de test et cela désactivera les connexions root à distance.
+
+Vérifiez la connexion en faisant :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+mysql -u utilisateur -p motdepasse
+\end{minted}
+
+\subsection{Création d'un utilisateur sur MySQL}
+Sur le VPS, connectez-vous au serveur MySQL en entrant :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo mysql
+\end{minted}
+
+Créez un utilisateur :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{sql}
+CREATE USER 'utilisateur'@'%' IDENTIFIED BY 'motdepasse';
+\end{minted}
+
+Remplacez bien sûr utilisateur et motdepasse.
+
+Accordez-lui tous les droits :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{sql}
+GRANT ALL PRIVILEGES ON *.* TO 'utilisateur'@'%' WITH GRANT OPTION;
+\end{minted}
+
+Quittez en tapant exit puis entrée.
+
+Vérifiez la connexion avec le nouvel utilisateur en faisant :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{sql}
+mysql -u utilisateur -p motdepasse
+\end{minted}
+
+\subsection{Connexion root en ssh au VPS}
+Par défaut sur OVH on ne peut pas se connecter en root en ssh. Il faut l'autoriser manuellement.
+
+Pour ce faire, connectez-vous en ssh avec l'utilisateur ubuntu.
+
+Editez avec par exemple nano le fichier de configuration ssh du serveur :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{sql}
+sudo nano /etc/ssh/sshd_config
+\end{minted}
+
+Trouvez la ligne \#PermitRootLogin et remplacez simplement par :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{sql}
+PermitRootLogin yes
+\end{minted}
+
+Sauvegardez (Ctrl + s) et quittez (Ctrl + x).
+
+Redémarrez le service ssh :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo service ssh restart
+\end{minted}
+
+Configurez le mot de passe root (choisissez un mot de passe très sécurisé) :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo passwd root
+\end{minted}
+
+Vous pouvez maintenant vous connecter en root en ssh.
+
+\subsection{Modifiez la configuration de MySQL}
+Sur le serveur VPS avec une connexion root, modifiez le fichier /etc/mysql/mysql.conf.d/mysqld.cnf :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+\end{minted}
+
+Mettez la configuration suivante qui permet d'écouter sur toutes les interfaces IPv4 :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+bind-address            = 0.0.0.0
+mysqlx-bind-address     = 0.0.0.0
+\end{minted}
+
+Redémarrez MySQL :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+service mysql restart
+\end{minted}
+
+\subsection{Connexion Workbench}
+Créez une nouvelle connexion dans Workbench.
+
+Dans connection name mettez par exemple production.
+
+Dans Hostname mettez l'adresse IPv4 de votre serveur.
+
+Dans username mettez le nom de votre utilisateur.
+
+Cliquez sur store in key chain et entrez votre mot de passe.
+
+Cliquez sur Test Connection. Si vous avez Successfully… cliquez sur Ok.
+
+Cliquez enfin sur la connexion.
+
+\section{Installation de PHP, Composer et Symfony}
+\subsection{Installation de PHP-FPM}
+Ajoutez d'abord le répertoire ppa :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+\end{minted}
+
+Installez ensuite PHP-FPM :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install php8.2-fpm
+\end{minted}
+
+Vérifiez l'installation :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo service php8.2-fpm status
+\end{minted}
+
+\subsection{IInstallation de Composer}
+Pour installer Composer, rendez-vous sur cette page et copiez les lignes :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+\end{minted}
+
+Déplacez le fichier de Composer dans le dossier des exécutables :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo mv composer.phar /usr/bin/composer
+\end{minted}
+
+\subsection{Installation du CLI Symfony}
+Un CLI permet d'interagir avec un programme en ligne de commande.
+
+Cela permet ici d'interagir avec Symfony en utilisant un terminal.
+
+Tapez simplement dans un terminal :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+wget https://get.symfony.com/cli/installer -O - | bash
+\end{minted}
+
+Nous vous recommandons de l'installer en global sur le système en faisant ensuite la commande proposée en dernier (Or install it globally on your system) :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo mv /home/AMODIFIER/.symfony/bin/symfony /usr/local/bin/symfony
+\end{minted}
+
+Utilisez la commande proposée et pas celle-ci car le chemin sera différent sur votre système.
+
+Relancez un nouveau terminal.
+
+\subsection{Installation des dépendances de Symfony}
+Dans un nouveau terminal tapez :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+symfony check:requirements
+\end{minted}
+
+Vous pourriez avoir des erreurs pour des dépendances obligatoires manquantes, par exemple :
+\begin{center}
+\includegraphics[width=15cm]{images/image12.png}
+\end{center}
+
+Dans ce cas installez les dépendances requises, ici par exemple :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt-get install php-xml php-intl php-mysql
+\end{minted}
+
+Installez également en plus mbstring :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install php-mbstring
+\end{minted}
+
+Refaites :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+symfony check:requirements
+\end{minted}
+
+Il faut que vous ayez :
+
+\begin{center}
+\includegraphics[width=15cm]{images/image13.png}
+\end{center}
+
+\section{Préparation du projet et Github}
+\subsection{Création d'un compte Github ou Gitlab et configuration Git}
+Créez-vous un compte Github ou Gitlab et créez un répertoire public ou privé.
+
+Sur Github : bouton vert New dans la colonne Repositories.
+
+Sur Gitlab : Projects puis New Project.
+
+\subsubsection{Utilisation d'une clé ssh sur Github}
+Commencez par générer une paire de clés sur votre machine en local :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+$ ssh-keygen -t ed25519 -C "votre-adresse-email@example.com"
+\end{minted}
+
+Pressez entrée à toutes les questions.
+
+Affichez et copiez la clé publique générée :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+$ cat /.ssh/id_ed25519.pub
+\end{minted}
+
+Allez sur Github et connectez-vous.
+
+Cliquez en haut à droite sur votre avatar, puis cliquez sur settings puis SSH and GPG keys.
+
+Cliquez ensuite sur Add Ssh key.
+
+Collez la clé publique que nous avons affichée avec la commande ci-dessous.
+
+\subsubsection{Initialiser Git dans votre projet}
+Allez sur Github et créez un répertoire.
+
+Sélectionnez SSH en dessous de Quick Setup.
+
+Vous aurez alors toutes les commandes à taper dans un terminal au niveau de la racine de votre projet. Par exemple :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+cd VOTRE_PROJET
+git init
+git remote add origin REPERTOIRE_DISTANT
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+\end{minted}
+
+Attention de bien supprimer le mot de passe de votre base de données locale si vous utilisez un "vrai" mot de passe et non de test.
+
+git init : va initialiser un répertoire git. Ce qui vous permettra de push et de pull sur un répertoire distant.
+
+git remote add : permet de définir le répertoire distant (qui est sur Gitlab ou sur Github).
+
+git add . : permet d'ajouter tous les fichiers du répertoire sauf ceux dans .gitignore.
+
+git commit -m "Premier commit" : permet de créer un commit et de mettre le message "Premier commit".
+
+git push -u origin master : permet de push la branche locale master sur le répertoire distant, origin. L'option u permet de définir le répertoire central, vous pourrez ensuite git push et git pull sans argument.
+
+\subsection{Récupération du répertoire sur le serveur}
+Sur le VPS, en vous connectant en ssh sur l'utilisateur ubuntu, récupérez le répertoire depuis Github ou Gitlab :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+cd /home/ubuntu
+git clone https://github.com/dymafr/symfony-chapitre21-mise-en-production
+\end{minted}
+
+Bien sûr utilisez le lien de votre répertoire.
+
+\subsection{Création des variables d'environnement sur le serveur}
+Sur le serveur, en utilisant l'extension Remote Host de VS Code, naviguez dans votre projet dans /home/ubuntu et créez un fichier .env.local :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+APP_ENV=prod
+DATABASE_URL="mysql://VOTRE_UTILISATEUR:VOTRE_MOT_DE_PASSE@127.0.0.1:3306/quora?serverVersion=8.0.26"
+APP_SECRET=UN_SECRET
+\end{minted}
+
+Remplacez l'utilisateur et le mot de passe.
+
+Remplacez UN\_SECRET par une chaîne de caractères aléatoires. Voici comment en générer une de manière sécurisée :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+php -r 'echo(bin2hex(random_bytes(20)));'
+\end{minted}
+
+\subsection{Installation des dépendances Symfony}
+Toujours sur votre serveur, toujours en connexion ssh et toujours dans le dossier /home/ubuntu/VOTRE\_PROJET, commencez par installer php-zip :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+apt install php-zip unzip
+\end{minted}
+
+Retournez sur l'utilisateur ubuntu :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+su ubuntu
+\end{minted}
+
+Puis installez les dépendances Symfony de production :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+symfony composer install --no-dev --optimize-autoloader
+\end{minted}
+
+Lancez la commande :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+composer dump-env prod
+\end{minted}
+
+Cela va générer le fichier des variables d'environnement pour la production en PHP ce qui est plus rapide en lecture.
+
+\section{Installation de Node.js, Yarn et NGINX}
+\subsection{Installation deNode.js}
+\subsubsection{Installer nvm:}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+\end{minted}
+
+Collez les commandes suivantes :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+\end{minted}
+
+Installer Node.js LTS:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+nvm install --lts
+\end{minted}
+
+\subsection{Installation de yarn}
+Installer en global yarn:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+npm i -g yarn
+\end{minted}
+
+Installer ensuite les dépendances du projet :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+yarn
+\end{minted}
+
+Lancez un builddes assets:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+yarn build
+\end{minted}
+
+\subsection{Installation de NGINX}
+Nous allons commencer par installer NGINX:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install nginx
+\end{minted}
+
+
+\section{Configuration de NGINX}
+\subsection{Création de la configuration NGINX}
+Dans le répertoire du projet, sur votre machine locale, créez un dossier nginx.
+
+Dans le dossier nginx créez le fichier de configuration wonder.conf.
+
+Installez l'extension NGINX Configuration sur VS Code.
+
+Configuration du serveur NGINX
+Nous configurons le serveur :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+server {
+  listen 80;
+  listen [::]:80;
+
+  # Remplacez dymawonder.fr par votre nom de domaine :
+  server_name dymawonder.fr www.dymawonder.fr;
+  # Remplacez symfony-chapitre21-mise-en-production par le nom du répertoire de votre projet :
+  root /home/ubuntu/symfony-chapitre21-mise-en-production/public;
+
+  location / {
+      try_files $uri /index.php$is_args$args;
+  }
+
+  location ~ ^/index.php(/|$) {
+      fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+      fastcgi_split_path_info ^(.+.php)(/.*)$;
+      include fastcgi_params;
+
+      fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+      fastcgi_param DOCUMENT_ROOT $realpath_root;
+      internal;
+  }
+
+  location ~ .php$ {
+      return 404;
+  }
+
+  error_log /var/log/nginx/project_error.log;
+  access_log /var/log/nginx/project_access.log;
+}
+\end{minted}
+
+Effectuez les modifications indiquées en commentaire.
+
+Ajoutez le fichier au suivi de Git :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+git add nginx
+git commit -m "nginx conf"
+git push origin master
+\end{minted}
+
+\subsection{Utiliser notre configuration NGINX}
+Sur le VPS, depuis l'extension Remote host de VS Code, modifiez le fichier /etc/nginx/nginx.conf :
+
+Modifiez les lignes suivantes à la fin du bloc http :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+include /etc/nginx/conf.d/*.conf;
+include /home/ubuntu/VOTRE_PROJET/nginx/*;
+\end{minted}
+
+Remplacez VOTRE\_PROJET par le nom de votre répertoire pour le projet sur le serveur.
+
+\subsection{Pull de la configuration sur le serveur}
+Sur le VPS, dans le dossier du projet, récupérez les changements :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+git pull
+\end{minted}
+
+Redémarrez nginx :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo service nginx reload
+\end{minted}
+
+\subsection{Permissions pour NGINX}
+Commencez par installer acl (Access Control List) :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt install acl
+\end{minted}
+
+Trouvez ensuite l'utilisateur qui exécute nginx :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+ps -aef |grep nginx
+\end{minted}
+
+Si vous voulez en apprendre plus sur toutes les commandes Unix suivez le cours GNU/Linux.
+
+Vous verrez normalement l'utilisateur www-data pour le worker process.
+
+Nous devons donner les permissions à cet utilisateur d'écrire notamment dans var/log et var/cache. Ces dossiers sont nécessaires pour le cache de symfony.
+
+Donnez les permissions sur le dossier /home/ubuntu :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo setfacl -R -m u:"www-data":rwX /home/ubuntu
+sudo setfacl -dR -m u:"www-data":rwX /home/ubuntu
+\end{minted}
+
+\subsection{Création de la base de données}
+Toujours sur le serveur, créez la base de données de production :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+symfony console doctrine:database:create
+\end{minted}
+
+Faites une migration :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+symfony console doctrine:migration:migrate
+\end{minted}
+
+\section{Mise en place du protocole HTTPS}
+\subsection{Qu'est-ce que letsencrypt ?}
+Let's Encrypt est une autorité de certification en 2015. Elle fournit gratuitement des certificats X509 pour pouvoir utiliser le protocole TLS. Les principaux sponsors de cette initiative sont Cisco, Mozilla, EFF, OVH, Google, l'Internet Society et Facebook. Ils permettent à 150 millions de sites web de pouvoir servir gratuitement leur application en HTTPS. Ils ont développé un protocole ACME permettant de gérer les certificats de manière totalement automatisée (attribution, révocation et mise à jour) qui est standardisé par l'IETF depuis début 2019.
+
+\subsubsection{Validation d'un domaine par letsencrypt}
+Pour valider un domaine, il faut créer une paire de clés et prouver la possession du domaine.
+\begin{description}
+\item[Etape 1 :] le serveur envoie une demande de certificat pour quelques domaines à letsencrypt et envoie la clé publique d'une paire de clés.
+
+\item[Etape 2 :] letsecrypt demande au serveur un challenge permettant de prouver qu'il possède bien ces domaines. Par exemple, il va fournir un token et demander au serveur de le servir à une URL donnée. Il va également demander de signer ce fichier avec sa clé privée pour prouver qu'il a la clé privée correspondant à la clé publique envoyée à l'étape 1.
+
+\item[Etape 3 :] letsecrypt vérifie que le token est bien placé sur le serveur. Il vérifie ensuite la signature avec la clé publique envoyée à l'étape 1.
+
+\item[Etape 4 :] letsecrypt valide la paire de clés qui devient une paire de clés autorisés (authorized key pair) pour les domaines vérifiés.
+
+\end{description}
+\subsubsection{Obtention d'un certificat}
+Une fois une paire de clés obtenus pour un ou plusieurs domaines, il est possible de les utiliser pour gérer les certificats.
+
+Avec une paire de clés autorisés vous pouvez demander un certificat, le renouveler ou le révoquer.
+\begin{description}
+\item[Etape 1 - ] le serveur génère une nouvelle paire de clés.
+
+\item[Etape 2 - ] le serveur construit une CSR pour un ou plusieurs domaines qui sont inclus dans les domaines validés pour la paire de clés autorisée. Il inclut la nouvelle clé publique dans la CSR (c'est la clé publique qui sera incluse dans le certificat).
+
+\item[Etape 3 - ] le serveur signe la CSR avec la nouvelle clé privée correspondant à la clé publique. Il signe ensuite la CSR + la signature avec la clé privée de la paire de clés autorisée. (Il y a bien deux signatures du serveur avec deux clés privées différentes).
+
+\item[Etape 4 - ] letscencrypt va vérifier la première signature avec la clé publique autorisée, et la seconde signature avec la clé publique dans la CSR.
+
+\item[Etape 5 - ] letscencrypt retourne un certificat pour le ou les domaines demandés.
+\end{description}
+\subsubsection{Les différents challenges possibles}
+HTTP-01 challenge : c'est le challenge que nous avons pris en exemple. Un token est placé sur votre serveur et servi à l'adresse http://<YOUR\_DOMAIN>/.well-known/acme-challenge/<TOKEN>. Ce fichier est signé par une clé privée générée par le serveur, comme nous l'avons étudié. Ce challenge utilise forcément le port 80 pour la vérification du token signé.
+
+DNS-01 challenge : pour ce challenge il faut modifier la zone DNS et ajouter un token dans une entrée TXT. L'avantage de ce challenge est qu'il permet l'obtention d'un certificat wildcard. C'est-à-dire pour tous les domaines *.votre\_domaine.fr. Mais pour l'utiliser il faut pouvoir accéder à l'API de votre hébergeur afin de mettre à jour l'entrée TXT à chaque renouvellement du certificat. Cette méthode est plus complexe à mettre en œuvre.
+
+Que diriez-vous si toutes les étapes vues précédemment étaient complètement automatisées ?
+
+Génial, non ?
+
+Grâce à letscencrypt et à son agent certbot c'est possible !
+
+\subsection{Qu'est-ce que certbot ?}
+Certbot est le client officiel de Let's Encrypt permettant d'utiliser le protocole ACME de manière automatisée.
+
+Il permet ainsi de gérer ses certificats de manière vraiment rapide et efficace.
+
+\subsubsection{Installation de certbot}
+Connectez-vous en ssh à votre serveur.
+
+Puis lancez l'installation de certbot :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo apt-get install certbot
+\end{minted}
+
+\subsubsection{Création d'un certificat avec certbot}
+Pour créer un certificat avec certbot, il suffit de faire :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+sudo certbot certonly -d DOMAINE1 -d DOMAINE2 -d DOMAINE3
+\end{minted}
+
+N'oubliez pas de couper NGINX avant :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+service nginx stop
+\end{minted}
+
+Il faut que le domaine passé match exactement l'URL racine de votre site.
+
+Par exemple si l'utilisateur tape www.votresite.fr ou votresite.fr il faudra ajouter les deux domaines à la demande de certificat.
+
+Ensuite sélectionnez l'option 1 : standalone. Il faut que votre application soit coupée car le port 80 doit être disponible pour le mini-serveur que va lancer certbot.
+
+Ensuite, vous allez devoir créer un compte auprès de letsencrypt, vous devrez fournir l'email de l'administrateur du domaine (le vôtre probablement), vous devez ensuite accepter les conditions d'utilisation avec A et enfin indiquer si vous voulez partager votre email à une ONG pour la liberté de l'Internet (qui défend la neutralité du net entre autre).
+
+\subsection{Utilisation du certificat}
+certbot vous a automatiquement généré une clé privée et obtenu un certificat valide auprès de letsencrypt.
+
+Les certificats se trouvent dans :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+/etc/letsencrypt/live/NOM_DOMAINE
+\end{minted}
+
+Vous avez besoin que de deux fichiers : fullchain.pem et privkey.pem.
+
+Nous allons modifier le fichier /nginx/wonder.conf pour utiliser le certificat et pouvoir mettre en place HTTPS :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+    # Remplacez dymawonder.fr par votre domaine :
+  return 301 https://dymawonder.fr$request_uri;
+}
+
+server {
+  listen 443 ssl default_server http2;
+  listen [::]:443 ssl default_server http2;
+
+    # Remplacez dymawonder.fr par votre domaine :
+  ssl_certificate /etc/letsencrypt/live/dymawonder.fr/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/dymawonder.fr/privkey.pem;
+
+
+    # Remplacez dymawonder.fr par votre nom de domaine :
+    server_name dymawonder.fr www.dymawonder.fr;
+    # Remplacez symfony-chapitre21-mise-en-production par le nom du répertoire de votre projet :
+    root /home/ubuntu/symfony-chapitre21-mise-en-production/public;
+
+    location / {
+        try_files $uri /index.php$is_args$args;
+    }
+
+    location ~ ^/index.php(/|$) {
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+        fastcgi_split_path_info ^(.+.php)(/.*)$;
+        include fastcgi_params;
+
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        internal;
+    }
+
+    location ~ .php$ {
+        return 404;
+    }
+
+    error_log /var/log/nginx/project_error.log;
+    access_log /var/log/nginx/project_access.log;
+}
+
+\end{minted}
+Veillez à bien modifier les valeurs passées aux directives return, ssl\_certificate, ssl\_certificate\_key, root et server\_name en fonction du nom de votre répertoire distant et du nom de votre domaine.
+
+Enregistrez les modifications dans Git :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+git add .
+git commit -m "nginx https"
+git push origin master
+\end{minted}
+
+Sur le VPS, dans le dossier de votre projet, vous n'avez plus qu'à git pull :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+git pull
+\end{minted}
+
+Relancez ensuite NGINX :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+service nginx start
+\end{minted}
+
+\subsection{Qu'est-ce qu'une tâche cron ?}
+cron est un programme disponible sur les systèmes Unix (comme Linux ou MacOS) et qui permet d'exécuter automatiquement des scripts à une date et une heure spécifiques.
+
+cron est le diminutif de crontab qui veut dire chrono table. Il vient du grec ancien chronos qui signifie le temps.
+
+\subsection{Créer une tâche cron}
+Pour créer une tâche il suffit d'ouvrir la crontab qui est la liste de toutes les tâches cron et de l'éditer.
+
+Pour ce faire il suffit de taper :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+crontab -e
+\end{minted}
+
+Vous devrez ensuite choisir un éditeur de texte. Choisissez par exemple nano qui est très bien pour ce que vous devrez faire.
+
+La syntaxe est la suivante :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+mm hh jj MMM JJJ tâche
+\end{minted}
+\begin{description}
+\item[mm : ] sont les minutes (0 à 59).
+\item[hh : ] sont les heures (0 à 23).
+\item[jj : ] sont les jours (1 à 31).
+\item[MMM : ] sont les mois (1 à 12).
+\item[JJJ : ] est le numéro du jour dans la semaine, avec 0 = dimanche (0 à 6). Il existe également des syntaxes particulières :
+\item[* : ] signifie tous les. Par exemple :
+\end{description}
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+* * * * * tâche
+\end{minted}
+
+Permet d'exécuter la tâche toutes les minutes.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+0 0 * * * tâche
+\end{minted}
+
+Permet d'exécuter une tâche tous les jours à 00h00.
+
+\subsection{Lister les tâches cron}
+Chaque tâche cron doit être écrite sur une ligne.
+
+Vous pouvez faire autant de tâches que vous voulez.
+
+Pour lister les tâches définies :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+crontab -l
+\end{minted}
+
+\subsection{Créer un cron pour le renouvellement automatique du certificat}
+Il est possible de renouveler automatiquement le certificat, qui n'est valide que 90 jours, avec une tâche cron :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+crontab -e
+\end{minted}
+
+Créez une ligne :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+0 0 * * * certbot --webroot -w /home/ubuntu/VOTRE_PROJET/public renew --deploy-hook "service nginx reload"
+\end{minted}
+
+Remplacez bien sûr VOTRE\_PROJET par le nom du répertoire que vous avez choisi.
+
+Cette tâche va essayer tous les jours à minuit de lancer certbot pour renouveler le certificat.
+
+--webroot -w : permet de spécifier le chemin où placer le fichier pour le challenge. Pour rappel, certbot a besoin du port 80 pour le challenge HTTP. Il y a donc deux solutions : soit vous coupez votre serveur, vous faites le challenge puis vous le relancez, soit vous indiquez un chemin où votre serveur pourra servir le token signé. Ici, nous utilisons la deuxième solution qui est plus propre.
+
+certbot décidera ensuite si le certificat est due for renewal (c'est-à-dire qu'il reste suffisamment peu de jours), et si c'est le cas, il effectuera la requête ACME pour renouveler le certificat et vous en aurez un nouveau !
+
+--deploy-hook : est une hook, c'est-à-dire un déclencheur, qui lancera la commande uniquement lorsque le certificat sera renouvelé avec succès. Dans le cas contraire, la commande n'est pas lancée.
+
+\subsection{Ajouter la fonction Twig asset()}
+Dans le projet, en local, recherchez src="{{ dans VS Code.
+
+Partout où il n'y a pas la fonction asset() ajoutez la.
+
+Ensuite ajoutez les modifications dans Git :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+git add .
+git commit -m "fix asset images"
+git push origin master
+\end{minted}
+
+Sur le VPS, dans le dossier de votre projet, vous n'avez plus qu'à git pull :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+git pull
+\end{minted}
+
+
+\end{document}
+
+
+
+

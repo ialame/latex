@@ -1,0 +1,351 @@
+\documentclass{article}[11pt]
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{TECE Projet 6: Calcul matriciel}
+\author{ \textsc{Ibrahim ALAME}}
+\date{09/11/2023}
+\begin{document}
+\maketitle
+\begin{enumerate}
+%\subsection*{1}
+{\color{blue}
+\item Soit ${\cal N}$ l'algèbre des matrices triangulaires supérieurs strictes de $\mathcal{M}_3(\mathbb{R})$.
+\[N\in \mathcal{N} \Longleftrightarrow N=\left(\begin{array}{ccc} 0&a&b\\ 0&0&c\\0&0&0
+\end{array}\right)\]
+On associe à $\mathcal{N}$ l'ensemble  $\mathcal{U}$  des matrices $U=I+N$, où $I$ est la matrice identité de $\mathcal{M}_3(\mathbb{R})$.
+}
+\begin{enumerate}
+{\color{blue}
+\item  Montrer que le produit de trois matrices quelconques de $\mathcal{N}$ est nul. En particulier $N^3=0$ si $N\in\mathcal{N}$.
+}
+\[\left(\begin{array}{ccc} 0&a&b\\ 0&0&c\\0&0&0
+\end{array}\right)\left(\begin{array}{ccc} 0&a'&b'\\ 0&0&c'\\0&0&0
+\end{array}\right) \left(\begin{array}{ccc} 0&a''&b''\\ 0&0&c''\\0&0&0
+\end{array}\right)=\left(\begin{array}{ccc} 0&0&ac'\\ 0&0&0\\0&0&0
+\end{array}\right) \left(\begin{array}{ccc} 0&a''&b''\\ 0&0&c''\\0&0&0
+\end{array}\right)=\left(\begin{array}{ccc} 0&0&0\\ 0&0&0\\0&0&0
+\end{array}\right)      \]
+{\color{blue}
+\item Montrer que $\mathcal{U}$ est un sous groupe non commutatif du groupe linéaire de $\mathcal{M}_3(\mathbb{R})$.
+}
+\begin{itemize}
+\item $I\in\mathcal{U}$ donc $\mathcal{U}$ est non vide.
+\item $U=I+N=\left(\begin{array}{ccc} 1&a&b\\ 0&1&c\\0&0&1
+\end{array}\right)$ est inversible car $\det(U)=1\neq 0$. 
+
+Soit $U_1=\left(\begin{array}{ccc} 1&a_1&b_1\\ 0&1&c_1\\0&0&1
+\end{array}\right)$ et $U_2=\left(\begin{array}{ccc} 1&a_2&b_2\\ 0&1&c_2\\0&0&1
+\end{array}\right)$, donc $U_2^{-1}=\left(\begin{array}{ccc} 1&-a_2&a_2c_2-b_2\\ 0&1&-c_2\\0&0&1
+\end{array}\right)$ . 
+
+On a $U_1U_2^{-1}=\left(\begin{array}{ccc} 1&a_1-a_2&b_1-b_2-(a_1-a_2)b_2\\ 0&1&c_1-c_2\\0&0&1
+\end{array}\right) \in\mathcal{U}$
+\end{itemize}
+ De plus 
+\[U_1U_2=\left(\begin{array}{ccc} 0&0&a_1c_2\\ 0&0&0\\0&0&0
+\end{array}\right) \neq \left(\begin{array}{ccc} 0&0&a_2c_1\\ 0&0&0\\0&0&0
+\end{array}\right)=U_2U_1\]
+Donc $\mathcal{U}$ est un sous groupe non commutatif de $GL_3(\mathbb{R})$.
+{\color{blue}
+\item Pour tout réel $\alpha$, on définit la matrice $U^\alpha$ par
+\[U^\alpha=I+\alpha N+\frac{\alpha(\alpha-1)}{2}N^2\]
+Il sera commode de poser $N_\alpha = \alpha N +\frac{\alpha(\alpha-1)}{2}N^2$. Vérifier que pour $\alpha$ et $\beta$ réels arbitraires, on a
+\[U^\alpha U^\beta =U^{\alpha+\beta}\quad\mbox{ et }\quad (U^\alpha)^\beta=U^{\alpha\beta}\]
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On forme $U^\alpha U^\beta $ en utilisant $N^3=0$,
+\[\begin{array}{lcl}
+U^\alpha U^\beta  &= &\left[I+\alpha N +\frac{\alpha(\alpha -1)}{2}N^2\right] \left[I+\beta N +\frac{\beta(\beta -1)}{2}N^2\right] \\
+ & = & I+(\alpha +\beta)N+\left(\frac{\alpha(\alpha -1) +\beta(\beta -1) }{2}+\alpha\beta\right)N^2\\
+  & = &  I+(\alpha +\beta)N+\frac{(\alpha +\beta)(\alpha+\beta -1) }{2}N^2\\
+  & = &  U^{\alpha+\beta}
+\end{array}\]
+De même
+\[\begin{array}{lcl}
+(U^\alpha)^\beta=(I+ N_\alpha)^\beta  &= &I+ \beta N_\alpha +\frac{\beta(\beta -1)}{2}N_\alpha^2\\
+ & = & I+\beta\left[ \alpha N+\frac{\alpha(\alpha -1)}{2}N^2\right] +\frac{\alpha^2\beta(\beta-1)}{2}N^2\\
+  & = &  I+\alpha\beta N+\frac{\alpha\beta(\alpha\beta -1) }{2}N^2\\
+  & = &  U^{\alpha\beta}
+\end{array}\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\color{blue}
+\item Que peut-on dire de $U^\alpha$ pour $\alpha\in\mathbb{Z}$?
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour $\alpha=n\in\mathbb{N}^*$, on peut appliquer la formule de binôme de Newton à $(I+N)^n$. Puisque $N^3=0$, on vérifie que $U^\alpha$ coïncide avec la puissance $n^{\tiny \mbox{ième}}$ de $U$.
+
+Pour $\alpha=-1$, $U^{-1}=I-N+N^2$ est l'inverse de $I+N$ sur $\mathcal{U}$. Pour tout $\alpha\in\mathbb{Z}$, on obtient donc la puissance d'ordre $\alpha$ de $U$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\color{blue}
+\item On définit une application dite exponentielle, noté exp, de $\mathcal{N}$ dans $\mathcal{U}$:
+\[\forall N\in\mathcal{N},\qquad \exp(N)=I+N+\frac{N^2}{2}\]
+Montrer que l'application exp est une bijection de $\mathcal{N}$ dans $\mathcal{U}$.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Si $\exp N=\exp N'$, on a $N+\frac{N^2}{2}=N'+\frac{N'^2}{2}$ en élevant au carré, on en déduit $N^2=N'^2$, puis $N=N'$. L'application $\exp$ est donc injective.
+
+Elle est aussi surjective. En se donnant $V=I+P\in\mathcal{U}$, on cherche $N$ tel que $P=N+\frac{N^2}{2}$. On a encore
+\[P^2=N^2,\quad\mbox{ d'où }\quad N=P-\frac{P^2}{2}\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\color{blue}
+\item On définit également l'application dite logarithme notée ln de $\mathcal{U}$ dans $\mathcal{N}$ par:
+\[\mbox{Si } U=I+N,\quad \ln(U)=N-\frac{N^2}{2}\]
+Prouver que l'application ln est la bijection réciproque de exp.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On vient de voir que l'antécédent  de  $V=I+P$ dans l'application $\exp$ est $N=P-\frac{P^2}{2}$; c'est $\ln V$, d'où la relation entre applications
+\[\ln=\exp^{-1}\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\color{blue}
+\item Établir les formules
+\[\exp(\alpha N)=(\exp(N))^\alpha,\quad \ln(U^\alpha)=\alpha\ln U,\quad U^\alpha=\exp(\alpha\ln U)\]
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[\exp(\alpha N)=I+\alpha N+\frac{\alpha^2}{2}N^2\]
+\[(\exp(N))^\alpha=I+\alpha N+\frac{\alpha}{2}N^2+\frac{\alpha(\alpha-1)}{2}N^2=\exp(\alpha N)\]
+De même $V^\alpha = I+\alpha P +\frac{\alpha(\alpha-1)}{2}P^2$, d'où
+\[\ln V^\alpha =\alpha P +\frac{\alpha(\alpha-1)}{2}P^2 -\frac{\alpha^2}{2}P^2=\alpha\left(P-\frac{P^2}{2}\right)=\alpha\ln V\]
+Enfin, $V^\alpha =\exp(\ln V^\alpha)=\exp(\alpha\ln V)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\color{blue}
+\item Application numérique: Soit
+\[U=\left(\begin{array}{ccc} 1&2&3\\ 0&1&2\\0&0&1
+\end{array}\right)\]
+Calculer $\exp(U-I)$, $\ln U$, $U^{-1}$ et $U^n$ pour tout $n\in\mathbb{Z}$.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+On trouve 
+\[\exp(U-I)=\left(\begin{array}{ccc} 1&2&5\\ 0&1&2\\0&0&1
+\end{array}\right), \quad \ln U = \left(\begin{array}{ccc} 0&2&1\\ 0&0&2\\0&0&0
+\end{array}\right), \quad U^{-1} = \left(\begin{array}{ccc} 1&-2&1\\ 0&1&-2\\0&0&1
+\end{array}\right) 
+\]
+\[U^{n} = \left(\begin{array}{ccc} 1&2n&2n^2+n\\ 0&1&2n\\0&0&1
+\end{array}\right) 
+\]
+\end{enumerate}
+
+{\color{blue}
+%\subsection*{2}
+\item Soit $A$ la matrice: $\displaystyle A=\left(\begin{array}{cc} 0&-1\\1&0 \end{array}\right)$
+}
+\begin{enumerate}
+{\color{blue}
+\item Montrer que pour tout entier $k\in\mathbb{N}$
+\[\left\{\begin{array}{l}
+A^{2k}=(-1)^kI\\
+A^{2k+1}=(-1)^kA
+\end{array}\right.\]
+}
+On a $A^2=-I$ donc $A^{2k}=(A^2)^k=(-I)^k=(-1)^kI$ et $A^{2k+1}=A^{2k}A=(-1)^kA$
+
+{\color{blue}
+\item On définit l'exponentielle matricielle par la somme de la série $\displaystyle e^M=\sum_{p=0}^\infty\frac{M^p}{p!}$. Montrer que
+\[e^{tA}=\left(\begin{array}{cc} \cos t&-\sin t\\ \sin t&\cos t
+\end{array}\right)\]
+}
+\[e^A=\sum_{p=0}^\infty\frac{A^p}{p!} =\sum_{k=0}^\infty\frac{A^{2k}}{(2k)!} +\sum_{k=0}^\infty\frac{A^{2k+1}}{(2k+1)!} =I\sum_{k=0}^\infty\frac{(-1)^{k}t^{2k}}{(2k)!} +A\sum_{k=0}^\infty\frac{(-1)^{k}t^{2k+1}}{(2k+1)!}  \]
+\[e^A=I\cos t +A\sin t =\left(\begin{array}{cc} \cos t&-\sin t\\ \sin t&\cos t
+\end{array}\right)\]
+\end{enumerate}
+
+%\subsection*{3}
+{\color{blue}
+\item Montrer que la matrice suivante est diagonalisable:
+$ \displaystyle A=\left(\begin{array}{ccc} 0&a&a^2\\ \frac 1a&0&a\\\frac{1}{a^2}&\frac 1a&0
+\end{array}\right)\qquad (a\neq 0)$
+En déduire $A^{-1}$ et $A^n$ où $n\in\mathbb{Z}$
+}
+
+L'équation caractéristique s'écrit
+\[\left|\begin{array}{ccc}
+ -\lambda&a&a^2\\ \frac 1a&-\lambda&a\\\frac{1}{a^2}&\frac 1a&-\lambda
+\end{array}\right|=-\lambda^3+3\lambda+2=(\lambda+1)^2(2-\lambda)
+\]
+La valeur propre double $\lambda=-1$, fournit deux vecteurs propres linéairement indépendants $(-a,1,0)$ et $(-a^2,0,1)$. La valeur propre simple $\lambda=2$ fournit le vecteur propre $(a^2,a,1)$. La matrice $P$ ci dessous diagonalise $A$; on a formé $P^{-1}$:
+\[P=\left(\begin{array}{ccc}
+ -a&-a^2&a^2\\ 1&0&a\\0&1&1
+\end{array}\right),\qquad P^{-1}=\left(\begin{array}{ccc}
+ -a&2a^2&-a^3\\ -1&-a&2a^2\\1&a&a^2
+\end{array}\right)\]
+On sait que
+\[D=\left(\begin{array}{ccc} -1&0&0\\ 0&-1&0\\0&0&2
+\end{array}\right)=P^{-1}AP\]
+d'où
+\[D^n=\left(\begin{array}{ccc} (-1)^n&0&0\\ 0&(-1)^n&0\\0&0&2^n
+\end{array}\right)=P^{-1}A^nP\]
+D'où
+\[A^n=P\left(\begin{array}{ccc} (-1)^n&0&0\\ 0&(-1)^n&0\\0&0&2^n
+\end{array}\right)P^{-1}\]
+\[A^n=-\frac{(-1)^n}{3}\left(\begin{array}{ccc} -2&a&a^2\\ \frac 1a&-2&a\\\frac{1}{a^2}&\frac 1a&-2
+\end{array}\right)+\frac{2^n}{3}\left(\begin{array}{ccc} 1&a&a^2\\ \frac 1a&1&a\\\frac{1}{a^2}&\frac 1a&1
+\end{array}\right)\]
+
+
+%\subsection*{3}
+%On définit sur $\mathcal{M}_n(\mathbb{R})$ une application dite exponentielle par
+%\[e^{M}=I+M+\frac{M^2}{2!}+\cdots + \frac{M^p}{p!}+\cdots \]
+%\begin{enumerate}
+%\item Calculer la puissance $p^{\mbox{ème}}$ de la matrice suivante:
+%\[A=\left(\begin{array}{ccc} 0&1&1\\ 1&0&1\\1&1&0
+%\end{array}\right)\qquad (a\neq 0)\]
+%et montrer qu'elle peut s'écrire $A^p = a_p A+b_p I$. calculer $a_p$ et $b_p$. En déduire  $e^{tA}$.
+%\item Soit $A$ la matrice:
+%\[A=\left(\begin{array}{cc} 0&-1\\1&0
+%\end{array}\right)\]
+%Calculer $A^p$ pour $p\in\mathbb{N}$.  En déduire la somme de la série
+%\[e^{tA}=\left(\begin{array}{cc} \cos t&-\sin t\\ \sin t&\cos t
+%\end{array}\right)\]
+%\end{enumerate}
+%
+
+%\subsection*{4}
+{\color{blue}
+\item Soit la matrice de  $\mathcal{M}_n(\mathbb{R})$ 
+\[A=
+\left(\begin{array}{ccccc}
+0&-1&0&\cdots&0\\
+-1&0&-1&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &-1&0&-1\\
+   0&\cdots &0&-1 &0
+\end{array}\right)
+\] 
+}
+\begin{enumerate}
+{\color{blue}
+\item Montrer que $A$ est diagonalisable.
+}
+
+$A$ réelle symétrique donc diagonalisable.
+{\color{blue}
+\item Montrer que si $\lambda$ est une valeur propre de $A$ alors $-2\leq \lambda\leq 2$. On pourra utiliser le théorème d'Hadamart:
+\[\lambda \mbox{ est une valeur propre de } A \Longrightarrow \lambda\in \bigcup_{i=1}^n \left\{z\in \mathbb{C}, |z-a_{i,i}|\leq\sum_{j\neq i}|a_{i,j}|\right\}\]
+}
+
+On a $\lambda\in\left\{z\in\mathbb{C}; |z|\leq 1 \mbox{ ou } |z|\leq 2\right\}\bigcap\mathbb{R}=\left\{z\in\mathbb{R}; |z|\leq 2\right\}$ donc $-2\leq \lambda\leq 2$.
+{\color{blue}
+\item On pose $\lambda=2\cos\theta$ où $\theta\in[0,\pi]$. Soit le determinant  $D_n=\det(\lambda I_n-A)$. Montrer que 
+\[\left\{\begin{array}{l}
+D_n=2\cos\theta \, D_{n-1}-D_{n-2}, \qquad\forall n\geq 2\\
+D_0=1,\quad D_1=2\cos\theta
+\end{array}\right.\]
+}
+
+On a 
+ \[D_n=\det(2\cos\theta I-A)=
+\left|\begin{array}{ccccc}
+2\cos\theta&1&0&\cdots&0\\
+1&2\cos\theta&-1&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &1&2\cos\theta&1\\
+   0&\cdots &0&1 &2\cos\theta
+\end{array}\right|
+\] 
+En développant $D_n$ par rapport à la première colonne on a $D_n=2\cos\theta \, D_{n-1}-D_{n-2}$.
+$D_0=1$ est une conversion pour tout determinant d'ordre 0. A l'ordre 1 le determinant $D_1$ se réduit à son unique coefficient $2\cos\theta$.
+{\color{blue}
+\item Calculer $D_n$ en fonction de $n$. En déduire les valeurs propres de $A$.
+}
+
+L'équation caractéristique s'écrit: $r^2-2\cos\theta r+1=0$ dont les racines sont $e^{i \theta}$ et $e^{-i \theta}$ et donc 
+$D_n=a\cos n \theta+b\sin n \theta $ où $a$ et $b$ solution de
+\[\left\{\begin{array}{l}
+1=a\cos 0 +b\sin 0\\
+2\cos\theta = a\cos\theta+b\sin\theta
+\end{array}\right.\]
+on a alors $a=1$ et $b=\frac{\cos\theta}{\sin\theta}$. Donc $D_n=\cos n \theta+\frac{\cos\theta}{\sin\theta}\sin n \theta =\frac{\sin\theta\cos n \theta +\cos\theta \sin n\theta}{\sin\theta}$
+
+Donc
+\[D_n=\frac{\sin(n+1)\theta}{\sin\theta}\]
+On a $D_n=0\Longrightarrow (n+1)\theta=k\pi$ où $k=1,2,...,n$. D'où les valeurs propres
+\[\lambda=2\cos\frac{k\pi}{n+1}\qquad k=1,2,...,n\]
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
