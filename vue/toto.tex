@@ -1,0 +1,28 @@
+\documentclass[10pt]{article}  
+\usepackage{fancyvrb}  
+\usepackage{minted}  
+\begin{document}
+	\begin{minted}[%
+		breaklines,
+		mathescape,
+		linenos,
+		numbersep=5pt,
+		frame=single,
+		numbersep=5pt,
+		xleftmargin=0pt,
+		]{python}
+		class Run(BaseModel):
+		"''
+		Run: unique Tool and multiple Inputs
+		Status:
+		Running => jobs are pending or runing and not all jobs have been completed
+		Paused => workers querying for 'Running' Runs won't get this Run until we change status again
+		Done => all jobs have completed and have a result_status = 'Done'
+		Incomplete => No results (inputs) have been associated with the Run
+		"'' 
+		name = models.CharField(max_length = 150,
+		unique=True)
+		tool = models.ForeignKey('Tool')
+		tags = models.ManyToManyField(RunTag, related_name=''model_set'')
+	\end{minted}
+\end{document}
