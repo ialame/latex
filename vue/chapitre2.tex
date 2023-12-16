@@ -118,16 +118,13 @@ bgcolor=LightGray,
 ]{bash}
 Add TypeScript? … No / Yes
 \end{minted}
+\begin{itemize}
+\item Comme nous l'avons vu, choisissez {\color{blue} oui}.
+\item Ensuite répondez {\color{blue} non} pour {\tt JSX}. Nous n'utiliserons pas {\tt JSX} qui est un langage de template React.
+\item Répondez {\color{blue} non} pour {\tt Vue Router, Pinia, Vitest} et {\tt Cypress} car nous les verrons plus tard dans la formation.
+\item Répondez {\color{blue} oui} à {\tt ESLint}, qui permet de contrôler la qualité du code et répondez oui à Prettier pour le formatage du code.
+\end{itemize}
 
-Comme nous l'avons vu, choisissez oui.
-
-Ensuite répondez non pour JSX.
-
-Nous n'utiliserons par JSX qui est un langage de template React.
-
-Répondez non pour Vue Router, Pinia, Vitest et Cypress car nous les verrons plus tard dans la formation.
-
-Répondez oui à ESLint, qui permet de contrôler la qualité du code et répondez oui à Prettier pour le formatage du code.
 
 Vous devez en être là :
 \begin{center}
@@ -135,11 +132,7 @@ Vous devez en être là :
 \end{center}
 
 \subsection{Installation des dépendances}
-Pour le moment, create-vue a déclaré toutes les dépendances et les configurations nécessaires en suivant vos options.
-
-Aucune dépendance JavaScript n'a encore été installée par npm.
-
-Pour les installer, il suffit d'ouvrir un terminal et d'aller dans le dossier de votre application, par exemple :
+Pour le moment, {\color{monOrange}create-vue} a déclaré toutes les dépendances et les configurations nécessaires en suivant vos options. Aucune dépendance {\tt JavaScript} n'a encore été installée par {\tt npm}. Pour les installer, il suffit d'ouvrir un terminal et d'aller dans le dossier de votre application, par exemple :
 \begin{minted}[
 mathescape,
 framesep=2mm,
@@ -164,9 +157,7 @@ npm install
 \end{minted}
 
 \subsection{Utilisation du linter}
-Un linter est un outil d'analyse de code qui permet de détecter les erreurs et les problèmes de syntaxe.
-
-La configuration du linter, en l'occurrence ESLint est dans le fichier .eslintrc.cjs :
+Un linter est un outil d'analyse de code qui permet de détecter les erreurs et les problèmes de syntaxe. La configuration du linter, en l'occurrence {\tt ESLint} est dans le fichier {\tt .eslintrc.cjs} :
 \begin{minted}[
 mathescape,
 framesep=2mm,
@@ -174,7 +165,7 @@ baselinestretch=1.2,
 fontsize=\footnotesize,
 bgcolor=LightGray,
 %linenos
-]{bash}
+]{javascript}
 /* eslint-env node */
 require('@rushstack/eslint-patch/modern-module-resolution')
 
@@ -192,9 +183,7 @@ module.exports = {
 }
 \end{minted}
 
-create-vue a donc automatiquement créé la bonne configuration du linter pour une utilisation avec Vue.js.
-
-Pour exécuter le linter avec la configuration faites :
+{\color{monOrange} create-vue} a donc automatiquement créé la bonne configuration du linter pour une utilisation avec {\tt Vue.js}. Pour exécuter le linter avec la configuration faites :
 
 \begin{minted}[
 mathescape,
@@ -207,11 +196,7 @@ bgcolor=LightGray,
 npm run lint
 \end{minted}     
 
-Cela exécutera le script lint déclaré dans le fichier package.json.
-
-Pour l'instant il y a bien sûr aucune indication car nous n'avons pas commencé à coder !
-
-Mais exécuter cette commande de temps en temps lors du développement permet d'éviter certaines erreurs et de suivre les recommandations pour les bonnes pratiques en matière de syntaxe (appelées coding style).
+Cela exécutera le script {\tt lint} déclaré dans le fichier {\tt package.json}. Pour l'instant il y a bien sûr aucune indication car nous n'avons pas commencé à coder ! Mais exécuter cette commande de temps en temps lors du développement permet d'éviter certaines erreurs et de suivre les recommandations pour les bonnes pratiques en matière de syntaxe (appelées coding style).
 
 \subsection{Lancer le serveur de développement}
 Pour lancer le serveur de développement il suffit d'exécuter le script dev :
@@ -226,262 +211,313 @@ bgcolor=LightGray,
 npm run dev
 \end{minted} 
 
-Cela va en fait exécuter vite qui va lancer son serveur de développement.
+Cela va en fait exécuter {\color{monOrange}vite} qui va lancer son serveur de développement. Vous pourrez ainsi accéder à l'application {\tt Vue.js} dans votre navigateur à l'adresse {\color{monOrange} http://localhost:5173/}.
 
-Vous pourrez ainsi accéder à l'application Vue.js dans votre navigateur à l'adresse http://localhost:3000/.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Architecture initiale}
+\subsection{Architecture initiale d'un projet généré par create-vue}
+L'architecture initiale du projet généré est la suivante :
+\begin{center}
+\includegraphics[width=3cm]{images/image05.png}
+\end{center}
 
-
-\end{document}
-
-
-Le fonctionnement de tous nos cours est similaire. Chaque cours est divisé en chapitres et en leçons.
-\subsection{Contenu des leçons}
-Chaque leçon comporte une vidéo, un support écrit et un quiz.
-
-La vidéo permet d'avoir une première vue sur l'essentiel de la leçon, et également de voir immédiatement des exemples.
-
-Le cours permet d'approfondir la vidéo et de voir d'autres exemples et ressources pour acquérir une compréhension profonde de la notion.
-
-Le quiz permet de valider la compréhension de la notion. Il n'y a qu'une seule bonne réponse, et vous devez valider le quiz pour passer à la suite. Vous pouvez bien sûr essayer le quiz autant de fois que nécessaire et revoir les parties de cours correspondantes entre temps. En cas d'erreur, des explications vous sont toujours données.
-
-\subsection{Les chats}
-Pendant votre formation, vous avez deux moyens de nous joindre à tout moment.
-
-Premièrement, pour les éventuels problèmes avec la plateforme, un paiement ou votre progression que vous rencontreriez, vous pouvez nous contacter sur le chat en bas à droite.
-
-Deuxièmement, pour les questions techniques, vous pouvez les poser à tout moment sur le chat en bas à gauche. La communauté de tous les apprenants, ou nous-mêmes, vous aideront !
-
-\subsection{Prérequis et suite du cours}
-Les prérequis de cette formation sont une bonne maîtrise de HTML \& CSS et de JavaScript. Si ce n'est pas le cas, suivez d'abord ces deux formations sur la plateforme.
-
-Une connaissance du langage TypeScript est un plus, même si nous verrons les fondamentaux nécessaires dans la formation. Vous pouvez suivre en parallèle la formation TypeScript pour approfondir.
-
-Nous recommandons également de faire la formation Git, au moins les premiers chapitres si vous ne connaissez pas cet outil.
-
-Après ce cours vous pourriez vouloir devenir développeur Fullstack. Vous pourrez alors suivre par exemple les cours Node.js et MongoDB.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%ù
-
-\section{Introduction à Vue.js}
-\subsection{Qu'est ce que Vue.js ?}
-Vue.js est un framework permettant de développer des interfaces utilisateur.
-
-Il est développé entièrement en TypeScript depuis sa version 3.
-
-TypeScript est un langage de programmation open source développé par Microsoft. C'est un sur-ensemble syntaxique de JavaScript.
-
-Cela signifie que c'est du JavaScript amélioré, qui permet notamment un typage fort. Il est ensuite transformé en JavaScript. Les navigateurs ne comprennent en effet que les langages HTML, CSS et JavaScript.
-
-Vue.js est fondé sur deux concepts clés : le rendu déclaratif et la réactivité.
-
-Le rendu déclaratif est le fait de décrire le rendu (HTML) en fonction de l'état de l'application (en JavaScript).
-
-La réactivité est le fait que Vue suit les changements d'état dans le code JavaScript et met à jour le DOM de manière optimisée si des changements doivent être faits.
-
-\subsection{Un framework progressif}
-L'une des grandes forces de Vue.js est d'être progressif : vous pouvez faire une application très simple sans étape de build juste avec la librairie core, mais vous pouvez aussi faire une application très complexe avec beaucoup d'étapes de build automatisés, une gestion des routes, de l'état de l'application etc.
-
-Nous verrons ainsi notamment les librairies officielles suivantes, qui font partie du framework Vue.js :
-
-Vue Router : permet de gérer la navigation de l'utilisateur dans l'application.
-
-Pinia : permet de gérer l'état de l'application.
-
-Vite : permet de construire l'application (par exemple en transpilant le Sass et CSS ou le TypeScript en JavaScript) et de l'optimiser.
-
-Transpiler signifie convertir dans un autre langage de même niveau (contrairement à la compilation qui transforme du code dans un langage de haut niveau à un langage plus proche du langage machine).
-
-\subsection{Tous les rendus possibles !}
-Vue.js permet aujourd'hui de faire des applications de tous les principaux types de rendu :
-
-SPA (Single-Page Application) : le serveur envoie une page HTML avec un lien vers des fichiers JavaScript qui contiennent toute l'application. Le navigateur va charger toute l'application qui va gérer un grand nombre d'opérations comme le routage entre les pages.
-
-SSR (Server Side Rendering) : la page Web est générée par le serveur qui construit le HTML, le CSS et le JavaScript nécessaires en fonction de la requête, pour rendre la page. Pendant ce temps, le navigateur télécharge la SPA qui sera ensuite utilisée. Cela permet aux utilisateurs d'avoir un premier affichage quasi-immédiat sans avoir à attendre le chargement de l'application. Lorsque le SSR est configurée on dit alors que l'application est universelle car elle est rendue à la fois côté serveur et côté client. Nous reviendrons en détail sur ces notions dans la formation.
-
-SSG (Static-Site-Generation / JAMStack ) : toutes les pages sont pré-générées sur le serveur (tout le HTML, le CSS et le JavaScript est générés en amont) et servies au navigateur en fonction des requêtes. C'est utile pour faire de petits sites statiques. Vous pouvez alors utiliser VitePress, la librairie SSG officielle de Vue.
-
-Vous pouvez également faire des applications bureautiques (par exemple avec Electron ou Tauri), des applications mobiles (par exemple avec Ionic ou Quasar) ou encore utiliser WebGL ou développer des applications pour le terminal.
-
-\subsection{Une traction incroyable}
-Contrairement à Angular ou React aucun géant du numérique ne se cache derrière Vue.js mais seulement Evan You, et bien sûr de très nombreux contributeurs.
-
-Vue.js a une traction phénoménale ces dernières années : il dépasse les 3 millions de téléchargements par semaine sur npm !
-
-C'est le framework JavaScript qui a le plus d'étoiles sur Github (environ 200 000).
-
-Le framework est aujourd'hui très stable et est utilisé notamment par Laravel (comme framework Javascript par défaut), par GitLab et par PageKit.
-
-En Chine, il s'agit du framework le plus utilisé avec notamment Alibaba, Baidu, Sina Weibo et Xiaomi qui l'utilisent en production.
-
-Nous pouvons donner quelques autres exemples de sites connus faits avec Vue.js : Gitlab, Behance, Upwork, Back Market, Louis Vuitton USA, Ecosia, Google Carreers, plusieurs sites de Microsoft (par exemple Azure for Partners), de très nombreux sites d'Alibaba, Baidu,
-
-\subsection{Vue.js 3}
-Vue.js 3 est sorti en septembre 2020 et est devenu la version officielle par défaut en février 2022 (le temps que les autres librairies du framework soient également réécrites).
-
-L'ensemble du framework a été entièrement réécrit en TypeScript et a de bien meilleures performances que la version 2. Il est encore plus léger et optimisé.
-
-Il bénéficie également d'une toute nouvelle API appelée Composition API qui permet de rendre plus facile le développement d'applications complexes.
-
-Vue.js 3 est donc une nouvelle version vraiment différente de la version 2 avec de nombreuses modifications.
-
-Les librairies composants le framework ont également changé : Vite a remplacé Webpack et Pinia a remplacé Vuex par exemple.
-
-\subsection{Avantages}
-\subsubsection{Taille}
-La librairie Vue.js fait seulement 20kB lorsqu'elle est minimisée et compressée, c'est donc un framework très léger qui se charge instantanément par le client.
-
-\subsubsection{Rapidité}
-Les performances de Vue sont excellentes et elles surpassent même celles de React sur le rendu et la mise à jour du DOM.
-
-Vue.js utilise un DOM virtuel pour minimiser le nombre de mutations du DOM nécessaires lors de changements.
-
-Vue.js a des algorithmes de calcul des mutations nécessaires qui s'avèrent plus performants et légers que ceux de React.
-
-\subsubsection{Un framework complet}
-Vue comporte tous les éléments pour une application moderne complexe : gestion de la navigation, gestion avancée de l'état, gestion de la construction de l'application de manière optimisée, gestion des rendus (même universel avec le SSR) etc.
-
-Autrement dit, Vue gère tout !
-
-\subsection{Note sur le choix des technologies}
-Dans cette formation, nous suivrons l'intégralité des recommandations officielles de Vue.js et / ou d'Evan You pour le choix des technologies.
-
-Pour cette raison, nous utiliserons TypeScript, Vite, le Router Vue, Pinia, Visual Studio Code, Volar, Vue browser devtools, Cypress, Vitest, eslint-plugin-vue et Jest.
-
-Il est possible de ne pas utiliser ces technologies, ou d'en utiliser d'autres mais nous le déconseillons très fortement car ce serait sortir du maintien et de l'évolution souhaitées par les équipes de Vue.js.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{SPA, create-vue et Vite}
-\subsection{Les Single Page Applications}
-Comme nous l'avons vu précédemment, Vue.js permet de construire des Single Page Applications.
-
-Vous connaissez forcément des SPA : Gmail, Google Analytics, Trello, Dropbox en sont des exemples parmi tant d'autres.
-
-La plupart des frameworks ont adopté cette architecture (Vue, Angular, React, Ember, Meteor etc).
-
-Nous allons maintenant un peu plus détailler les SPA.
-
-Une single page application (SPA) est une application qui fonctionne dans un navigateur sans que l'utilisateur n'ait besoin de recharger la page.
-
-Le principe est de simuler une application hors ligne : pas de rechargement des pages, de la rapidité, pas d'attente supplémentaire dûe au réseau etc.
-
-Les principales caractéristiques de la SPA sont :
+\subsection{Détail des fichiers et des dossiers}
 \begin{itemize}
-\item le rendu est effectué côté client (quand un élément change, la page est modifié grâce aux scripts de l'application chargée côté client).
-\item pour fonctionner elle charge en principe une seule fois l'application (HTML, CSS et JavaScript).
-\item seules les données sont transmises, si nécessaire, entre le serveur et l'application client (le plus souvent au format JSON).
-\item le développement mobile est simplifié car le code backend peut être utilisé que l'application soit Web ou native (iOS, Android).
-\item elle est particulièrement adaptée pour stocker les données localement et n'envoyer des requêtes au serveur que lorsque c'est nécessaire.
+\item {\tt vite.config.js} : fichier de configuration de Vite.
+\item {\tt tsconfig.node.json} : fichier de configuration de Vite pour pouvoir utiliser TypeScript. Vous pouvez retirer vitest, cypress, playwright de la propriété types car nous ne les utiliserons pas pour le moment :
+
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+{
+  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "include": ["vite.config.*"],
+  "compilerOptions": {
+    "composite": true,
+    "types": ["node"]
+  }
+}
+\end{minted} 
+\item {\tt tsconfig.json} : fichier de configuration de TypeScript. Toutes les applications utilisant TypeScript ont ce fichier. Il permet de configurer notamment les options pour transpiler le TypeScript en JavaScript.
+\item {\tt README.md} : décrit brièvement les différentes commandes possibles et la configuration recommandée de l'éditeur VS Code.
+\item {\tt package.json} et {\tt package-lock.json} : ces fichiers {\tt JSON} permettent de décrire le projet et surtout de détailler les dépendances et leurs versions requises pour l'utiliser. Il décrit également les scripts pouvant être lancés avec {\color{monOrange}npm run}.
+\end{itemize}
+Les scripts disponibles sont :
+\begin{itemize}
+\item {\color{blue} dev} : qui permet de lancer le serveur de développement de {\color{monOrange} Vite} en local.
+\item  {\color{blue} build} : qui permet de construire la version de l'application optimisée pour la production.
+\item  {\color{blue} preview}  : qui permet de visualiser la version de production en local (par exemple avant de la mettre réellement en production sur des serveurs).
+\item  {\color{blue} typecheck}  : qui permet de vérifier les types du code {\color{monOrange} TypeScript} sans transpiler le {\color{monOrange} TypeScript} en {\tt JavaScript}.
+\item  {\color{blue} lint}  : qui permet d'exécuter {\color{monOrange} ESLint} avec les bonnes options.
+\item  {\color{blue} index.html } : template {\tt HTML} qui sera envoyé au navigateur.
+\item  {\color{blue} env.d.ts}  : fichier qui permet de charger des types supplémentaires pour utiliser {\color{monOrange} TypeScript} avec {\color{monOrange} Vue.js}.
+\item  {\color{blue} .gitignore}  : permet de lister les fichiers qui ne doivent pas être pris en compte par {\color{monOrange} Git}.
+
+\item  {\color{blue} .eslintrc}  : fichier de configuration de {\color{monOrange} ESLint} que nous avons déjà expliqué.
+\item  {\color{blue} src } : dossier qui contient les fichiers sources de votre application (d'où le nom {\color{monOrange} src} pour source).
+\item  {\color{blue} public}  : dossier qui contient les fichiers qui n'ont pas besoin d'être traité par {\color{monOrange} Vite} ou par aucun outil et qui sont directement envoyés par le serveur au navigateur.
+\item  {\color{blue} src/main.ts}  : il s'agit du point d'entrée de notre application. Nous expliquerons plus loin dans le cours la fonction {\tt createApp()} ainsi que {\tt \$mount}. Sachez simplement que nous importons notre composant racine {\color{monOrange} App} et créons l'instance racine de l'application ici.
+\item  {\color{blue} src/App.vue}  : il s'agit du composant référencé dans {\color{monOrange} main.ts} qui constitue la racine des vues de notre application. Il s'agit du premier composant rendu, et de lui découle les rendus de tous les autres composants. Nous étudierons la structure des composants dans une prochaine leçon.
+\item  {\color{blue} src/components}  : dossier qui contient les composants de notre application {\color{monOrange} Vue}.
+\item  {\color{blue} src/components/HelloWorld.vue}  : sous-composant de {\color{monOrange} App.vue}.
+\item  {\color{blue} src/assets}  : dossier contenant les ressources de l'application comme les images, le {\tt CSS} etc.
+\item  {\color{blue} node\_modules}  : contient toutes les dépendances installées par {\color{monOrange} npm}.
 \end{itemize}
 
-\subsection{La librairie create-vue}
-create-vue est la librairie officielle de Vue.js permettant de construire facilement un projet avec Vue.js.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Elle permet de configurer entièrement le framework suivant ses souhaits : utiliser ou non TypeScript, utiliser ou non JSX (le langage de template de Reac), utiliser le Router de Vue, le gestionnaire d'état, la librairie de tests end-to-end etc.
 
-Nous verrons bien sûr à plusieurs reprises comment configurer parfaitement un projet Vue.js en utilisant la librairie.
+\section{Comment fonctionne Vue ?}
+Nous allons voir les fichiers par ordre logique. Le navigateur reçoit en premier l'{\color{monOrange}index.html}.
 
-\subsection{Fonctionnement de Vite}
+\subsection{Le fichier {\color{monOrange}index.html}}
+Le fichier index.html est ce que le navigateur va lire en premier :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+\end{minted} 
+
+Notez bien qu'il y a une {\tt div} conteneur avec l'{\color{monOrange}id app}. Notez également que le fichier src/main.ts est chargé comme un module {\tt JavaScript}. Le navigateur demande donc ce module au serveur.
+
+\subsection{Le fichier {\color{monOrange}src/main.ts}}
+Le fichier {\color{monOrange}main.ts} est le point d'entrée de l'application car c'est le premier fichier {\tt JavaScript} chargé par le navigateur.
+
+Note : le fichier est en {\color{monOrange}.ts} car c'est un fichier {\tt TypeScript} mais il sera transpilé par Vite en {\tt JavaScript} que ce soit pour le développement ou la production. En effet, le navigateur ne comprend que le langage {\tt JavaScript} et pas le {\tt TypeScript}.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+import { createApp } from "vue";
+import App from "./App.vue";
+
+createApp(App).mount("#app");
+\end{minted} 
+
+{\tt import App from "./App.vue";} permet d'importer le composant {\color{monOrange}App} que nous verrons juste après. {\tt createApp()} permet de créer une instance de votre application {\color{monOrange}Vue.js}. Elle prend en argument, le composant racine, c'est-à-dire le premier composant de votre application qui aura d'autres composants enfants.
+
+{\tt mount()} permet de monter l'application instanciée par {\tt createApp()} dans un conteneur qui est identifié par un sélecteur {\tt CSS}. Ici, cela signifie que le composant racine {\color{monOrange}App} sera monté sur le conteneur dont l'{\color{monOrange}id} est {\color{monOrange}app} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div id="app"></div>
+\end{minted} 
+
+Le composant sera ainsi affiché (on dit plus souvent rendu) dans ce conteneur.
+
+\subsection{Le fichier {\color{monOrange}src/App.vue}}
+Le fichier {\tt App.vue} est le composant racine. C'est le premier composant de l'application qui est chargé et instancié par {\tt createApp()}. Ce composant est le sommet de ce qu'on appelle l'arbre des composants : à savoir l'organisation hiérarchique des composants de l'application. Une application a des dizaines voir des centaines de composants qui sont organisés en arbre à partir du composant racine :
 \begin{center}
-\includegraphics[width=3cm]{images/image1.png}
+\includegraphics[width=12cm]{images/image06.png}
 \end{center}
 
-Vite est un outil de build conçu par le créateur de Vue.js pour remplacer Webpack.
+Remarquez déjà que le composant {\color{monOrange}App.vue} est constitué de trois parties : {\tt template, script} et {\tt style}. Nous étudierons bientôt les composants en détail.
 
-C'est donc tout naturellement que Vue.js recommande aujourd'hui cet outil de build pour réaliser des applications.
+\subsection{Aller plus loin sur le fonctionnement de Vue.js : le {\color{monOrange}DOM virtuel}}
+Nous allons d'abord effectuer quelques rappels avant d'approfondir le fonctionnement de Vue.js.
+\subsubsection{Le DOM (Document Object Model)}
+Le {\tt DOM} permet de passer du {\tt HTML} à un grand objet document qui est un arbre regroupant tous les éléments déclarés en {\tt HTML}. Autrement dit, lorsque le navigateur reçoit le {\tt HTML} de la page, il va le parser (c'est-à-dire l'analyser) et le transformer en {\tt DOM} grâce à des algorithmes. Ainsi, les attributs {\tt HTML} deviennent automatiquement des propriétés des objets du {\tt DOM}. Par exemple :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<body id="page">
+\end{minted} 
 
-Vite vient du français, comme Vue, Evan devant être un amateur de la langue de Molière.
+Devient un nœud sur l'objet document qui sera un objet body contenant une propriété id contenant la valeur page.
 
-Les deux principales fonctionnalités de Vite sont un serveur de développement et un outil de build pour la mise en production.
-
-Le serveur de développement : permet d'accéder à l'application durant le développement et de recharger ou de réafficher l'application lors de modifications du code de la manière la plus rapide possible.
-
-\subsubsection{La notion de bundler ("empaqueteur")}
+Il existe plusieurs types de noeuds :
 \begin{center}
-\includegraphics[width=15cm]{images/image2.png}
-\end{center}
-Un bundle est un regroupement des fichiers JavaScript, HTML et CSS permettant d'accélérer le chargement.
-
-Aujourd'hui, les applications web sont devenues très sophistiquées, c'est pourquoi les frameworks comme Vue.js morcellent le JavaScript, le CSS et le HTML en de nombreux fichiers afin que le code soit maintenable et réutilisable.
-
-Il n'est ainsi pas rare qu'une application complexe dépasse le millier de fichiers.
-
-Les frameworks utilisent des modules JavaScript et gèrent les dépendances de chaque fichier avec import et export. Les fichiers importent les dépendances dont ils ont besoin parmi celles exportées par d'autres fichiers.
-
-Or, les navigateurs Web ont besoin que les fichiers soient organisés d'une certaine manière pour fonctionner. Un bundler permet de les organiser de manière optimisée pour les navigateurs.
-
-Un bundler peut gérer l'arbre de dépendances créés par les imports et exports pour générer des fichiers uniques.
-
-Il réalise également d'autres tâches comme la minification et la compression qui permettent d'obtenir des performances bien supérieures (en rendant le code extrêmement compact et parfois même en le compressant).
-
-\subsubsection{Vite en détail}
-Pour le développement, Vite utilise un pré-bundler pour les dépendances. Il permet de bundler les dépendances de 10 à 100 fois plus vite que les outils existants car il est écrit dans un langage plus performant pour ce genre de tâche (Go).
-
-Il utilise également le remplacement à chaud de module (Hot Module Replacement), la mise en cache des dépendances par le navigateur, le rechargement uniquement des modules modifiés et la mise en cache des ressources non modifiées pour accélérer au maximum les rechargements lors des modifications du code en tirant profit des dernières évolutions des navigateurs et du langage JavaScript (principalement les modules EcmaScript, appelés ESM).
-
-Pour la production, Vite va regrouper tous les fichiers JavaScript, HTML et CSS dans un bundle découpé en morceaux (appelés chunks).
-
-La taille des chunks est optimisée pour le chargement par les navigateurs (notamment en tirant profit du nouveau protocole HTTP2) en évitant les allers-retours (requête client / réponse serveur) au maximum.
-
-Les chunks sont également optimisées pour la mise en cache (seules les parties de l'application qui sont modifiées entre deux mises en production auront besoin d'être rechargées par le navigateur).
-
-Elles permettent enfin d'être chargées au bon moment suivant la route pour limiter les chargements inutiles de code côté navigateur (c'est ce qu'on appelle le lazy-loading, nous y reviendrons).
-
-Enfin, Vite permet de tree-shaker l'application : à savoir enlever automatiquement du bundle final, toutes les parties de l'application et les dépendances qui ne sont pas utilisées effectivement par l'application.
-
-Pour le développement et la production, Vite s'assure du pré-traitement (pre-processing) nécessaire pour que l'application puisse être exécutée par les navigateurs.
-
-A titre d'exemple, il va transpiler le TypeScript en JavaScript ou le Sass en CSS.
-
-Vite est donc un outil très puissant qui réalise énormément d'opérations qui sont cachées au développeur pour optimiser la productivité lors de la phase de développement et la performance lors de la production de l'application.
-
-Une fois qu'on a goûté à Vite, il n'est plus possible de s'en passer !
-
-\subsubsection{Qu'est-ce que TypeScript ?}
-\begin{center}
-\includegraphics[width=3cm]{images/image3.png}
+\includegraphics[width=15cm]{images/image07.png}
 \end{center}
 
-Les projets utilisant JavaScript se sont complexifiés énormément et il est devenu de plus en plus difficile de les maintenir.
+\subsubsection{Le DOM virtuel}
+Dans les applications Web modernes, il peut y avoir des centaines ou des milliers de nœuds sur lesquels sont enregistrés de nombreux gestionnaires d'événements. En conséquence, de très nombreuses mises à jour du {\tt DOM} doivent être réalisées. Or, ces mises à jour sont très coûteuses en performance car plus le {\tt DOM} est grand, plus les recherches et les changements sont coûteux. {\color{monOrange}Vue.js} utilise donc un {\tt DOM} virtuel (appelé {\tt VDOM}) qui est une représentation du {\tt DOM} en {\tt JavaScript}. Le {\tt DOM } virtuel n'est donc qu'un simple, immense, objet {\tt JavaScript} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+const vnode = {
+  type: 'div',
+  props: {
+    id: 'hello'
+  },
+  children: [
+    /* plein de vnodes */
+  ]
+}
+\end{minted} 
 
-Il est compliqué de pouvoir comprendre ce que fait du code JavaScript lorsqu'on arrive sur un projet impliquant de nombreux développeurs.
+Les noeuds du DOM virtuels sont appelés des noeuds virtuels ou {\color{monOrange}vnode} (pour virtual node). {\color{monOrange}Vue.js} va transformer le {\tt VDOM} en {\tt DOM} pour que le navigateur puisse afficher la page. Ce processus est appelé le montage (mount en anglais).
 
-Il est difficile de savoir ce qu'accepte une fonction et ce qu'elle retourne, et devoir à chaque fois lire les éventuels commentaires pour chaque fonction dans plusieurs fichiers est fastidieux.
+Lorsque des mises à jour sur la page doivent intervenir, le {\tt DOM} virtuel est modifié avant que les modifications sur le {\tt DOM} ne soient effectuées. Le {\tt DOM} virtuel est une représentation légère du {\tt DOM} en {\tt JavaScript} qui peut être utilisée par des algorithmes très performants de comparaison des différences entre {\tt DOM} virtuel et {\tt DOM}.
 
-De très nombreux langages ou environnement ont tenté d'y remédier, on peut citer notamment : Flow, Dart, Elm, Reason, et Closure.
+Dès lors que le {\tt DOM} doit être modifié, un patch est appliqué par {\color{monOrange}Vue.js} de manière extrêmement optimisée pour ne réaliser que les changements absolument nécessaires. Par exemple, si aucune valeur affichée ne change, alors aucune mise à jour du {\tt DOM} n'est déclenchée ce qui économise beaucoup en performance.
 
-Mais le seul qui a vraiment conquis l'écosystème et s'est imposé dans une quantité astronomique de projets majeurs est TypeScript.
+En résumé, {\color{monOrange}Vue.js} va créer au départ un {\tt DOM} virtuel puis le convertir en {\tt DOM HTML} pour l'affichage lors du montage. Lorsque des changements interviennent, par exemple un événement survient, les changements affectant le {\tt DOM} virtuel sont analysés par des algorithmes et seuls les changements ayant un effet sur l'affichage sont propagés au {\tt DOM} lors de la phase de mise à jour (patch ou diffing en anglais). Ainsi, seules les insertions, les modifications et les suppressions d'éléments {\tt HTML} absolument nécessaires sont effectuées, ce qui permet un énorme gain de performance.
 
-TypeScript a été créé par Microsoft en 2012, il est depuis le départ un projet open-source.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-C'est un langage avec un typage fort et qui transpile en JavaScript.
+\section{Les API composition et options}
+{\color{monOrange}Vue.js} propose deux API pour écrire des composants {\color{monOrange}Vue} : l'API options et l'API composition.
+\begin{itemize}
+\item L'API options est l'API originelle qui existe depuis la première version du {\color{monOrange}framework}.
+\item L'API composition est l'API avec laquelle {\color{monOrange}Vue} a été réécrite pour la version 3. C'est la nouvelle API qui est aujourd'hui recommandée et celle que nous verrons dans la formation.
+\end{itemize}
+\subsection{L'API options}
+Dans l'ancienne API options, la logique du composant est définie dans un objet comportant des options comme {\tt data}, {\tt methods} ou {\tt mounted} par exemple. Les propriétés sont définies sur l'objet {\tt this} disponible dans les options.
 
-Transpiler signifie compiler vers un langage de même niveau.
+Nous ne détaillerons pas plus car ce n'est pas l'API que nous utiliserons. Nous la présentons uniquement pour que vous puissiez la reconnaître lorsque vous la rencontrez. Voici à quoi ressemble un composant écrit avec l'API options :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
+  mounted() {
+    console.log(`La valeur initiale est ${this.count}.`)
+  }
+}
+</script>
 
-Il est conçu comme une addition pour faire de JavaScript un langage qui scale en ajoutant des types.
+<template>
+  <button @click="increment">Valeur du compteur : {{ count }}</button>
+</template>
+\end{minted} 
 
-Ses avantages immédiats sont :
+\subsection{L'API composition}
+Avec l'API composition nous définissons la logique d'un composant en important des fonctions. Voilà le même exemple avec la nouvelle API :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const count = ref(0)
+function increment() {
+  count.value++
+}
+
+onMounted(() => {
+  console.log(`La valeur initiale est ${count.value}.`)
+})
+</script>
+
+<template>
+  <button @click="increment">Valeur du compteur : {{ count }}</button>
+</template>
+\end{minted} 
+
+\subsection{Les {\color{monOrange}Single-File Components} (SFC)}
+Les SFC sont des composants écrits dans des fichiers qui terminent par l'extension {\color{monOrange}.vue}. Un SFC comporte la logique du composant (partie script en {\tt JavaScript/TypeScript}), le template (en {\tt HTML}) et le style (en {\tt CSS} ou {\tt Sass}).
+
+Il est fortement recommandé d'utiliser les SFC pour écrire des composants {\color{monOrange}Vue.js}. C'est d'ailleurs ce que nous utiliserons tout le long de la formation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Création d'un composant}
+\subsection{Passer en mode {\color{monOrange}Take Over}}
+L'extension {\color{monOrange}Volar} est plus performante pour gérer l'utilisation de {\tt TypeScript} avec {\color{monOrange}Vue.js}. Aussi, il faut configurer l'éditeur {\tt VS Code} pour lui dire que nous utilisons {\color{monOrange}Volar}.
+
+Pour ce faire, aller sur l'onglet {\tt Extensions de VS Code}. Recherchez {\tt @builtin typescript}. Cliquez sur {\tt TypeScript and JavaScript Language Features}. Cliquez sur {\tt Désactiver (espace de travail)}. Cela désactivera uniquement pour ce projet. Cliquez ensuite sur Rechargement requis.
+
+\subsection{Utilisation du mode {\color{monOrange}strict} de {\color{monOrange}TypeScript}}
+Pour activer l'option {\color{monOrange}strict} du compilateur {\tt TypeScript} modifiez le fichier {\tt tsconfig.json} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
+\end{minted} 
+
+Cette option permet d'activer de nombreuses configurations plus strictes pour le contrôle des types par le compilateur. Cela permet d'améliorer sa capacité à détecter des erreurs.
+
+\subsection{Création du premier composant}
+Commençons par supprimer les composants mis en place automatiquement par {\color{monOrange}create-vue} pour la page de présentation lors du lancement de l'application. 
 \begin{enumerate}
-\item  Du code beaucoup plus lisible.
-\item  Du code beaucoup plus maintenable.
-\item  Beaucoup de bugs en moins grâce au compilateur.
+\item Supprimez tous les fichiers et les dossiers dans {\tt src/components/}.
+\item Supprimez le contenu, mais pas le fichier de {\tt src/App.vue}.
 \end{enumerate}
 
-
-Depuis la version 3 de Vue.js, le framework entier est codé en TypeScript et l'équipe recommande fortement l'utilisation de TypeScript.
-
-Si l'utilisation de TypeScript peut paraître fastidieuse au départ c'est un investissement extrêmement lucratif ! Les gains de productivité sont énormes.
-
-Dans la formation nous utiliserons donc TypeScript en vous présentant toutes les bases du langage nécessaires. Si vous voulez ensuite aller plus loin, vous pourrez simplement suivre la formation TypeScript sur la plateforme.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Environnement GNU/Linux}
-\subsection{Installation de Node.js avec node version manager :}
-nvm permet d'installer et d'utiliser plusieurs versions de Node.js localement. C'est intéressant si vous avez plusieurs projets à des versions différentes.
-
-Installez nvm :
-
+Comme nous l'avons vu, un composant {\color{blue} monofichier} (SFC, pour Single-file component) est un fichier {\color{blue} .vue} dont le nom est par convention en {\tt PascalCase}. Un composant monofichier a donc un template qui comporte le {\tt HTML}, une partie script qui comporte le JavaScript et une partie style qui comporte le {\tt CSS}. Voici l'exemple minimal de la vidéo :
 \begin{minted}[
 mathescape,
 framesep=2mm,
@@ -489,12 +525,28 @@ baselinestretch=1.2,
 fontsize=\footnotesize,
 bgcolor=LightGray,
 %linenos
-]{bash}
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-\end{minted}
+]{html}
+<template>
+    <h1>Bonjour {{name}}</h1>
+</template>
 
-Collez les commandes suivantes :
+<script setup lang="ts">
+    const name = 'Jean';
+</script>
 
+<style></style>
+\end{minted} 
+
+%\subsection{Exemple exécutable}
+%Vous pouvez aussi directement utiliser ce code exécutable. N'hésitez pas à l'ouvrir dans un nouvel onglet :
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Vue.js sans Vite}
+\subsection{Utiliser {\color{monOrange}Vue.js} sans {\color{monOrange}Vite}}
+Créez un dossier projet-vue.
+
+Dans ce dossier, créez un fichier index.html :
 \begin{minted}[
 mathescape,
 framesep=2mm,
@@ -502,128 +554,45 @@ baselinestretch=1.2,
 fontsize=\footnotesize,
 bgcolor=LightGray,
 %linenos
-]{bash}
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-\end{minted}
+]{html}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Bonjour {{ name }}</h1>
+    </div>
 
-Installez Node.js LTS :
+    <script>
+      Vue.createApp({
+        setup() {
+          const name = 'test';
+          return {
+            name,
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
+\end{minted} 
 
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{bash}
-nvm install --lts
-\end{minted}
+Ici, nous n'utilisons que la librairie {\color{monOrange}Vue.js} sans {\color{monOrange}Vite} et sans aucune autre librairie. 
+\begin{itemize}
+\item Il n'y a aucune étape de {\tt build}, nous ne pouvons pas utiliser Sass, TypeScript etc.
 
-\subsection{Installation de Node sans nvm}
-Ouvrez un terminal et entrez la commande suivante qui va installer la version LTS de Node.js :
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{bash}
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
-\end{minted}
+\item Il n'y a pas de minification du code et pleins d'avantages apportés par {\color{monOrange}Vite}.
+\end{itemize}
+Cet exemple permet simplement de montrer comment utiliser {\color{monOrange}Vue.js} seul mais dans toute la formation nous n'utiliserons pas du tout cette méthode car il est impossible d'écrire une application complexe comme cela. Cette manière de faire peut être utile pour par exemple gérer une barre de recherche sur une application avec {\color{monOrange}Symfony} côté serveur.
 
-Vérifiez l'installation :
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{bash}
-node -v
-\end{minted}
 
-\subsection{Installation de VS Code avec snap sur Ubuntu}
-Pour installer l'éditeur VS Code sur Ubuntu, nous vous recommandons d'utiliser snap.
 
-Ouvrez un terminal et faites simplement :
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{bash}
-snap install code
-\end{minted}
-
-\subsection{Installation de VS Code avec l'installeur}
-Si vous êtes sur une autre distribution ou que vous ne souhaitez pas utiliser snap, vous pouvez également utiliser l'installeur.
-
-Il vous suffit de le télécharger ici.
-
-\subsection{Ouvrir un terminal dans VS Code}
-Pour ouvrir la vue "Terminal" sur VS Code vous pouvez au choix :
-
-Utiliser Ctrl+`. Si le raccourci ne fonctionne pas. Allez dans le menu File > Preferences > Keymaps. Ensuite recherchez view toggle terminal. Et choisissez un raccourci puis faites Entrée. Nous recommandons Ctrl et la touche la plus à gauche juste sous la touche d'échappement.
-
-Aller dans le menu View > Terminal.
-
-Aller dans le menu Terminal > new terminal.
-
-Tapez Ctrl+Shift+P puis tapez Toggle terminal puis entrée.
-
-Installation d'extensions VS Code
-Allez dans l'onglet extension sur VS Code.
-
-Recherchez et installez Volar, TypeScript Vue Plugin (Volar) et Material Icon Theme.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Environnement macOS}
-\subsection{Installation de Node.js}
-Dans le cours vous aurez besoin d'installer des dépendances JavaScript, appelées packages, nous vous conseillons donc d'installer npm qui est le gestionnaire de dépendances de Node.js.
-
-Si vous n'avez pas npm, installez Node.js (qui comprend npm) : ici en sélectionnant l'installeur MacOS.
-
-Si vous préférez utiliser homebrew, ouvrez un terminal et faitres :
-
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{bash}
-brew install node
-\end{minted}
-
-\subsection{Installation de VS Code}
-Pour installer l'éditeur VS Code, avec l'installeur télécharger le ici.
-
-\subsection{Ouvrir un terminal dans VS Code}
-Pour ouvrir la vue "Terminal" sur VS Code vous pouvez au choix :
-
-Utiliser Ctrl+`. Si le raccourci ne fonctionne pas. Allez dans le menu File > Preferences > Keymaps. Ensuite recherchez view toggle terminal. Et choisissez un raccourci puis faites Entrée. Nous recommandons Ctrl et la touche la plus à gauche juste sous la touche d'échappement.
-
-Aller dans le menu View > Terminal.
-
-Aller dans le menu Terminal > new terminal.
-
-Tapez Ctrl+Shift+P puis tapez Toggle terminal puis entrée.
-
-\subsection{Installation d'extensions VS Code}
-Allez dans l'onglet extension sur VS Code.
-
-Recherchez et installez Volar, TypeScript Vue Plugin (Volar) et Material Icon Theme.
 
 \end{document}
-
-
-
-
 
