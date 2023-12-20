@@ -1,0 +1,99 @@
+\documentclass[a4paper]{article} 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+\usepackage{listings}
+
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+\usepackage[cache=false]{minted} 
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+
+\title{TP1 corrigé: Les listes chainées}
+\author{Ibrahim ALAME}
+\date{20/12/2023}
+\begin{document}
+\maketitle
+
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct Element Element;
+struct Element{
+    int nombre;
+    Element *suivant;
+};
+typedef struct Liste Liste;
+struct Liste{
+    Element *premier;
+};
+Liste *initialisation(){
+    Liste* liste = malloc(sizeof(*liste));
+    Element *element = malloc(sizeof(*element));
+    if(liste == NULL || element ==NULL) exit(EXIT_FAILURE);
+    element->nombre =0;
+    element->suivant = NULL;
+    liste->premier = element;
+    return liste;
+}
+void insertion(Liste *liste,int nvNombre){
+    /* Création du nouvel élément */
+    Element *nouveau = malloc(sizeof(Element));
+    if(liste == NULL || nouveau == NULL) exit(EXIT_FAILURE);
+    nouveau->nombre = nvNombre;
+    /* Insertion de l'élément au début de la liste */
+    nouveau->suivant = liste->premier;
+    liste->premier = nouveau;
+}
+void suppression(Liste *liste){
+    if(liste == NULL) exit(EXIT_FAILURE);
+    if(liste->premier != NULL){
+        Element *aSupprimer = liste->premier;
+        liste->premier = liste->premier->suivant;
+        free(aSupprimer);
+    }
+}
+void afficherListe(Liste *liste){
+    if(liste == NULL) exit(EXIT_FAILURE);
+    Element *actuel = liste->premier;
+    while (actuel != NULL){
+        printf("%d -> ",actuel->nombre);
+        actuel = actuel->suivant;
+    }
+    printf("NULL\n");
+}
+int main(){
+    Liste* L = initialisation();
+    insertion(L,4);
+    insertion(L,8);
+    insertion(L,15);
+    afficherListe(L);
+    suppression(L);
+    afficherListe(L);
+    
+    return 0;
+}
+\end{minted}
+
+
+
+\end{document}

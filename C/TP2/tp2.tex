@@ -1,0 +1,237 @@
+\documentclass[a4paper]{article} 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+\usepackage{listings}
+
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+\usepackage[cache=false]{minted} 
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+
+\title{TP2: Les polynômes}
+\author{Ibrahim ALAME}
+\date{20/12/2023}
+\begin{document}
+\maketitle
+
+%\section{Tableau de caractères}
+%Lire un tableau de $N$ caractères ($N>0$ donnée par l'utilisateur).
+%
+%\begin{description}
+%\item[Nombre de caractères] Afficher le nombre de voyelles et de consonnes
+%contenus dans le tableau. Tous les caractères autres que les 6 voyelles
+%sont considères comme des consonnes.
+%\item[Inverser le tableau]  Créer un nouveau tableau {\tt MIROIR} a partir du premier après l'avoir inversé. 
+%\item[Le Palindrome] Dire si le premier tableau saisi est un Palindrome : pour
+%l'être, il suffit qu'il soit identique à son {\tt MIROIR}.
+%\end{description}
+
+Il s'agit de mémoriser des polynômes d'une variable réelle et de réaliser des opérations sur ces polynômes. Le nombre de monôme est variable, aussi une allocation dynamique s'impose. La gestion en liste facilite l'ajout ou la suppression de monômes pour un polynôme donné. Le type polynôme est défini de la façon suivante:
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct polynome{
+    int coeff;
+    int exp;
+    struct polynome *suivant;
+} Polynome;    
+\end{minted}
+
+\begin{enumerate}
+\item %Écrire une fonction {\tt addMonome} permettant d'ajouter à un polynôme $p$ donné un monôme $aX^k$ où $a$ et $k$ sont deux entiers donnés.
+Commenter la fonction suivante:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+Polynome *addMonome(Polynome *p, int coefficient, int exposant){
+    if(p==NULL || p->exp < exposant){
+        Polynome * m = malloc(sizeof(Polynome));
+        m->coeff=coefficient;
+        m->exp=exposant;
+        m->suivant=p;
+        return m;
+    }
+    if (p->exp == exposant){
+        p->coeff += coefficient;
+        if(p->coeff==0 && p->suivant != NULL){
+            Polynome *asupprimer=p;
+            p=p->suivant;
+            free(asupprimer);
+        }
+        return p;
+    }else{
+        p->suivant = addMonome(p->suivant,coefficient,exposant);
+        return p;
+    }
+}
+\end{minted}
+\item  %Écrire une fonction {\tt supprimerPolynome(Polynome *p)} permettant de libérer les ressources contenu dans les pointeurs d'un polynôme $p$ donné.
+Écrire une fonction de destruction d'un polynôme donné $p$ en supprimant bien les pointeurs des termes de la liste dans le bon ordre pour ne perdre aucune information.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+void destruction(Polynome * p){
+    while (p!=NULL){
+         ...
+         ...
+         ...
+    }
+}
+\end{minted}
+%\item Écrire deux fonctions {\tt Polynome* somme(Polynome* p, Polynome* q)} et {\tt Polynome* produit(Polynome* p, Polynome* q)} permettant de calculer la somme et le produit de deux polynômes donnés $p$ et $p$.
+\item Écrire une fonction {\tt somme} permettant de calculer la somme polynomiale des polynômes $p$ et $q$:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+Polynome* somme(Polynome* p,Polynome* q){
+    Polynome* s = NULL;
+    while (p!=NULL){
+        ... ;
+        ... ;
+    }
+    while (q!=NULL){
+        ... ;
+        ... ;
+    }
+    return s;
+}
+\end{minted}
+\item Commenter la fonction suivante:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+void afficherPolynome(Polynome *monome){
+    while (monome != NULL) {
+        printf("%c", (monome->coeff >= 0) ? '+' : '-');
+        if(abs(monome->coeff)!=1 || monome->exp == 0)
+            printf("%d", abs(monome->coeff));
+        if (monome->exp >= 1)
+            printf("X");
+        if (monome->exp > 1)
+            printf("^%d", monome->exp);
+        monome = monome->suivant;
+    }
+    printf("\n");
+
+}
+\end{minted}
+\item A cette étape le programme principal ressemble à ceci:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+int main(){
+    Polynome *p = NULL, *q = NULL;
+    p=addMonome(p,-5,0);
+    p=addMonome(p,2,1);
+    p=addMonome(p,2,2);
+    p=addMonome(p,1,3);
+    printf("P=");afficherPolynome(p);
+    
+    q=addMonome(q,5,0);
+    q=addMonome(q,3,1);
+    q=addMonome(q,1,2);
+    printf("Q=");afficherPolynome(q);
+    
+    Polynome *s = somme(p,q);
+    printf("P+Q=");afficherPolynome(s);
+    destruction(p);
+    destruction(q);
+    destruction(s);
+    return 0;
+}
+\end{minted}
+\begin{verbatim}
+P=+X^3+2X^2+2X-5
+Q=+X^2+3X+5
+P+Q=+X^3+3X^2+5X+0
+\end{verbatim}
+\item Écrire une fonction {\tt produit} permettant de calculer le produit  des polynômes $p$ et $q$:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{c}
+Polynome* produit(Polynome* p,Polynome* q){
+    Polynome* r=NULL;
+    while (p!=NULL) {
+        Polynome *m=q;
+        while (m != NULL) {
+            ... ;
+            ... ;
+        }
+        ... ;
+    }
+    return r;
+}
+\end{minted}
+
+\item Écrire une fonction {\tt Puissance} récursive permettant de calculer une puissance entière selon le principe suivant:
+\[x^n=\left\{\begin{array}{ll}
+\left(x^2\right)^{\frac n2} &\mbox{ si } n \mbox{ est pair }\\
+\left(x^2\right)^{\frac {n-1}2} \times x &\mbox{ si } n \mbox{ est impair }
+\end{array}\right.
+\]
+
+\item Écrire une fonction {\tt int Valeur(Polynome* p, int x0)} qui calcule la valeur d'un polynôme $p$ en un point $x=x_0$ donné. Exemple: calculer la valeur de  $P(x)=3x^5+2x^3+1$, en $x=2$:
+\begin{verbatim}
+	   P(x)= 3 x^5 +2 x^3 +1
+	   Valeur de x? 2
+	   P(2)= 113 
+\end{verbatim}
+\item Écrire une fonction {\tt Polynome* diff(Polynome* p)} qui renvoie le polynôme dérivé d'un polynôme donné.
+
+\item Peut-on modifier la structure de la liste polynômiale définie au début du problème pour qu'on puisse calculer un polynôme primitif s'annulant en $x=0$ à coefficients rationnels sans utiliser les types float et double?
+\item Écrire une fonction {\tt divEuclidienne} permettant d'effectuer la division euclidienne d'un polynôme $A$ par un polynôme $B$. La fonction {\tt divEuclidienne}  affichera ou retournera deux polynômes $Q$ (quotient) et $R$ (reste).
+\end{enumerate}
+
+
+
+\end{document}
