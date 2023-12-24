@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.12)  23 DEC 2023 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.12)  23 DEC 2023 14:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**chapitre9.tex
-(./chapitre9.tex
+**chapitre12.tex
+(./chapitre12.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -141,7 +141,7 @@ Package: filehook-2020 2020/09/29 v0.8a Hooks for input files
 \c@currfiledepth=\count283
 )
 \pytx@codefile=\write4
-\openout4 = `chapitre9.pytxcode'.
+\openout4 = `chapitre12.pytxcode'.
 
 \c@pytx@FancyVerbLineTemp=\count284
 \c@pytx@py@default@default=\count285
@@ -621,11 +621,11 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "chapitre9.w18")...executed.
+runsystem(uname -s > "chapitre12.w18")...executed.
 
 
-(./chapitre9.w18)
-runsystem(rm -- "chapitre9.w18")...executed.
+(./chapitre12.w18)
+runsystem(rm -- "chapitre12.w18")...executed.
 
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/framed/framed.sty
@@ -1118,15 +1118,15 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count418
 \enitdp@description=\count419
 )
-runsystem(which pygmentize && touch chapitre9.aex)...executed.
+runsystem(which pygmentize && touch chapitre12.aex)...executed.
 
-runsystem(rm chapitre9.aex)...executed.
+runsystem(rm chapitre12.aex)...executed.
 
 Package translations Info: No language package found. I am going to use `englis
 h' as default language. on input line 64.
 
-(./chapitre9.aux)
-\openout1 = `chapitre9.aux'.
+No file chapitre12.aux.
+\openout1 = `chapitre12.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
 LaTeX Font Info:    ... okay on input line 64.
@@ -1143,8 +1143,7 @@ LaTeX Font Info:    ... okay on input line 64.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
 LaTeX Font Info:    ... okay on input line 64.
 Package newfloat Info: `float' package detected.
-
-No file pythontex-files-chapitre9/chapitre9.pytxmcr.
+No file pythontex-files-chapitre12/chapitre12.pytxmcr.
 Run PythonTeX to create it.
 
 Package PythonTeX Warning: A "listing" environment already exists 
@@ -1243,33 +1242,17 @@ LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line
 65.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
-\openout3 = `chapitre9.pyg'.
+\openout3 = `chapitre12.pyg'.
 
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > chapitre9.out.p
-yg)...executed.
+runsystem(pygmentize -S default -f latex -P commandprefix=PYG > chapitre12.out.
+pyg)...executed.
 
 
-(./chapitre9.out.pyg)
+(./chapitre12.out.pyg)
 runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
+ipnl=False -P mathescape=True -o chapitre12.out.pyg chapitre12.pyg)...executed.
 
- (./chapitre9.out.pyg
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
-)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg) [1
+ (./chapitre12.out.pyg) [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
 Non-PDF special ignored!
@@ -1302,322 +1285,32 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-\openout3 = `chapitre9.pyg'.
+[2] (./chapitre12.aux)
+runsystem(rm chapitre12.pyg)...executed.
 
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [2] (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [3] (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg) [4]
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
-)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg) [5]
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [6] (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [7]
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-<images/image10.png, id=38, 690.58pt x 260.975pt>
-File: images/image10.png Graphic file (type png)
-<use images/image10.png>
-Package pdftex.def Info: images/image10.png  used on input line 503.
-(pdftex.def)             Requested size: 284.52756pt x 107.52608pt.
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [8 <./images/image10.png>] (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [9]
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [10] (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-<images/image11.png, id=50, 690.58pt x 293.095pt>
-File: images/image11.png Graphic file (type png)
-<use images/image11.png>
-Package pdftex.def Info: images/image11.png  used on input line 747.
-(pdftex.def)             Requested size: 284.52756pt x 120.76006pt.
- [11]
-<images/image12.png, id=54, 690.58pt x 293.095pt>
-File: images/image12.png Graphic file (type png)
-<use images/image12.png>
-Package pdftex.def Info: images/image12.png  used on input line 752.
-(pdftex.def)             Requested size: 284.52756pt x 120.76006pt.
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l javascript -f latex -P commandprefix=PYG -F tokenmerge 
--P stripnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...execu
-ted.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- [12 <./images/image11.png> <./images/image12.png>]
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
-
-(./chapitre9.out.pyg)
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg) [13]
-\openout3 = `chapitre9.pyg'.
-
-runsystem(pygmentize -l html -f latex -P commandprefix=PYG -F tokenmerge -P str
-ipnl=False -P mathescape=True -o chapitre9.out.pyg chapitre9.pyg)...executed.
-
- (./chapitre9.out.pyg) [14]
-(./chapitre9.aux)
-runsystem(rm chapitre9.pyg)...executed.
-
-runsystem(rm chapitre9.out.pyg)...executed.
+runsystem(rm chapitre12.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 30322 strings out of 478268
- 641178 string characters out of 5846347
- 1033702 words of memory out of 5000000
- 47843 multiletter control sequences out of 15000+600000
- 478762 words of font info for 66 fonts, out of 8000000 for 9000
+ 30190 strings out of 478268
+ 638888 string characters out of 5846347
+ 1034680 words of memory out of 5000000
+ 47809 multiletter control sequences out of 15000+600000
+ 478085 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,9n,107p,668b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,6n,107p,669b,514s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/loca
-l/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on chapitre9.pdf (14 pages, 212008 bytes).
+cal/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on chapitre12.pdf (2 pages, 90894 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 50 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
