@@ -1,0 +1,152 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{p}{\PYGZlt{}}\PYG{n+nt}{template}\PYG{p}{\PYGZgt{}}
+  \PYG{p}{\PYGZlt{}}\PYG{n+nt}{div} \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}container\PYGZdq{}}\PYG{p}{\PYGZgt{}}
+    \PYG{p}{\PYGZlt{}}\PYG{n+nt}{div} \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}p\PYGZhy{}20\PYGZdq{}}\PYG{p}{\PYGZgt{}}
+      \PYG{p}{\PYGZlt{}}\PYG{n+nt}{h3} \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}mb\PYGZhy{}10\PYGZdq{}}\PYG{p}{\PYGZgt{}}Formulaire\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{h3}\PYG{p}{\PYGZgt{}}
+      \PYG{p}{\PYGZlt{}}\PYG{n+nt}{form} \PYG{err}{@}\PYG{n+na}{submit}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}mySubmit\PYGZdq{}}\PYG{p}{\PYGZgt{}}
+        \PYG{p}{\PYGZlt{}}\PYG{n+nt}{input}
+          \PYG{n+na}{ref}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}name\PYGZdq{}}
+          \PYG{n+na}{v\PYGZhy{}model}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}nameValue\PYGZdq{}}
+          \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}mr\PYGZhy{}10\PYGZdq{}}
+          \PYG{n+na}{type}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}text\PYGZdq{}}
+          \PYG{n+na}{placeholder}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}Prénom\PYGZdq{}}
+        \PYG{p}{/\PYGZgt{}}
+        \PYG{p}{\PYGZlt{}}\PYG{n+nt}{input}
+          \PYG{n+na}{v\PYGZhy{}model}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}emailValue\PYGZdq{}}
+          \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}mr\PYGZhy{}10\PYGZdq{}}
+          \PYG{n+na}{type}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}text\PYGZdq{}}
+          \PYG{n+na}{placeholder}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}Email\PYGZdq{}}
+        \PYG{p}{/\PYGZgt{}}
+        \PYG{p}{\PYGZlt{}}\PYG{n+nt}{button} \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}btn btn\PYGZhy{}primary\PYGZdq{}}\PYG{p}{\PYGZgt{}}Sauvegarder\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{button}\PYG{p}{\PYGZgt{}}
+      \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{form}\PYG{p}{\PYGZgt{}}
+    \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{div}\PYG{p}{\PYGZgt{}}
+    \PYG{p}{\PYGZlt{}}\PYG{n+nt}{div} \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}p\PYGZhy{}20\PYGZdq{}}\PYG{p}{\PYGZgt{}}
+      \PYG{p}{\PYGZlt{}}\PYG{n+nt}{h3}\PYG{p}{\PYGZgt{}}Liste des utilisateurs\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{h3}\PYG{p}{\PYGZgt{}}
+      \PYG{p}{\PYGZlt{}}\PYG{n+nt}{ul}\PYG{p}{\PYGZgt{}}
+        \PYG{p}{\PYGZlt{}}\PYG{n+nt}{li}
+          \PYG{err}{@}\PYG{n+na}{click}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}state.selectedUser = user\PYGZdq{}}
+          \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}mb\PYGZhy{}10 d\PYGZhy{}flex\PYGZdq{}}
+          \PYG{n+na}{v\PYGZhy{}for}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}user in state.users\PYGZdq{}}
+        \PYG{p}{\PYGZgt{}}
+          \PYG{p}{\PYGZlt{}}\PYG{n+nt}{span} \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}mr\PYGZhy{}10 flex\PYGZhy{}fill\PYGZdq{}}
+            \PYG{p}{\PYGZgt{}}\PYGZob{}\PYGZob{} user.name \PYGZcb{}\PYGZcb{} \PYGZhy{} \PYGZob{}\PYGZob{} user.email \PYGZcb{}\PYGZcb{}\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{span}
+          \PYG{p}{\PYGZgt{}}
+          \PYG{p}{\PYGZlt{}}\PYG{n+nt}{button}
+            \PYG{err}{@}\PYG{n+na}{click}\PYG{err}{.}\PYG{n+na}{stop}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}deleteUser(user.\PYGZus{}id)\PYGZdq{}}
+            \PYG{n+na}{type}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}button\PYGZdq{}}
+            \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}btn btn\PYGZhy{}danger\PYGZdq{}}
+          \PYG{p}{\PYGZgt{}}
+            Supprimer
+          \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{button}\PYG{p}{\PYGZgt{}}
+        \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{li}\PYG{p}{\PYGZgt{}}
+      \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{ul}\PYG{p}{\PYGZgt{}}
+    \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{div}\PYG{p}{\PYGZgt{}}
+  \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{div}\PYG{p}{\PYGZgt{}}
+\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{template}\PYG{p}{\PYGZgt{}}
+
+\PYG{p}{\PYGZlt{}}\PYG{n+nt}{script} \PYG{n+na}{setup} \PYG{n+na}{lang}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}ts\PYGZdq{}}\PYG{p}{\PYGZgt{}}
+\PYG{k}{import}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{useForm}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{useField}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k+kr}{from}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}vee\PYGZhy{}validate\PYGZsq{}}\PYG{p}{;}
+\PYG{k}{import}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{reactive}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{ref}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{watch}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{onMounted}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k+kr}{from}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}vue\PYGZsq{}}\PYG{p}{;}
+
+\PYG{k+kr}{interface}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{name}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{string}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{email}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{string}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{createdAt}\PYG{o}{?:}\PYG{+w}{ }\PYG{n+nx}{string}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{\PYGZus{}id}\PYG{o}{?:}\PYG{+w}{ }\PYG{n+nx}{string}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{state}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{reactive}\PYG{o}{\PYGZlt{}}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{users}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{p}{[];}
+\PYG{+w}{  }\PYG{n+nx}{selectedUser}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}\PYG{p}{(\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{users}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[],}
+\PYG{+w}{  }\PYG{n+nx}{selectedUser}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{,}
+\PYG{p}{\PYGZcb{});}
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{name}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{ref}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{HTMLInputElement}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{);}
+
+\PYG{n+nx}{onMounted}\PYG{p}{(()}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n+nx}{name}\PYG{p}{.}\PYG{n+nx}{value}\PYG{o}{?}\PYG{p}{.}\PYG{n+nx}{focus}\PYG{p}{());}
+
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{handleSubmit}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{resetForm}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{useForm}\PYG{p}{();}
+
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{mySubmit}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{handleSubmit}\PYG{p}{(}\PYG{k}{async}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{value}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{try}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{selectedUser}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{fetch}\PYG{p}{(}
+\PYG{+w}{        }\PYG{l+s+sb}{`https://restapi.fr/api/vueusers?id=}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{selectedUser}\PYG{p}{.}\PYG{n+nx}{\PYGZus{}id}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n+nx}{method}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}PATCH\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{          }\PYG{n+nx}{body}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nb}{JSON}\PYG{p}{.}\PYG{n+nx}{stringify}\PYG{p}{(}\PYG{n+nx}{value}\PYG{p}{),}
+\PYG{+w}{          }\PYG{n+nx}{headers}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{l+s+s1}{\PYGZsq{}Content\PYGZhy{}Type\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}application/json\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{          }\PYG{p}{\PYGZcb{},}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{p}{);}
+\PYG{+w}{      }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{json}\PYG{p}{();}
+\PYG{+w}{      }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{users}\PYG{p}{.}\PYG{n+nx}{map}\PYG{p}{((}\PYG{n+nx}{u}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{u}\PYG{p}{.}\PYG{n+nx}{\PYGZus{}id}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{p}{.}\PYG{n+nx}{\PYGZus{}id}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{u}\PYG{p}{));}
+\PYG{+w}{      }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{selectedUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{fetch}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}https://restapi.fr/api/vueusers\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{method}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}POST\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n+nx}{body}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nb}{JSON}\PYG{p}{.}\PYG{n+nx}{stringify}\PYG{p}{(}\PYG{n+nx}{value}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n+nx}{headers}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{l+s+s1}{\PYGZsq{}Content\PYGZhy{}Type\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}application/json\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{},}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{});}
+\PYG{+w}{      }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{json}\PYG{p}{();}
+\PYG{+w}{      }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{users}\PYG{p}{.}\PYG{n+nx}{push}\PYG{p}{(}\PYG{n+nx}{user}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n+nx}{resetForm}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n+nx}{name}\PYG{p}{.}\PYG{n+nx}{value}\PYG{o}{?}\PYG{p}{.}\PYG{n+nx}{focus}\PYG{p}{();}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{catch}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{});}
+
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{value}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{emailValue}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{useField}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}email\PYGZsq{}}\PYG{p}{);}
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{value}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{nameValue}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{useField}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}name\PYGZsq{}}\PYG{p}{);}
+
+\PYG{k}{async}\PYG{+w}{ }\PYG{k+kd}{function}\PYG{+w}{ }\PYG{n+nx}{fetchUsers}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{try}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{fetch}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}https://restapi.fr/api/vueusers\PYGZsq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{users}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{p}{[]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{json}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{users}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{Array}\PYG{p}{.}\PYG{n+nx}{isArray}\PYG{p}{(}\PYG{n+nx}{users}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n+nx}{users}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{users}\PYG{p}{];}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{catch}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nx}{fetchUsers}\PYG{p}{();}
+
+\PYG{k}{async}\PYG{+w}{ }\PYG{k+kd}{function}\PYG{+w}{ }\PYG{n+nx}{deleteUser}\PYG{p}{(}\PYG{n+nx}{userId}\PYG{o}{?:}\PYG{+w}{ }\PYG{n+nx}{string}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{try}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{userId}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{fetch}\PYG{p}{(}\PYG{l+s+sb}{`https://restapi.fr/api/vueusers?id=}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{userId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{method}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}DELETE\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{});}
+\PYG{+w}{      }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{users}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{users}\PYG{p}{.}\PYG{n+nx}{filter}\PYG{p}{((}\PYG{n+nx}{user}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{p}{.}\PYG{n+nx}{\PYGZus{}id}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n+nx}{userId}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{catch}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nx}{watch}\PYG{p}{(}
+\PYG{+w}{  }\PYG{p}{()}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{n+nx}{state}\PYG{p}{.}\PYG{n+nx}{selectedUser}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{(}\PYG{n+nx}{user}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{User}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{user}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{nameValue}\PYG{p}{.}\PYG{n+nx}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{p}{.}\PYG{n+nx}{name}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n+nx}{emailValue}\PYG{p}{.}\PYG{n+nx}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{user}\PYG{p}{.}\PYG{n+nx}{email}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{nameValue}\PYG{p}{.}\PYG{n+nx}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n+nx}{emailValue}\PYG{p}{.}\PYG{n+nx}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{);}
+\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{script}\PYG{p}{\PYGZgt{}}
+
+\PYG{p}{\PYGZlt{}}\PYG{n+nt}{style} \PYG{n+na}{lang}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}scss\PYGZdq{}}\PYG{p}{\PYGZgt{}}
+\PYG{p}{@}\PYG{k}{import}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}./assets/scss/base.scss\PYGZsq{}}\PYG{p}{;}
+\PYG{p}{\PYGZlt{}/}\PYG{n+nt}{style}\PYG{p}{\PYGZgt{}}
+\end{Verbatim}

@@ -1,0 +1,30 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {1.1}Prérequis}{3}{}%
+\contentsline {section}{\numberline {1.2}Introduction à Vue.js}{3}{}%
+\contentsline {subsection}{\numberline {1.2.1}Qu'est ce que Vue.js ?}{3}{}%
+\contentsline {subsection}{\numberline {1.2.2}Un framework progressif}{3}{}%
+\contentsline {subsection}{\numberline {1.2.3}Tous les rendus possibles !}{4}{}%
+\contentsline {subsection}{\numberline {1.2.4}Une traction incroyable}{4}{}%
+\contentsline {subsection}{\numberline {1.2.5}Vue.js 3}{4}{}%
+\contentsline {subsection}{\numberline {1.2.6}Avantages}{5}{}%
+\contentsline {subsection}{\numberline {1.2.7}Note sur le choix des technologies}{5}{}%
+\contentsline {section}{\numberline {1.3}SPA, create-vue et Vite}{5}{}%
+\contentsline {subsection}{\numberline {1.3.1}Les Single Page Applications}{5}{}%
+\contentsline {subsection}{\numberline {1.3.2}La librairie create-vue}{6}{}%
+\contentsline {subsection}{\numberline {1.3.3}Fonctionnement de Vite}{6}{}%
+\contentsline {subsubsection}{La notion de {\color {monOrange}bundler} ("empaqueteur")}{6}{}%
+\contentsline {subsubsection}{Vite en détail}{7}{}%
+\contentsline {subsubsection}{Qu'est-ce que {\color {monOrange}TypeScript} ?}{8}{}%
+\contentsline {section}{\numberline {1.4}Environnement GNU/Linux}{8}{}%
+\contentsline {subsection}{\numberline {1.4.1}Installation de {\color {monOrange}Node.js} avec {\color {monOrange}node version manager}}{8}{}%
+\contentsline {subsection}{\numberline {1.4.2}Installation\ de\ {\color {monOrange}Node}\ sans\ {\color {monOrange}nvm}}{8}{}%
+\contentsline {subsection}{\numberline {1.4.3}Installation\ de\ {\color {monOrange}VS\ Code}\ avec\ snap\ sur\ Ubuntu}{9}{}%
+\contentsline {subsection}{\numberline {1.4.4}Installation\ de\ VS\ Code\ avec\ l\char 13 installeur}{9}{}%
+\contentsline {subsection}{\numberline {1.4.5}Ouvrir\ un\ terminal\ dans\ {\color {monOrange}VS\ Code}}{9}{}%
+\contentsline {section}{\numberline {1.5}Environnement\ macOS}{9}{}%
+\contentsline {subsection}{\numberline {1.5.1}Installation\ de\ {\color {monOrange}Node.js}}{9}{}%
+\contentsline {subsection}{\numberline {1.5.2}Ouvrir un terminal dans {\color {monOrange}VS Code}}{9}{}%
+\contentsline {chapter}{\numberline {2}Création de notre première application Vue}{11}{}%
+\contentsline {section}{\numberline {2.1}La librairie create\unhbox \voidb@x \kern \z@ \char `\-vue}{11}{}%
+\contentsline {subsection}{\numberline {2.1.1}Première utilisation de la librairie {\color {monOrange} create\unhbox \voidb@x \kern \z@ \char `\-vue}}{11}{}%

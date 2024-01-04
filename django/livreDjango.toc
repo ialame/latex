@@ -1,0 +1,47 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Mettez en place une API simple}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Découvrez Django REST Framework}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Découvrez pourquoi utiliser une API}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Découvrez le cas concret du cours}{6}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Installez et configurez {\color {monOrange}DRF}}{6}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Gérez des données avec un endpoint}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Créez un premier endpoint}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Découvrez les méthodes d’un {\color {monOrange}endpoint}}{11}{subsection.2.2.2}%
+\contentsline {subsubsection}{{\tt GET} et {\tt POST} servent avec Django à créer de nouvelles entités au travers de formulaires, mais {\tt PATCH} et {\tt DELETE} servent à quoi ?}{11}{section*.5}%
+\contentsline {section}{\numberline {2.3}Rendez les Views plus génériques avec un ModelViewset}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Mettez en place un {\color {monOrange}router}}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Transformez une ApiView en ModelViewset}{13}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Ne permettez que la lecture}{15}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Filtrez les résultats d’un endpoint}{16}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Appliquez un filtre sur les données retournées}{16}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Écrivez des tests pour votre API}{19}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Découvrez le TestCase de DRF}{19}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Écrivez des tests avec APITestCase}{19}{subsection.2.6.2}%
+\contentsline {chapter}{\numberline {3}Rendez vos endpoints plus performants}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Minimisez les appels de votre API grâce aux serializers}{23}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Retournez plus d'informations}{23}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Imbriquez les serializers}{24}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Ajoutez de la pagination}{26}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Différenciez les informations de liste et de détail}{29}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Retournez plus d’informations dans le détail}{29}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Améliorez le rendu du détail d’un endpoint}{29}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Ajoutez de l’interaction avec les actions}{31}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Ne soyez pas trop actif !}{31}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Soyez actif quand même !}{32}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Validez les données}{35}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Ne permettez pas la création de tout et n’importe quoi}{35}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Validez les données d’un champ}{35}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Mettez en place une validation multiple}{37}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}Sécurisez votre API avec l’authentification}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Ajoutez l’authentification des utilisateurs}{39}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Découvrez JSON Web Token}{39}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Installez et configurez djangorestframework-simple-jwt}{40}{subsection.4.1.2}%
+\contentsline {subsubsection}{En résumé}{42}{section*.28}%
+\contentsline {section}{\numberline {4.2}Donnez des accès avec les tokens}{42}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Découvrez le fonctionnement de l’échange de tokens}{42}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Obtenez des tokens}{43}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Rafraîchissez des tokens}{45}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Restreignez l'accès à certains endpoints}{46}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Limitez l’accès aux utilisateurs authentifiés}{46}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Créez des permissions plus fines}{47}{subsection.4.3.2}%

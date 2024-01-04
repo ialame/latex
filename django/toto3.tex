@@ -1,0 +1,154 @@
+\documentclass[a4paper]{article}
+ 
+% - taille de la fonte    : 10pt, 11pt, 12pt
+% - recto ou recto-verso    : oneside, twoside
+ 
+% Chargement d'extensions
+%\usepackage[latin1]{inputenc}    
+\usepackage[francais]{babel}    
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{amsmath}
+\makeatletter
+%%%%%%%%%%%%%%%%%%% debut fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xkeyval}
+\RequirePackage{tikz}
+\RequirePackage{amssymb}
+
+\define@key{boxedtheorem}{titlecolor}{\def\titlecolor{#1}}
+\define@key{boxedtheorem}{titlebackground}{\def\titlebackground{#1}}
+\define@key{boxedtheorem}{background}{\def\background{#1}}
+\define@key{boxedtheorem}{titleboxcolor}{\def\titleboxcolor{#1}}
+\define@key{boxedtheorem}{boxcolor}{\def\boxcolor{#1}}
+\define@key{boxedtheorem}{thcounter}{\def\thcounter{#1}}
+\define@key{boxedtheorem}{size}{\def\size{#1}}
+\presetkeys{boxedtheorem}{titlecolor = black, titlebackground = white, background = white,%
+                         titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth}{}
+
+\newcommand{\couleurs}[1][]{%
+    \setkeys{boxedtheorem}{#1}
+    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
+                            text= \titlecolor]
+    \tikzstyle{mybox} = [draw=\boxcolor, fill=\background, very thick,
+                        rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+}
+
+
+%Commande generique pour faire un joli encadre
+\newsavebox{\boiboite}
+\newcommand{\titre}{Titre}
+\newenvironment{boite}[2][]%
+    {%
+    \renewcommand{\titre}{#2}
+    \couleurs[#1]
+    \begin{lrbox}{\boiboite}%
+     \begin{minipage}[!h]{\size}
+    }%
+    {%
+     \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}
+    \node [mybox] (box){\usebox{\boiboite}};
+    \node[fancytitle, right=10pt] at (box.north west) {\titre};
+    \end{tikzpicture}
+    \end{center}
+    }
+
+\newcommand{\newboxedtheorem}[4][]{%
+    \couleurs[#1]
+    \@ifnotempty{#4}{%
+      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
+      \newcounter{#4}[\thcounter ] } } { }%
+    }
+    \newenvironment{#2}[1][]{%
+    \@ifnotempty{#4}{\refstepcounter{#4}}
+    \begin{boite}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
+    (##1)}}
+    }%
+    {%
+    \end{boite}
+    }
+}
+%%%%%%%%%%%%%%%%%%%% end fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+\makeatother
+\newboxedtheorem{theorem}{}{theorem}
+%%%%%%%%%% hypertext
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+%\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage[cache=false]{minted}
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+% Informations le titre, le(s) auteur(s), la date
+\title{Vue3}
+\author{Ibrahim ALAME}
+\date{\today}
+\includeonly{ introduction.tex} 
+\begin{document}
+ 
+\maketitle\subsection{Validez les données d’un champ}
+Commençons tout de suite par la mise en place du nouvel endpoint sur l’URL \href{http://127.0.0.1:8000/api/admin/category/}  qui, comme son nom l’indique, servira à administrer les catégories.
+\subsubsection*{Pourquoi ne pas utiliser l’endpoint déjà existant ?}
+ Dans les endpoints d’administration :
+\begin{itemize}
+\item Des serializers différents sont utilisés et les données retournées diffèrent ;
+\item Certains accès peuvent également être limités à certaines personnes authentifiées.
+\end{itemize}
+ 
+Dans le cadre de notre boutique, nous avons décidé de {\color{monOrange}définir nos endpoints} en fonction des {\color{monOrange}acteurs} qui les utilisent. Créons {\color{monOrange}notre nouvel endpoint d’administration} qui cette fois-ci étend {\tt ModelViewset}  et non plus {\tt ReadOnlyViewset}. Celui-ci ne doit pas avoir de limitation sur les catégories actives, car il s’agit d’un endpoint d’administration.
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+class AdminCategoryViewset(MultipleSerializerMixin, ModelViewSet):
+ 
+    serializer_class = CategoryListSerializer
+    detail_serializer_class = CategoryDetailSerializer
+ 
+    def get_queryset(self):
+        return Category.objects.all()
+\end{minted}
+Puis définissons notre nouvel endpoint en le {\color{monOrange}déclarant auprès de notre routeur}.
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+router.register('admin/category', AdminCategoryViewset, basename='admin-category')
+\end{minted}
+Vérifions que notre endpoint est bien fonctionnel sur l’URL \href{http://127.0.0.1/api/admin/category/}
+
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[a4paper]{book}
+ 
+% - taille de la fonte    : 10pt, 11pt, 12pt
+% - recto ou recto-verso    : oneside, twoside
+ 
+% Chargement d'extensions
+%\usepackage[latin1]{inputenc}    
+\usepackage[francais]{babel}    
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage[cache=false]{minted}
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+% Informations le titre, le(s) auteur(s), la date
+\title{Vue3}
+\author{Ibrahim ALAME}
+\date{\today}
+\includeonly{ introduction.tex} 
+\begin{document}
+ 
+\maketitle
+
+    \chapter{Introduction}
+	\input{introduction.tex}
+
+    \chapter{Création de notre première application Vue}
+    \input{premiereApplicationVue.tex}
+	\chapter{Intéragir avec le DOM}
+	\input{leDOM.tex}	
+	\chapter{Rendre les composants réactifs}
+	\input{composantsReactifs.tex}
+	\chapter{Le style et les classes}
+	\input{styleEtClasses.tex}
+	\chapter{Les directives structurelles}
+	\input{directivesStructurelles.tex}
+	\chapter{Les bases des composants}
+	\input{basesDesComposants.tex}
+	\chapter{Projet Boutique - partie 1}
+	\input{projetBoutique1.tex}
+	\chapter{Projet Boutique - partie 2}
+	\input{projetBoutique2.tex}
+	\chapter{Les fonctionnalités avancées des composants}
+	\input{composantsAvances.tex}
+	\chapter{HTTP}
+	\input{http.tex}
+	\chapter{Composants Natifs}
+	\input{composantsNatifs.tex}
+	\chapter{Projet Boutique - partie 3}
+	\input{projetBoutique3.tex}
+    \tableofcontents    
+
+% Fin du document
+\end{document}

@@ -1,0 +1,278 @@
+\section{Introduction et portée des styles}
+\subsection{Comportement par défaut}
+Par défaut, tout le CSS est global car il est réuni dans le {\color{monOrange}bundle} par {\color{monOrange}Vite}. Si vous définissez des classes à l'intérieur des balises {\tt <style>}, ces classes s'appliqueront donc à tous vos composants.
+
+\subsection{L'attribut {\color{monOrange}scoped}}
+L'attribut {\color{monOrange}scoped} permet d'encapsuler le CSS d'un composant monofichier ({\color{monOrange}SFC}) en ajoutant, grâce à PostCSS un attribut unique (par exemple data-v-29e5g83) à l'élément en compilant par exempl {\color{monOrange}.ma-classe} en {\color{monOrange}.ma-classe[data-v-29e5g83]}.
+
+Cette encapsulation est effectuée automatiquement par {\color{monOrange}Vite}. Vous n'avez rien à faire d'autre que d'ajouter l'attribut {\color{monOrange}scoped}. Pour utiliser {\color{monOrange}scoped}, il suffit de l'ajouter sur la balise style de votre composant monofichier :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<style scoped>
+  .ma-classe {
+  }
+</style>
+\end{minted}
+
+%Exemple exécutable de la vidéo
+%Vous pouvez directement utiliser ce code exécutable. N'hésitez pas à l'ouvrir dans un nouvel onglet pour le modifier ou mieux voir :
+
+\section{La liaison de classes}
+\subsection{La liaison de classes}
+Nous avons vu qu'il était possible de lier une ou plusieurs classes à l'attribut {\color{monOrange}class} en utilisant la directive {\color{monOrange}v-bind}. Pour permettre une utilisation très flexible, {\color{monOrange}Vue.js} permet plus de syntaxes lorsque nous utilisons {\color{monOrange}v-bind} avec les classes ou les styles.
+
+Bien sûr la liaison n'a de sens que si les classes sont réactives suivant la valeur de propriétés. Sinon il suffit d'écrire les classes en dur côté {\color{monOrange}template}. Nous allons récapituler toutes les syntaxes possibles.
+
+\subsubsection{Liaison avec des objets}
+La première syntaxe permet d'utiliser un objet :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :class="{ actif: estActif }"></div>
+\end{minted}
+La classe {\color{monOrange}actif} sera ajoutée si la propriété {\tt estActif} vaut {\tt true} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+const estActif = ref(true)
+\end{minted}
+Si la propriété réactive passe à {\tt false}, la classe sera automatiquement retirée.
+
+\subsubsection{Combinaison de l'attribut {\color{monOrange}class} et d'une liaison {\color{monOrange}:class}}
+Vous pouvez combiner sans problème l'attribut {\color{monOrange}class} avec une liaison avec la directive {\color{monOrange}v-bind} en utilisant {\color{monOrange}:class} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div
+  class="classe1"
+  :class="{ active: isActive, error: hasError }"
+></div>
+\end{minted}
+Ici nous aurons quoiqu'il arrive la {\tt classe1}.
+\begin{itemize}
+\item La classe {\color{monOrange}active} sera ajoutée si la propriété {\color{monOrange}isActive} vaut {\tt true}.
+\item La classe {\color{monOrange}error} sera ajoutée si la propriété {\color{monOrange}hasError} vaut {\tt true}.
+\end{itemize}
+Dans tous les cas, Vue.js créera la div sur le DOM avec un seul attribut classe, par exemple :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div class="classe1 isActive hasError"></div>
+\end{minted}
+
+\subsubsection{Utilisation d'un objet réactif}
+Vous pouvez utiliser un objet réactif côté {\color{monOrange}script} pour la liaison avec l'attribut {\color{monOrange}class} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+const mesClasses = reactive({
+  active: true,
+  error: false,
+  classeX: false
+});
+\end{minted}
+Il suffit ensuite de le passer à {\color{monOrange}v-bind} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :class="mesClasses"></div>
+\end{minted}
+
+\subsubsection{Utilisation d'une propriété calculée}
+Vous pouvez même utiliser une propriété calculée :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+const mesClasses = computed(() => ({
+  active: isActive.value && !error.value,
+  error: error.value && error.value.type === 'fatal'
+}))
+\end{minted}
+
+
+\subsubsection{Utilisation d'un tableau de classes}
+Vous pouvez utiliser un tableau de classes :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :class="[classe1, classe2]"></div>
+\end{minted}
+
+%Exemple exécutable de la vidéo
+%Vous pouvez directement utiliser ce code exécutable. N'hésitez pas à l'ouvrir dans un nouvel onglet pour le modifier ou mieux voir :
+
+\section{La liaison de styles}
+\subsection{Liaison de styles}
+Passons maintenant aux différentes syntaxes possibles pour les liaisons de style.
+
+\subsubsection{Liaison avec des objets}
+La première syntaxe permet d'utiliser un objet :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+\end{minted}
+
+Avec côté {\color{monOrange}script} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+const activeColor = ref('red')
+const fontSize = ref(30)
+\end{minted}
+
+\subsubsection{Utilisation des propriétés CSS natives}
+Vous pouvez également utiliser directement les noms des propriétés CSS en utilisant des guillemets simples :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :style="{ 'font-size': fontSize + 'px' }"></div>
+\end{minted}
+
+\subsubsection{Utilisation d'un objet réactif}
+Vous pouvez utiliser un objet réactif côté script pour la liaison avec l'attribut {\color{monOrange}style} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{javascript}
+const mesStyles = reactive({
+  color: 'red',
+  fontSize: '13px'
+})
+\end{minted}
+Et côté {\color{monOrange}template} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :style="mesStyles"></div>
+\end{minted}
+
+\subsubsection{Utilisation d'un tableau}
+Vous pouvez enfin utiliser un tableau :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<div :style="[stylesDeBase, stylesParticuliers]"></div>
+\end{minted}
+Ici les styles contenus dans l'objet {\color{monOrange}stylesDeBase} seront appliqués. Ensuite les styles contenus dans l'objet {\color{monOrange}stylesParticuliers} seront fusionnés. Si certaines propriétés sont dans les deux objets, les valeurs du dernier objet écraseront les valeurs précédentes.
+
+Autrement dit, si par exemple il y a {\tt color:'red'} dans {\color{monOrange}stylesDeBase} et {\tt color:'blue'} dans {\color{monOrange}stylesParticuliers}. La valeur de la propriété {\tt color} sera {\tt blue}.
+
+%Exemple exécutable de la vidéo
+%Vous pouvez directement utiliser ce code exécutable. N'hésitez pas à l'ouvrir dans un nouvel onglet pour le modifier ou mieux voir :
+
+\section{Utilisation de {\color{monOrange}Sass}}
+L'utilisation de {\color{monOrange}Sass} avec {\color{monOrange}Vite} et {\color{monOrange}Vue.js} est extrêmement simple. Il suffit d'installer {\color{monOrange}sass} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{bash}
+npm add -D sass
+\end{minted}
+Et dans les composants {\color{monOrange}SFC} de préciser, comme pour {\color{monOrange}TypeScript} côté {\color{monOrange}template}, que les styles sont écrits en {\color{monOrange}Sass} :
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{html}
+<template>
+  <h1><span>Bonjour</span> le monde !</h1>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped lang="scss">
+h1 {
+  color: red;
+  span {
+    color: blue;
+  }
+}
+</style>
+\end{minted}
+
+%Exemple exécutable de la vidéo
+%Vous pouvez directement utiliser ce code exécutable. N'hésitez pas à l'ouvrir dans un nouvel onglet pour le modifier ou mieux voir :
+

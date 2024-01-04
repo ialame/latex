@@ -1,0 +1,406 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {1.1}Prérequis}{3}{}%
+\contentsline {section}{\numberline {1.2}Introduction à Vue.js}{3}{}%
+\contentsline {subsection}{\numberline {1.2.1}Qu'est ce que Vue.js ?}{3}{}%
+\contentsline {subsection}{\numberline {1.2.2}Un framework progressif}{3}{}%
+\contentsline {subsection}{\numberline {1.2.3}Tous les rendus possibles !}{4}{}%
+\contentsline {subsection}{\numberline {1.2.4}Une traction incroyable}{4}{}%
+\contentsline {subsection}{\numberline {1.2.5}Vue.js 3}{4}{}%
+\contentsline {subsection}{\numberline {1.2.6}Avantages}{5}{}%
+\contentsline {subsection}{\numberline {1.2.7}Note sur le choix des technologies}{5}{}%
+\contentsline {section}{\numberline {1.3}SPA, create-vue et Vite}{5}{}%
+\contentsline {subsection}{\numberline {1.3.1}Les Single Page Applications}{5}{}%
+\contentsline {subsection}{\numberline {1.3.2}La librairie create-vue}{6}{}%
+\contentsline {subsection}{\numberline {1.3.3}Fonctionnement de Vite}{6}{}%
+\contentsline {subsubsection}{La notion de {\color {monOrange}bundler} ("empaqueteur")}{6}{}%
+\contentsline {subsubsection}{Vite en détail}{7}{}%
+\contentsline {subsubsection}{Qu'est-ce que {\color {monOrange}TypeScript} ?}{8}{}%
+\contentsline {section}{\numberline {1.4}Environnement GNU/Linux}{8}{}%
+\contentsline {subsection}{\numberline {1.4.1}Installation de {\color {monOrange}Node.js} avec {\color {monOrange}node version manager}}{8}{}%
+\contentsline {subsection}{\numberline {1.4.2}Installation de {\color {monOrange}Node} sans {\color {monOrange}nvm}}{9}{}%
+\contentsline {subsection}{\numberline {1.4.3}Installation de {\color {monOrange}VS Code} avec snap sur Ubuntu}{9}{}%
+\contentsline {subsection}{\numberline {1.4.4}Installation de VS Code avec l'installeur}{9}{}%
+\contentsline {subsection}{\numberline {1.4.5}Ouvrir un terminal dans {\color {monOrange}VS Code}}{9}{}%
+\contentsline {section}{\numberline {1.5}Environnement macOS}{9}{}%
+\contentsline {subsection}{\numberline {1.5.1}Installation de {\color {monOrange}Node.js}}{9}{}%
+\contentsline {subsection}{\numberline {1.5.2}Installation de VS Code}{10}{}%
+\contentsline {subsection}{\numberline {1.5.3}Ouvrir un terminal dans {\color {monOrange}VS Code}}{10}{}%
+\contentsline {chapter}{\numberline {2}Création de notre première application Vue}{11}{}%
+\contentsline {section}{\numberline {2.1}La librairie create-vue}{11}{}%
+\contentsline {subsection}{\numberline {2.1.1}Première utilisation de la librairie {\color {monOrange} create-vue}}{11}{}%
+\contentsline {subsection}{\numberline {2.1.2}Installation des dépendances}{12}{}%
+\contentsline {subsection}{\numberline {2.1.3}Utilisation du linter}{12}{}%
+\contentsline {subsection}{\numberline {2.1.4}Lancer le serveur de développement}{13}{}%
+\contentsline {section}{\numberline {2.2}Architecture initiale}{14}{}%
+\contentsline {subsection}{\numberline {2.2.1}Architecture initiale d'un projet généré par create-vue}{14}{}%
+\contentsline {subsection}{\numberline {2.2.2}Détail des fichiers et des dossiers}{14}{}%
+\contentsline {section}{\numberline {2.3}Comment fonctionne Vue ?}{15}{}%
+\contentsline {subsection}{\numberline {2.3.1}Le fichier {\color {monOrange}index.html}}{15}{}%
+\contentsline {subsection}{\numberline {2.3.2}Le fichier {\color {monOrange}src/main.ts}}{16}{}%
+\contentsline {subsection}{\numberline {2.3.3}Le fichier {\color {monOrange}src/App.vue}}{16}{}%
+\contentsline {subsection}{\numberline {2.3.4}Aller plus loin sur le fonctionnement de Vue.js : le {\color {monOrange}DOM virtuel}}{16}{}%
+\contentsline {subsubsection}{Le DOM (Document Object Model)}{17}{}%
+\contentsline {subsubsection}{Le DOM virtuel}{17}{}%
+\contentsline {section}{\numberline {2.4}Les API composition et options}{18}{}%
+\contentsline {subsection}{\numberline {2.4.1}L'API options}{18}{}%
+\contentsline {subsection}{\numberline {2.4.2}L'API composition}{19}{}%
+\contentsline {subsection}{\numberline {2.4.3}Les {\color {monOrange}Single-File Components} (SFC)}{19}{}%
+\contentsline {section}{\numberline {2.5}Création d'un composant}{19}{}%
+\contentsline {subsection}{\numberline {2.5.1}Passer en mode {\color {monOrange}Take Over}}{19}{}%
+\contentsline {subsection}{\numberline {2.5.2}Utilisation du mode {\color {monOrange}strict} de {\color {monOrange}TypeScript}}{19}{}%
+\contentsline {subsection}{\numberline {2.5.3}Création du premier composant}{20}{}%
+\contentsline {section}{\numberline {2.6}Vue.js sans Vite}{20}{}%
+\contentsline {subsection}{\numberline {2.6.1}Utiliser {\color {monOrange}Vue.js} sans {\color {monOrange}Vite}}{20}{}%
+\contentsline {chapter}{\numberline {3}Intéragir avec le DOM}{23}{}%
+\contentsline {section}{\numberline {3.1}Introduction aux directives}{23}{}%
+\contentsline {subsection}{\numberline {3.1.1}Les directives}{23}{}%
+\contentsline {subsection}{\numberline {3.1.2}La directive {\color {monOrange}v-text} et l'interpolation de texte}{23}{}%
+\contentsline {subsection}{\numberline {3.1.3}Utilisation d'expression JavaScript}{24}{}%
+\contentsline {section}{\numberline {3.2}Directive {\color {monOrange}v-html}}{24}{}%
+\contentsline {section}{\numberline {3.3}Liaison de propriété avec v-bind}{24}{}%
+\contentsline {subsection}{\numberline {3.3.1}Syntaxe de base}{25}{}%
+\contentsline {subsection}{\numberline {3.3.2}Syntaxe raccourcie}{25}{}%
+\contentsline {subsection}{\numberline {3.3.3}Utilisation sur des attributs booléens}{25}{}%
+\contentsline {subsection}{\numberline {3.3.4}Utilisation sur plusieurs attributs}{25}{}%
+\contentsline {subsection}{\numberline {3.3.5}Utilisation avec class et style}{26}{}%
+\contentsline {subsection}{\numberline {3.3.6}Utilisation avec un attribut dynamique}{26}{}%
+\contentsline {section}{\numberline {3.4}Utilisation de fonction dans les liaisons}{26}{}%
+\contentsline {section}{\numberline {3.5}Notions de base TypeScript}{26}{}%
+\contentsline {subsection}{\numberline {3.5.1}Les types statiques}{26}{}%
+\contentsline {subsection}{\numberline {3.5.2}L'inférence de types}{26}{}%
+\contentsline {subsection}{\numberline {3.5.3}Les types}{27}{}%
+\contentsline {subsection}{\numberline {3.5.4}Les types primitifs}{27}{}%
+\contentsline {subsubsection}{Les chaînes de caractères :string}{27}{}%
+\contentsline {subsubsection}{Les nombres :number}{28}{}%
+\contentsline {subsubsection}{Les booléens :boolean}{28}{}%
+\contentsline {subsection}{\numberline {3.5.5}Le type any}{28}{}%
+\contentsline {subsection}{\numberline {3.5.6}Le type {\color {monOrange}object}}{28}{}%
+\contentsline {subsection}{\numberline {3.5.7}Le type {\color {monOrange}array}}{29}{}%
+\contentsline {subsection}{\numberline {3.5.8}Qu'est-ce qu'une {\color {monOrange}interface} ?}{29}{}%
+\contentsline {subsubsection}{Notre première interface}{29}{}%
+\contentsline {subsubsection}{Les propriétés optionnelles avec?}{30}{}%
+\contentsline {subsection}{\numberline {3.5.9}Les unions de type}{30}{}%
+\contentsline {subsubsection}{Unions de type et variables}{31}{}%
+\contentsline {subsubsection}{Unions de type et fonctions}{31}{}%
+\contentsline {section}{\numberline {3.6}Les événements natifs}{31}{}%
+\contentsline {subsection}{\numberline {3.6.1}La gestion des événements}{31}{}%
+\contentsline {subsubsection}{L'approche de {\color {monOrange}Vue.js}}{31}{}%
+\contentsline {subsubsection}{{\color {monOrange}v-on}: écouter des événements du DOM}{32}{}%
+\contentsline {subsubsection}{Le raccourci@}{32}{}%
+\contentsline {subsubsection}{L'objet {\color {monOrange}event} reçu}{32}{}%
+\contentsline {subsubsection}{Passer un argument à un gestionnaire d'événement}{32}{}%
+\contentsline {subsection}{\numberline {3.6.2}L'assertion {\color {monOrange}TypeScript} avec {\color {monOrange}as}}{33}{}%
+\contentsline {section}{\numberline {3.7}Les modificateurs d'événements}{33}{}%
+\contentsline {subsection}{\numberline {3.7.1}Les modificateurs d'événements ( {\color {monOrange}event modifiers})}{33}{}%
+\contentsline {subsection}{\numberline {3.7.2}Touches de contrôle ( {\color {monOrange}key modifiers})}{34}{}%
+\contentsline {chapter}{\numberline {4}Rendre les composants réactifs}{35}{}%
+\contentsline {section}{\numberline {4.1}Introduction à la réactivité}{35}{}%
+\contentsline {subsection}{\numberline {4.1.1}La réactivité avec {\color {monOrange}Vue.js}}{35}{}%
+\contentsline {subsection}{\numberline {4.1.2}Fonctionnement de la réactivité avec {\color {monOrange}Vue.js}}{35}{}%
+\contentsline {section}{\numberline {4.2}La fonction reactive()}{35}{}%
+\contentsline {subsection}{\numberline {4.2.1}La fonction {\color {monOrange}reactive()}}{35}{}%
+\contentsline {subsection}{\numberline {4.2.2}Mise à jour du DOM}{36}{}%
+\contentsline {subsection}{\numberline {4.2.3}Limitation de la fonction {\color {monOrange}reactive()}}{36}{}%
+\contentsline {section}{\numberline {4.3}La fonction ref()}{37}{}%
+\contentsline {subsection}{\numberline {4.3.1}La fonction ref()}{37}{}%
+\contentsline {subsection}{\numberline {4.3.2}Accès automatique aux propriétés réactives}{37}{}%
+\contentsline {subsection}{\numberline {4.3.3}Rappels sur l'inférence de type {\color {monOrange}TypeScript}}{37}{}%
+\contentsline {section}{\numberline {4.4}La fonction computed()}{38}{}%
+\contentsline {subsection}{\numberline {4.4.1}La fonction {\color {monOrange}computed()}}{38}{}%
+\contentsline {subsection}{\numberline {4.4.2}Les propriétés calculées avec accès en écriture}{39}{}%
+\contentsline {section}{\numberline {4.5}La directive v-model}{39}{}%
+\contentsline {subsection}{\numberline {4.5.1}La directive v-model}{39}{}%
+\contentsline {section}{\numberline {4.6}La fonction watch()}{40}{}%
+\contentsline {subsection}{\numberline {4.6.1}Les {\color {monOrange}Watchers}}{40}{}%
+\contentsline {subsection}{\numberline {4.6.2}Les sources ou dépendances de la fonction {\color {monOrange}watch()}}{40}{}%
+\contentsline {subsection}{\numberline {4.6.3}La fonction de rappel de la fonction {\color {monOrange}watch()}}{41}{}%
+\contentsline {subsection}{\numberline {4.6.4}Deuxième exemple}{41}{}%
+\contentsline {subsubsection}{Commençons par la partie {\color {monOrange}template}}{41}{}%
+\contentsline {subsubsection}{Pour la partie {\color {monOrange}scripte}}{42}{}%
+\contentsline {section}{\numberline {4.7}La fonction watchEffect()}{42}{}%
+\contentsline {subsection}{\numberline {4.7.1}La fonction {\color {monOrange}watchEffect()}}{42}{}%
+\contentsline {subsection}{\numberline {4.7.2}Différences entre {\color {monOrange}watch} et {\color {monOrange}watchEffect()}}{42}{}%
+\contentsline {subsection}{\numberline {4.7.3}Ordre d'exécution}{43}{}%
+\contentsline {chapter}{\numberline {5}Le style et les classes}{45}{}%
+\contentsline {section}{\numberline {5.1}Introduction et portée des styles}{45}{}%
+\contentsline {subsection}{\numberline {5.1.1}Comportement par défaut}{45}{}%
+\contentsline {subsection}{\numberline {5.1.2}L'attribut {\color {monOrange}scoped}}{45}{}%
+\contentsline {section}{\numberline {5.2}La liaison de classes}{45}{}%
+\contentsline {subsection}{\numberline {5.2.1}La liaison de classes}{45}{}%
+\contentsline {subsubsection}{Liaison avec des objets}{46}{}%
+\contentsline {subsubsection}{Combinaison de l'attribut {\color {monOrange}class} et d'une liaison {\color {monOrange}:class}}{46}{}%
+\contentsline {subsubsection}{Utilisation d'un objet réactif}{46}{}%
+\contentsline {subsubsection}{Utilisation d'une propriété calculée}{46}{}%
+\contentsline {subsubsection}{Utilisation d'un tableau de classes}{47}{}%
+\contentsline {section}{\numberline {5.3}La liaison de styles}{47}{}%
+\contentsline {subsection}{\numberline {5.3.1}Liaison de styles}{47}{}%
+\contentsline {subsubsection}{Liaison avec des objets}{47}{}%
+\contentsline {subsubsection}{Utilisation des propriétés CSS natives}{47}{}%
+\contentsline {subsubsection}{Utilisation d'un objet réactif}{47}{}%
+\contentsline {subsubsection}{Utilisation d'un tableau}{48}{}%
+\contentsline {section}{\numberline {5.4}Utilisation de {\color {monOrange}Sass}}{48}{}%
+\contentsline {chapter}{\numberline {6}Les directives structurelles}{49}{}%
+\contentsline {section}{\numberline {6.1}Affichage conditionnel avec les directives v-if, v-else et v-else-if}{49}{}%
+\contentsline {subsection}{\numberline {6.1.1}La directive {\color {monOrange}v-if}}{49}{}%
+\contentsline {subsection}{\numberline {6.1.2}La directive {\color {monOrange}v-else}}{49}{}%
+\contentsline {subsection}{\numberline {6.1.3}La directive {\color {monOrange}v-else-if}}{50}{}%
+\contentsline {section}{\numberline {6.2}Les directives v-show et v-pre}{50}{}%
+\contentsline {subsection}{\numberline {6.2.1}La directive {\color {monOrange}v-show}}{50}{}%
+\contentsline {subsection}{\numberline {6.2.2}Quelle est la différence avec la directive {\color {monOrange}v-if} ?}{50}{}%
+\contentsline {subsection}{\numberline {6.2.3}Quand est-il recommandé d'utiliser {\color {monOrange}v-if} et {\color {monOrange}v-show} ?}{51}{}%
+\contentsline {subsection}{\numberline {6.2.4}La directive {\color {monOrange}v-pre}}{51}{}%
+\contentsline {section}{\numberline {6.3}La directive v-for}{51}{}%
+\contentsline {subsection}{\numberline {6.3.1}Syntaxe de la directive {\color {monOrange}v-for}}{51}{}%
+\contentsline {subsection}{\numberline {6.3.2}Accès à l'index de l'élément dans le tableau}{51}{}%
+\contentsline {subsection}{\numberline {6.3.3}Itérer sur les propriétés d'un objet}{51}{}%
+\contentsline {subsection}{\numberline {6.3.4}Itérer sur un nombre}{52}{}%
+\contentsline {subsection}{\numberline {6.3.5}Utilisation d'un élément template}{53}{}%
+\contentsline {section}{\numberline {6.4}Directive v-for, détection des changements et combinaison avec v-if}{53}{}%
+\contentsline {subsection}{\numberline {6.4.1}Utilisation combinée des directives {\color {monOrange}v-if} et de {\color {monOrange}v-for}}{53}{}%
+\contentsline {subsection}{\numberline {6.4.2}Optimisation des performances}{53}{}%
+\contentsline {subsection}{\numberline {6.4.3}La détection des changements des tableaux}{54}{}%
+\contentsline {section}{\numberline {6.5}Les directives v-once et v-memo}{54}{}%
+\contentsline {subsection}{\numberline {6.5.1}La directive {\color {monOrange}v-once}}{54}{}%
+\contentsline {subsection}{\numberline {6.5.2}La directive v-memo}{55}{}%
+\contentsline {chapter}{\numberline {7}Les bases des composants}{57}{}%
+\contentsline {section}{\numberline {7.1}Introduction aux composants}{57}{}%
+\contentsline {subsection}{\numberline {7.1.1}Les composants}{57}{}%
+\contentsline {subsection}{\numberline {7.1.2}Syntaxe des composants}{57}{}%
+\contentsline {subsection}{\numberline {7.1.3}Utiliser des composants enfants}{58}{}%
+\contentsline {section}{\numberline {7.2}Composants locaux et globaux}{58}{}%
+\contentsline {subsection}{\numberline {7.2.1}Enregistrement des composants}{58}{}%
+\contentsline {subsection}{\numberline {7.2.2}Enregistrement global}{58}{}%
+\contentsline {subsection}{\numberline {7.2.3}Enregistrement local}{59}{}%
+\contentsline {section}{\numberline {7.3}Les props}{60}{}%
+\contentsline {subsection}{\numberline {7.3.1}Communications entre les composants}{60}{}%
+\contentsline {subsection}{\numberline {7.3.2}Utilisation des attributs {\color {monOrange}props}}{60}{}%
+\contentsline {subsection}{\numberline {7.3.3}Utilisation d'une liaison dynamique}{61}{}%
+\contentsline {subsection}{\numberline {7.3.4}Typage des propriétés props}{61}{}%
+\contentsline {subsubsection}{Utilisation d'un objet pour plus d'options de type}{62}{}%
+\contentsline {subsubsection}{Valeur par défaut des propriétés {\color {monOrange}props} de type {\color {monOrange}Object}}{62}{}%
+\contentsline {subsection}{\numberline {7.3.5}Nommage des {\color {monOrange}props}}{63}{}%
+\contentsline {subsection}{\numberline {7.3.6}Passer des types statiques autres que des chaînes de caractères}{63}{}%
+\contentsline {subsection}{\numberline {7.3.7}Passer un objet de {\color {monOrange}props}}{63}{}%
+\contentsline {section}{\numberline {7.4}Validation des props et utilisation de TypeScript}{64}{}%
+\contentsline {subsection}{\numberline {7.4.1}Utilisation des validateurs}{64}{}%
+\contentsline {subsection}{\numberline {7.4.2}Notation raccourcie pour les booléens}{64}{}%
+\contentsline {subsection}{\numberline {7.4.3}Les génériques TypeScript}{64}{}%
+\contentsline {subsubsection}{Le typage des tableaux}{65}{}%
+\contentsline {subsubsection}{Autre exemple : les promesses}{65}{}%
+\contentsline {subsection}{\numberline {7.4.4}Utilisation de {\color {monOrange}TypeScript} avec les {\color {monOrange}props}}{67}{}%
+\contentsline {section}{\numberline {7.5}Les événements}{67}{}%
+\contentsline {subsection}{\numberline {7.5.1}Communiquer des composants enfants vers les composants parents}{67}{}%
+\contentsline {subsection}{\numberline {7.5.2}Émettre des événements sans utiliser defineEmits()}{68}{}%
+\contentsline {subsection}{\numberline {7.5.3}Passer des arguments}{68}{}%
+\contentsline {subsection}{\numberline {7.5.4}Validation des évenements}{69}{}%
+\contentsline {subsection}{\numberline {7.5.5}Syntaxe recommandée : utilisation de {\color {monOrange}defineEmits} avec {\color {monOrange}TypeScript}}{69}{}%
+\contentsline {section}{\numberline {7.6}Le cycle de vie d'un composant}{70}{}%
+\contentsline {subsection}{\numberline {7.6.1}Le cycle de vie des composants}{70}{}%
+\contentsline {subsection}{\numberline {7.6.2}Utiliser un {\color {monOrange}hook}}{71}{}%
+\contentsline {section}{\numberline {7.7}Les références de template}{71}{}%
+\contentsline {subsection}{\numberline {7.7.1}Les références de {\color {monOrange}templates}}{71}{}%
+\contentsline {subsection}{\numberline {7.7.2}Utilisation des {\color {monOrange}refs} avec {\color {monOrange}v-for}}{72}{}%
+\contentsline {subsection}{\numberline {7.7.3}Utilisation des {\color {monOrange}refs} avec des composants}{72}{}%
+\contentsline {subsection}{\numberline {7.7.4}Utilisation de {\color {monOrange}TypeScript}}{73}{}%
+\contentsline {subsubsection}{Typer les références contenant des éléments HTML}{73}{}%
+\contentsline {subsubsection}{Typer les références contenant des composants}{74}{}%
+\contentsline {section}{\numberline {7.8}Utilisation des liaisons et des directives sur les composants}{75}{}%
+\contentsline {subsection}{\numberline {7.8.1}Utilisation des classes sur les composants}{75}{}%
+\contentsline {subsection}{\numberline {7.8.2}Utilisation de la directive {\color {monOrange}v-for} avec des composants}{75}{}%
+\contentsline {subsection}{\numberline {7.8.3}Utilisation de la directive {\color {monOrange}v-if} avec des composants}{75}{}%
+\contentsline {chapter}{\numberline {8}Projet Boutique - partie 1}{77}{}%
+\contentsline {section}{\numberline {8.1}Initialisation du projet}{77}{}%
+\contentsline {subsection}{\numberline {8.1.1}Initialisation du projet}{77}{}%
+\contentsline {subsection}{\numberline {8.1.2}Inclusion d'une police}{78}{}%
+\contentsline {subsection}{\numberline {8.1.3}Modification de {\color {monOrange}App.vue}}{79}{}%
+\contentsline {subsection}{\numberline {8.1.4}Installation de {\color {monOrange}Sass}}{79}{}%
+\contentsline {subsection}{\numberline {8.1.5}Modification de {\color {monOrange}assets/base.css}}{79}{}%
+\contentsline {subsection}{\numberline {8.1.6}Installation de l'extension pour navigateur {\color {monOrange}Vue}}{80}{}%
+\contentsline {subsection}{\numberline {8.1.7}Extensions pour {\color {monOrange}Visual Studio Code}}{80}{}%
+\contentsline {section}{\numberline {8.2}Mise en place du style}{80}{}%
+\contentsline {subsection}{\numberline {8.2.1}Modification deassets/base.scss}{80}{}%
+\contentsline {subsection}{\numberline {8.2.2}Création du fichier assets/debug.scss}{81}{}%
+\contentsline {subsection}{\numberline {8.2.3}Modification de App.vue}{81}{}%
+\contentsline {section}{\numberline {8.3}Mise en page globale}{82}{}%
+\contentsline {subsection}{\numberline {8.3.1}Création de l'architecture}{82}{}%
+\contentsline {subsubsection}{Composant {\color {monOrange}Footer.vue}}{82}{}%
+\contentsline {subsubsection}{Composant {\color {monOrange}Header.vue}}{82}{}%
+\contentsline {subsubsection}{Composant {\color {monOrange}Shop.vue}}{83}{}%
+\contentsline {subsubsection}{Composant {\color {monOrange}Cart.vue}}{83}{}%
+\contentsline {subsubsection}{Modification de {\color {monOrange}App.vue}}{83}{}%
+\contentsline {section}{\numberline {8.4}Mise en page boutique et panier}{84}{}%
+\contentsline {subsection}{\numberline {8.4.1}Architecture}{84}{}%
+\contentsline {subsection}{\numberline {8.4.2}Modification de {\color {monOrange}Shop.vue}}{85}{}%
+\contentsline {subsection}{\numberline {8.4.3}Modification de ShopProductList.vue}{85}{}%
+\contentsline {subsection}{\numberline {8.4.4}Modification de ShopProduct.vue}{86}{}%
+\contentsline {subsection}{\numberline {8.4.5}Modification de Cart.vue}{86}{}%
+\contentsline {subsection}{\numberline {8.4.6}Modification de CartProductList.vue}{87}{}%
+\contentsline {subsection}{\numberline {8.4.7}Modification de CartProduct.vue}{87}{}%
+\contentsline {section}{\numberline {8.5}Mise en page du header et du footer}{88}{}%
+\contentsline {subsection}{\numberline {8.5.1}Modification deassets/base.scss}{88}{}%
+\contentsline {subsection}{\numberline {8.5.2}Modification de Header.vue}{88}{}%
+\contentsline {subsection}{\numberline {8.5.3}Modification de Footer.vue}{89}{}%
+\contentsline {section}{\numberline {8.6}Mise en page de la partie Shop}{90}{}%
+\contentsline {subsection}{\numberline {8.6.1}Modification de {\color {monOrange}ShopProduct.vue}}{90}{}%
+\contentsline {subsection}{\numberline {8.6.2}Classes pour les boutons}{91}{}%
+\contentsline {section}{\numberline {8.7}Mise en place du panier}{92}{}%
+\contentsline {subsection}{\numberline {8.7.1}Modification de {\color {monOrange}CartProduct.vue}}{92}{}%
+\contentsline {subsection}{\numberline {8.7.2}Modification de {\color {monOrange}App.vue}}{93}{}%
+\contentsline {section}{\numberline {8.8}Utilisation des props pour les produits}{94}{}%
+\contentsline {subsection}{\numberline {8.8.1}Création des interfaces}{94}{}%
+\contentsline {subsection}{\numberline {8.8.2}Données en dur}{94}{}%
+\contentsline {subsection}{\numberline {8.8.3}Modification de App.vue}{96}{}%
+\contentsline {subsection}{\numberline {8.8.4}Modification de {\color {monOrange}Shop.vue}}{97}{}%
+\contentsline {subsection}{\numberline {8.8.5}Modification de {\color {monOrange}ShopProductList.vue}}{97}{}%
+\contentsline {subsection}{\numberline {8.8.6}Modification de {\color {monOrange}ShopProduct.vue}}{98}{}%
+\contentsline {section}{\numberline {8.9}Ajout d'un produit dans le panier}{100}{}%
+\contentsline {subsection}{\numberline {8.9.1}Logique à mettre en place}{100}{}%
+\contentsline {subsection}{\numberline {8.9.2}Modification de {\color {monOrange}App.vue}}{100}{}%
+\contentsline {subsection}{\numberline {8.9.3}Modification de {\color {monOrange}Shop.vue}}{102}{}%
+\contentsline {subsection}{\numberline {8.9.4}Modification de {\color {monOrange}ShopProductList.vue}}{102}{}%
+\contentsline {subsection}{\numberline {8.9.5}Modification de {\color {monOrange}ShopProduct.vue}}{103}{}%
+\contentsline {section}{\numberline {8.10}Affichage et suppression pour la partie panier}{105}{}%
+\contentsline {subsection}{\numberline {8.10.1}Logique à mettre en place}{105}{}%
+\contentsline {subsection}{\numberline {8.10.2}Modification de {\color {monOrange}App.vue}}{105}{}%
+\contentsline {subsection}{\numberline {8.10.3}Modification de {\color {monOrange}Cart.vue}}{107}{}%
+\contentsline {subsection}{\numberline {8.10.4}Modification de {\color {monOrange}CartProductList.vue}}{108}{}%
+\contentsline {subsection}{\numberline {8.10.5}Modification de {\color {monOrange}CartProduct}}{108}{}%
+\contentsline {section}{\numberline {8.11}Gestion des quantités}{110}{}%
+\contentsline {subsection}{\numberline {8.11.1}Création de l'interface {\color {monOrange}ProductCartInterface.ts}}{110}{}%
+\contentsline {subsection}{\numberline {8.11.2}Création d'un {\color {monOrange}index} pour les interfaces}{110}{}%
+\contentsline {subsection}{\numberline {8.11.3}Modification de {\color {monOrange}CartProduct.vue}}{111}{}%
+\contentsline {subsection}{\numberline {8.11.4}Modification de {\color {monOrange}CartProductList.vue} et {\color {monOrange}Cart.vue}}{111}{}%
+\contentsline {subsection}{\numberline {8.11.5}Modification de {\color {monOrange}App.vue}}{112}{}%
+\contentsline {section}{\numberline {8.12}Affichage du total et affichage initial du panier}{114}{}%
+\contentsline {subsection}{\numberline {8.12.1}Création dossier pour les styles}{114}{}%
+\contentsline {subsection}{\numberline {8.12.2}Ajout d'une classe}{114}{}%
+\contentsline {subsection}{\numberline {8.12.3}Modification de {\color {monOrange}Cart.vue}}{115}{}%
+\contentsline {subsection}{\numberline {8.12.4}Modification de {\color {monOrange}App.vue}}{115}{}%
+\contentsline {chapter}{\numberline {9}Projet Boutique - partie 2}{119}{}%
+\contentsline {section}{\numberline {9.1} Introduction et objectifs}{119}{}%
+\contentsline {subsection}{\numberline {9.1.1}Objectifs}{119}{}%
+\contentsline {subsection}{\numberline {9.1.2}Création de l'interface pour nos filtres}{119}{}%
+\contentsline {subsection}{\numberline {9.1.3}Modification de {\color {monOrange}App.vue}}{119}{}%
+\contentsline {subsection}{\numberline {9.1.4}Création du fichier {\tt data/filters.ts}}{120}{}%
+\contentsline {subsection}{\numberline {9.1.5}Modification de l'interface Product}{120}{}%
+\contentsline {subsection}{\numberline {9.1.6}Modification de data/products}{121}{}%
+\contentsline {section}{\numberline {9.2}Préparation pour le filtrage des produits}{122}{}%
+\contentsline {subsection}{\numberline {9.2.1}Modification de ShopProductList.vue}{122}{}%
+\contentsline {subsection}{\numberline {9.2.2}Modification de Filters.interface.ts}{123}{}%
+\contentsline {subsection}{\numberline {9.2.3}Modification de {\tt App.vue}}{123}{}%
+\contentsline {subsection}{\numberline {9.2.4}Code de la vidéo}{126}{}%
+\contentsline {section}{\numberline {9.3}Création du composant ShopFilters}{126}{}%
+\contentsline {subsection}{\numberline {9.3.1}Création du composantShopFilters}{126}{}%
+\contentsline {subsection}{\numberline {9.3.2}Modification deApp.vue}{126}{}%
+\contentsline {subsection}{\numberline {9.3.3}Modification de Shop.vue}{126}{}%
+\contentsline {subsection}{\numberline {9.3.4}Modification de {\tt ShopFilters.vue}}{127}{}%
+\contentsline {section}{\numberline {9.4}Filtrer les produits par prix}{128}{}%
+\contentsline {subsection}{\numberline {9.4.1}Modification de {\tt ShopFilters.vue}}{128}{}%
+\contentsline {subsection}{\numberline {9.4.2}Code de la vidéo}{130}{}%
+\contentsline {section}{\numberline {9.5}Filtrer les produits par catégorie}{130}{}%
+\contentsline {subsection}{\numberline {9.5.1}Modification de {\tt ShopFilters.vue}}{130}{}%
+\contentsline {subsection}{\numberline {9.5.2}Code de la vidéo}{132}{}%
+\contentsline {section}{\numberline {9.6}Reset des filtres}{133}{}%
+\contentsline {subsection}{\numberline {9.6.1}Modification de {\tt ShopFilters.vue}}{133}{}%
+\contentsline {subsection}{\numberline {9.6.2}Modification de {\tt Shop.vue}}{135}{}%
+\contentsline {chapter}{\numberline {10}Les fonctionnalités avancées des composants}{137}{}%
+\contentsline {section}{\numberline {10.1}Introduction au chapitre}{137}{}%
+\contentsline {subsection}{\numberline {10.1.1}Objectifs du chapitre}{137}{}%
+\contentsline {subsection}{\numberline {10.1.2}Code de la vidéo}{137}{}%
+\contentsline {section}{\numberline {10.2}Utilisation de la directive v-model sur des composants}{137}{}%
+\contentsline {subsection}{\numberline {10.2.1}Fonctionnement de {\color {monOrange}v-model} avec un composant}{137}{}%
+\contentsline {subsection}{\numberline {10.2.2}Changer le nom de la {\color {monOrange}prop} et de l'événement}{138}{}%
+\contentsline {subsection}{\numberline {10.2.3}Utiliser plusieurs directives {\color {monOrange}v-model}}{138}{}%
+\contentsline {subsection}{\numberline {10.2.4}Utiliser des modificateurs}{139}{}%
+\contentsline {subsection}{\numberline {10.2.5}Code de la vidéo}{140}{}%
+\contentsline {section}{\numberline {10.3}Cascade d'attributs}{140}{}%
+\contentsline {subsection}{\numberline {10.3.1}Les attributs en cascade}{140}{}%
+\contentsline {subsection}{\numberline {10.3.2}Fusionnement d'attributs}{141}{}%
+\contentsline {subsection}{\numberline {10.3.3}Ecouteurs déclarés avec {\color {monOrange}v-on}}{141}{}%
+\contentsline {subsection}{\numberline {10.3.4}Utilisation de {\color {monOrange}\$attrs} côté {\color {monOrange}template}}{142}{}%
+\contentsline {subsection}{\numberline {10.3.5}Utilisation de {\color {monOrange}useAttrs()} côté {\color {monOrange}script}}{142}{}%
+\contentsline {subsection}{\numberline {10.3.6}Désactivation du passage automatique des attributs}{142}{}%
+\contentsline {subsection}{\numberline {10.3.7}Code de la vidéo}{142}{}%
+\contentsline {section}{\numberline {10.4}Présentation des slots}{143}{}%
+\contentsline {subsection}{\numberline {10.4.1}Les {\color {monOrange}slots}}{143}{}%
+\contentsline {subsection}{\numberline {10.4.2}Portée des variables}{144}{}%
+\contentsline {subsection}{\numberline {10.4.3}Les {\color {monOrange}slots} nommés}{144}{}%
+\contentsline {subsection}{\numberline {10.4.4}Contenu par défaut}{145}{}%
+\contentsline {subsection}{\numberline {10.4.5}Code de la vidéo}{145}{}%
+\contentsline {section}{\numberline {10.5}Portes des machines à sous}{145}{}%
+\contentsline {subsection}{\numberline {10.5.1}Passer des données aux slots}{145}{}%
+\contentsline {subsection}{\numberline {10.5.2}Code de la vidéo}{146}{}%
+\contentsline {section}{\numberline {10.6}Provide et Inject}{146}{}%
+\contentsline {subsection}{\numberline {10.6.1}Passer des données à travers plusieurs composants}{146}{}%
+\contentsline {subsection}{\numberline {10.6.2}La fonction {\color {monOrange}provide()}}{147}{}%
+\contentsline {subsection}{\numberline {10.6.3}Fournir des valeurs globalement}{147}{}%
+\contentsline {subsection}{\numberline {10.6.4}Injecter les données avec la fonction {\color {monOrange}inject()}}{148}{}%
+\contentsline {subsection}{\numberline {10.6.5}Modification des propriétés réactives}{148}{}%
+\contentsline {subsection}{\numberline {10.6.6}Code de la vidéo}{149}{}%
+\contentsline {chapter}{\numberline {11}HTTP}{151}{}%
+\contentsline {section}{\numberline {11.1}Introduction et requête AJAX}{151}{}%
+\contentsline {subsection}{\numberline {11.1.1}Rappels sur {\color {monOrange}AJAX}}{151}{}%
+\contentsline {subsection}{\numberline {11.1.2}Rappels sur fetch}{151}{}%
+\contentsline {subsection}{\numberline {11.1.3}Le service Dyma restapi.fr}{152}{}%
+\contentsline {section}{\numberline {11.2}Requêtes POST}{152}{}%
+\contentsline {subsection}{\numberline {11.2.1}Effectuer une requête POST avec fetch}{152}{}%
+\contentsline {subsection}{\numberline {11.2.2}Code de la vidéo}{152}{}%
+\contentsline {section}{\numberline {11.3}Requêtes GET et DELETE}{154}{}%
+\contentsline {subsection}{\numberline {11.3.1}Envoyer une requête {\color {monOrange}GET}}{154}{}%
+\contentsline {subsection}{\numberline {11.3.2}Envoyer une requête DELETE}{154}{}%
+\contentsline {subsection}{\numberline {11.3.3}Code de la vidéo}{154}{}%
+\contentsline {section}{\numberline {11.4}Requêtes PATCH}{156}{}%
+\contentsline {subsection}{\numberline {11.4.1}Requête {\color {monOrange}PATCH}}{156}{}%
+\contentsline {subsection}{\numberline {11.4.2}Code de la vidéo}{157}{}%
+\contentsline {chapter}{\numberline {12}Composants Natifs}{161}{}%
+\contentsline {section}{\numberline {12.1}Introduction aux composants natifs}{161}{}%
+\contentsline {subsection}{\numberline {12.1.1}Les composants natifs}{161}{}%
+\contentsline {subsection}{\numberline {12.1.2}Les composants dynamiques}{161}{}%
+\contentsline {subsection}{\numberline {12.1.3}Exemple}{161}{}%
+\contentsline {section}{\numberline {12.2}Le composant KeepAlive}{162}{}%
+\contentsline {subsection}{\numberline {12.2.1}Le composant {\color {monOrange}KeepAlive}}{162}{}%
+\contentsline {subsection}{\numberline {12.2.2}Définir les composants à maintenir en vie avec {\color {monOrange}includes} et {\color {monOrange}exclude}}{163}{}%
+\contentsline {subsection}{\numberline {12.2.3}Définir le maximum de composants mis en cache}{163}{}%
+\contentsline {subsection}{\numberline {12.2.4}Les {\color {monOrange}hooks} utilisables}{164}{}%
+\contentsline {subsection}{\numberline {12.2.5}Exemple}{164}{}%
+\contentsline {section}{\numberline {12.3}Le composant Téléport}{165}{}%
+\contentsline {subsection}{\numberline {12.3.1}Le composant natif {\color {monOrange}Teleport}}{165}{}%
+\contentsline {subsection}{\numberline {12.3.2}Exemple}{166}{}%
+\contentsline {section}{\numberline {12.4}Le composant Suspense}{168}{}%
+\contentsline {subsection}{\numberline {12.4.1}Le composant {\tt <Suspense>}}{168}{}%
+\contentsline {subsection}{\numberline {12.4.2}État de chargement}{169}{}%
+\contentsline {subsection}{\numberline {12.4.3}Les événements émis}{169}{}%
+\contentsline {subsection}{\numberline {12.4.4}Option {\color {monOrange}timeout}}{169}{}%
+\contentsline {subsection}{\numberline {12.4.5}Exemple}{169}{}%
+\contentsline {chapter}{\numberline {13}Projet Boutique - partie 3}{173}{}%
+\contentsline {section}{\numberline {13.1}Introduction des fonctionnalités}{173}{}%
+\contentsline {subsection}{\numberline {13.1.1}Architecture des composants}{173}{}%
+\contentsline {subsection}{\numberline {13.1.2}Création de nouveaux dossiers}{173}{}%
+\contentsline {subsection}{\numberline {13.1.3}Modification de App.vue}{173}{}%
+\contentsline {subsection}{\numberline {13.1.4}Modification de Boutique.vue}{174}{}%
+\contentsline {section}{\numberline {13.2}Navigation à l'aide d'un composant dynamique}{177}{}%
+\contentsline {subsection}{\numberline {13.2.1}Création du composant {\tt Admin}}{177}{}%
+\contentsline {subsection}{\numberline {13.2.2}Création du fichier {\tt type.ts}}{177}{}%
+\contentsline {subsection}{\numberline {13.2.3}Modification de {\tt App.vue}}{177}{}%
+\contentsline {subsection}{\numberline {13.2.4}Modification de {\tt Header.vue}}{178}{}%
+\contentsline {subsection}{\numberline {13.2.5}Modification de {\tt src/assets/scss/base.scss}}{180}{}%
+\contentsline {subsection}{\numberline {13.2.6}Création du composant {\tt ProductForm}}{180}{}%
+\contentsline {subsection}{\numberline {13.2.7}Modification du composant {\tt Admin}}{180}{}%
+\contentsline {section}{\numberline {13.3}Mise en place du formulaire}{181}{}%
+\contentsline {subsection}{\numberline {13.3.1}Modification {\color {monOrange}debase.scss}}{181}{}%
+\contentsline {subsection}{\numberline {13.3.2}Modification de {\color {monOrange}ProductForm.vue}}{182}{}%
+\contentsline {section}{\numberline {13.4}Envoi du formulaire}{184}{}%
+\contentsline {subsection}{\numberline {13.4.1}Modification de {\color {monOrange}ProductForm.vue}}{184}{}%
+\contentsline {subsection}{\numberline {13.4.2}Modification de {\color {monOrange}Product.interface.ts}}{187}{}%
+\contentsline {subsection}{\numberline {13.4.3}Création de {\tt src/data/seed.ts}}{187}{}%
+\contentsline {subsection}{\numberline {13.4.4}Modification de {\color {monOrange}App.vue}}{187}{}%
+\contentsline {section}{\numberline {13.5}Récupération des produits}{189}{}%
+\contentsline {subsection}{\numberline {13.5.1}Modification de {\color {monOrange}Boutique.vue}}{189}{}%
+\contentsline {subsection}{\numberline {13.5.2}Modification de {\color {monOrange}App.vue}}{192}{}%
+\contentsline {subsection}{\numberline {13.5.3}Modification du type de {\tt productId} et de la propriété {\tt id}}{192}{}%
+\contentsline {section}{\numberline {13.6}Amélioration du CSS}{193}{}%
+\contentsline {subsection}{\numberline {13.6.1}Modification de {\color {monOrange}App.vue}}{193}{}%
+\contentsline {subsection}{\numberline {13.6.2}Modification de {\color {monOrange}Shop.vue}}{193}{}%
+\contentsline {subsection}{\numberline {13.6.3}Création du fichier {\tt \_mixins.scss}}{194}{}%
+\contentsline {subsection}{\numberline {13.6.4}Modification de {\color {monOrange}ShopProductList.vue}}{195}{}%
