@@ -1,0 +1,90 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+
+\title{TP3: Nombres Complexes}
+\author{Ibrahim ALAME}
+\date{11/01/2023}
+\begin{document}
+\maketitle
+
+\section*{Les nombres Complexes}
+Il s'agit de réaliser des opérations algébrique et trigonométrique sur les polynômes. Le type Complexe est défini de la façon suivante:
+\begin{verbatim}
+typedef struct{
+        float Re;
+        float Im;
+} Complexe;        
+\end{verbatim}
+Ecrire:
+\begin{enumerate}
+
+\item   La fonction {\tt boolean equals(Complexe c1, Complexe c2) }  déterminant si deux nombres Complexes sont égaux. On rappelle que si $x$ et $y$ sont réels alors: 
+\[ x\simeq y \Longleftrightarrow |x-y|\leq \varepsilon\]
+pour epsilon assez petit.
+
+\item   La fonction {\tt boolean estNul(Complexe c) }  déterminant si un nombre Complexe est nul.
+
+\item  La fonction {\tt Complexe new\_Complexe(float a, float b)} qui permet de retourne le nombre Complexe  $a+i b$.
+
+\item  La fonction {\tt Complexe saisir()} qui permet la saisie au clavier des parties réelle et imaginaire d'un nombre Complexe qu'elle retourne en résultat.
+
+\item  La procédure {\tt void print(Complexe z)} qui permet d'afficher à l'écran un nombre Complexe passé en paramètre sous la forme : $z=a+ib$.
+
+\item  La fonction {\tt Complexe somme(Complexe z1, Complexe z2)} qui calcule la somme de deux Complexes passés en paramètres de la fonction, résultat $ z=z_1+z_2$.
+
+\item  La fonction {\tt  Complexe produit(Complexe z1, Complexe z2)} qui calcule le produit de deux Complexes passés en paramètres de la fonction, résultat $r=z_1\times z_2$.
+
+\item  La fonction {\tt Complexe conjugue(Complexe z)} qui retourne le Complexe conjugué de $z$.
+
+\item  La fonction {\tt  Complexe quotient(Complexe z1, Complexe z2)} qui réalise la division de deux nombres Complexes passés en paramètres de la fonction, résultat $r=z_1/z_2$.
+\item  La fonction {\tt  Complexe coeff(float a,Complexe z)} qui calcule le produit par un coefficient : $a z$.
+\item  La fonction {\tt  float module(Complexe z)} qui calcule $|z|$.
+
+\item  La fonction {\tt  float argument (Complexe z)} qui calcule $\arg(z)$, résultat $\theta \in ]-\pi, \pi]$.
+
+\item  La fonction {\tt  Complexe racine(Complexe z)} qui calcule une racine carrée Complexe  $r$ tel que  $r^2=z$.
+\item  La fonction {\tt  Complexe puissance(Complexe z,int n)} qui calcule  la puissance $n$ième $z^n$.
+\item  La fonction {\tt  Complexe f(Complexe z)} qui calcule l'expression d'une fonction Complexe donnée par exemple $f(z)=z^3-1$.
+%\item  La fonction {\tt  Complexe df(Complexe z)} qui calcule la dérivée d'une fonction donnée $f$ dans le cas général à l'aide de la formule:
+%\[f'(z)\simeq\frac{f(z+h)-f(z)}{h}\]
+%où $h$ est arbitrairement petit, par exemple $h=0.0001$.
+\item La fonction {\tt  void newton(Complexe z)} permettant de résoudre l'équation polynômiale donnée $f(x)=0$, en cherchant la limite de la suite 
+\[z_{n+1}=z_n-\frac{f(z_n)}{f'(z_n)}\]
+où $z_0$ est une valeur initiale donnée. Dans notre cas où $f(z)=z^3-1$ On pourra utiliser l'expression:
+\[\left\{\begin{array}{l}
+z_{n+1}=\displaystyle\frac 13\left(2\,z_n+ \frac{1}{z_n^2}\right)\\
+z_0=\pm i 
+\end{array}\right.
+\]
+
+%\item  La fonction {\tt  Complexe CosC(Complexe z)} qui calcule le cosinus d'un Complexe $z=x+i y$ par la formule
+%\[\cos z=\cos(x) \cosh(y)-i \sin(x) \sinh(y)\]
+%\item  La fonction {\tt  Complexe SinC(Complexe z)} qui calcule le cosinus d'un Complexe $z=x+i y$ par la formule
+%\[\sin z=\sin(x) \cosh(y)+i \cos(x) \sinh(y)\]
+%\item  La fonction {\tt  Complexe ExpC(Complexe z)} qui calcule l'exponentielle d'un Complexe $z=x+i y$ par la formule
+%\[\exp z=\exp(x)\left( \cos(y)+i \sin(y)\right)\]
+%\item  La fonction {\tt  Complexe LnC(Complexe z)} qui calcule le logarithme d'un e $z=x+i y$ par la formule
+%\[\ln z=\ln|z|+i \arg z\]
+
+\item  Une fonction {\tt  int main()}  qui permet de tester toutes ces fonctions et procédures.
+
+\end{enumerate}
+
+
+
+\end{document}

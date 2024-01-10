@@ -1,0 +1,513 @@
+\documentclass[a4paper]{article}
+ 
+% - taille de la fonte    : 10pt, 11pt, 12pt
+% - recto ou recto-verso    : oneside, twoside
+ 
+% Chargement d'extensions
+%\usepackage[latin1]{inputenc}    
+\usepackage[francais]{babel}    
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{amsmath}
+\makeatletter
+%%%%%%%%%%%%%%%%%%% debut fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xkeyval}
+\RequirePackage{tikz}
+\RequirePackage{amssymb}
+
+\define@key{boxedtheorem}{titlecolor}{\def\titlecolor{#1}}
+\define@key{boxedtheorem}{titlebackground}{\def\titlebackground{#1}}
+\define@key{boxedtheorem}{background}{\def\background{#1}}
+\define@key{boxedtheorem}{titleboxcolor}{\def\titleboxcolor{#1}}
+\define@key{boxedtheorem}{boxcolor}{\def\boxcolor{#1}}
+\define@key{boxedtheorem}{thcounter}{\def\thcounter{#1}}
+\define@key{boxedtheorem}{size}{\def\size{#1}}
+\presetkeys{boxedtheorem}{titlecolor = black, titlebackground = white, background = white,%
+                         titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth}{}
+
+\newcommand{\couleurs}[1][]{%
+    \setkeys{boxedtheorem}{#1}
+    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
+                            text= \titlecolor]
+    \tikzstyle{mybox} = [draw=\boxcolor, fill=\background, very thick,
+                        rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+}
+
+
+%Commande generique pour faire un joli encadre
+\newsavebox{\boiboite}
+\newcommand{\titre}{Titre}
+\newenvironment{boite}[2][]%
+    {%
+    \renewcommand{\titre}{#2}
+    \couleurs[#1]
+    \begin{lrbox}{\boiboite}%
+     \begin{minipage}[!h]{\size}
+    }%
+    {%
+     \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}
+    \node [mybox] (box){\usebox{\boiboite}};
+    \node[fancytitle, right=10pt] at (box.north west) {\titre};
+    \end{tikzpicture}
+    \end{center}
+    }
+
+\newcommand{\newboxedtheorem}[4][]{%
+    \couleurs[#1]
+    \@ifnotempty{#4}{%
+      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
+      \newcounter{#4}[\thcounter ] } } { }%
+    }
+    \newenvironment{#2}[1][]{%
+    \@ifnotempty{#4}{\refstepcounter{#4}}
+    \begin{boite}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
+    (##1)}}
+    }%
+    {%
+    \end{boite}
+    }
+}
+%%%%%%%%%%%%%%%%%%%% end fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+\makeatother
+\newboxedtheorem{theorem}{}{theorem}
+%%%%%%%%%% hypertext
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+%\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage[cache=false]{minted}
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+\setlength{\parindent}{0pt}
+% Informations le titre, le(s) auteur(s), la date
+\title{Vue3}
+\author{Ibrahim ALAME}
+\date{\today}
+\includeonly{ introduction.tex} 
+\begin{document}
+ 
+\maketitle
+ {\small
+\begin{tabular}{lcccl}
+fos\_js\_routing\_js     &                                               GET    &    ANY   &   ANY &   /js/routing.\{\_format\}\\                                                                    
+ balance\_set\_amount  &                                                 ANY &       ANY  &    ANY &   /\{\_locale\}/balance/setAmount\\                                                                
+ balance\_refill              &                                         ANY  &      ANY  &    ANY  &  /\{\_locale\}/balance/\{paymentMethod\}/refill\\                                                   
+ caisse\_set\_insurance   &                                              ANY&        ANY&      ANY&    /\{\_locale\}/caisse/setInsurance\\                                                             
+ caisse\_set\_roundtrip\_delivery     &                                   ANY   &     ANY  &    ANY  &  /\{\_locale\}/caisse/setRoundtripDelivery\\                                                      
+ caisse\_set\_processing\_time    &                                       ANY   &     ANY  &    ANY  &  /\{\_locale\}/caisse/setProcessingTime\\                                                         
+ caisse\_set\_delivery\_method    &                                       ANY   &     ANY  &    ANY  &  /\{\_locale\}/caisse/setDeliveryMethod\\                                                         
+ caisse\_check\_refill\_state       &                                     ANY   &     ANY   &   ANY &   /\{\_locale\}/caisse/checkRefillState\\                                                          
+ home\_index                           &                                ANY    &    ANY  &    ANY  &  /\{\_locale\}/    \\                                                                             
+ home\_change\_langue          &                                         ANY   &     ANY  &    ANY &   /\{\_locale\}/setGeneralLangue  \\                                                               
+ home\_ressources                  &                                    ANY   &     ANY  &    ANY  &  /\{\_locale\}/ressources        \\                                                               
+ home\_services                      &                                  ANY    &    ANY  &    ANY  &  /\{\_locale\}/services       \\                                                                  
+ home\_verification                  &                                  ANY   &     ANY   &   ANY  &  /\{\_locale\}/verif/\{cb\}     \\                                                                  
+ home\_certification\_detail      &                                      ANY  &      ANY  &    ANY  &  /\{\_locale\}/resumeBdd/\{cb\}/\{detail\}  \\                                                        
+ home\_apropos                       &                                  ANY   &     ANY   &   ANY &   /\{\_locale\}/apropos      \\                                                                    
+ home\_mentions                     &                                   ANY   &     ANY   &   ANY  &  /\{\_locale\}/mentions   \\                                                                      
+ home\_conditions                  &                                    ANY  &      ANY   &   ANY &   /\{\_locale\}/conditions  \\                                                                     
+ home\_politique                     &                                  ANY   &     ANY   &   ANY &   /\{\_locale\}/politique     \\                                                                   
+ home\_credits                         &                                ANY    &    ANY    &  ANY  &  /\{\_locale\}/credits        \\                                                                  
+ home\_contact                        &                                 ANY   &     ANY  &    ANY &   /\{\_locale\}/contact/\{type\}    \\                                                               
+ home\_presse                         &                                 ANY   &     ANY   &   ANY   & /\{\_locale\}/presse                   \\                                                        
+ home\_order\_exists               &                                     ANY   &     ANY  &    ANY&    /\{\_locale\}/commande/\{num\}    \\                                                               
+ home\_partenaires                    &                                 ANY    &    ANY   &   ANY  &  /\{\_locale\}/partenaires             \\                                                         
+ home\_verify\_voucher               &                                   ANY  &      ANY  &    ANY &   /\{\_locale\}/vo/\{code\}       \\                                                                 
+ home\_prices                              &                            ANY    &    ANY  &    ANY  &  /\{\_locale\}/prices               \\                                                           
+ payment\_handle                         &                              ANY &       ANY  &    ANY &   /\{\_locale\}/payment/\{paymentMethod\}/handle \\                                                  
+ payment\_confirm                        &                              ANY  &      ANY  &    ANY &   /\{\_locale\}/payment/\{paymentMethod\}/confirm/\{id\}     \\                                        
+ payment\_recieve                         &                             ANY   &     ANY   &   ANY &   /\{\_locale\}/payment/\{paymentMethod\}/recieve/\{id\}  \\                                           
+ payment\_prepare                        &                              POST   &    ANY   &   ANY  &  /\{\_locale\}/payment/\{paymentMethod\}/prepare     \\                                             
+ afficheBDL                                     &                      ANY   &     ANY   &   ANY  &  /\{\_locale\}/pdf/bdl/\{id\}                                          \\                           
+ afficheFacturePDF                          &                          ANY   &     ANY  &    ANY  &  /\{\_locale\}/pdf/facture/\{numCommandeClient\}/\{id\}  \\                                           
+ showRoundtripLabelPdf                 &                              ANY  &      ANY &     ANY &   /\{\_locale\}/pdf/rountrip-label-pdf/\{orderNumber\}  \\                                           
+ afficheFactureCarteCadeauPDF        &                                 ANY   &     ANY &     ANY  &  /\{\_locale\}/pdf/factureCarteCadeau/\{id\}           \\                                           
+ afficheFormEnvoiPDF                      &                         ANY   &     ANY  &    ANY &   /\{\_locale\}/pdf/formEnvoi/\{numCommandeClient\}/\{id\}   \\                                       
+ admin\_alerts\_list                         &                           ANY  &      ANY  &    ANY  &  /pcaback/alerts                                                           \\                  
+ admin\_blog\_list                           &                           ANY   &     ANY   &   ANY  &  /pcaback/blog                                                     \\                          
+ admin\_blog\_new                         &                              ANY &       ANY  &    ANY &   /pcaback/blog/new                                          \\                                 
+ admin\_blog\_edit                           &                           ANY   &     ANY    &  ANY   & /pcaback/blog/\{id\}/edit                                   \\                                  
+ admin\_blog\_delete                        &                            ANY  &      ANY   &   ANY &   /pcaback/blog/delete/\{id\}                              \\                                     
+ admin\_cards\_sets\_edit                &                                ANY  &      ANY &     ANY  &  /pcaback/cards/sets                                          \\                               
+ admin\_cardcertifications\_find         &                               ANY  &      ANY  &    ANY  &  /pcaback/cardcertifications/\{barcode\}         \\                                              
+ admin\_cardcertifications\_redirections &                                ANY  &      ANY  &    ANY  &  /pcaback/cardcertifications/redirections     \\                                              
+ admin\_cardgrades\_manage                 &                             ANY     &   ANY    &  ANY  &  /pcaback/cardgrades/manage                     \\                                             
+ admin\_cart\_search\_index                 &                             ANY    &    ANY   &   ANY  &  /pcaback/searchedCertification                      \\                                        
+ admin\_customer\_create                    &                            ANY     &   ANY   &   ANY   & /pcaback/customer/create                              \\                                      
+ admin\_orders\_create                         &                         ANY    &    ANY   &   ANY  &  /pcaback/order/create                                      \\                                 
+ admin\_orders\_revert\_status             &                              ANY  &      ANY  &    ANY &   /pcaback/order/\{id\}/revert                       \\                                           
+ admin\_orders\_seal                             &                       ANY   &     ANY   &   ANY  &  /pcaback/order/\{id\}/seal                                 \\                                   
+ admin\_orders\_unseal                          &                        ANY   &     ANY  &    ANY &   /pcaback/order/\{id\}/unseal                           \\                                       
+ admin\_orders\_update\_recieved\_status  &     ANY  &      ANY  &    ANY   & /pcaback/order/\{id\}/recieved              \\                                                  
+ admin\_customergroups\_list                      &                      ANY     &   ANY   &   ANY &   /pcaback/customergroups                                \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl}        
+ admin\_customergroups\_new                     &    ANY   &     ANY  &    ANY  &  /pcaback/customergroups/new                   \\                                              
+ admin\_customergroups\_edit                      &   ANY    &    ANY   &   ANY   & /pcaback/customergroups/\{id\}/edit            \\                                               
+ admin\_customergroups\_view                     &    ANY   &     ANY  &    ANY  &  /pcaback/customergroups/\{id\}                  \\                                              
+ admin\_deliveryFeeEditBulk\_form                 &   GET    &    ANY  &    ANY  &  /pcaback/delivery-fee/edit/bulk                  \\                                           
+ deliveryFeeEditBulk\_post                              &  POST   &    ANY   &   ANY &   /pcaback/delivery-fee/edit/bulk                        \\                                     
+ deliveryFeeEdit\_form                                    &   GET     &   ANY   &   ANY  &  /pcaback/delivery-fee/edit                                     \\                             
+ deliveryFeeEdit\_post                                     &   POST    &   ANY   &   ANY  &  /pcaback/delivery-fee/edit                                    \\                              
+ admin\_imagecartes\_verify                           &  ANY  &      ANY   &   ANY &   /pcaback/cardimages/verify                              \\                                    
+ admin\_imagecartes\_verify\_full\_art            &  ANY   &     ANY  &    ANY  &  /pcaback/cardimages/verifyFullArt             \\                                              
+ admin\_imagecartes\_assign                          &   ANY    &    ANY  &    ANY  &  /pcaback/cardimages/assignImages               \\                                             
+ admin\_imagecartes\_history                         &   ANY     &   ANY    &  ANY  &  /pcaback/cardimages/history                          \\       
+admin\_invoices\_index                                  &    ANY      &  ANY   &   ANY  &  /pcaback/invoices                        \\   
+ admin\_invoices\_print        &     ANY      &  ANY    &  ANY   & /pcaback/invoices/print/\{startingDate\}/\{endingDate\} \\                                        
+ admin\_invoices\_cartes\_cadeauxPDF             &           ANY     &   ANY   &   ANY &   /pcaback/invoices/cartesCadeauxPDF/\{date1\}/\{date2\} \\                                         
+ admin\_invoices\_insurance\_print       &    ANY   &     ANY  &    ANY  &  /pcaback/invoices/insurance/print/\{startingDate\}/\{endingDate\}    \\                           
+ admin\_orders\_boxes\_list                  &            ANY   &     ANY  &    ANY  &  /pcaback/orders/boxes                                                           \\            
+ admin\_orders\_boxes\_history                &                           ANY   &    ANY  &    ANY   & /pcaback/orders/boxes/history                              \\                                 
+ admin\_orders\_packages\_scan                          &                 ANY &       ANY  &    ANY  &  /pcaback/orders/packages/scan                           \\                                    
+ admin\_orders\_packages\_unbound                     &                   ANY   &     ANY  &    ANY &   /pcaback/orders/packages/unbound                \\                                            
+ admin\_orders\_packages\_alerts\_scan                 &                   ANY   &     ANY  &    ANY &   /pcaback/orders/packages/alerts/create         \\                                             
+ admin\_orders\_tags\_list                                       &        ANY    &    ANY  &    ANY  &  /pcaback/orders/tags                                                \\                        
+ admin\_orders\_savs\_create                                   &          ANY  &      ANY &     ANY &   /pcaback/orders/savs/create                                  \\                               
+ admin\_preorders\_create                                      &         ANY   &     ANY &     ANY &   /pcaback/preorders/create                                        \\                           
+ admin\_promos\_verify                                         &         ANY   &     ANY  &    ANY &   /pcaback/promoCards/verify                                       \\                           
+ admin\_discounts\_list                                          &       ANY    &    ANY  &    ANY &   /pcaback/discounts                                                       \\                   
+ admin\_discounts\_new                                         &         ANY   &     ANY &     ANY &   /pcaback/discounts/new                                             \\                         
+ admin\_discounts\_edit                                          &       ANY    &    ANY    &  ANY  &  /pcaback/discounts/\{id\}/edit                                    \\                            
+ admin\_discounts\_vouchers\_list                           &             ANY   &     ANY &     ANY  &  /pcaback/discounts/\{id\}/vouchers                     \\                                      
+ admin\_discounts\_vouchers\_new                         &                ANY  &      ANY &     ANY &   /pcaback/discounts/\{id\}/vouchers/new           \\                                             
+ admin\_discounts\_vouchers\_edit                          &     ANY    &    ANY   &   ANY  &  /pcaback/discounts/\{id\}/vouchers/\{voucher\}/edit    \\                                         
+ admin\_discounts\_vouchers\_majActif      &     ANY  &      ANY   &   ANY  &  /pcaback/discounts/\{id\}/vouchers/\{voucher\}/majActif         \\                                
+ admin\_discounts\_vouchers\_suppr             & ANY   &     ANY    &  ANY  &  /pcaback/discounts/\{id\}/vouchers/\{voucher\}/suppr               \\                             
+ admin\_discounts\_vouchers\_attribution        &     ANY    &    ANY  &    ANY  &  /pcaback/discounts/\{id\}/vouchers/\{voucher\}/attribution  \\                                    
+ admin\_stores\_visits\_create                        & ANY  &       ANY  &    ANY  &  /pcaback/stores/events/manage                                               \\                
+ api\_blogarticles\_list                                    &            GET   &     ANY   &   ANY  &  /api/blogarticles                                                             \\              
+ api\_blogarticles\_get                                    &             GET    &    ANY  &    ANY  &  /api/blogarticles/\{id\}                                                  \\                    
+ api\_blogarticles\_post                                  &              POST  &     ANY  &    ANY  &  /api/blogarticles                                                          \\                 
+ api\_blogarticles\_put                                    &             PUT    &    ANY   &   ANY &   /api/blogarticles/\{id\}                                                \\                      
+ api\_blogarticles\_delete                               &               DELETE  &   ANY  &    ANY &   /api/blogarticles/\{id\}                                             \\                         
+ api\_blogarticles\_upload\_embedded\_file    &                            POST  &     ANY  &    ANY  &  /api/blogarticles/files                                 \\                                    
+ api\_cards\_sets\_get                                     &              GET   &     ANY  &    ANY  &  /api/cards/sets/\{id\}                                                 \\                       
+ api\_cards\_sets\_put                                      &             PUT    &    ANY  &    ANY &   /api/cards/sets/\{id\}                                                 \\                       
+ api\_cardcerts\_comments\_get                       &  GET   &     ANY   &   ANY  &  /api/cardcerts/\{id\}/comments/\{cardCertComment\}         \\                                     
+ api\_cardcerts\_comments\_post                       &  POST  &     ANY  &    ANY &   /api/cardcerts/\{id\}/comments                                          \\                      
+ api\_cardcerts\_comments\_put                 &  PUT   &     ANY  &    ANY  &  /api/cardcerts/\{id\}/comments/\{cardCertComment\}              \\                                
+ api\_cardcerts\_comments\_delete                  &   DELETE   &  ANY   &   ANY  &  /api/cardcerts/\{id\}/comments/\{cardCertComment\}       \\  {\color{monOrange}                                     
+ api\_cardcerts\_list     }                                      &      {\color{monOrange}    GET }   &    ANY &     ANY  &  {\color{monOrange}  /api/cardcerts?order=}                                                               \\               
+ api\_cardcerts\_get                                           &         GET    &    ANY  &    ANY  &  /api/cardcerts/\{id\}                                                    \\                     
+ api\_cardcerts\_get\_barcode                            &                GET   &     ANY   &   ANY &  /api/cardcerts/barcode/\{barcode\}                      \\                                      
+ api\_cardcerts\_put                                           &         PUT   &     ANY  &    ANY  &  /api/cardcerts/\{id\}                                                    \\                     
+ api\_cardcerts\_grade                                       &           POST  &     ANY   &   ANY  &  /api/cardcerts/\{id\}/grade                                        \\                           
+ api\_cardcerts\_printing                     &          GET    &    ANY   &   ANY  &  /api/cardcerts/printing/\{barcode\}/\{printerType\}/\{printer\}   \\                                
+ api\_cardgrades\_list                &  GET    &    ANY &     ANY  &  /api/cardgrades                                                                             \\
+ api\_cardgrades\_post                    &                              POST   &    ANY   &   ANY &  /api/cardgrades                                                     \\                        
+ api\_cardgrades\_put                      &                             PUT     &   ANY   &   ANY  &  /api/cardgrades/\{id\}                                           \\                             
+  
+  \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular}{lcccl}  
+                   
+ api\_cards\_images\_app\_presentation\_api\_cardimage\_putimagecarte  &      PUT      &  ANY     & ANY &   /api/cards/images/\{id\}      \\                                                                
+ api\_cards\_images\_app\_presentation\_api\_cardimage\_putimagecartebatch &  PUT    &    ANY  &    ANY &   /api/cards/images                       \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl}                                                      
+ api\_cardgrades\_delete                  &                              DELETE  &   ANY  &    ANY  &  /api/cardgrades/\{id\}                                        \\                                
+ api\_cards\_images\_get                 &                                GET  &      ANY   &   ANY  &  /api/cards/images/\{id\}                                     \\                                 
+ api\_cards\_images\_list                   &                             GET   &     ANY  &    ANY  &  /api/cards/images               \\
+
+ api\_cards\_images\_delete                &                              DELETE  &   ANY  &    ANY   & /api/cards/images/\{id\}                                   \\                                   
+ api\_cards\_images\_history                &                             GET    &    ANY  &    ANY  &  /api/cards/imageshistory                                    \\                                
+ api\_cardmeasurements\_get               &                              GET   &     ANY  &    ANY &   /api/cardmeasurements/\{id\}                          \\                                        
+ api\_cardmeasurements\_post             &                               POST &     ANY  &    ANY  &  /api/cardmeasurements                                  \\                                     
+ api\_cardmeasurements\_put                &                             PUT    &    ANY  &    ANY &   /api/cardmeasurements/\{id\}                           \\                                       
+ api\_card\_reader\_verify\_transaction\_number   &                         POST  &     ANY   &   ANY  &  /api/cardReader/verifyTransactionNumber \\                                                    
+ api\_carts\_calculate\_price                            &                POST   &    ANY   &   ANY  &  /api/cart/calculatePrice                                          \\                          
+ api\_countries\_list                                        &           GET     &   ANY   &   ANY &   /api/countries                                                             \\                 
+ api\_crochets\_app\_presentation\_api\_crochet\_putcrochet      &           PUT   &     ANY   &   ANY &   /api/crochets/\{id\}                     \\                                                     
+ api\_customers\_addresses\_list                            &             GET   &     ANY   &   ANY  &  /api/customers/adresses                                \\                                     
+ api\_customers\_list                                        &           GET    &    ANY  &    ANY &   /api/customers                                                         \\                     
+ api\_customers\_post                                     &              POST &      ANY &     ANY  &  /api/customers                                                     \\                        
+ api\_customers\_addresses\_post                 &                        POST    &   ANY   &   ANY   & /api/customers/addresses                            \\                                        
+ api\_customers\_comment                          &                      POST  &     ANY   &   ANY  &  /api/customers/\{id\}/comment                       \\                                          
+ api\_customergroups\_list                           &                   GET    &    ANY   &   ANY  &  /api/customergroups                                           \\                              
+ api\_customergroups\_get                          &                     GET   &     ANY  &    ANY &   /api/customergroups/\{id\}                               \\        
+ \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl}                               
+ api\_customergroups\_post                         &                     POST &      ANY  &    ANY &   /api/customergroups                                       \\                                  
+ api\_customergroups\_put                            &                   PUT    &    ANY  &    ANY &   /api/customergroups/\{id\}                               \\                                     
+ api\_customergroups\_delete                         &                   DELETE   &  ANY   &   ANY  &  /api/customergroups/\{id\}                           \\                                         
+ api\_dbscards\_list                                         &           GET    &    ANY   &   ANY   & /api/dbscards                                                          \\                     
+ api\_dbscards\_get                                       &              GET   &     ANY   &   ANY  &  /api/dbscards/\{id\}                                              \\                            
+ api\_dbsseries\_list                                       &            GET    &    ANY   &   ANY  &  /api/series/dbs                                                        \\                     
+ api\_deliverymethods\_list                             &                GET   &     ANY &     ANY &   /api/deliverymethods                                          \\                              
+ api\_deliverymethods\_list\_valids                   &                   GET   &     ANY   &   ANY  &  /api/deliverymethods/valids                           \\                                      
+ api\_discounts\_vouchers\_list                          &                GET    &    ANY   &   ANY  &  /api/\{id\}/vouchers                                         \\                                 
+ api\_discounts\_vouchers\_get                            &               GET   &     ANY  &    ANY &   /api/\{id\}/vouchers/\{voucher\}                    \\                                            
+ api\_discounts\_vouchers\_put                             &              PUT   &     ANY &     ANY &   /api/\{id\}/vouchers/\{voucher\}                     \\                                           
+ api\_discounts\_vouchers\_delete                         &               DELETE &    ANY  &    ANY &   /api/\{id\}/vouchers/\{voucher\}                  \\                                              
+ api\_discounts\_list                                             &      GET   &     ANY   &   ANY  &  /api/discounts                                                           \\                   
+ api\_discounts\_get                                             &      GET  &      ANY   &   ANY  &  /api/discounts/\{id\}                                                 \\                        
+ api\_discounts\_post                                           &        POST &      ANY  &    ANY &   /api/discounts                                                        \\                      
+ api\_discounts\_put                                              &      PUT    &    ANY  &    ANY  &  /api/discounts/\{id\}                                                \\                         
+ api\_ingoingpackagetracking\_get\_all                   &                GET   &     ANY   &  ANY  &  /api/ingoingpackagetrackings                       \\                                         
+ api\_ingoingpackagetracking\_post                          &            POST    &   ANY   &   ANY &   /api/ingoingpackagetrackings                       \\                                         
+ api\_magiccards\_list                                            &     GET      &  ANY   &   ANY  &  /api/magiccards                                                       \\                      
+ api\_magiccards\_get                                            &       GET   &     ANY   &   ANY  & /api/magiccards/\{id\}                                           \\                             
+ api\_magicseries\_list                                          &       GET   &    ANY   &   ANY  &  /api/series/magic                                                    \\                       
+ api\_magictypes\_list                                           &       GET   &    ANY   &   ANY  &  /api/types/magic                                                     \\                       
+ api\_orders\_comments\_get                                &             GET    &    ANY   &   ANY &   /api/orders/\{id\}/comments/\{commentId\}   \\                                                    
+ api\_orders\_comments\_list                                &             GET   &     ANY  &    ANY  &  /api/orders/\{id\}/comments                             \\                                      
+ api\_orders\_comments\_post                              &               POST  &     ANY  &    ANY  &  /api/orders/\{id\}/comments                          \\                                         
+ api\_orders\_comments\_put                               &               PUT   &     ANY   &   ANY   & /api/orders/\{id\}/comments/\{commentId\}   \\                                                   
+ api\_orders\_comments\_delete                           &                DELETE  &   ANY &    ANY  &  /api/orders/\{id\}/comments/\{commentId\} \\                                                     
+ api\_orderboxes\_list                                           &       GET    &    ANY   &   ANY  &  /api/orderboxes                                                       \\                      
+ api\_orderboxes\_get\_code                                &              GET   &     ANY   &   ANY   & /api/orderboxes/\{code\}                                  \\                                    
+ api\_orderboxes\_shelves\_post                           &               POST  &     ANY   &   ANY   & /api/orderboxes/shelves                                \\                                     
+ api\_orderboxes\_delete                                       &         DELETE  &   ANY  &    ANY &   /api/orderboxes/\{id\}                                        \\                                
+ api\_orders\_get\_all                                             &      GET    &    ANY  &    ANY   & /api/orders                                                               \\                  
+ {\color{monOrange}api\_orders\_list\_compact}                                      &        GET &       ANY &     ANY &   {\color{monOrange}/api/orders/compact}                                          \\                               
+ {\color{monOrange}  api\_orders\_get}                                                  &      {\color{monOrange} GET}   &     ANY   &   ANY  & {\color{monOrange}  /api/orders/\{id\}}                                                        \\                    
+ api\_orders\_post                                               &       POST    &   ANY   &   ANY &   /api/orders                                                               \\                  
+ api\_orders\_post\_sav                                      &            POST  &     ANY  &    ANY &   /api/orders/sav                                                    \\                         
+ api\_orders\_post\_event                                   &             POST  &     ANY  &    ANY  &  /api/orders/event                                              \\                             
+ api\_orders\_put                                                &       PUT   &     ANY   &   ANY  &  /api/orders/\{id\}                                                     \\                       
+ api\_orders\_update\_status                              &               PUT   &     ANY  &    ANY &   /api/orders/\{id\}/status                                   \\                                  
+ api\_ordertags\_list                                             &      GET     &   ANY   &   ANY   & /api/ordertags                                                           \\                   
+ api\_ordertags\_post                                           &        POST   &    ANY  &    ANY  &  /api/ordertags                                                        \\                      
+ api\_ordertags\_put                                            &        PUT     &   ANY   &   ANY  &  /api/ordertags/\{id\}                                                 \\                        
+ api\_ordertags\_delete                                         &        DELETE &    ANY  &    ANY &   /api/ordertags/\{id\}                                              \\                           
+ api\_outgoingpackagetracking\_from\_number     &   GET    &    ANY  &    ANY  &  /api/outgoingpackagetrackings/\{trackingNumber\}    \\                                          
+ api\_promos\_list                         & GET    &    ANY  &   ANY  &  /api/pokemoncards/promotionals                                                            \\  
+ api\_promos\_match\_versions      & POST   &    ANY  &    ANY &   /api/pokemoncards/promotionals/matchVersions/\{id\}                      \\                     
+ api\_promoevents\_list                &  GET   &     ANY   &   ANY   & /api/pokemoncards/promotionals/events                                                \\       
+ api\_promoevents\_get               & GET     &   ANY   &   ANY   & /api/pokemoncards/promotionals/events/\{id\}                                      \\            
+ api\_promoevents\_post            & POST    &   ANY   &   ANY   & /api/pokemoncards/promotionals/events                                                \\       
+ api\_promoevents\_put             & PUT     &   ANY  &    ANY  &  /api/pokemoncards/promotionals/events/\{id\}                                       \\           
+ api\_promoevents\_parse          & POST   &    ANY  &    ANY   & /api/pokemoncards/promotionals/events/parse/\{id\}                          \\ 
+ 
+  \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl} 
+ 
+ 
+                  
+ api\_promoevents\_create\_names & POST   &    ANY  &    ANY &   /api/pokemoncards/promotionals/events/names                             \\                    
+ api\_promotraits\_get         & GET    &    ANY   &   ANY   & /api/pokemoncards/promotionals/events/promotraits/\{id\}                       \\               
+ api\_promotraits\_list      &  GET    &    ANY  &    ANY   & /api/pokemoncards/promotionals/events/promotraits                                  \\         
+ api\_promotraits\_post     & POST  &     ANY   &   ANY  &  /api/pokemoncards/promotionals/events/promotraits                                \\           
+ api\_pokemoncards\_list                                          &      GET  &      ANY  &    ANY    &/api/pokemoncards                                          \\                                 
+ api\_pokemoncards\_get                                          &       GET  &     ANY   &   ANY &   /api/pokemoncards/\{id\}                               \\                                       
+ api\_pokemoncards\_put                                        &         PUT    &    ANY   &   ANY &   /api/pokemoncards/\{id\}                              \\                                        
+ api\_pokemoncards\_put\_batch                              &             PUT  &      ANY    &  ANY  &  /api/pokemoncards                                  \\                                         
+ api\_pokemonseries\_list                                      &         GET    &    ANY   &   ANY   & /api/series/pokemon                                       \\                                  
+ api\_preorders\_list                                              &     GET    &    ANY   &   ANY   &/api/preorders                                                       \\                       
+ api\_preorders\_post                                            &       POST  &     ANY  &    ANY  &  /api/preorders                                                  \\                            
+ api\_pricegridcells\_list                                         &     GET   &     ANY  &   ANY  &  /api/pricegridcells                                                \\                         
+ api\_products\_list                                             &       GET   &    ANY   &   ANY   & /api/products                                                       \\                        
+ api\_settings\_get                                               &      GET   &     ANY  &    ANY   & /api/settings/\{id\}                                             \\                             
+ api\_settings\_get\_code                                     &           GET  &      ANY  &    ANY &   /api/settings/\{code\}                                   \\                                     
+ api\_settings\_put                                               &      PUT     &   ANY   &   ANY  &  /api/settings/\{id\}                                            \\                              
+ api\_stores\_visits\_get                                        &        GET    &    ANY  &    ANY  &  /api/stores/\{id\}/visits                                  \\                                   
+ api\_stores\_visits\_post                                        &       POST    &   ANY   &   ANY &   /api/stores/\{id\}/visits                                  \\                                   
+ api\_stores\_visits\_delete                                     &        DELETE   &  ANY  &    ANY  & /api/stores/\{id\}/visits/\{storeVisit\}            \\                                            
+ api\_stores\_list                                                 &     GET      &  ANY  &    ANY &   /api/stores                                                             \\                    
+ api\_stores\_post                                               &       POST &      ANY &     ANY &   /api/stores                                                          \\                      
+ api\_stores\_put                                               &        PUT    &    ANY   &   ANY   & /api/stores/\{id\}                                                   \\                         
+ api\_tracking\_update                                        &          POST    &   ANY    &  ANY  &  /api/tracking/update                                        \\                                
+ api\_trigger\_list                                                 &    GET    &    ANY   &   ANY   & /api/triggers                                                           \\                    
+ api\_trigger\_post                                                &     POST  &     ANY  &    ANY &   /api/triggers                                                      \\                        
+ api\_ungradablereasons\_list                                &           GET   &    ANY   &   ANY   & /api/ungradablereasons                                 \\                                     
+ api\_yugiohseries\_list                                         &       GET    &    ANY  &    ANY  &  /api/series/yugioh                                            \\                              
+ choixDirection                                                  &     ANY   &     ANY  &    ANY  &  /\{\_locale\}/choixDirection                                   \\                                
+ rechercheCartes                                               &       ANY  &      ANY  &    ANY  &  /\{\_locale\}/rechercheCrt                                   \\                                  
+ oldVerif2                                                        &    ANY    &    ANY   &   ANY  &  /\{\_locale\}/VERIF/\{cb\}                                         \\                              
+ admin                                                           &     ANY     &   ANY   &   ANY  &  /pcaback                                                                    \\                
+ adminAdresse                                                &         ANY  &      ANY  &    ANY  &  /pcaback/adresse/                                               \\                            
+ adminModifAdresse                                         &           ANY    &    ANY  &    ANY &   /pcaback/adresse/\{id\}/modif                          \\                                       
+ adminClient                                                     &     ANY    &    ANY    &  ANY  &  /pcaback/client/                                                     \\                       
+ setMainPropre                                                 &       ANY  &      ANY  &    ANY  &  /pcaback/client/setMainPropre                              \\                                 
+ adminInfosClient                                             &        ANY  &      ANY  &    ANY  &  /pcaback/client/\{id\}                                            \\                            
+ adminModifClient                                            &         ANY  &      ANY &     ANY &   /pcaback/client/\{id\}/modif                                 \\                                 
+ adminModifAdresseClient                                 &             ANY   &     ANY &     ANY &   /pcaback/client/\{id\}/adresses/\{id\_adr\}/modif  \\                                              
+ adminSupprCommentaireClient     &   ANY  &      ANY  &    ANY  &  /pcaback/client/\{id\}/commentaire/\{id\_comm\}/supprComm       \\                                 
+ adminCompteRechargeable           &     ANY  &      ANY   &   ANY &   /pcaback/client/compte\_rechargeable                                       \\                  
+ adminSupprCarteCadeau           & ANY   &     ANY   &   ANY &   /pcaback/client/adminSupprCarteCadeau/\{id\}                                \\                  
+ adminCompteSolde                  & ANY    &    ANY   &   ANY &   /pcaback/client/solde                                                                       \\
+ adminCompteActivation          & ANY     &   ANY    &  ANY   & /pcaback/client/activation                                                                  \\
+ activateCarteCadeau                &   ANY   &     ANY  &    ANY  &  /pcaback/client/activateCarteCadeau                                               \\          
+ adminCompteFactures             &  ANY    &    ANY   &   ANY  &  /pcaback/client/adminCompteFactures                                              \\           
+ adminCmdATraiter                   & ANY    &    ANY   &   ANY  &  /pcaback/order/\{id\}                                                                         \\
+ adminAddCartes2Cmd            &  ANY     &   ANY   &   ANY  &  /pcaback/order/liste2addCartes/\{idCmd\}/\{edition\}                         \\                   
+ adminAjouter2Cmd   & ANY      &  ANY     & ANY  &  /pcaback/order/ajouterCarte/\{card\}/\{order\}/\{reverse\}/\{edition\}/\{shadowless\}/\{csn\}/\{langue\} \\
+ adminAdresseCmd                                         &             ANY   &     ANY   &   ANY  &  /pcaback/order/adresseCmd/\{id\}                                                  \\            
+ adminValidationCmd                     &   ANY     &   ANY   &   ANY &   /pcaback/order/validationCmd/\{order\}                                                        \\
+ adminDevExtAddCartes2Cmd       &  ANY      &  ANY   &  ANY   & /pcaback/order/devExtAddCartes2Cmd/\{set\}/\{idCmd\}                       \\                     
+ 
+   \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl} 
+ 
+ 
+ adminValiderTraitementCmd        &  ANY    &    ANY  &    ANY  &  /pcaback/order/validerTraitement/\{id\}                                       \\                
+ adminAffichePDF                          &  ANY     &   ANY   &   ANY  &  /pcaback/order/afficheEtiquettePDF/\{id\}                                    \\                 
+ adminSupprimeCmd                  & ANY      &  ANY &     ANY   & /pcaback/order/supprimeCmd/\{id\}                                                \\             
+ adminSupprimeCC                    & ANY     &   ANY    &  ANY   & /pcaback/order/supprimeCC/\{order\}/\{cc\}                                   \\                   
+ adminSupprimeCCduPanier        &  ANY    &    ANY   &   ANY  &  /pcaback/order/supprimeCCduPanier/\{id\}                                    \\                  
+ adminChangementDEtat                                              &   ANY   &     ANY  &    ANY  &  /pcaback/order/chetat/\{id\}                          \\                                        
+ putCommInSession                                                &     ANY    &    ANY   &   ANY  &  /pcaback/order/putCommInSession                     \\                                        
+ setLangueForCartesAdmin                                     &         ANY   &     ANY   &   ANY  &  /pcaback/order/setLangueForCartesAdmin       \\                                               
+ setTypeForCartesAdmin                                       &         ANY    &    ANY  &    ANY  &  /pcaback/order/setTypeForCartesAdmin            \\                                            
+ setNumSuiviAjax                                               &       ANY    &    ANY   &   ANY   & /pcaback/order/setNumSuiviAjax                            \\                                  
+ majDateEnvoi                                                  &       ANY   &     ANY   &   ANY  &  /pcaback/order/majDateEnvoi                                  \\                               
+ cmdsAnnulees                                                 &        ANY   &     ANY   &   ANY &   /pcaback/order/cmdsAnnulees                                \\                                 
+ adminActiverCmd                                             &         ANY   &    ANY  &   ANY  &  /pcaback/order/adminActiverCmd/\{id\}                 \\                                        
+ adminAnnulerCmd                                            &          ANY   &     ANY  &    ANY &   /pcaback/order/adminAnnulerCmd/\{id\}             \\                                            
+ adminRetardCmd                                               &        ANY    &    ANY   &   ANY  &  /pcaback/order/adminRetardCmd/\{id\}                \\                                          
+ setCmdDesceller                                                &      ANY    &    ANY   &   ANY  &  /pcaback/order/setCmdDesceller                              \\                                
+ adminNotationUnique                                        &          ANY  &     ANY  &    ANY  &  /pcaback/order/adminNotationUnique                   \\                                       
+ adminRecalculerDates                                        &         ANY   &     ANY  &    ANY  &  /pcaback/order/recalculerDates                             \\                                 
+ livraisonAdresseSuppression                              &            ANY  &      ANY  &    ANY &   /pcaback/panierCmd/livraison/adresse/suppression/\{id\}/\{idCmd\}    \\                           
+ parametres                                                       &    ANY      &  ANY   &   ANY &   /pcaback/parametres/                                                                        \\
+ adminPartenaire                                              &        ANY    &    ANY  &   ANY  &  /pcaback/partenaire/                                                                \\        
+ adminPartenaireNew                                        &           ANY  &     ANY   &   ANY &   /pcaback/partenaire/new                                                    \\                 
+ adminPartenaireEdit                                          &        ANY    &    ANY  &    ANY   & /pcaback/partenaire/edit/\{id\}                                            \\                   
+ adminPartenaireDelete                                        &        ANY  &      ANY   &   ANY  &  /pcaback/partenaire/delete                                                 \\                 
+ adminPartenaireListOrders                                 &           ANY   &     ANY   &   ANY &   /pcaback/partenaire/listOrders/\{partner\}                       \\                             
+ genererPosteDOM                                              &        ANY    &    ANY   &   ANY &   /pcaback/poste/genererDOM/\{id\}                                      \\                        
+ genererPosteDOS                                               &       ANY   &     ANY  &   ANY  &  /pcaback/poste/genererDOS/\{id\}                                          \\                    
+ genererPosteCOLI                                               &      ANY  &      ANY   &   ANY  &  /pcaback/poste/genererCOLI/\{id\}                                        \\                     
+ genererPosteCDS                                                &      ANY  &      ANY &     ANY  &  /pcaback/poste/genererCDS/\{id\}                                          \\                    
+ genererPosteDHL                                               &       ANY &       ANY  &    ANY  &  /pcaback/poste/genererDHL/\{id\}                                          \\                    
+ genererParkage                                                &       ANY    &    ANY   &  ANY  &  /pcaback/poste/genererParkage/\{id\}                                        \\                  
+ genererLettreSuivie                                           &       ANY   &     ANY   &  ANY   & /pcaback/poste/genererLettreSuivie/\{id\}                                 \\                    
+ genererMainPropre                                           &         ANY  &     ANY   &   ANY  &  /pcaback/poste/genererMainPropre/\{id\}                                 \\                      
+ adminGenererPoste                                           &         ANY  &      ANY  &    ANY &   /pcaback/poste/genererPoste/\{id\}                                          \\                  
+ imprimerPosteQZ                                              &        ANY   &     ANY   &   ANY &   /pcaback/poste/qz                                                                      \\     
+ imprimerEtiquettePDF                                        &         ANY  &      ANY  &    ANY  &  /pcaback/poste/qzPDF                                                               \\         
+ modifierNbCartesPoste                                      &          ANY   &     ANY   &   ANY  &  /pcaback/poste/modifNbCartes/\{id\}/\{nbcartes\}                    \\                           
+ modifierNumColisPoste                                     &           ANY   &    ANY  &    ANY  &  /pcaback/poste/modifierNumColisPoste/\{id\}/\{num\_colis\}    \\                                   
+ modifierPoidsEtiquettePoste                               &           ANY   &     ANY  &    ANY &   /pcaback/poste/modifPoids/\{id\}/\{poids\}                             \\                         
+ reinitialiserEtiquettePoste                                   &       ANY   &     ANY  &    ANY  &  /pcaback/poste/initialiser/\{id\}                                                   \\          
+ blog                                                             &    ANY      &  ANY    &  ANY  &  /\{\_locale\}/blog/                                                                            \\
+ blog\_details                                                 &        ANY  &      ANY   &   ANY &   /\{\_locale\}/blog/show/\{id\}                                                      \\             
+ blog\_tag                                                     &        ANY   &     ANY   &   ANY  &  /\{\_locale\}/blog/tag/\{tag\}                                                         \\          
+ blog\_search                                               &           ANY  &      ANY &     ANY &   /\{\_locale\}/blog/search/\{search\}                                              \\               
+ blog\_reset\_search                                     &               ANY &       ANY &     ANY  &  /\{\_locale\}/blog/reset\_search                                              \\                  
+ majFrais                                                        &     ANY    &    ANY   &   ANY  &  /\{\_locale\}/caisse/majfrais                                                              \\    
+ recap\_prix                                                    &      ANY  &      ANY  &    ANY  &  /\{\_locale\}/caisse/                                                                        \\  
+ setAdresseForCommande                                &                ANY  &      ANY &     ANY  &  /\{\_locale\}/caisse/setAdresseForCommande                      \\                               
+ checkCoupon                                                   &       ANY    &    ANY  &    ANY &   /\{\_locale\}/caisse/checkCoupon                                                 \\              
+ addCoupon                                                       &     ANY     &   ANY   &   ANY  & /\{\_locale\}/caisse/addCoupon                                                       \\          
+ openModalAdresse                                           &          ANY  &      ANY  &    ANY   & /\{\_locale\}/caisse/openModalAdresse/\{id\}                           \\                          
+ 
+   \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl} 
+ 
+ presentation                                                    &     ANY  &      ANY   &   ANY   & /\{\_locale\}/carte/\{id\}                                                                  \\     
+ recherche                                                       &     ANY    &    ANY   &  ANY    & /\{\_locale\}/carte/search                                                                 \\    
+ autocomplete                                                 &        ANY  &      ANY  &    ANY  &  /\{\_locale\}/carte/autocomplete                                                    \\           
+ setLangueForCartes                                        &           ANY  &     ANY   &   ANY  &  /\{\_locale\}/carte/setLangueForCartes                                         \\                
+ setTypeForCartes                                           &          ANY   &     ANY    &  ANY  &  /\{\_locale\}/carte/setTypeForCartes                                             \\              
+ setVisuCarte                                                   &      ANY      &  ANY    &  ANY  &  /\{\_locale\}/carte/setVisuCarte                                                        \\       
+ getCardInfo                                                   &       ANY   &     ANY   &   ANY &   /\{\_locale\}/carte/getInfoCarte                                                        \\       
+ facebook\_login                                            &           ANY  &   ANY  &   ANY &   /login/facebook                                                                             \\
+ google\_login                                                 &        ANY    &    ANY   &   ANY  &  /login/google                                                                               \\
+ isLoggedIn                                                      &     ANY    &    ANY &     ANY  &  /login/isLoggedIn                                                                           \\
+ hwi\_oauth\_service\_redirect                                    &       GET     &   ANY    &  ANY  &  /login/oauth/\{service\}                                                        \\             
+ hwi\_oauth\_connect\_service                                    &        GET-POST  & ANY  &    ANY  &  /login/oauth/service/\{service\}                                        \\                      
+ hwi\_oauth\_connect\_registration                              &         GET-POST & ANY  &    ANY  &  /login/oauth/registration/\{key\}                                     \\                        
+ hwi\_oauth\_connect                                                 &   GET     &   ANY   &   ANY  &  /login/oauth/login/                                                                   \\      
+ supprimer                                                    &        ANY     &   ANY    &  ANY  &  /\{\_locale\}/panier/supprimer/\{id\}                                                 \\           
+ supprimerCarteRecap                                   &               ANY   &     ANY   &   ANY &  /\{\_locale\}/panier/supprimerCarteRecap/\{id\}                         \\                         
+ ajouter\_autre                                               &         ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/ajouter/autre/\{id\}                                         \\               
+ add\_other\_product                                     &               ANY   &     ANY   &   ANY &   /\{\_locale\}/panier/autre/add/\{id\}                                         \\                   
+ remove\_one\_other\_product                                       &      ANY   &    ANY   &  ANY &   /\{\_locale\}/panier/autre/removeOne/\{id\}                         \\                             
+ remove\_all\_other\_product                                      &       ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/autre/removeAll/\{id\}                          \\                            
+ ajouter                                                      &        ANY    &    ANY  &   ANY   & /\{\_locale\}/panier/ajouter/\{id\}                                                          \\    
+ panier\_vide                                              &            ANY   &    ANY &    ANY  &  /\{\_locale\}/panier/vide                                                                     \\ 
+ recapitulatif                                                 &       ANY    &    ANY  &    ANY  &  /\{\_locale\}/panier/recapitulatif                                                          \\   
+ setReverse                                                    &       ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/setReverse/\{id\}                                                \\           
+ setShadowless                                              &          ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/setShadowless/\{id\}                                       \\                
+ setEdition                                                 &          ANY    &    ANY   &   ANY   & /\{\_locale\}/panier/setEdition/\{id\}                                                   \\        
+ setFoil                                                      &        ANY    &    ANY  &    ANY   & /\{\_locale\}/panier/setFoil/\{id\}                                                          \\   
+ setLangue                                                  &          ANY   &     ANY   &   ANY &   /\{\_locale\}/panier/setLangue/\{id\}                                                  \\          
+ livraisonAdresseSuppressionClient              &                      ANY    &    ANY  &    ANY  &  /\{\_locale\}/panier/livraison/adresse/suppression/\{id\}      \\                                  
+ setNoteMinimale                                            &          ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/setNoteMinimale                                               \\            
+ setNoteMinimaleCSN                                      &             ANY &       ANY &     ANY  &  /\{\_locale\}/panier/setNoteMinimaleCSN                                      \\                  
+ ajouterEnregistre                                            &        ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/ajouterEnregistre/\{card\}                                    \\              
+ supprimerEnregistre                                        &          ANY   &    ANY  &    ANY &   /\{\_locale\}/panier/supprimerEnregistre/\{card\}                           \\                     
+ refreshRecap                                                  &       ANY    &    ANY  &    ANY  &  /\{\_locale\}/panier/refreshRecap                                                        \\      
+ setCsn                                                          &     ANY   &    ANY  &   ANY  &  /\{\_locale\}/panier/setCsn/\{id\}                                                            \\   
+ setValeur                                                     &       ANY    &    ANY   &   ANY &   /\{\_locale\}/panier/setValeur/\{id\}                                                     \\       
+ setVisual                                                     &       ANY    &    ANY   &   ANY   & /\{\_locale\}/panier/setVisual/\{id\}                                                     \\       
+ setLangueMention                                         &            ANY   &     ANY  &    ANY  &  /\{\_locale\}/panier/setLangueMention/\{id\}                               \\                      
+ home\_count\_panier                                    &                ANY   &     ANY  &    ANY   & /\{\_locale\}/panier/count\_panier                                          \\                    
+ produit                                                        &      ANY   &     ANY  &    ANY  &  /\{\_locale\}/produit/                                                                         \\
+ adressesClient                                             &          ANY  &      ANY   &   ANY  &  /\{\_locale\}/profile/adresses                                                            \\     
+ editerAdresse                                               &         ANY   &     ANY &     ANY   & /\{\_locale\}/profile/editerAdresse/\{id\}                                          \\             
+ setDefaultAdresse                                        &            ANY   &     ANY  &    ANY &   /\{\_locale\}/profile/setDefaultAdresse/\{id\}                                \\                   
+ getDateCommande                                       &               ANY    &    ANY  &    ANY  &  /\{\_locale\}/profile/getDateCommande/\{order\}                       \\                           
+ getFormatCP                                                &          ANY  &      ANY  &    ANY &   /\{\_locale\}/profile/getFormatCP/\{id\}                                            \\             
+ getIfNumeroSuiviCorrect                                &              ANY   &     ANY  &    ANY &   /\{\_locale\}/profile/getIfNumeroSuiviCorrect/\{suivi\}                  \\                        
+ soldeClient                                                   &       ANY  &      ANY   &   ANY  &  /\{\_locale\}/profile/solde                                                                    \\
+ getCustomerTotalPoints                               &                ANY   &     ANY   &   ANY &   /\{\_locale\}/profile/getTotalPoints                                              \\             
+ customerPointsPage                                     &              ANY   &     ANY  &    ANY &   /\{\_locale\}/profile/customer-points-page                                   \\                  
+ checkCarteCadeau                                        &             ANY   &     ANY  &    ANY  &  /\{\_locale\}/profile/checkCarteCadeau                                          \\               
+ openModalRechargement                                &                ANY   &     ANY  &    ANY  &  /\{\_locale\}/profile/openModalRechargement                             \end{tabular}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}{lcccl}                        
+ setMontantChoisiClient                                    &           ANY    &    ANY  &    ANY   & /\{\_locale\}/profile/setMontantChoisiClient                                \\                  
+ commandesClient                                             &         ANY    &    ANY  &    ANY &   /\{\_locale\}/profile/commandes                                                   \\             
+ majAvatar                                                       &     ANY   &     ANY   &   ANY  &  /\{\_locale\}/profile/majAvatar                                                             \\   
+ nucleos\_user\_security\_login                                   &       GET-POST &  ANY   &   ANY  &  /login                                                                                  \\    
+ nucleos\_user\_security\_check                                &          POST   &    ANY   &   ANY  &  /login\_check                                                                       \\         
+ nucleos\_user\_security\_logout                                 &        GET-POST &  ANY    &  ANY  &  /logout                                                                             \\        
+ nucleos\_profile\_profile\_edit                                    &     GET-POST &  ANY   &   ANY   & /\{\_locale\}/profile/edit                                                     \\                
+ nucleos\_profile\_profile\_show                                   &      GET   &     ANY   &   ANY  &  /\{\_locale\}/profile/                                                             \\            
+ nucleos\_profile\_registration\_check\_email                 &            GET    &    ANY  &    ANY &   /register/check-email                                                   \\                    
+ nucleos\_profile\_registration\_confirm                            &     GET   &     ANY   &   ANY  &  /register/confirm/\{token\}                                              \\                     
+ nucleos\_profile\_registration\_confirmed                       &        GET  &      ANY  &    ANY &   /register/confirmed                                                         \\               
+ nucleos\_profile\_registration\_register                          &      GET-POST &  ANY &     ANY  &  /register/                                                                       \\           
+ nucleos\_user\_resetting\_request                                &       GET   &     ANY   &   ANY  &  /resetting/request                                                               \\           
+ nucleos\_user\_resetting\_send\_email                         &           POST  &     ANY  &    ANY  &  /resetting/send-email                                                  \\                     
+ nucleos\_user\_resetting\_check\_email                          &         GET     &   ANY    &  ANY  &  /resetting/check-email                                                 \\                     
+ nucleos\_user\_resetting\_reset                                   &      GET-POST &  ANY   &   ANY  &  /resetting/reset/\{token\}                                                \\                    
+ nucleos\_user\_resetting                                           &    GET  &      ANY    &  ANY  &  /resetting/                                                                              \\   
+ nucleos\_user\_change\_password                             &            GET-POST &  ANY  &    ANY  &  /\{\_locale\}/profile/change-password                     \\                                     
+ csp\_report                                                     &      POST    &   ANY   &   ANY   & /csp/report                                                                                 \\
+ api\_login\_check                                             &         ANY   &     ANY  &    ANY  &  /api/login\_check                                                                   \\         
+ 
+ \end{tabular}
+ }
+ \end{document}
