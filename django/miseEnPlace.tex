@@ -1,117 +1,117 @@
-\documentclass[a4paper]{article}
- 
-% - taille de la fonte    : 10pt, 11pt, 12pt
-% - recto ou recto-verso    : oneside, twoside
- 
-% Chargement d'extensions
-%\usepackage[latin1]{inputenc}    
-\usepackage[francais]{babel}    
-\AtBeginDocument{\def\labelitemi{$\bullet$}}
-
-\usepackage{amsmath}
-\makeatletter
-%%%%%%%%%%%%%%%%%%% debut fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{xkeyval}
-\RequirePackage{tikz}
-\RequirePackage{amssymb}
-
-\define@key{boxedtheorem}{titlecolor}{\def\titlecolor{#1}}
-\define@key{boxedtheorem}{titlebackground}{\def\titlebackground{#1}}
-\define@key{boxedtheorem}{background}{\def\background{#1}}
-\define@key{boxedtheorem}{titleboxcolor}{\def\titleboxcolor{#1}}
-\define@key{boxedtheorem}{boxcolor}{\def\boxcolor{#1}}
-\define@key{boxedtheorem}{thcounter}{\def\thcounter{#1}}
-\define@key{boxedtheorem}{size}{\def\size{#1}}
-\presetkeys{boxedtheorem}{titlecolor = black, titlebackground = white, background = white,%
-                         titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth}{}
-
-\newcommand{\couleurs}[1][]{%
-    \setkeys{boxedtheorem}{#1}
-    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
-                            text= \titlecolor]
-    \tikzstyle{mybox} = [draw=\boxcolor, fill=\background, very thick,
-                        rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
-}
-
-
-%Commande generique pour faire un joli encadre
-\newsavebox{\boiboite}
-\newcommand{\titre}{Titre}
-\newenvironment{boite}[2][]%
-    {%
-    \renewcommand{\titre}{#2}
-    \couleurs[#1]
-    \begin{lrbox}{\boiboite}%
-     \begin{minipage}[!h]{\size}
-    }%
-    {%
-     \end{minipage}
-    \end{lrbox}
-    \begin{center}
-    \begin{tikzpicture}
-    \node [mybox] (box){\usebox{\boiboite}};
-    \node[fancytitle, right=10pt] at (box.north west) {\titre};
-    \end{tikzpicture}
-    \end{center}
-    }
-
-\newcommand{\newboxedtheorem}[4][]{%
-    \couleurs[#1]
-    \@ifnotempty{#4}{%
-      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
-      \newcounter{#4}[\thcounter ] } } { }%
-    }
-    \newenvironment{#2}[1][]{%
-    \@ifnotempty{#4}{\refstepcounter{#4}}
-    \begin{boite}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
-    (##1)}}
-    }%
-    {%
-    \end{boite}
-    }
-}
-%%%%%%%%%%%%%%%%%%%% end fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
-\makeatother
-\newboxedtheorem{theorem}{}{theorem}
-%%%%%%%%%% hypertext
-
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Overleaf Example},
-    pdfpagemode=FullScreen,
-    }
-
-\urlstyle{same}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsthm}
+%\documentclass[a4paper]{article}
+% 
+%% - taille de la fonte    : 10pt, 11pt, 12pt
+%% - recto ou recto-verso    : oneside, twoside
+% 
+%% Chargement d'extensions
+%%\usepackage[latin1]{inputenc}    
+%\usepackage[francais]{babel}    
+%\AtBeginDocument{\def\labelitemi{$\bullet$}}
+%
 %\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathrsfs}
-\usepackage{graphicx}
-\usepackage{geometry}
-\usepackage{stmaryrd}
-\usepackage{tikz}
-\usetikzlibrary{patterns}
-
-\usepackage[cache=false]{minted}
-\usepackage{xcolor}
-%\setbeamercolor{background canvas}{bg=lightgray}
-\definecolor{LightGray}{gray}{0.9}
-\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
-
-% Informations le titre, le(s) auteur(s), la date
-\title{Vue3}
-\author{Ibrahim ALAME}
-\date{\today}
-\includeonly{ introduction.tex} 
-\begin{document}
- 
-\maketitle
+%\makeatletter
+%%%%%%%%%%%%%%%%%%%% debut fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+%\RequirePackage{xkeyval}
+%\RequirePackage{tikz}
+%\RequirePackage{amssymb}
+%
+%\define@key{boxedtheorem}{titlecolor}{\def\titlecolor{#1}}
+%\define@key{boxedtheorem}{titlebackground}{\def\titlebackground{#1}}
+%\define@key{boxedtheorem}{background}{\def\background{#1}}
+%\define@key{boxedtheorem}{titleboxcolor}{\def\titleboxcolor{#1}}
+%\define@key{boxedtheorem}{boxcolor}{\def\boxcolor{#1}}
+%\define@key{boxedtheorem}{thcounter}{\def\thcounter{#1}}
+%\define@key{boxedtheorem}{size}{\def\size{#1}}
+%\presetkeys{boxedtheorem}{titlecolor = black, titlebackground = white, background = white,%
+%                         titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth}{}
+%
+%\newcommand{\couleurs}[1][]{%
+%    \setkeys{boxedtheorem}{#1}
+%    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
+%                            text= \titlecolor]
+%    \tikzstyle{mybox} = [draw=\boxcolor, fill=\background, very thick,
+%                        rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+%}
+%
+%
+%%Commande generique pour faire un joli encadre
+%\newsavebox{\boiboite}
+%\newcommand{\titre}{Titre}
+%\newenvironment{boite}[2][]%
+%    {%
+%    \renewcommand{\titre}{#2}
+%    \couleurs[#1]
+%    \begin{lrbox}{\boiboite}%
+%     \begin{minipage}[!h]{\size}
+%    }%
+%    {%
+%     \end{minipage}
+%    \end{lrbox}
+%    \begin{center}
+%    \begin{tikzpicture}
+%    \node [mybox] (box){\usebox{\boiboite}};
+%    \node[fancytitle, right=10pt] at (box.north west) {\titre};
+%    \end{tikzpicture}
+%    \end{center}
+%    }
+%
+%\newcommand{\newboxedtheorem}[4][]{%
+%    \couleurs[#1]
+%    \@ifnotempty{#4}{%
+%      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
+%      \newcounter{#4}[\thcounter ] } } { }%
+%    }
+%    \newenvironment{#2}[1][]{%
+%    \@ifnotempty{#4}{\refstepcounter{#4}}
+%    \begin{boite}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
+%    (##1)}}
+%    }%
+%    {%
+%    \end{boite}
+%    }
+%}
+%%%%%%%%%%%%%%%%%%%%% end fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+%\makeatother
+%\newboxedtheorem{theorem}{}{theorem}
+%%%%%%%%%%% hypertext
+%
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true,
+%    linkcolor=blue,
+%    filecolor=magenta,      
+%    urlcolor=cyan,
+%    pdftitle={Overleaf Example},
+%    pdfpagemode=FullScreen,
+%    }
+%
+%\urlstyle{same}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amsthm}
+%%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{mathrsfs}
+%\usepackage{graphicx}
+%\usepackage{geometry}
+%\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{patterns}
+%
+%\usepackage[cache=false]{minted}
+%\usepackage{xcolor}
+%%\setbeamercolor{background canvas}{bg=lightgray}
+%\definecolor{LightGray}{gray}{0.9}
+%\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+%
+%% Informations le titre, le(s) auteur(s), la date
+%\title{Vue3}
+%\author{Ibrahim ALAME}
+%\date{\today}
+%\includeonly{ introduction.tex} 
+%\begin{document}
+% 
+%\maketitle
  %Mettez en place une API simple avec Django REST Framework
  \section{Découvrez Django REST Framework}
  \subsection{Découvrez pourquoi utiliser une API}
@@ -428,7 +428,7 @@ Le paramètre {\tt basename}  permet de retrouver l’URL complète avec la fonc
 \item {\tt queryset}, ou réécrire la méthode {\tt get\_queryset}  qui doit retourner un {\color{monOrange}Queryset} des éléments à retourner.
 \end{enumerate}
 \begin{theorem}
-Redéfinir seulement l’attribut de classe {\tt queryset}  permet principalement de faire des tests rapides. À l’usage, redéfinir {\tt get\_queryset}  est souvent la solution à adopter car elle permet d’être plus fin sur les éléments à retourner.
+Redéfinir seulement l’attribut de classe {\tt queryset}  permet principalement de faire des tests rapides. À l’usage, redéfinir {\tt get\_queryset}  est souvent la solution à adopter car elle permet d'être plus fin sur les éléments à retourner.
 \end{theorem}
 \begin{minted}[
 mathescape,
@@ -674,7 +674,7 @@ Pour réaliser cela, vous pouvez partir de la branche \href{https://github.com/O
 
 
 
-\end{document}
+%\end{document}
 
 
 

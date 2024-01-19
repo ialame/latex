@@ -200,6 +200,22 @@ Mettre en place une pagination dès la création d’une API est une bonne prati
 \item Aux applications clientes de ne pas récupérer toutes les informations si elles ne se servent que d’une seule partie ;
 \item D’éviter la modification des applications clientes par la suite, car la pagination impose certains attributs.
 \end{itemize}
+Il suffit d'jouter dans {\tt settings.py}:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+REST_FRAMEWORK = {
+   'DEFAULT_PAGINATION_CLASS':
+   'rest_framework.pagination.LimitOffsetPagination',
+   'PAGE_SIZE': 10
+}
+\end{minted}
+
 \begin{center}
 \includegraphics[width=12cm]{images/image14.png}
 \end{center}

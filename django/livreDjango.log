@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  4 JAN 2024 19:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  18 JAN 2024 20:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1194,39 +1194,48 @@ Package pdftex.def Info: images/image13.png  used on input line 183.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25 <./images/image12.png (PNG copy)>]
-<images/image14.png, id=384, 1161.33875pt x 797.98125pt>
-File: images/image14.png Graphic file (type png)
-<use images/image14.png>
-Package pdftex.def Info: images/image14.png  used on input line 204.
-(pdftex.def)             Requested size: 341.43306pt x 234.5988pt.
- [26 <./images/image13.png (PNG copy)>]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
+ [26 <./images/image13.png (PNG copy)>]
+(./livreDjango.out.pyg)
+<images/image14.png, id=390, 1161.33875pt x 797.98125pt>
+File: images/image14.png Graphic file (type png)
+<use images/image14.png>
+Package pdftex.def Info: images/image14.png  used on input line 220.
+(pdftex.def)             Requested size: 341.43306pt x 234.5988pt.
+\openout4 = `livreDjango.pyg'.
 
-(./livreDjango.out.pyg) [27 <./images/image14.png (PNG copy)>]
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
+ted.
+
+ (./livreDjango.out.pyg) [27 <./images/image14.png (PNG copy)>]
 <images/image16.png, id=398, 1249.66875pt x 1017.8025pt>
 File: images/image16.png Graphic file (type png)
 <use images/image16.png>
-Package pdftex.def Info: images/image16.png  used on input line 257.
+Package pdftex.def Info: images/image16.png  used on input line 273.
 (pdftex.def)             Requested size: 341.43306pt x 278.07173pt.
 
-Overfull \hbox (62.05147pt too wide) in paragraph at lines 262--263
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Overfull \hbox (62.05147pt too wide) in paragraph at lines 278--279
 []\OT1/cmr/m/n/10 Il est pos-sible d'ap-pli-quer des filtres sur un at-tri-but 
 du se-ria-li-zer en uti-li-sant un \OT1/cmtt/m/n/10 SerializerMethodField\OT1/c
 mr/m/n/10 . 
  []
 
 
-Overfull \hbox (5.40465pt too wide) in paragraph at lines 267--268
+Overfull \hbox (5.40465pt too wide) in paragraph at lines 283--284
 []\OT1/cmr/m/it/10 Maintenant que nous avons op-ti-mis^^Se le nombre d'ap-pels 
 de notre API, voyons com-ment diff^^Serencier
  []
 
-[28 <./images/image16.png>]
+[29 <./images/image16.png>]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1234,29 +1243,32 @@ tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
  (./livreDjango.out.pyg)
-<images/image17.png, id=409, 1246.6575pt x 968.61874pt>
+<images/image17.png, id=413, 1246.6575pt x 968.61874pt>
 File: images/image17.png Graphic file (type png)
 <use images/image17.png>
-Package pdftex.def Info: images/image17.png  used on input line 311.
-(pdftex.def)             Requested size: 341.43306pt x 265.28465pt.
- [29]
-<images/image18.png, id=414, 1246.6575pt x 968.61874pt>
-File: images/image18.png Graphic file (type png)
-<use images/image18.png>
-Package pdftex.def Info: images/image18.png  used on input line 314.
+Package pdftex.def Info: images/image17.png  used on input line 327.
 (pdftex.def)             Requested size: 341.43306pt x 265.28465pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30 <./images/image17.png> <./images/image18.png>]
+ [30]
+<images/image18.png, id=418, 1246.6575pt x 968.61874pt>
+File: images/image18.png Graphic file (type png)
+<use images/image18.png>
+Package pdftex.def Info: images/image18.png  used on input line 330.
+(pdftex.def)             Requested size: 341.43306pt x 265.28465pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31 <./images/image17.png> <./images/image18.png>]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
- [31] (./livreDjango.out.pyg)
-Overfull \hbox (108.69284pt too wide) in paragraph at lines 378--379
+ [32] (./livreDjango.out.pyg)
+Overfull \hbox (108.69284pt too wide) in paragraph at lines 394--395
 []\OT1/cmr/m/n/10 D^^Sesactiver la []cat^^Segorie[], ce qui ne ren-dra plus vi-
 sible la cat^^Segorie sur l'end-poin-thttp ://127.0.0.1 :8000/api/category/. 
  []
@@ -1267,7 +1279,7 @@ runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
-(./livreDjango.out.pyg) [32]
+(./livreDjango.out.pyg) [33]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1275,22 +1287,22 @@ tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
  (./livreDjango.out.pyg)
-<images/image19.png, id=444, 1291.82625pt x 1060.96375pt>
+<images/image19.png, id=449, 1291.82625pt x 1060.96375pt>
 File: images/image19.png Graphic file (type png)
 <use images/image19.png>
-Package pdftex.def Info: images/image19.png  used on input line 447.
+Package pdftex.def Info: images/image19.png  used on input line 463.
 (pdftex.def)             Requested size: 341.43306pt x 280.40936pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33]
-<images/image20.png, id=451, 1285.80376pt x 739.76375pt>
+ [34]
+<images/image20.png, id=455, 1285.80376pt x 739.76375pt>
 File: images/image20.png Graphic file (type png)
 <use images/image20.png>
-Package pdftex.def Info: images/image20.png  used on input line 450.
+Package pdftex.def Info: images/image20.png  used on input line 466.
 (pdftex.def)             Requested size: 341.43306pt x 196.43153pt.
 
-[34 <./images/image19.png> <./images/image20.png>] [35]
+[35 <./images/image19.png> <./images/image20.png>] [36]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1312,12 +1324,12 @@ tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
  (./livreDjango.out.pyg)
-<images/image21.png, id=475, 1187.43625pt x 706.64pt>
+<images/image21.png, id=479, 1187.43625pt x 706.64pt>
 File: images/image21.png Graphic file (type png)
 <use images/image21.png>
-Package pdftex.def Info: images/image21.png  used on input line 558.
+Package pdftex.def Info: images/image21.png  used on input line 574.
 (pdftex.def)             Requested size: 341.43306pt x 203.18437pt.
- [36]
+ [37]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1325,17 +1337,18 @@ tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
  (./livreDjango.out.pyg)
-<images/image22.png, id=481, 1176.395pt x 691.58376pt>
+<images/image22.png, id=486, 1176.395pt x 691.58376pt>
 File: images/image22.png Graphic file (type png)
 <use images/image22.png>
-Package pdftex.def Info: images/image22.png  used on input line 597.
+Package pdftex.def Info: images/image22.png  used on input line 613.
 (pdftex.def)             Requested size: 341.43306pt x 200.72299pt.
 
-[37 <./images/image21.png (PNG copy)>]) [38 <./images/image22.png (PNG copy)>]
-Chapitre 4.
-(./authentification.tex [39
+[38 <./images/image21.png (PNG copy)>]) [39 <./images/image22.png (PNG copy)>]
+[40
 
 ]
+Chapitre 4.
+(./authentification.tex [41]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1364,7 +1377,7 @@ runsystem(pygmentize -l bash -f latex -P commandprefix=PYG -F tokenmerge -P str
 ipnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execute
 d.
 
- (./livreDjango.out.pyg) [40]
+ (./livreDjango.out.pyg) [42]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1379,14 +1392,14 @@ tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
 
-(./livreDjango.out.pyg) [41]
-<images/image23.png, id=518, 1032.85875pt x 751.80875pt>
+(./livreDjango.out.pyg) [43]
+<images/image23.png, id=527, 1032.85875pt x 751.80875pt>
 File: images/image23.png Graphic file (type png)
 <use images/image23.png>
 Package pdftex.def Info: images/image23.png  used on input line 282.
 (pdftex.def)             Requested size: 341.43306pt x 248.5221pt.
- [42 <./images/image23.png (PNG copy)>]
-<images/image24.png, id=528, 1183.42125pt x 727.71875pt>
+ [44 <./images/image23.png (PNG copy)>]
+<images/image24.png, id=537, 1183.42125pt x 727.71875pt>
 File: images/image24.png Graphic file (type png)
 <use images/image24.png>
 Package pdftex.def Info: images/image24.png  used on input line 294.
@@ -1396,8 +1409,8 @@ Overfull \hbox (8.53766pt too wide) in paragraph at lines 294--295
  [] 
  []
 
-[43 <./images/image24.png>]
-<images/image25.png, id=536, 1135.24126pt x 713.66624pt>
+[45 <./images/image24.png>]
+<images/image25.png, id=544, 1135.24126pt x 713.66624pt>
 File: images/image25.png Graphic file (type png)
 <use images/image25.png>
 Package pdftex.def Info: images/image25.png  used on input line 310.
@@ -1420,8 +1433,8 @@ runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
- [44 <./images/image25.png>] (./livreDjango.out.pyg)
-<images/image26.png, id=543, 1131.22626pt x 529.98pt>
+ [46 <./images/image25.png>] (./livreDjango.out.pyg)
+<images/image26.png, id=551, 1131.22626pt x 529.98pt>
 File: images/image26.png Graphic file (type png)
 <use images/image26.png>
 Package pdftex.def Info: images/image26.png  used on input line 361.
@@ -1431,7 +1444,7 @@ Overfull \hbox (8.53766pt too wide) in paragraph at lines 361--362
  [] 
  []
 
-[45 <./images/image26.png>]
+[47 <./images/image26.png>]
 Overfull \hbox (35.05489pt too wide) in paragraph at lines 388--389
 []\OT1/cmr/m/n/10 Les per-mis-sions se confi-gurent au ni-veau des views, au tr
 a-vers de l'at-tri-but de classe \OT1/cmtt/m/n/10 permission[]classes\OT1/cmr/m
@@ -1457,7 +1470,7 @@ Overfull \hbox (8.53766pt too wide) in paragraph at lines 417--418
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46]
+ [48]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
@@ -1465,21 +1478,21 @@ tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
 
-(./livreDjango.out.pyg) [47]
+(./livreDjango.out.pyg) [49]
 \openout4 = `livreDjango.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o livreDjango.out.pyg livreDjango.pyg)...execu
 ted.
 
- (./livreDjango.out.pyg) [48]) [49] [50
+ (./livreDjango.out.pyg) [50]) [51] [52
 
 ]
-(./livreDjango.toc [51])
+(./livreDjango.toc [53])
 \tf@toc=\write7
 \openout7 = `livreDjango.toc'.
 
- [52] (./livreDjango.aux)
+ [54] (./livreDjango.aux)
 Package rerunfilecheck Info: File `livreDjango.out' has not changed.
 (rerunfilecheck)             Checksum: 68284B0303F338C61ECD9A782773F62D;11020.
 runsystem(rm livreDjango.pyg)...executed.
@@ -1488,13 +1501,13 @@ runsystem(rm livreDjango.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 26569 strings out of 478268
- 498339 string characters out of 5846348
+ 26573 strings out of 478268
+ 498393 string characters out of 5846348
  818948 words of memory out of 5000000
  44009 multiletter control sequences out of 15000+600000
  482605 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,6n,104p,666b,917s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,7n,104p,666b,917s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1509,10 +1522,10 @@ al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local
 texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on livreDjango.pdf (52 pages, 2213687 bytes).
+Output written on livreDjango.pdf (54 pages, 2215706 bytes).
 PDF statistics:
- 738 PDF objects out of 1000 (max. 8388607)
- 610 compressed objects within 7 object streams
- 197 named destinations out of 1000 (max. 500000)
+ 747 PDF objects out of 1000 (max. 8388607)
+ 617 compressed objects within 7 object streams
+ 199 named destinations out of 1000 (max. 500000)
  490 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  4 JAN 2024 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  18 JAN 2024 23:50
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -968,26 +968,34 @@ File: images/image13.png Graphic file (type png)
 Package pdftex.def Info: images/image13.png  used on input line 183.
 (pdftex.def)             Requested size: 341.43306pt x 242.23006pt.
  [3 <./images/image13.png (PNG copy)>]
-<images/image14.png, id=90, 1161.33875pt x 797.98125pt>
-File: images/image14.png Graphic file (type png)
-<use images/image14.png>
-Package pdftex.def Info: images/image14.png  used on input line 204.
-(pdftex.def)             Requested size: 341.43306pt x 234.5988pt.
- [4 <./images/image14.png (PNG copy)>]
 \openout4 = `endpointsPerformants.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o endpointsPerformants.out.pyg endpointsPerfor
 mants.pyg)...executed.
 
- (./endpointsPerformants.out.pyg)
-<images/image16.png, id=100, 1249.66875pt x 1017.8025pt>
+
+(./endpointsPerformants.out.pyg)
+<images/image14.png, id=90, 1161.33875pt x 797.98125pt>
+File: images/image14.png Graphic file (type png)
+<use images/image14.png>
+Package pdftex.def Info: images/image14.png  used on input line 220.
+(pdftex.def)             Requested size: 341.43306pt x 234.5988pt.
+ [4]
+\openout4 = `endpointsPerformants.pyg'.
+
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl=False -P mathescape=True -o endpointsPerformants.out.pyg endpointsPerfor
+mants.pyg)...executed.
+
+ (./endpointsPerformants.out.pyg) [5 <./images/image14.png (PNG copy)>]
+<images/image16.png, id=105, 1249.66875pt x 1017.8025pt>
 File: images/image16.png Graphic file (type png)
 <use images/image16.png>
-Package pdftex.def Info: images/image16.png  used on input line 257.
+Package pdftex.def Info: images/image16.png  used on input line 273.
 (pdftex.def)             Requested size: 341.43306pt x 278.07173pt.
- [5]
-Overfull \hbox (62.05145pt too wide) in paragraph at lines 262--263
+
+Overfull \hbox (62.05145pt too wide) in paragraph at lines 278--279
 []\OT1/cmr/m/n/10 Il est pos-sible d'ap-pli-quer des filtres sur un at-tri-but 
 du se-ria-li-zer en uti-li-sant un \OT1/cmtt/m/n/10 SerializerMethodField\OT1/c
 mr/m/n/10 . 
@@ -1004,13 +1012,13 @@ mants.pyg)...executed.
 <images/image17.png, id=117, 1246.6575pt x 968.61874pt>
 File: images/image17.png Graphic file (type png)
 <use images/image17.png>
-Package pdftex.def Info: images/image17.png  used on input line 311.
+Package pdftex.def Info: images/image17.png  used on input line 327.
 (pdftex.def)             Requested size: 341.43306pt x 265.28465pt.
  [7]
 <images/image18.png, id=123, 1246.6575pt x 968.61874pt>
 File: images/image18.png Graphic file (type png)
 <use images/image18.png>
-Package pdftex.def Info: images/image18.png  used on input line 314.
+Package pdftex.def Info: images/image18.png  used on input line 330.
 (pdftex.def)             Requested size: 341.43306pt x 265.28465pt.
  [8 <./images/image17.png> <./images/image18.png>]
 \openout4 = `endpointsPerformants.pyg'.
@@ -1020,7 +1028,7 @@ tripnl=False -P mathescape=True -o endpointsPerformants.out.pyg endpointsPerfor
 mants.pyg)...executed.
 
  [9] (./endpointsPerformants.out.pyg)
-Overfull \hbox (108.69283pt too wide) in paragraph at lines 378--379
+Overfull \hbox (108.69283pt too wide) in paragraph at lines 394--395
 []\OT1/cmr/m/n/10 D^^Sesactiver la []cat^^Segorie[], ce qui ne ren-dra plus vi-
 sible la cat^^Segorie sur l'end-poin-thttp ://127.0.0.1 :8000/api/category/. 
  []
@@ -1042,13 +1050,13 @@ mants.pyg)...executed.
 <images/image19.png, id=152, 1291.82625pt x 1060.96375pt>
 File: images/image19.png Graphic file (type png)
 <use images/image19.png>
-Package pdftex.def Info: images/image19.png  used on input line 447.
+Package pdftex.def Info: images/image19.png  used on input line 463.
 (pdftex.def)             Requested size: 341.43306pt x 280.40936pt.
  [11]
 <images/image20.png, id=159, 1285.80376pt x 739.76375pt>
 File: images/image20.png Graphic file (type png)
 <use images/image20.png>
-Package pdftex.def Info: images/image20.png  used on input line 450.
+Package pdftex.def Info: images/image20.png  used on input line 466.
 (pdftex.def)             Requested size: 341.43306pt x 196.43153pt.
 
 [12 <./images/image19.png> <./images/image20.png>] [13]
@@ -1078,7 +1086,7 @@ mants.pyg)...executed.
 <images/image21.png, id=184, 1187.43625pt x 706.64pt>
 File: images/image21.png Graphic file (type png)
 <use images/image21.png>
-Package pdftex.def Info: images/image21.png  used on input line 558.
+Package pdftex.def Info: images/image21.png  used on input line 574.
 (pdftex.def)             Requested size: 341.43306pt x 203.18437pt.
  [14]
 \openout4 = `endpointsPerformants.pyg'.
@@ -1091,7 +1099,7 @@ mants.pyg)...executed.
 <images/image22.png, id=190, 1176.395pt x 691.58376pt>
 File: images/image22.png Graphic file (type png)
 <use images/image22.png>
-Package pdftex.def Info: images/image22.png  used on input line 597.
+Package pdftex.def Info: images/image22.png  used on input line 613.
 (pdftex.def)             Requested size: 341.43306pt x 200.72299pt.
  [15 <./images/image21.png (PNG copy)>] [16 <./images/image22.png (PNG copy)>]
 (./endpointsPerformants.aux)
@@ -1103,8 +1111,8 @@ runsystem(rm endpointsPerformants.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 26192 strings out of 478268
- 492783 string characters out of 5846348
+ 26194 strings out of 478268
+ 492841 string characters out of 5846348
  814455 words of memory out of 5000000
  43839 multiletter control sequences out of 15000+600000
  480872 words of font info for 77 fonts, out of 8000000 for 9000
@@ -1123,7 +1131,7 @@ l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
 texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on endpointsPerformants.pdf (16 pages, 1008789 bytes).
+Output written on endpointsPerformants.pdf (16 pages, 1011151 bytes).
 PDF statistics:
  278 PDF objects out of 1000 (max. 8388607)
  217 compressed objects within 3 object streams

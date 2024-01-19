@@ -25,23 +25,23 @@
 \contentsline {subsection}{\numberline {3.1.3}Ajoutez de la pagination}{26}{subsection.3.1.3}%
 \contentsline {section}{\numberline {3.2}Différenciez les informations de liste et de détail}{29}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Retournez plus d’informations dans le détail}{29}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Améliorez le rendu du détail d’un endpoint}{29}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Ajoutez de l’interaction avec les actions}{31}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Ne soyez pas trop actif !}{31}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Soyez actif quand même !}{32}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Validez les données}{35}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Ne permettez pas la création de tout et n’importe quoi}{35}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Validez les données d’un champ}{35}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Mettez en place une validation multiple}{37}{subsection.3.4.3}%
-\contentsline {chapter}{\numberline {4}Sécurisez votre API avec l’authentification}{39}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Ajoutez l’authentification des utilisateurs}{39}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Découvrez JSON Web Token}{39}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Installez et configurez djangorestframework-simple-jwt}{40}{subsection.4.1.2}%
-\contentsline {subsubsection}{En résumé}{42}{section*.28}%
-\contentsline {section}{\numberline {4.2}Donnez des accès avec les tokens}{42}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Découvrez le fonctionnement de l’échange de tokens}{42}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Obtenez des tokens}{43}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Rafraîchissez des tokens}{45}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Restreignez l'accès à certains endpoints}{46}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Limitez l’accès aux utilisateurs authentifiés}{46}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Créez des permissions plus fines}{47}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {3.2.2}Améliorez le rendu du détail d’un endpoint}{30}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Ajoutez de l’interaction avec les actions}{32}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Ne soyez pas trop actif !}{32}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Soyez actif quand même !}{33}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Validez les données}{36}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Ne permettez pas la création de tout et n’importe quoi}{36}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Validez les données d’un champ}{36}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Mettez en place une validation multiple}{38}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}Sécurisez votre API avec l’authentification}{41}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Ajoutez l’authentification des utilisateurs}{41}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Découvrez JSON Web Token}{41}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Installez et configurez djangorestframework-simple-jwt}{42}{subsection.4.1.2}%
+\contentsline {subsubsection}{En résumé}{44}{section*.28}%
+\contentsline {section}{\numberline {4.2}Donnez des accès avec les tokens}{44}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Découvrez le fonctionnement de l’échange de tokens}{44}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Obtenez des tokens}{45}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Rafraîchissez des tokens}{47}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Restreignez l'accès à certains endpoints}{48}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Limitez l’accès aux utilisateurs authentifiés}{48}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Créez des permissions plus fines}{49}{subsection.4.3.2}%
