@@ -1,0 +1,496 @@
+{
+    "object": "container", 
+    "slug": "creez-une-api-rest-avec-symfony-3", 
+    "title": "Créez une API REST avec Symfony 3", 
+    "introduction": "introduction.md", 
+    "conclusion": "conclusion.md", 
+    "children": [
+        {
+            "object": "container", 
+            "slug": "un-tour-dhorizon-des-concepts-rest", 
+            "title": "Un tour d'horizon des concepts REST", 
+            "introduction": "un-tour-dhorizon-des-concepts-rest/introduction.md", 
+            "conclusion": "un-tour-dhorizon-des-concepts-rest/conclusion.md", 
+            "children": [
+                {
+                    "object": "extract", 
+                    "slug": "rest-en-quelques-mots", 
+                    "title": "REST en quelques mots", 
+                    "text": "un-tour-dhorizon-des-concepts-rest/rest-en-quelques-mots.md"
+                }, 
+                {
+                    "object": "extract", 
+                    "slug": "pourquoi-utiliser-rest", 
+                    "title": "Pourquoi utiliser REST", 
+                    "text": "un-tour-dhorizon-des-concepts-rest/pourquoi-utiliser-rest.md"
+                }
+            ]
+        }, 
+        {
+            "object": "container", 
+            "slug": "developpement-de-lapi-rest", 
+            "title": "Développement de l'API REST", 
+            "introduction": "developpement-de-lapi-rest/introduction.md", 
+            "conclusion": "developpement-de-lapi-rest/conclusion.md", 
+            "children": [
+                {
+                    "object": "container", 
+                    "slug": "notre-environnement-de-developpement", 
+                    "title": "Notre environnement de développement", 
+                    "introduction": "developpement-de-lapi-rest/notre-environnement-de-developpement/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/notre-environnement-de-developpement/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "environnement-technique", 
+                            "title": "Environnement technique ", 
+                            "text": "developpement-de-lapi-rest/notre-environnement-de-developpement/environnement-technique.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "creation-dun-projet-symfony", 
+                            "title": "Création d'un projet Symfony", 
+                            "text": "developpement-de-lapi-rest/notre-environnement-de-developpement/creation-dun-projet-symfony.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "premieres-interactions-avec-les-ressources-1", 
+                    "title": "Premières interactions avec les ressources", 
+                    "introduction": "developpement-de-lapi-rest/premieres-interactions-avec-les-ressources-1/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/premieres-interactions-avec-les-ressources-1/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "lire-une-collection", 
+                            "title": "Lire une collection", 
+                            "text": "developpement-de-lapi-rest/premieres-interactions-avec-les-ressources-1/lire-une-collection.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "lire-une-ressource", 
+                            "title": "Lire une ressource", 
+                            "text": "developpement-de-lapi-rest/premieres-interactions-avec-les-ressources-1/lire-une-ressource.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "les-codes-de-statut-status-code-pour-des-messages-plus-expressifs", 
+                            "title": "Les codes de statut (status code) pour des messages plus expressifs", 
+                            "text": "developpement-de-lapi-rest/premieres-interactions-avec-les-ressources-1/les-codes-de-statut-status-code-pour-des-messages-plus-expressifs.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "fosrestbundle-et-symfony-a-la-rescousse", 
+                    "title": "FOSRestBundle et Symfony à la rescousse", 
+                    "introduction": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "installation-de-fosrestbundle", 
+                            "title": "Installation de FOSRestBundle", 
+                            "text": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/installation-de-fosrestbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "routage-avec-fosrestbundle", 
+                            "title": "Routage avec FOSRestBundle", 
+                            "text": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/routage-avec-fosrestbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "quid-de-lattribut-format-1", 
+                            "title": "Quid de l'attribut _format ?", 
+                            "text": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/quid-de-lattribut-format-1.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "gestion-des-reponses-avec-fosrestbundle", 
+                            "title": "Gestion des réponses avec FOSRestBundle", 
+                            "text": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/gestion-des-reponses-avec-fosrestbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "pratiquons-avec-notre-code", 
+                            "title": "Pratiquons avec notre code", 
+                            "text": "developpement-de-lapi-rest/fosrestbundle-et-symfony-a-la-rescousse/pratiquons-avec-notre-code.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "creer-et-supprimer-des-ressources", 
+                    "title": "Créer et supprimer des ressources", 
+                    "introduction": "developpement-de-lapi-rest/creer-et-supprimer-des-ressources/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/creer-et-supprimer-des-ressources/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "creation-dune-ressource", 
+                            "title": "Création d'une ressource", 
+                            "text": "developpement-de-lapi-rest/creer-et-supprimer-des-ressources/creation-dune-ressource.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "suppression-dune-ressource", 
+                            "title": "Suppression d'une ressource", 
+                            "text": "developpement-de-lapi-rest/creer-et-supprimer-des-ressources/suppression-dune-ressource.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "mettre-a-jour-des-ressources", 
+                    "title": "Mettre à jour des ressources", 
+                    "introduction": "developpement-de-lapi-rest/mettre-a-jour-des-ressources/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/mettre-a-jour-des-ressources/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "mise-a-jour-complete-dune-ressource", 
+                            "title": "Mise à jour complète d'une ressource", 
+                            "text": "developpement-de-lapi-rest/mettre-a-jour-des-ressources/mise-a-jour-complete-dune-ressource.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "mise-a-jour-partielle-dune-ressource", 
+                            "title": "Mise à jour partielle d'une ressource", 
+                            "text": "developpement-de-lapi-rest/mettre-a-jour-des-ressources/mise-a-jour-partielle-dune-ressource.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "notre-application-vu-selon-le-modele-de-richardson", 
+                            "title": "Notre application vu selon le modèle de Richardson", 
+                            "text": "developpement-de-lapi-rest/mettre-a-jour-des-ressources/notre-application-vu-selon-le-modele-de-richardson.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "relations-entre-ressources", 
+                    "title": "Relations entre ressources", 
+                    "introduction": "developpement-de-lapi-rest/relations-entre-ressources/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/relations-entre-ressources/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "hierarchie-entre-ressources-la-notion-de-sous-ressources", 
+                            "title": "Hiérarchie entre ressources : la notion de sous-ressources", 
+                            "text": "developpement-de-lapi-rest/relations-entre-ressources/hierarchie-entre-ressources-la-notion-de-sous-ressources.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "les-groupes-avec-le-serialiseur-de-symfony", 
+                            "title": "Les groupes avec le sérialiseur de Symfony", 
+                            "text": "developpement-de-lapi-rest/relations-entre-ressources/les-groupes-avec-le-serialiseur-de-symfony.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "mise-a-jour-de-la-suppression-dune-ressource", 
+                            "title": "Mise à jour de la suppression d'une ressource", 
+                            "text": "developpement-de-lapi-rest/relations-entre-ressources/mise-a-jour-de-la-suppression-dune-ressource.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs", 
+                    "title": "TP :  Le clou du spectacle - Proposer des suggestions aux utilisateurs", 
+                    "introduction": "developpement-de-lapi-rest/tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "enonce", 
+                            "title": "Énoncé", 
+                            "text": "developpement-de-lapi-rest/tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs/enonce.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "details-de-limplementation", 
+                            "title": "Détails de l'implémentation", 
+                            "text": "developpement-de-lapi-rest/tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs/details-de-limplementation.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "travail-preparatoire", 
+                            "title": "Travail préparatoire", 
+                            "text": "developpement-de-lapi-rest/tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs/travail-preparatoire.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "proposer-des-suggestions-aux-utilisateurs", 
+                            "title": "Proposer des suggestions aux utilisateurs", 
+                            "text": "developpement-de-lapi-rest/tp-le-clos-du-spectacle-proposer-des-suggestions-aux-utilisateurs/proposer-des-suggestions-aux-utilisateurs.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "rest-a-son-paroxysme", 
+                    "title": "REST à son paroxysme", 
+                    "introduction": "developpement-de-lapi-rest/rest-a-son-paroxysme/introduction.md", 
+                    "conclusion": "developpement-de-lapi-rest/rest-a-son-paroxysme/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "supporter-plusieurs-formats-de-requetes-et-de-reponses", 
+                            "title": "Supporter plusieurs formats de requêtes et de réponses", 
+                            "text": "developpement-de-lapi-rest/rest-a-son-paroxysme/supporter-plusieurs-formats-de-requetes-et-de-reponses.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "lhypermedia", 
+                            "title": "L'Hypermédia", 
+                            "text": "developpement-de-lapi-rest/rest-a-son-paroxysme/lhypermedia.md"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "object": "container", 
+            "slug": "amelioration-de-lapi-rest", 
+            "title": "Amélioration de l'API REST", 
+            "introduction": "amelioration-de-lapi-rest/introduction.md", 
+            "conclusion": "amelioration-de-lapi-rest/conclusion.md", 
+            "children": [
+                {
+                    "object": "container", 
+                    "slug": "securisation-de-lapi-1-2", 
+                    "title": "Sécurisation de l'API 1/2", 
+                    "introduction": "amelioration-de-lapi-rest/securisation-de-lapi-1-2/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/securisation-de-lapi-1-2/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "connexion-et-deconnexion-avec-une-api", 
+                            "title": "Connexion et déconnexion avec une API", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-1-2/connexion-et-deconnexion-avec-une-api.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "login-et-mot-de-passe-pour-les-utilisateurs", 
+                            "title": "Login et mot de passe pour les utilisateurs", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-1-2/login-et-mot-de-passe-pour-les-utilisateurs.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "creation-dun-token", 
+                            "title": "Création d'un token", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-1-2/creation-dun-token.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "securisation-de-lapi-2-2", 
+                    "title": "Sécurisation de l'API 2/2", 
+                    "introduction": "amelioration-de-lapi-rest/securisation-de-lapi-2-2/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/securisation-de-lapi-2-2/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "exploitons-le-token-grace-a-symfony", 
+                            "title": "Exploitons le token grâce à Symfony", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-2-2/exploitons-le-token-grace-a-symfony.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "gestion-des-erreurs-avec-fosrestbundle", 
+                            "title": "Gestion des erreurs avec FOSRestBundle", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-2-2/gestion-des-erreurs-avec-fosrestbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "401-ou-403-quand-faut-il-utiliser-ces-codes-de-statut-1", 
+                            "title": "401 ou 403, quand faut-il utiliser ces codes de statut ?", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-2-2/401-ou-403-quand-faut-il-utiliser-ces-codes-de-statut-1.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "suppression-dun-token-ou-la-deconnexion", 
+                            "title": "Suppression d'un token ou la déconnexion", 
+                            "text": "amelioration-de-lapi-rest/securisation-de-lapi-2-2/suppression-dun-token-ou-la-deconnexion.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "creer-une-ressource-avec-des-relations", 
+                    "title": "Créer une ressource avec des relations", 
+                    "introduction": "amelioration-de-lapi-rest/creer-une-ressource-avec-des-relations/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/creer-une-ressource-avec-des-relations/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "rappel-de-lexistant", 
+                            "title": "Rappel de l'existant", 
+                            "text": "amelioration-de-lapi-rest/creer-une-ressource-avec-des-relations/rappel-de-lexistant.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "creation-dun-lieu-avec-des-tarifs", 
+                            "title": "Création d'un lieu avec des tarifs", 
+                            "text": "amelioration-de-lapi-rest/creer-une-ressource-avec-des-relations/creation-dun-lieu-avec-des-tarifs.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "bonus-une-validation-plus-stricte", 
+                            "title": "Bonus : Une validation plus stricte", 
+                            "text": "amelioration-de-lapi-rest/creer-une-ressource-avec-des-relations/bonus-une-validation-plus-stricte.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "quand-utiliser-les-query-string", 
+                    "title": "Quand utiliser les query strings ?", 
+                    "introduction": "amelioration-de-lapi-rest/quand-utiliser-les-query-string/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/quand-utiliser-les-query-string/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "pourquoi-utiliser-les-query-strings", 
+                            "title": "Pourquoi utiliser les query strings ?", 
+                            "text": "amelioration-de-lapi-rest/quand-utiliser-les-query-string/pourquoi-utiliser-les-query-strings.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "gestion-des-query-strings-avec-fosrestbundle", 
+                            "title": "Gestion des query strings avec FOSRestBundle", 
+                            "text": "amelioration-de-lapi-rest/quand-utiliser-les-query-string/gestion-des-query-strings-avec-fosrestbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "paginer-et-trier-les-reponses", 
+                            "title": "Paginer et Trier les réponses", 
+                            "text": "amelioration-de-lapi-rest/quand-utiliser-les-query-string/paginer-et-trier-les-reponses.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "jmsserializer-une-alternative-au-serialiseur-natif-de-symfony", 
+                    "title": "JMSSerializer : Une alternative au sérialiseur natif de Symfony", 
+                    "introduction": "amelioration-de-lapi-rest/jmsserializer-une-alternative-au-serialiseur-natif-de-symfony/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/jmsserializer-une-alternative-au-serialiseur-natif-de-symfony/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "pourquoi-utiliser-jmsserializerbundle", 
+                            "title": "Pourquoi utiliser JMSSerializerBundle ?", 
+                            "text": "amelioration-de-lapi-rest/jmsserializer-une-alternative-au-serialiseur-natif-de-symfony/pourquoi-utiliser-jmsserializerbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "installation-et-configuration-de-jmsserializerbundle", 
+                            "title": "Installation et configuration de JMSSerializerBundle", 
+                            "text": "amelioration-de-lapi-rest/jmsserializer-une-alternative-au-serialiseur-natif-de-symfony/installation-et-configuration-de-jmsserializerbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "impact-sur-lexistant", 
+                            "title": "Impact sur l'existant", 
+                            "text": "amelioration-de-lapi-rest/jmsserializer-une-alternative-au-serialiseur-natif-de-symfony/impact-sur-lexistant.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "la-documentation-avec-openapi-swagger-restful-api", 
+                    "title": "La documentation avec OpenAPI (Swagger RESTFul API)", 
+                    "introduction": "amelioration-de-lapi-rest/la-documentation-avec-openapi-swagger-restful-api/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/la-documentation-avec-openapi-swagger-restful-api/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "quest-ce-que-openapi", 
+                            "title": "Qu'est-ce que OpenAPI ?", 
+                            "text": "amelioration-de-lapi-rest/la-documentation-avec-openapi-swagger-restful-api/quest-ce-que-openapi.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "redaction-de-la-documentation", 
+                            "title": "Rédaction de la documentation", 
+                            "text": "amelioration-de-lapi-rest/la-documentation-avec-openapi-swagger-restful-api/redaction-de-la-documentation.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "installer-et-utiliser-swagger-ui", 
+                            "title": "Installer et utiliser Swagger UI", 
+                            "text": "amelioration-de-lapi-rest/la-documentation-avec-openapi-swagger-restful-api/installer-et-utiliser-swagger-ui.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "automatiser-la-documentation-avec-nelmioapidocbundle", 
+                    "title": "Automatiser la documentation avec NelmioApiDocBundle", 
+                    "introduction": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "installation-de-nelmioapidocbundle", 
+                            "title": "Installation de NelmioApiDocBundle", 
+                            "text": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/installation-de-nelmioapidocbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "lannotation-apidoc", 
+                            "title": "L'annotation ApiDoc", 
+                            "text": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/lannotation-apidoc.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "etendre-nelmioapidocbundle", 
+                            "title": "Étendre NelmioApiDocBundle", 
+                            "text": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/etendre-nelmioapidocbundle.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "le-bac-a-sable", 
+                            "title": "Le bac à sable", 
+                            "text": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/le-bac-a-sable.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "generer-une-documentation-compatible-openapi", 
+                            "title": "Générer une documentation compatible OpenAPI", 
+                            "text": "amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/generer-une-documentation-compatible-openapi.md"
+                        }
+                    ]
+                }, 
+                {
+                    "object": "container", 
+                    "slug": "faq", 
+                    "title": "FAQ", 
+                    "introduction": "amelioration-de-lapi-rest/faq/introduction.md", 
+                    "conclusion": "amelioration-de-lapi-rest/faq/conclusion.md", 
+                    "children": [
+                        {
+                            "object": "extract", 
+                            "slug": "comment-generer-des-pages-html-depuis-lapplication-symfony-3", 
+                            "title": "Comment générer des pages HTML depuis l'application Symfony 3 ?", 
+                            "text": "amelioration-de-lapi-rest/faq/comment-generer-des-pages-html-depuis-lapplication-symfony-3.md"
+                        }, 
+                        {
+                            "object": "extract", 
+                            "slug": "comment-autoriser-lacces-a-certaines-urls-avec-notre-systeme-de-securite", 
+                            "title": "Comment autoriser l'accès à certaines urls avec notre système de sécurité ?", 
+                            "text": "amelioration-de-lapi-rest/faq/comment-autoriser-lacces-a-certaines-urls-avec-notre-systeme-de-securite.md"
+                        }
+                    ]
+                }
+            ]
+        }
+    ], 
+    "version": 2, 
+    "description": "Tout au long de ce cours, nous allons apprendre à mettre en œuvre les principes de REST pour concevoir et  développer une API web avec Symfony 3.", 
+    "type": "TUTORIAL", 
+    "licence": "Tous droits réservés"
+}

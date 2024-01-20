@@ -1,0 +1,1 @@
+Un client utilisant notre API est maintenant en mesure de créer des tokens d'authentification. Nous allons donc rajouter un système de sécurité afin d'imposer l'utilisation de ce token pour accéder à notre API REST. Au lieu d'envoyer le login et le mot de passe dans chaque requête, nous utiliserons le token associé au client.

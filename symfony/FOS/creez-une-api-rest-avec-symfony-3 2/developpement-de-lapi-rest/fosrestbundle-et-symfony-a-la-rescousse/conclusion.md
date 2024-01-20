@@ -1,0 +1,3 @@
+*FOSRestBundle* est l'un des bundles les plus connus pour faire une API REST avec Symfony. Bien qu'ayant abordé pas mal de points dans cette partie du cours, il reste encore beaucoup de fonctionnalités à découvrir et durant ce cours une bonne partie sera présentée. Mais la référence reste la [documentation officielle](http://symfony.com/doc/current/bundles/FOSRestBundle/index.html) qui vous sera d'une grande aide dans vos futurs développements.
+
+Pour le reste du cours, nous utiliserons ce bundle pour faciliter le travail et ne pas réinventer la roue. Le routage et la gestion des réponses seront calqués sur les cas que nous venons de voir.
