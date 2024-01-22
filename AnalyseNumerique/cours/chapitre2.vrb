@@ -1,0 +1,19 @@
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+
+#========= Programme principal ============
+fen1 = Tk()
+fen1.title("Problème de tir")
+can1 =Canvas(fen1, bg='dark grey',height=H,width=W)
+can1.pack()
+balle = can1.create_oval(x0,y0,x0+30,y0+30,width=2,fill='red')
+Euler()
+fen1.mainloop()
+\end{minted}

@@ -1,0 +1,2 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{L’équation de la chaleur en dimension 1}{43}{0}{1}

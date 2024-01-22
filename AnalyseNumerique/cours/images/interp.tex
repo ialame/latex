@@ -1,0 +1,93 @@
+%% Created by Maple V Release 5 (IBM INTEL NT)
+%% Source Worksheet: Untitled (1)
+%% Generated: Mon Feb 10 02:39:32 2014
+\documentclass{article}
+\usepackage{maple2e}
+\DefineParaStyle{Maple Output}
+\DefineParaStyle{Maple Plot}
+\DefineParaStyle{Warning}
+\DefineCharStyle{2D Math}
+\DefineCharStyle{2D Output}
+\begin{document}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{interpolation:=proc(f,a,b,n)
+h:=evalf((b-a)/(n-1));
+X:=[seq(a+i*h,i=0..n-1)];
+Y:=map(f,X);
+P:=plot(interp(X,Y,x),x=a..b,color=black);
+Points:=plot(zip((x,y)->[x,y],X,Y),style=point,symbol=circle,color=gre
+en);
+plots[display](P,Points,plot(f,a..b,thickness=2));
+end;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, `h` is implicitly declared local
+\end{maplettyout}
+
+\begin{maplettyout}
+Warning, `X` is implicitly declared local
+\end{maplettyout}
+
+\begin{maplettyout}
+Warning, `Y` is implicitly declared local
+\end{maplettyout}
+
+\begin{maplettyout}
+Warning, `P` is implicitly declared local
+\end{maplettyout}
+
+\begin{maplettyout}
+Warning, `Points` is implicitly declared local
+\end{maplettyout}
+
+\begin{maplettyout}
+Warning, `i` in call to `seq` is not local
+\end{maplettyout}
+
+\begin{maplelatex}
+\begin{eqnarray*}
+\lefteqn{\mathit{interpolation} := \textbf{proc} (f, \,a, \,b, \,
+n)} \\
+ & & \textbf{local} \,h, \,X, \,Y, \,P, \,\mathit{Points}; \\
+ & & \mapleIndent{1} h := \mathrm{evalf}((b - a)/(n - 1))\,; \\
+ & & \mapleIndent{1} X := [\mathrm{seq}(a + i \times h, \,i=0 .. 
+n - 1)]\,; \\
+ & & \mapleIndent{1} Y := \mathrm{map}(f, \,X)\,; \\
+ & & \mapleIndent{1} P := \mathrm{plot}(\mathrm{interp}(X, \,Y, 
+\,x), \,x=a .. b, \,\mathit{color}=\mathit{black})\,; \\
+ & & \mapleIndent{1} \mathit{Points} :=  \\
+ & & \mapleIndent{2} \mathrm{plot}(\mathrm{zip}((x, \,y)
+\rightarrow [x, \,y], \,X, \,Y), \,\mathit{style}=\mathit{point}
+, \,\mathit{symbol}=\mathit{circle}, \,\mathit{color}=\mathit{
+green}); \\
+ & & \mapleIndent{1} {\mathit{plots}_{\mathit{display}}}(P, \,
+\mathit{Points}, \,\mathrm{plot}(f, \,a .. b, \,\mathit{thickness
+}=2)) \\
+ & & \textbf{end} 
+\end{eqnarray*}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{interpolation(sin,-2*Pi,2*Pi,6);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{center}
+\mapleplot{interp01.eps}
+\end{center}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\end{mapleinput}
+
+\end{maplegroup}
+\end{document}
+%% End of Maple V Output

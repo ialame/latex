@@ -1,0 +1,24 @@
+
+\begin{minted}[
+%frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+%bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+def GradientConjugue(A,b,x0,N):
+    x=x0.copy()
+    r=b-A@x
+    p=r.copy()
+    for k in range(N):
+        alpha=(r@r)/(A@r@r)
+        x+=alpha*p
+        r1=r.copy()
+        r+=-alpha*A@p
+        beta = (r@r)/(r1@r1)
+        p=r+beta*p
+
+    return x
+
+\end{minted}
