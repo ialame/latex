@@ -1,0 +1,1 @@
+Nous disposons maintenant d'un système fonctionnel pour générer des tokens pour les utilisateurs. Ces tokens nous permettrons par la suite de vérifier l'identité des clients de l'API afin de la sécuriser.

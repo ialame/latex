@@ -1,0 +1,2 @@
+Maintenant que nous avons un environnement de développement fonctionnel, nous allons mettre en place toutes les briques nécessaires pour avoir une API REST complète. Les choses sérieuses peuvent maintenant commencer.
+L'outil [Postman](https://www.getpostman.com/) sera utilisé pour effectuer tous les tests de notre API. Il est donc grandement recommandé de l'installer avant de continuer.

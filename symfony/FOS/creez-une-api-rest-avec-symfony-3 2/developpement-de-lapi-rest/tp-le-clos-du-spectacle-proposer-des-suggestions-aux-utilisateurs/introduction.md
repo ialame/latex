@@ -1,0 +1,1 @@
+Nous allons dans cette partie finaliser notre API en rajoutant un système de suggestion pour les utilisateurs. Tous les concepts de base du style d'architecture qu'est REST ont déjà été abordés. L'objectif est donc de mettre en pratique les connaissances acquises.

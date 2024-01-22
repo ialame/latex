@@ -1,0 +1,2 @@
+Le support de plusieurs formats de requêtes et de réponses se fait en utilisant la négociation de contenu. 
+Les entêtes mis en œuvre pour atteindre un tel comportement sont `Accept` et `Content-Type`. *FOSRestBundle* exploite ensuite les capacités de notre sérialiseur afin de produire des réponses pour différents formats en se basant sur les mêmes données.

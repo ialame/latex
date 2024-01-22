@@ -1,0 +1,1 @@
+Notre API ne permet pour l'instant que la lecture de données. Une API en lecture seule étant loin d'être courante (ni amusante à développer), nous allons voir comment créer et supprimer une ressource en suivant les principes REST.
