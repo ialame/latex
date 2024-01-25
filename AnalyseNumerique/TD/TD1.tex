@@ -1,0 +1,295 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+
+\title{TD 1 Analyse numérique (B1-TP1)}
+\author{Ibrahim ALAME}
+\date{25/01/2024}
+\begin{document}
+\maketitle
+\section{}
+{\bf Interpolation: } On veut calculer, par trois méthodes distinctes, le polynôme d'interpolation de de la fonction $f(x) = \sin(x)$ en les $3$ points $x_i =i\frac{\pi}{2}$ pour $i = 0, 1 , 2$. On cherche donc $p(x)\in\mathbb{R}[x]$ tel que $p(x_i) = \sin(x_i )$ pour $i = 0, 1 , 2$. Utiliser pour cela les trois méthodes suivantes:
+\begin{enumerate}
+\item Méthode directe: Poser $P(x)=ax^2+bx+c$ puis résoudre le système linéaire $p(x_i) = \sin(x_i )$ pour $i = 0, 1 , 2$.
+\item Méthode de Lagrange: Appliquer $P(x)=\sum_{i=0}^2\sin(x_i)L_i(x)$ après avoir calculer les polynôme $L_i(x)$ pour $i = 0, 1 , 2$.
+\item Méthode de Newton: Appliquer $P(x)=\sum_{i=0}^2\Delta_i\Pi_{k=0}^{i-1}(x-x_k)$ après avoir calculer les différences divisées $\Delta_i$ pour $i = 0, 1 , 2$.
+\end{enumerate}
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (6.5,0); 
+\draw  [very thin, gray] [->] (0,-1.2) -- (0,1.2);
+\draw  [dashed] (1.57,0) -- (1.57,1)--(0,1);
+\path[fill=black] (0,0) circle (1.2mm) [fill=gray];
+\path[fill=black]  (1.57,1) circle (1.2mm) [fill=gray];
+\path[fill=black]  (3.142,0) circle (1.2mm) [fill=gray];
+\draw [domain=0:3.5][line width=1] plot(\x,{-.4052*\x*(\x-3.142)});
+\draw [domain=0:6] plot(\x,{sin(57.29*\x)});
+\end{tikzpicture} 
+
+\end{center}
+Maintenant on veut calculer le polynôme d'interpolation en ajoutant le nouveau point d'interpolation $x_3=\frac{3\pi}2$. Appliquer les trois méthodes précédentes et conclure.
+
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (6.5,0); 
+\draw  [very thin, gray] [->] (0,-1.2) -- (0,1.2);
+\draw  [dashed] (1.57,0) -- (1.57,1)--(0,1);
+\draw  [dashed] (4.71,0) -- (4.71,-1)--(0,-1);
+\path[fill=black] (0,0) circle (1.2mm) [fill=gray];
+\path[fill=black]  (1.57,1) circle (1.2mm) [fill=gray];
+\path[fill=black]  (3.142,0) circle (1.2mm) [fill=gray];
+\path[fill=black]  (4.713,-1) circle (1.2mm) [fill=gray];
+
+\draw [domain=0:5][line width=1] plot(\x,{.8598e-1*\x*\x*\x-.8104*\x*\x+1.697*\x});
+\draw [domain=0:6] plot(\x,{sin(57.29*\x)});
+\end{tikzpicture} 
+
+\end{center}
+
+\section{} {\bf Convergence de l'interpolation de Lagrange : } Soit $L_n$ le polynôme d'interpolation de Lagrange de la fonction définie par :
+\[f(x) = \frac 1{x-\alpha},\qquad -1\leq x \leq 1 \]
+aux $n + 1$ points distincts $x_0, ..., x_n$ de l'intervalle $[-1,1]$.
+\begin{enumerate}
+\item Calculer les dérivées successives de la fonction $f$.
+\item  Montrer que si $\alpha > 3$, et si les $n + 1$ points $x_0, ..., x_n$ sont équidistants, nous avons alors
+\[\lim_{n\to \infty}\|f-L_n\|_{\infty}=0\]
+\item Écrire l'approximation spline linéaire, $f_n$ de $f$.
+\item  Montrer que si $\alpha \notin [-1,1]$, nous avons
+\[\|f-f_n\|_{ \infty}\leq \frac c{n^2}\]
+et donc que $f_n$ converge uniformément vers $f$ lorsque $n$ tend vers l'infini.
+\end{enumerate}
+
+\section{} {\bf Moindre carrés discrets : }
+Nous recherchons le polynôme $P$ de degré 2 qui approche le mieux le nuage de points $(x_i, y_i)_{1\leq i\leq 6}$  suivant :
+\[(-2,5),\quad(-1,1),\quad (0, -3),\quad (1, -3),\quad (2, -2),\quad (3, 1)\]
+
+\begin{enumerate}
+\item  Tracer le nuage de points.
+\item On pose $P(x)=ax^2+bx+c$. les inconnues $a$ , $b$ et $c$ sont solution du système:
+
+\[\left(\begin{array}{ccc}
+1 & \overline{x} & \overline{x^2}\\
+\overline{x} & \overline{x^2} & \overline{x^3} \\
+ \overline{x^2} & \overline{x^3} & \overline{x^4} 
+\end{array}\right) \left(\begin{array}{c}
+c \\
+b \\
+a 
+\end{array}
+\right) =\left(\begin{array}{c}
+\overline{y} \\
+\overline{x y} \\
+\overline{x^2 y} 
+\end{array}
+\right) 
+\]
+
+\item  Résoudre le système et tracer la solution du problème.
+\end{enumerate}
+
+\section{} {\bf Intégration numérique : }
+  On considère l'intégrale
+\[ I = \int_1^2\frac 1x {\mbox d}x \]
+\begin{enumerate}
+\item  Calculer la valeur exacte de $I$.
+\item  Évaluer numériquement cette intégrale par la méthode des trapèzes avec n = 3 sous-intervalles.
+\item  Pourquoi la valeur numérique obtenue à la question précédente est-elle supérieure à $\ln(2)$? Est-ce vrai quelque soit $n$ ? Justifier la réponse. (On pourra s'aider par un dessin.)
+\item  Quel nombre de sous-intervalles n faut-il choisir pour avoir une erreur inférieure à $10^{-4}$? On rappelle que l'erreur de quadrature associée s'écrit, si $f\in C^2([a,b])$.
+\[ E =\left|\frac{(b-a)^4}{12 n^2} f''(\xi)\right| \qquad \xi \in  ]a,b[\]
+\end{enumerate}
+
+\section{}
+Voici le relevé de la vitesse d'écoulement de l'eau $v$ dans
+un conduit cylindrique en fonction du temps $t$ :
+\[
+\begin{array}{|c||c|c|c|c|c|c|c|}\hline
+t \mbox{(s)} & 0 & 10 & 20 &30 &40 &50 &60\\ \hline
+v \mbox{(m/s)} &2 &1.98 &1.7 &1.44 &1.32 &1.20 &1.02\\ \hline
+\end{array}
+\]
+La vitesse moyenne de l'eau en écoulement dans le conduit cylindrique peut être calculée par la relation suivante :
+\[\overline{v} =\frac 1{60}\int_0^{60}v(t)\de t\]
+\begin{enumerate}
+\item Calculer la vitesse moyenne de l'eau $\overline{v} $ par la méthode des rectangles à droite.
+\item  Calculer la vitesse moyenne de l'eau $\overline{v} $ par la méthode des trapèzes.
+\item Peut-on déterminer la vitesse moyenne de l'eau $\overline{v} $ par la méthode de Simpson ? Justifier rigoureusement votre réponse.
+\end{enumerate}
+
+\section{}
+ On souhaite déterminer une valeur approchée de 
+\[I =\int_0^1 e^{-x^2}\de x\]
+ en subdivisant l'intervalle $[0, 1]$ en $N = 10$ sous-intervalles.
+ \begin{enumerate}
+\item  Majorer l'erreur commise en utilisant les différentes méthodes usuelles (rectangle à
+gauche, rectangle à droite, point milieu, trapèzes, Simpson).
+\item Proposer une approche permettant de déterminer une valeur approchée de $I$ à $10^{-10}$ près.
+(On pourra envisager une autre valeur de $N$).
+ \end{enumerate}
+ \section{} 
+On rappelle que l'erreur commise par la méthode des trapèzes pour une fonction $f$
+de classe $C^2([a, b])$ est majorée ainsi :
+\[
+|I(f, a, b) - I_N(f, a, b)| \leq \frac{(b-a)M_2}{12}h^2\]
+où $M_2 =\displaystyle \sup_{a\leq x\leq b}|f(2)(x)|$. Combien faut-il de subdivisions de $[0, 1]$ pour évaluer l'intégrale
+\[I =\int_0^1 xe^{-x}\de x\]
+à $10^{-6}$ près ?
+
+
+\section{} 
+ On considère $f$ une fonction de classe $C^2$ sur un intervalle $J = [a, b]$, que l'on
+subdivise en $N$ sous-intervalles.
+On note respectivement $I_{RG}$, $I_{RD}$, $I_T$ , $I_{PM}$, $I_S$ les approximations données par les méthodes usuelles
+(rectangles à gauche, rectangle à droite, trapèzes, point milieu, Simpson) de l'intégrale $I = \int_a^bf(x)\de x$.
+\begin{enumerate}
+\item Montrer que $I_T =\frac{I_{RG}+I_{RD}}2$
+\item  Exprimer $I_S$ en fonction de $I_{PM}$ et $I_T$ .
+\item Lorsque l'on connaît $I_{RG}$ comment calculer rapidement $I_{RD}$ ?
+\item On suppose que $f$ est une fonction croissante. Montrer que l'on a les inégalités
+$I_{RG} \leq I \leq I_{RD}$.
+\item On suppose maintenant que $f$ est une fonction convexe. Montrer que $I_{PM} \leq I \leq I_T$.
+
+\end{enumerate}
+
+\section{} 
+ \begin{enumerate}
+\item Déterminer par la méthode des rectangles à gauche et à droite puis celle des trapèzes la valeur de $I = \int_a^bf(x)\de x$.
+sur la base des valeurs données dans le tableau suivant
+\[
+\begin{array}{|c||c|c|c|c|c|c|}\hline
+x & 0 & 0,1 & 0,2 &0,3 &0,4 &0,5\\ \hline
+f(x)&0 &0,0993346 &0,1947091 &0,2823212 &0,3586780 &0,4207354\\ \hline
+\end{array}
+\]
+
+\item Ces points sont ceux donnant $f(x) = \sin (t) \cos (t)$. Comparer alors les résultats obtenus avec la valeur exacte. Conclure.
+\end{enumerate} 
+
+\section{} 
+ Le but de l'exercice est de calculer une valeur approchée de l'intégrale $I = \int_0^1x^3e^{-x}\de x$. et la comparer avec sa valeur exacte. Pour cela, on découpe l'intervalle $[0, 1]$ en $N = 10$ sous intervalle
+de même longueur.
+\begin{enumerate}
+\item Calculer la valeur du pas $h$.
+\item Donner la valeur exacte de l'intégrale $I$.
+\item \begin{enumerate}
+\item Calculer $I$ par la méthode des rectangles à gauche.
+\item Calculer $I$ par la méthode des rectangles du point milieu.
+\item Calculer $I$ par la méthode des trapèzes.
+\end{enumerate} 
+\item Déterminer numériquement l'erreur relative commise par chaque méthode. Conclure.
+\end{enumerate} 
+
+
+\section{}{\bf Formule de Quadrature : } Considérons la formule de quadrature suivante
+\[\int_{-1}^1f(x)\de x=\omega_1f\left(-\alpha \right)+\omega_2f\left(\alpha\right)\]
+Où $\alpha \in ]0; 1]$.
+\begin{enumerate}
+\item  Déterminer les poids pour que cette formule de quadrature soit exacte pour les polynômes de $\mathbb{R}_1[X]$
+\item On adopte désormais les poids déterminés à la question précédente. Quelle est la formule obtenue lorsque $\alpha=1$ ? Est-elle exacte pour les polynômes de $\mathbb{R}_2[X]$ ?
+\item Montrer que cette formule de quadrature est exacte sur $\mathbb{R}_2[X]$ pour une et une seule valeur de $\alpha$, à déterminer.
+\item On adopte la valeur de déterminée à la question précédente. La formule est-elle exacte sur $\mathbb{R}_3[X]$ ? sur $\mathbb{R}_4[X]$ ?
+\item  Adapter la formule obtenue à une intégrale $\int_{0}^1f(x)\de x$, puis à une intégrale $\int_{a}^bf(x)\de x$.
+\item Exprimer la formule composite obtenue lorsque l'on subdivise l'intervalle $[a; b]$ en $N$ sous-intervalles.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{} On propose dans un premier temps de construire la formule de quadrature à deux points
+\[\int_{-1}^1f(x)\de x=\frac 43f\left(-\frac{\xi}{2}\right)+\frac 23f\left(\xi\right)\]
+\begin{enumerate}
+\item Déterminer $\xi$ pour que la formule de quadrature soit exacte pour toute fonction $f$ polynomiale de degré $m \geq 1$ et donner la plus grande valeur de $m$.
+\item À l'aide d'un changement de variable affine, en déduire une formule de quadrature pour l'intégrale :
+\[\int_{a}^bf(x)\de x\]
+\item En déduire une formule de quadrature composite à $2n+1$ points, pour le calcul approché de $\int_{a}^bf(x)\de x$. 
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{} Soit $f \in C^1([0; 1])$. On considère la formule de quadrature élémentaire \[\int_0^1 f(x) \de x \simeq \omega_0 f(0) +  \omega_1f'(0) +  \omega_2f'(\xi)\]
+où $\xi\in ]0; 1]$ et $\omega_0$, $\omega_1$ et $\omega_2$ sont des réels. On pose
+\[E(f) =\int_0^1 f(x) \de x -\left[ \omega_0 f(0) +  \omega_1f'(0) +  \omega_2f'(\xi)\right]\]
+\begin{enumerate}
+\item Déterminer les paramètres $\xi$, $\omega_0$, $\omega_1$ et $\omega_2$ pour que la formule de quadrature soit exacte si $f$ est un polynôme de degré inférieur ou égal à $3$.
+\item  Les paramètres $\xi$, $\omega_0$, $\omega_1$ et $\omega_2$ étant ainsi fixés, calculer $E(x \mapsto x^4)$ et en déduire l'ordre de la
+méthode. 
+\item  A l'aide d'un changement de variable, construire une méthode de quadrature élémentaire sur un intervalle $[a, b]$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}  \begin{enumerate}
+\item Soit la formule de quadrature
+\[\int_{0}^1f(x)\de x=\omega_1f(0)+\omega_2f(\alpha)\]
+Où $\alpha \in ]0; 1]$.
+\begin{enumerate}
+\item Déterminer les poids pour que la formule soit exacte sur $\mathbb{R}_1[X]$.
+\item Déterminer $\alpha$ pour que la méthode soit exacte pour les polynômes de degré $\leq 2$.
+\item Adapter la formule obtenue à un intervalle $[0; h]$.
+\end{enumerate}
+\item  On va dans le cas de cette formule pour une intégrale $\int_{0}^hf(x)\de x$ prouver une estimation de l'erreur commise par la formule de quadrature pour une fonction $f$ supposée de classe $C^3$ sur $[0; h]$.
+
+On notera $I(f) =\int_{0}^hf(x)\de x$, $Q(f)$ l'approximation donnée par la formule de quadrature, et enfin $E(f) = I(f) - Q(f)$.
+\begin{enumerate}
+\item  Soit $M_3 =\displaystyle \sup_{0\leq x\leq h}\left|f^{(3)}(x)\right|$.
+Montrer que l'on peut écrire $f(x) = P(x) + R(x)$ avec $P$ un polynôme de degré 2,
+que l'on précisera et $R$ une fonction vérifiant
+\[\forall x\in [0,h],\quad |R(x)|\leq \frac{M_3}6x^3\]
+\item  Majorer en fonction de $M_3$ et de $h$ les valeurs de $|I(R)|$, de $|Q(R)|$, de $|E(R)|$.
+\item En déduire une majoration de $|E(f)|$.
+\end{enumerate}
+
+\item  \begin{enumerate}
+\item   Donner la formule composite pour le calcul d'une intégrale $\int_{a}^bf(x)\de x$ associée à la formule de quadrature élémentaire étudiée.
+\item  Donner une majoration de l'erreur lorsqu'on utilise cette formule composite.
+\end{enumerate}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{} Soit une formule de quadrature élémentaire à $p$ points. Montrer que cette formule ne peut pas être exacte pour tous les polynômes de $\mathbb{R}_{2p}[X]$.
+(Indication : considérer le polynôme $Q(x) =\prod_{i=1}^p(x-\alpha_i)^2$)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{} Soit $p$ un entier avec $p > 1$.
+La formule à $p$ points définie par
+\[\int_{0}^1f(x)\de x=\frac 1p\sum_{i=1}^p\left(\frac{i-1}{p-1}\right)\]
+est-elle exacte sur $\mathbb{R}_{1}[X]$ ? Sur $\mathbb{R}_{2}[X]$ ?
+
+\section{Polynômes orthogonaux}
+Soit $E = \mathbb{R}[X]$. On munit $E$ du produit scalaire 
+\[(P|Q) = \int_{-1}^{+1} P(t)Q(t) \mbox{d}t\]
+
+\begin{enumerate}
+\item  Pour $n\in \mathbb{N}$, on pose 
+\[P_n(X) =\frac 1{n! 2^n}\frac{\mbox{d}^n}{\mbox{d}X^n}\left[\left(X^2-1\right)^n\right]\]
+
+\begin{enumerate}
+\item  Montrer que la famille $(P_n)_{n\in \mathbb{N}}$ est une famille orthogonale de $E$.
+\item  Déterminer $\|P_n\|$ pour $n\in \mathbb{N}$.
+\end{enumerate}
+\item   Déterminer $P_0$, $P_1$, $P_2$ et $P_3$.
+\item Déterminer les paramètres $\xi_i$ et $\omega_i$, $i=1,2,3$ de la formule de quadrature
+\[\int_{-1}^1f(x)\de x \simeq \omega_1f(\xi_1)+\omega_2f(\xi_2)+\omega_3f(\xi_3)\]
+\item En déduire la formule composite de la méthode de Gauss-Legendre pour approcher à l'ordre 3  la valeur de l'intégral \[\int_{a}^bf(x)\de x\]
+
+\end{enumerate}
+
+
+\end{document}

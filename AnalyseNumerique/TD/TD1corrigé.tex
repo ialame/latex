@@ -1,0 +1,320 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\title{TD 1 Analyse numérique (B1-TP1)}
+\author{Ibrahim ALAME}
+\date{03/02/2023}
+\begin{document}
+\maketitle
+\section{Interpolation}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item Méthode directe: On cherche $a$, $b$ et $c$ solution de
+\[\left(\begin{array}{ccc}
+0&0&1\\
+\frac{\pi^2}{4}&\frac{\pi}{2}&1\\
+\pi^2&\pi&1
+\end{array}\right)\left(\begin{array}{c} a\\b\\c \end{array}\right)=\left(\begin{array}{c} 0\\1\\0 \end{array}\right)\]
+
+On trouve \[P(x)=-\frac{4}{\pi^2}x^2+\frac{4}{\pi}x\]
+
+\item Méthode de Lagrange: 
+\[P(x)=\sin(0) L_0(x)+\sin(\frac{\pi}{2})L_1(x)+\sin(\pi)L_2(x)=L_1(x)=\frac{(x-0)(x-\pi)}{(\frac{\pi}{2}-0)(\frac{\pi}{2}-\pi)}=\frac{-4}{\pi^2}x(x-\pi)\]
+\item Méthode de Newton: 
+\[\begin{array}{cc|cc}\hline
+x_i&y_i&\Delta[x_{i-1},x_i]&\Delta[x_{i-2},x_{i-1},x_i] \\ \hline\hline
+0&\boxed{0}&& \\
+\frac{\pi}{2}&1&\boxed{\frac{2}{\pi}}& \\
+\pi&0&-\frac{2}{\pi}&\boxed{-\frac{4}{\pi^2}}
+\end{array}
+\]
+D'où
+\[\begin{array}{ccl}
+P(x)&=&\Delta[x_0]+\Delta[x_0,x_1](x-x_0)+\Delta[x_0,x_1,x_2](x-x_0)(x-x_1)\\
+&=&0+\frac{2}{\pi}(x-0)-\frac{4}{\pi^2}(x-0)(x-\frac{\pi}{2})\\
+&=&-\frac{4}{\pi^2}x^2+\frac{4}{\pi}x
+\end{array}
+\]
+
+
+
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item Méthode directe: On cherche $a$, $b$ , $c$ et $d$ solution de
+\[\left(\begin{array}{cccc}
+0&0&0&1\\
+\frac{\pi^3}{8}&\frac{\pi^2}{4}&\frac{\pi}{2}&1\\
+\pi^3&\pi^2&\pi&1\\
+\frac{27\pi^3}{8}&\frac{9\pi^2}{4}&\frac{3\pi}{2}&1
+\end{array}\right)\left(\begin{array}{c} a\\b\\c\\d \end{array}\right)=\left(\begin{array}{c} 0\\1\\0\\-1 \end{array}\right)\]
+
+On trouve \[P(x)=\frac{8}{3\pi^3}x^3-\frac{8}{\pi^2}x^2+\frac{16}{3\pi}x\]
+                       
+
+
+\item Méthode de Lagrange: 
+\[\begin{array}{ccl}
+P(x)&=&\sin(0) L_0(x)+\sin(\frac{\pi}{2})L_1(x)+\sin(\pi)L_2(x)+\sin(\frac{3\pi}{2})L_3(x)\\
+&=&L_1(x)-L_3(x)\\
+&=&\frac{(x-0)(x-\pi)(x-\frac{3\pi}{2})}{(\frac{\pi}{2}-0)(\frac{\pi}{2}-\pi)(\frac{\pi}{2}-\frac{3\pi}{2})}-\frac{(x-0)(x-\frac{\pi}{2})(x-\pi)}{(\frac{3\pi}{2}-0)(\frac{3\pi}{2}-\pi)(\frac{3\pi}{2}-\frac{\pi}{2})}\\
+&=&\frac{4}{\pi^3}x(x-\pi)(x-\frac{3\pi}{2})-\frac{4}{3\pi^3}x(x-\frac{\pi}{2})(x-\pi)
+\end{array}
+\]
+\item Méthode de Newton: 
+\[\begin{array}{cc|ccc}\hline
+x_i&y_i&\Delta[x_{i-1},x_i]&\Delta[x_{i-2},x_{i-1},x_i] &\Delta[x_{i-3},x_{i-2},x_{i-1},x_i]\\ \hline\hline
+0&\boxed{0}&&& \\
+\frac{\pi}{2}&1&\boxed{\frac{2}{\pi}}&& \\
+\pi&0&-\frac{2}{\pi}&\boxed{-\frac{4}{\pi^2}}&\\
+\frac{3\pi}{2}&-1&-\frac{2}{\pi}&0&\boxed{\frac{8}{3\pi^3}}\\
+\end{array}
+\]
+D'où
+\[\begin{array}{ccl}
+P(x)&=&y_0+\Delta[x_0,x_1](x-x_0)+\Delta[x_0,x_1,x_2](x-x_0)(x-x_1)\\
+&&+\Delta[x_0,x_1,x_2,x_3](x-x_0)(x-x_1)(x-x_2)\\
+&=&0+\frac{2}{\pi}(x-0)-\frac{4}{\pi^2}(x-0)(x-\frac{\pi}{2})+\frac{8}{3\pi^3}(x-0)(x-\frac{\pi}{2})(x-\pi)\\
+&=&\frac{8}{3\pi^3}x^3-\frac{8}{\pi^2}x^2+\frac{16}{3\pi}x
+\end{array}
+\]
+La méthode de Newton est la plus simple, car elle réutilise les coefficients déjà calculés.
+
+
+\end{enumerate}
+\end{enumerate}
+
+\section{Convergence de l'interpolation de Lagrange} 
+\begin{enumerate}
+\item \[f^{(n)}(x)=\frac{(-1)^n n!}{(x-\alpha)^{n+1}}\]
+\item Nous avons
+\[f(x) - L_n(x) =\frac{\prod_{i=0}^n\left(x-x_i\right)}{(n + 1)!}f^{(n+1)}(\xi)\]
+où  $-1 < \xi < 1$. Donc
+\[|f(x)-L_n(x)|\leq \frac{\Lambda_n }{(n + 1)!}.\frac{ (n + 1)!}{|\xi-\alpha|^{n+2}}\sim \frac{2^{n+1}}{\mbox{e}\, n\ln(n)}.\frac{ 1}{|\xi-\alpha|^{n+2}}\leq \frac{1}{2\mbox{e}\, n\ln(n)}\]
+car d'après le cours  la constante de Lebesgue $\Lambda_n \sim \frac{2^{n+1}}{\mbox{e}\, n\ln(n)} $ et $|\xi-\alpha|>2$.  
+D'où
+\[\lim_{n\to \infty}\|f-L_n\|_{\infty}=0\]
+\item  \[\left\{\begin{array}{rl}
+ \mbox{Pour } &x_i<x<x_{i+1}\\
+f_n(x)&=f(x_i)+\frac{x-x_i}{x_{i+1}-x_{i}}\left(f(x_{i+1})-f(x_{i})\right)\\
+ &=\frac{1}{x_i-\alpha}-\frac{1}{(x_i-\alpha)(x_{i+1}-\alpha)}(x-x_i)
+\end{array}\right.
+\]
+\item On fait un développement de Taylor à l'ordre 1 de $f$ en $x=x_i$:
+\[f(x)=f(x_i)+(x-x_i)f'(x_i)+\frac{(x-x_i)^2}{2}f''(\xi)\]
+soit
+\[f(x)=\frac{1}{x_i-\alpha}+(x-x_i)\frac{-1}{(x_i-\alpha)^2}+\frac{(x-x_i)^2}{2}\frac{2}{(\xi-\alpha)^{3}}\]
+Donc
+\[\begin{array}{ll}
+f(x)-f_n(x)  &= (x-x_i)\left[\frac{-1}{(x_i-\alpha)^2}+\frac{1}{(x_i-\alpha)(x_{i+1}-\alpha)}\right]+\frac{(x-x_i)^2}{(\xi-\alpha)^{3}}\\
+&= \frac{(x_{i+1}-x_i)(x-x_i)}{(x_i-\alpha)^2(x_{i+1}-\alpha)}+\frac{(x-x_i)^2}{(\xi-\alpha)^{3}}
+\end{array}
+\]
+\[|f(x)-f_n(x)|\leq (c_1\,h^2+c_2\,h^2)=\frac{4(c_1+c_2)}{n^2}=\frac{c}{n^2}\]
+car $h=\frac 2n$, ainsi
+\[\|f-f_n\|_{ \infty}\leq \frac c{n^2}\]
+et donc que $f_n$ converge uniformément vers $f$ lorsque $n$ tend vers l'infini.
+
+\end{enumerate}
+
+
+\section{Moindre carrés discrets}
+On a
+\[\overline{x^k}=\frac{\sum_{i=1}^n{x_i^k}}n\qquad\mbox{et}\qquad\overline{x^ky}=\frac{\sum_{i=1}^n{x_i^ky_i}}n\]
+On trouve 
+\[\overline{x}=\frac 12\quad \overline{y}=-\frac 16\quad \overline{x^2}=\frac {19}6\quad   \overline{x^3}=\frac {9}2\quad \overline{x^4}=\frac {115}6\quad   \overline{xy}=-\frac {5}2\quad    \overline{x^2y}=\frac {19}6   \]
+D'où le système
+\[\left(\begin{array}{ccc}
+1 & \frac 12 & \frac {19}6\\
+\frac 12 & \frac {19}6 & \frac {9}2 \\
+ \frac {19}6&\frac {9}2 & \frac {115}6 
+\end{array}\right) \left(\begin{array}{c}
+c \\
+b \\
+a 
+\end{array}
+\right) =\left(\begin{array}{c}
+-\frac 16 \\
+-\frac {5}2 \\
+\frac {19}6
+\end{array}
+\right) 
+\]
+On trouve
+\[a=\frac{55}{56}\qquad b=\frac{-507}{280}\qquad c=\frac{-83}{35}\]
+D'où le polynôme:
+\[P(x)=\frac{55}{56}x^2-\frac{507}{280}x-\frac{83}{35}\]
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, gray] [->]  (-2.2,0) -- (3.2,0); 
+\draw  [very thin, gray] [->] (0,-3.2) -- (0,5);
+\draw  [dashed] (-2,0) -- (-2,5)--(0,5);
+\draw  [dashed] (-1,0) -- (-1,1)--(0,1);
+\draw  [dashed] (1,0) -- (1,-3)--(0,-3);
+\draw  [dashed] (2,0) -- (2,-2)--(0,-2);
+\draw  [dashed] (3,0) -- (3,1)--(0,1);
+\path (-2,5) circle (.5mm) [fill=orange];
+\path (-1,1) circle (.5mm) [fill=orange];
+\path (0,-3) circle (.5mm) [fill=orange];
+\path (1,-3) circle (.5mm) [fill=orange];
+\path (2,-2) circle (.5mm) [fill=orange];
+\path (3,1) circle (.5mm) [fill=orange];
+\draw [domain=-2:3][line width=1] plot(\x,{55/56*\x*\x-507/280*\x-83/35});
+\end{tikzpicture} 
+
+\end{center}
+
+\section{Intégration numérique}
+
+\begin{enumerate}
+\item \[\int_1^2\frac 1x\de x=\ln 2\simeq 0.693\]
+\item On a $h=\frac 13$ et $x_i=1+i/3$ donc
+\[x_0=1,\, x_1=\frac 43,\,x_2=\frac 53,\, x_3=2\]
+\[\int_a^bf(x)\de x=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1}f(x_i)\right)\]
+\[\int_1^2\frac 1x\de x\simeq h\left(\frac{f(1)+f(2)}{2}+f(\frac 43)+f(\frac 53)\right)=\frac 13\left(\frac{1+\frac 12}{2}+\frac 34+\frac 35\right)=\frac 13(\frac 34+\frac 34+\frac 35)=\frac 7{10}=0.7\]
+\item La fonction $x\mapsto \frac 1x$ étant convexe, la méthode donne alors une valeur approchée par excès.
+\item \[\left|\frac{(b-a)^4}{12n^2}f''(\xi)\right|\leq 10^{-4}\]
+Donc 
+ \[\left|\frac{1}{12n^2}2\right|\leq 10^{-4}\]
+ \[n^2\geq 10000/6\]
+ \[n\geq 100/\sqrt 6\]
+ \[n\geq 41\]
+\end{enumerate}
+\section*{5}
+\section*{6}
+\section*{7}
+\section*{8}
+\section*{9}
+\section*{10}
+\section*{11}
+\section*{12}{\bf Intégration numérique : }
+\[\int_{-1}^1f(x)\de x\simeq\frac 43f\left(-\frac{\xi}{2}\right)+\frac 23f\left(\xi\right)\]
+\begin{enumerate}
+\item La formule est exacte pour $f(x)=1$ et $f(x)=x$. Pour $f(x)=x^2$ nous avons
+\[\frac 23=\xi^2\]
+donc $\xi=\sqrt{\frac{2}{3}}$ et avec cette valeur la formule n'est plus exacte pour $f(x)=x^3$ donc la méthode est d'ordre $2$.
+\item On fait $x=\lambda t+\mu$. En $x=a$, $t=-1$ et en $x=b$, $t=1$:
+\[a=-\lambda+\mu\]
+\[b=\lambda +\mu\]
+D'où le changement de variable $x=\frac{a+b}{2}+t\frac{b-a}{2}$:
+\[\int_{a}^bf(x)\de x=\frac{b-a}{2}\int_{-1}^1f(\frac{a+b}{2}+t\frac{b-a}{2})\de t\]
+\[\int_{a}^bf(x)\de x\simeq\frac{b-a}{2}\left[\frac 43f\left(\frac{a+b}{2}-\frac{\xi}{2}\frac{b-a}{2}\right)+\frac 23f\left(\frac{a+b}{2}+\xi\frac{b-a}{2}\right)\right]\]
+\item Nous avons
+\[\int_{x_{2i-1}}^{x_{2i+1}}f(x)\de x\simeq h\left[\frac 43f\left(x_{2i}-\frac{\xi}{2}h\right)+\frac 23f\left(x_{2i}+\xi h\right)\right]\]
+\[\int_{x_{2i-1}}^{x_{2i+1}}f(x)\de x\simeq\frac{2h}{3}\left[2f\left(x_{2i}-\frac{h}{\sqrt 6}\right)+f\left(x_{2i}+\sqrt{\frac 23} h \right)\right]\]
+où $x_k=a+kh=-1+kh$, $h=\frac{b-a}{2n}$, 
+$x_{2i+1}=-1+(2i+1)h$ et $x_{2i-1}=-1+(2i-1)h$
+
+
+D'où
+\[\int_{a}^bf(x)\de x=\sum_{i=1}^{n}\int_{x_{2i-1}}^{x_{2i+1}}f(x)\de x\simeq\frac{b-a}{3n}\sum_{i=1}^{n}\left[2f\left(a+(i-\frac 1{2\sqrt 6})\frac{b-a}{n}\right)+f\left(a+(i+\frac 1{\sqrt{6}})\frac{b-a}{n}\right)\right]\]
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{13}{\bf Formule de Quadrature : }
+
+\[\int_0^1 f(x) \de x \simeq \omega_0 f(0) +  \omega_1f'(0) +  \omega_2f'(\xi)\]
+\[E(f) =\int_0^1 f(x) \de x -\left[ \omega_0 f(0) +  \omega_1f'(0) +  \omega_2f'(\xi)\right]\]
+\begin{enumerate}
+\item On trouve $\xi=\frac 12$, $\omega_0=1$, $\omega_1=\frac 16$ et $\omega_2=\frac 13$.
+\item  
+\[E(f) =\int_0^1 f(x) \de x -\left[  f(0) +  \frac 16 f'(0) +  \frac 13f'(\frac 12)\right]\]
+ $E(x \mapsto x^4)=\frac 1{30}$ donc la méthode est d'ordre 3. 
+
+\item  On fait le changement de variable $x=a+t(b-a)$:
+\[\int_{a}^bf(x)\de x=(b-a)\int_{0}^1f(a+t(b-a))\de t\]
+\[\int_{a}^bf(x)\de x\simeq(b-a)\left[f(a) +  \frac 16 f'(a) +  \frac 13f'(\frac {a+b}2)\right]\]
+\end{enumerate}
+
+
+\section*{14}
+\begin{enumerate}
+\item \begin{enumerate}
+\item Pour que la formule soit exacte pour $f(x) = 1$, il faut $\omega_1+\omega_2 = 1$. Et pour qu'elle soit exacte pour $f(x) = x$, il faut $\omega_2\alpha =\frac 12$. Ce qui amène à $\omega_1 = 1 -\frac{1}{2\alpha}$ et $\omega_2 = \frac{1}{2\alpha}$.
+\item Pour qu'elle soit exacte pour $f(x) = x^2$, il faut $\omega_2\alpha^2 =\frac 13$, donc $\alpha=\frac 23$. Et donc $\omega_1 = \frac{1}{4}$ et $\omega_2 = \frac{3}{4}$.
+On a en posant $x=hu$,
+\[\int_0^hf(x)\de x = h\int_0^1f(hu)\de u \simeq \frac h4\left[f(0)+3f(\frac 23h)\right]\]
+\end{enumerate}
+\item\begin{enumerate}
+\item On applique la formule de Taylor-Lagrange à l'ordre 2 en 0 :
+\[f(x)=f(0)+f'(0)x+\frac 12 f''(0)x^2+\frac 16f'''(c)x^3\]
+avec $c$ compris entre 0 et $x$. On pose
+\[P(x)=f(0)+f'(0)x+\frac 12 f''(0)x^2\]
+qui est bien polynômial de degré au plus 2 et $R(x)=\frac 16f'''(c)x^3$. On vérifie aisément l'inégalité voulue.
+\item De la majoration $|R(x)|\leq \frac{M_3}{6} x^3$, on tire :
+\[\left|\int_0^hR(x)\de x\right|\leq \int_0^h|R(x)|\de x\leq \int_0^h\frac{M_3}{6} x^3\de x=\frac{M_3 h^4}{24}\]
+Et, en tenant de compte que $R(0) = 0$ (inégalité pour $x = 0$), on a aussi :
+\[|Q(R) = \left|\frac h4R(0)+\frac{3h}{4}R(\frac 23h)\right|\leq \frac{3h}{4}\frac{M_3}{6}(\frac 23h)^3 = \frac{M_3 h^4}{27}\]
+On a enfin
+\[|E(R)|=|I(R)-Q(R)|\leq |I(R)|+|Q(R)|\leq \frac{17}{216}M_3 h^4\]
+\item Par linéarité, $I(f) = I(P) + I(R)$ et $Q(f) = Q(P) + Q(R)$. Comme la
+formule est exacte pour $P$ (puisqu'elle l'est sur tout polynôme de degré 2), $I(P) =Q(P)$ et donc $E(f) = E(R)$. Et donc
+\[|E(f)|\leq \frac{17}{216}M_3 h^4\]
+\end{enumerate}
+\item\begin{enumerate}
+\item On pose $x_i = a + ih$. On a
+\[\int_a^bf(x)\de x = \sum_{i=0}^{N-1}\int_{x_i}^{x_i+h}f(x)\de x =\sum_{i=0}^{N-1}\int_{0}^{h}f(x_i+u)\de u \simeq \frac h4\sum_{i=0}^{N-1} \left[f(x_i)+3f(x_i+\frac 23h)\right]\]  
+\item On note $M_3 = \displaystyle \sup_{a\leq x\leq b}|f^{(3)}(x)|$.
+
+L'erreur sur chaque intervalle sera majorée par $\frac{17}{216}M_3 h^4$  et donc l'erreur totale par $\frac{17}{216}M_3 N h^4=\frac{17}{216}M_3 (b-a) h^3$ .
+
+\end{enumerate}
+\end{enumerate}
+\section*{15}
+\section*{16}
+
+
+
+
+\section*{17}{\bf Polynômes orthogonaux : }
+\begin{enumerate}
+\item Par intégration par parties
+\item On trouve $\|P_n\|^2=\frac{2}{2n+1}$
+\item \[\begin{array}{ccl}
+P_3(X)&=&\frac{1}{3!2^3}\frac{\de^3}{\de X^3}\left[(X^2-1)^3\right]\\
+&=&\frac{1}{6\times 8}\frac{\de^2}{\de X^2}\left[3(X^2-1)^2\times 2X\right]\\
+&=&\frac{1}{8}\frac{\de}{\de X}\left[2(X^2-1)\times 2X^2+(X^2-1)^2\right]\\
+&=&\frac{1}{8}\frac{\de}{\de X}\left[5X^4-6X^2+1\right]\\
+&=&\frac{1}{2}\left(5X^3-3X\right)
+\end{array}
+\]
+\item Les points $\xi_i$, $i=1,2,3$ sont les racines de $P_3$ d'où 
+\[\xi_1=-\sqrt{\frac{3}{5}}, \qquad \xi_2=0, \qquad  \xi_3=\sqrt{\frac{3}{5}}\]
+
+ Les 3 poids  associés se calculent par la formule :
+ \[\forall i =1,2,3 \quad \omega_i=\frac{2}{(1-\xi_i^2)P'_n(\xi_i)^2}\]
+ D'où
+ \[\omega_1 = \frac 59,\quad  \omega_2 = \frac 89,\quad  \omega_3 = \frac 59\]
+Et donc
+
+\[\int_{-1}^1f(\xi)\de \xi \simeq  \frac 19\left[5f(-\sqrt{\frac{3}{5}})+ 8f(0)+ 5f(\sqrt{\frac{3}{5}})\right]\]
+Par changement de variable $x=\frac{a+b}{2}+\frac{b-a}{2}\xi$:
+\[\int_a^bf(x)\de x \simeq  \frac{b-a}{18}\left[5f(\frac{a+b}{2}-\sqrt{\frac{3}{5}}\frac{b-a}{2})+ 8f(\frac{a+b}{2})+ 5f(\frac{a+b}{2}+\sqrt{\frac{3}{5}}\frac{b-a}{2})\right]\]
+et si $x_i=a+ih$ où $h=\frac{b-a}{n}$:
+\[\int_{x_i}^{x_{i+1}}f(x)\de x \simeq  \frac{h}{18}\left[5f(x_{i+\frac{1}{2}}-\sqrt{\frac{3}{20}}h)+ 8f(x_{i+\frac{1}{2}})+ 5f(x_{i+\frac{1}{2}}+\sqrt{\frac{3}{20}}h)\right]\]
+Finalement
+\[\int_a^bf(x)\de x \simeq  \frac{b-a}{18 n}\sum_{i=0}^{n-1}\left[5f(a+(i-0.1127)\frac{b-a}{n})+ 8f(a+(i+0.5)\frac{b-a}{n})+ 5f(a+(i+0.8873)\frac{b-a}{n})\right]\]
+\end{enumerate}
+
+
+\end{document}

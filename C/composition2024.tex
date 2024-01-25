@@ -1,0 +1,239 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+\def \sinc {{\rm sinc}}
+\def \cotan {{\rm cotan}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent\hrulefill\par}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\usepackage{fancyvrb}
+\newcolumntype{M}[1]{>{\centering}m{#1}}
+\usepackage{listings}
+\definecolor{purple2}{RGB}{153,0,153} % there’s actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a
+
+\usepackage[cache=false]{minted}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=25mm,
+ right=25mm,
+ top=20mm,
+ bottom=20mm,
+ }
+\usepackage{wrapfig}
+\title{}%Concours d'entrée à l'ESTP}
+%\author{Ibrahim ALAME}
+\date{}
+  \begin{document}
+
+%\maketitle
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{3cm}p{13cm}}
+    \begin{tabular}{c}
+    \\
+        \includegraphics[width=95pt]{ESIEE-Paris.png} 
+     \end{tabular}
+        & 
+        \begin{tabular}{c}
+        \\
+        \large \bf   E3FE-3E-LE1 : Composition de Programmation C\\ \\
+        \large   Ibrahim ALAME  \\ \\
+         \large    26 Janvier 2024  \\ \\
+        
+        \end{tabular}
+    \end{tabular}
+    \label{tab:paragraphes}
+\end{table}
+
+\rule{15.5cm}{0.1pt}
+
+Documents et calculatrice ne sont pas autorisés. Ce sujet est à compléter et à remettre avec la copie. 
+\section*{Problème 1: QCM}(à rendre avec la copie à la fin du contrôle)\\
+%\begin{center}
+
+  \begin{tabular}{|M{4.5cm}|c|c|}
+      \hline
+      & Descriptifs  & Réponses \\ \hline
+      \begin{verbatim}
+int p=0,q=0;
+while(p++<10)q++;
+printf("%d\n",q);
+\end{verbatim} & Quelle est la valeur de {\tt q} à la fin de la boucle {\tt while}?
+ &
+    \begin{tabular}{c}
+     10\\9 \\ 11\\0
+\end{tabular}      \\ \hline
+\begin{verbatim}
+int k=10,i;
+for(i=0;i<k;++i)
+printf("%d\n",i++);
+\end{verbatim} &Combien de fois l'instruction {\tt printf} s'exécutera ?
+ &
+    \begin{tabular}{c}
+     4 fois\\5 fois\\ 6 fois\\11 fois
+\end{tabular}      \\ \hline
+      \begin{verbatim}
+int s=0,i,j;
+for(i=0;i<3;i++)
+for(j=0;j<3;j++)
+s+=i*j;
+printf("%d\n",s);
+\end{verbatim} & Quelle est la valeur affichée par {\tt printf} ?
+ &
+\begin{tabular}{c}
+     0\\3 \\ 9\\12
+\end{tabular}      \\ \hline
+      \begin{verbatim}
+int* m = "esiee";
+int str2int(char* t){
+    int s=0;
+    while(*t!='\0'){
+        s+=*t-'a';
+        t++;}
+    return s;}
+printf("%d",str2int(m));
+\end{verbatim} & Quelle est la valeur  affichée par {\tt printf} ?
+ &
+    \begin{tabular}{c}
+     38\\83 \\68\\86 
+\end{tabular}      \\ \hline
+      \begin{verbatim}
+char t[] = "abcd";
+int n;
+n=sizeof(t)/sizeof(char);
+printf("%d\n",n);
+\end{verbatim} & Quelle est la valeur de {\tt n}  affichée par {\tt printf}  ?
+ &
+    \begin{tabular}{c}
+     4\\5 \\ 8\\10
+\end{tabular}      \\ \hline
+  \end{tabular}
+%\end{center}
+
+\section*{Problème 2 : Récursivité}
+Soit la suite $(u_n)$ défini par $u_0=2$ et $\forall n\in \mathbb{N},\quad u_{2n} = u_n  \mbox{ et }u_{2n+1}=-u_n$. 
+ Écrire une fonction récursive qui retourne la valeur de la suite $u_n$ pour $n$ donné. Calculer à la main les 10
+premières valeurs, puis donner sans calcul les valeurs de $u_{32}$, $u_{256}$, $u_{513}$.
+
+\section*{Problème 3 : Pointeur}
+Soit $t$ un tableau {\tt char t[] = "bonjour";} et $p$ un pointeur sur $t$,  {\tt char* p=t;}
+Quelles valeurs ou adresses fournissent ces expressions:
+\begin{enumerate}
+\item {\tt *p+3}
+\item  {\tt *(p+3)}
+\item {\tt p[3]-3}
+\item  {\tt *(p++)-'a'}
+\item  {\tt *(++p)-'n'}
+
+\end{enumerate}
+
+\section*{Problème 4 : Erreurs}
+Corriger exactement quatre erreurs (compilation, fonctionnelle), puis commenter
+brièvement les instructions du programme suivant:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{C}
+#include <stdoi.h>
+#include <stdlib.h>
+
+int char2int(char c){
+    if(c==' ')return 0;
+    return c-'a'+1;
+}
+char int2char(char n){
+    if(n==0) return ' ';
+    return 'a'+n-1;
+}
+int str2int(char* t){
+    int s=0,p=1;
+    while (*t){
+        s+= char2int(*t)*p;
+        p*=100;
+        t++;
+    }
+    return s;
+}
+char* int2str(int N){
+    int t=1;
+    char* T =(char) malloc(sizeof(char));
+    while(N!=0){
+        T[t-1]=int2char(N%100);
+        t++;
+        T =(char*) realloc(T,t*sizeof(char));
+        N/=100;
+    }
+    T[t-1]='\0';
+    return T;
+}
+int main() {
+    int N=str2int("salut");
+    printf("%d \n",N);
+    char* s = int2str(N);
+    printf("%c \n",s);
+    return 0;
+}
+
+\end{minted}
+A la fin de l'exécution, qu'affiche-t-on sur la sortie standard ?
+\end{document}
