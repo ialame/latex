@@ -36,8 +36,8 @@
 \path[fill=black] (0,0) circle (1.2mm) [fill=gray];
 \path[fill=black]  (1.57,1) circle (1.2mm) [fill=gray];
 \path[fill=black]  (3.142,0) circle (1.2mm) [fill=gray];
-\draw [domain=0:3.5][line width=1] plot(\x,{-.4052*\x*(\x-3.142)});
-\draw [domain=0:6] plot(\x,{sin(57.29*\x)});
+\draw [orange,domain=0:3.5][line width=1] plot(\x,{-.4052*\x*(\x-3.142)});
+\draw [blue,domain=0:6] plot(\x,{sin(57.29*\x)});
 \end{tikzpicture} 
 
 \end{center}
@@ -54,23 +54,23 @@ Maintenant on veut calculer le polynôme d'interpolation en ajoutant le nouveau 
 \path[fill=black]  (3.142,0) circle (1.2mm) [fill=gray];
 \path[fill=black]  (4.713,-1) circle (1.2mm) [fill=gray];
 
-\draw [domain=0:5][line width=1] plot(\x,{.8598e-1*\x*\x*\x-.8104*\x*\x+1.697*\x});
-\draw [domain=0:6] plot(\x,{sin(57.29*\x)});
+\draw [orange,domain=0:5][line width=1] plot(\x,{.8598e-1*\x*\x*\x-.8104*\x*\x+1.697*\x});
+\draw [blue,domain=0:6] plot(\x,{sin(57.29*\x)});
 \end{tikzpicture} 
 
 \end{center}
 
-\section{} {\bf Convergence de l'interpolation de Lagrange : } Soit $L_n$ le polynôme d'interpolation de Lagrange de la fonction définie par :
+\section{} {\bf Convergence de l'interpolation de Lagrange : } Soit $P_n$ le polynôme d'interpolation de Lagrange de la fonction définie par :
 \[f(x) = \frac 1{x-\alpha},\qquad -1\leq x \leq 1 \]
 aux $n + 1$ points distincts $x_0, ..., x_n$ de l'intervalle $[-1,1]$.
 \begin{enumerate}
 \item Calculer les dérivées successives de la fonction $f$.
 \item  Montrer que si $\alpha > 3$, et si les $n + 1$ points $x_0, ..., x_n$ sont équidistants, nous avons alors
-\[\lim_{n\to \infty}\|f-L_n\|_{\infty}=0\]
-\item Écrire l'approximation spline linéaire, $f_n$ de $f$.
+\[\lim_{n\to \infty}\|f-P_n\|_{\infty}=0\]
+\item Écrire l'approximation spline linéaire, $s_n$ de $f$.
 \item  Montrer que si $\alpha \notin [-1,1]$, nous avons
-\[\|f-f_n\|_{ \infty}\leq \frac c{n^2}\]
-et donc que $f_n$ converge uniformément vers $f$ lorsque $n$ tend vers l'infini.
+\[\|f-s_n\|_{ \infty}\leq \frac c{n^2}\]
+et donc que $s_n$ converge uniformément vers $f$ lorsque $n$ tend vers l'infini.
 \end{enumerate}
 
 \section{} {\bf Moindre carrés discrets : }

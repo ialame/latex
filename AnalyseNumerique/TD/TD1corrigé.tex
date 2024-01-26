@@ -108,15 +108,15 @@ La méthode de Newton est la plus simple, car elle réutilise les coefficients d
 \begin{enumerate}
 \item \[f^{(n)}(x)=\frac{(-1)^n n!}{(x-\alpha)^{n+1}}\]
 \item Nous avons
-\[f(x) - L_n(x) =\frac{\prod_{i=0}^n\left(x-x_i\right)}{(n + 1)!}f^{(n+1)}(\xi)\]
+\[f(x) - P_n(x) =\frac{\prod_{i=0}^n\left(x-x_i\right)}{(n + 1)!}f^{(n+1)}(\xi)\]
 où  $-1 < \xi < 1$. Donc
-\[|f(x)-L_n(x)|\leq \frac{\Lambda_n }{(n + 1)!}.\frac{ (n + 1)!}{|\xi-\alpha|^{n+2}}\sim \frac{2^{n+1}}{\mbox{e}\, n\ln(n)}.\frac{ 1}{|\xi-\alpha|^{n+2}}\leq \frac{1}{2\mbox{e}\, n\ln(n)}\]
+\[|f(x)-P_n(x)|\leq \frac{\Lambda_n }{(n + 1)!}.\frac{ (n + 1)!}{|\xi-\alpha|^{n+2}}\sim \frac{2^{n+1}}{\mbox{e}\, n\ln(n)}.\frac{ 1}{|\xi-\alpha|^{n+2}}\leq \frac{1}{2\mbox{e}\, n\ln(n)}\]
 car d'après le cours  la constante de Lebesgue $\Lambda_n \sim \frac{2^{n+1}}{\mbox{e}\, n\ln(n)} $ et $|\xi-\alpha|>2$.  
 D'où
-\[\lim_{n\to \infty}\|f-L_n\|_{\infty}=0\]
+\[\lim_{n\to \infty}\|f-P_n\|_{\infty}=0\]
 \item  \[\left\{\begin{array}{rl}
  \mbox{Pour } &x_i<x<x_{i+1}\\
-f_n(x)&=f(x_i)+\frac{x-x_i}{x_{i+1}-x_{i}}\left(f(x_{i+1})-f(x_{i})\right)\\
+s_n(x)&=f(x_i)+\frac{x-x_i}{x_{i+1}-x_{i}}\left(f(x_{i+1})-f(x_{i})\right)\\
  &=\frac{1}{x_i-\alpha}-\frac{1}{(x_i-\alpha)(x_{i+1}-\alpha)}(x-x_i)
 \end{array}\right.
 \]
@@ -126,14 +126,14 @@ soit
 \[f(x)=\frac{1}{x_i-\alpha}+(x-x_i)\frac{-1}{(x_i-\alpha)^2}+\frac{(x-x_i)^2}{2}\frac{2}{(\xi-\alpha)^{3}}\]
 Donc
 \[\begin{array}{ll}
-f(x)-f_n(x)  &= (x-x_i)\left[\frac{-1}{(x_i-\alpha)^2}+\frac{1}{(x_i-\alpha)(x_{i+1}-\alpha)}\right]+\frac{(x-x_i)^2}{(\xi-\alpha)^{3}}\\
+f(x)-s_n(x)  &= (x-x_i)\left[\frac{-1}{(x_i-\alpha)^2}+\frac{1}{(x_i-\alpha)(x_{i+1}-\alpha)}\right]+\frac{(x-x_i)^2}{(\xi-\alpha)^{3}}\\
 &= \frac{(x_{i+1}-x_i)(x-x_i)}{(x_i-\alpha)^2(x_{i+1}-\alpha)}+\frac{(x-x_i)^2}{(\xi-\alpha)^{3}}
 \end{array}
 \]
-\[|f(x)-f_n(x)|\leq (c_1\,h^2+c_2\,h^2)=\frac{4(c_1+c_2)}{n^2}=\frac{c}{n^2}\]
+\[|f(x)-s_n(x)|\leq (c_1\,h^2+c_2\,h^2)=\frac{4(c_1+c_2)}{n^2}=\frac{c}{n^2}\]
 car $h=\frac 2n$, ainsi
-\[\|f-f_n\|_{ \infty}\leq \frac c{n^2}\]
-et donc que $f_n$ converge uniformément vers $f$ lorsque $n$ tend vers l'infini.
+\[\|f-s_n\|_{ \infty}\leq \frac c{n^2}\]
+et donc que $s_n$ converge uniformément vers $f$ lorsque $n$ tend vers l'infini.
 
 \end{enumerate}
 
