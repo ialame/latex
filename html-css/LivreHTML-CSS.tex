@@ -1,0 +1,70 @@
+\documentclass[a4paper]{book}
+ 
+% - taille de la fonte    : 10pt, 11pt, 12pt
+% - recto ou recto-verso    : oneside, twoside
+ 
+% Chargement d'extensions
+%\usepackage[latin1]{inputenc}    
+\usepackage[francais]{babel}    
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\usepackage[cache=false]{minted}
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+% Informations le titre, le(s) auteur(s), la date
+\title{Vue3}
+\author{Ibrahim ALAME}
+\date{\today}
+\includeonly{ introduction.tex} 
+\begin{document}
+ 
+\maketitle
+
+    \chapter{Les bases du HTML}
+	\input{baseHTML.tex}
+
+    \chapter{Création de notre première application Vue}
+    \input{premiereApplicationVue.tex}
+	\chapter{Intéragir avec le DOM}
+	\input{leDOM.tex}	
+	
+	Voici un exemple de connexion avec Django Rest Framework:
+	\begin{verbatim}
+	youtube:
+		Connect Vue JS Frontend with Django Backend (Hindi)
+	github:
+		https://github.com/geekyshow1/connectvuejsdjango.git
+\end{verbatim}
+Voici le premier youtube que j'ai utilisé:
+\begin{verbatim}
+Vue JS 3, Django 4 and REST API - CRUD App
+\end{verbatim}
+avec son github:
+\begin{verbatim}
+https://github.com/MoTechStore/Vue-JS-3-Django-4-and-REST-API---CRUD-App.git
+\end{verbatim}
+Authentification interressante:
+\begin{verbatim}
+youtube:
+	Login com Vue 3 e JWT
+github:
+	https://github.com/aleduca/vue-login-auth.git	
+\end{verbatim}
+
+    \tableofcontents    
+
+% Fin du document
+\end{document}
