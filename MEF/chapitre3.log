@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  9 FEB 2024 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  9 FEB 2024 11:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1959,7 +1959,7 @@ Package rerunfilecheck Info: File `chapitre3.out' has not changed.
 Here is how much of TeX's memory you used:
  40583 strings out of 478268
  840015 string characters out of 5846348
- 1183543 words of memory out of 5000000
+ 1183544 words of memory out of 5000000
  57829 multiletter control sequences out of 15000+600000
  500028 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1991,7 +1991,7 @@ mf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf
 ist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2022/texmf-dis
 t/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf-dist/
 fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on chapitre3.pdf (47 pages, 1247835 bytes).
+Output written on chapitre3.pdf (47 pages, 1247815 bytes).
 PDF statistics:
  1459 PDF objects out of 1728 (max. 8388607)
  1303 compressed objects within 14 object streams
