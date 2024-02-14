@@ -1,0 +1,409 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\def \de {{\rm d}}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{blue}{white}{$\displaystyle#1$}}
+\newcommand{\mybluebox}[1]{\fcolorbox{blue}{white}{$\displaystyle#1$}}
+\newcommand{\mygreenbox}[1]{\fcolorbox{green}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm,
+ }
+%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+ 
+\newcommand*{\Rayon}{0.15}
+\newcommand*{\tailleTriangle}{0.5}
+\newcommand*{\largeurSol}{1}
+\newcommand*{\hauteurSol}{0.4}
+\pgfmathsetmacro{\basTriangle}{sin(60)*\tailleTriangle}
+\newcommand*{\nbFlechesCont}{10}
+\newcommand*{\rayonCouple}{0.1}
+\newcommand*{\angleCouple}{110}
+ 
+ 
+\tikzset{
+	sol/.pic ={
+		\draw[thick](-\largeurSol/2,0)--(\largeurSol/2,0);
+		\fill[fill,pattern=north east lines] (-\largeurSol/2,0) rectangle++ (\largeurSol,-\hauteurSol);
+	},
+	mur/.pic ={
+		\draw[thick](0,-\largeurSol/2)--(0,\largeurSol/2);
+		\fill[fill,pattern=north east lines] (0,-\largeurSol/2) rectangle++ (\hauteurSol,\largeurSol);
+	},	
+	triangle/.pic ={
+		\draw(0,0)--++(-60:\tailleTriangle)--++(-\tailleTriangle,0)--cycle;
+		\node[anchor=south]{ \tikzpictext};
+	},
+	pivot/.pic ={
+		\pic{triangle};
+		\pic at (0,-\basTriangle){sol};
+	},
+	ponctuelle/.pic ={
+		\pic{triangle};
+		\draw(-\Rayon,-\basTriangle-\Rayon) circle(\Rayon);
+		\draw(\Rayon,-\basTriangle-\Rayon) circle(\Rayon);
+		\pic at(0,-\basTriangle-2*\Rayon){sol};
+	},
+	encastrd/.pic ={
+		\pic{mur};
+		\node{ \tikzpictext};		
+	},
+	encastrg/.pic ={
+		\pic[xscale=-1]{mur};
+		\node{ \tikzpictext};		
+	}	
+}
+\newcommand{\chargecont}[4][]{% #1 (optionnel) style, #2 point de départ, #3 longueur, #4 nom de la charge
+	\pgfmathsetmacro{\pas}{#3/\nbFlechesCont}
+	\foreach \x in {0,\pas,...,#3}{
+		\draw[latex-,#1] ([xshift=\x cm]C) --++(0,0.5);
+	}
+	\draw[#1]([yshift=0.5 cm]#2)--++(#3,0) node[midway,above]{#4};
+}
+\newcommand{\couple}[3][]{% #1 (optionnel) style, #2 point d'application, #3 nom du couple
+	\draw[->,#1] (#2) +(\angleCouple:\rayonCouple) arc(\angleCouple:-\angleCouple:\rayonCouple) node[anchor=north] {$\mathcal{C}$};
+}
+
+%%%%%%%%%%%%%%%%%%%
+\title{Méthode des éléments finis: Corrigé du TD2}
+\author{Ibrahim ALAME}
+\date{14/02/2024}
+\begin{document}
+\maketitle
+
+
+
+\subsubsection*{Problème à résoudre}
+Nous avons
+\[
+\begin{array}{lcr}
+\displaystyle \frac{\de N}{\de x}=p(x);&0\leq x\leq L &\mbox{ équation d'équilibre } \\
+\sigma=E\varepsilon\Longrightarrow N=EA\displaystyle \frac{\de u}{dx}& 0\leq x\leq L&\mbox{ loi de comportement } \\
+N(0)=-f_1 ;N(L)=f_2&&\quad\mbox{ conditions aux limites } 
+\end{array}
+\]
+\[
+\Longrightarrow \left\{
+\begin{array}{ll}
+-EA\displaystyle \frac{\de^2 u}{dx^2}=p(x)\quad 0\leq x\leq L&\mbox{ équiliblre + loi de comportement } \\
+EA\displaystyle \frac{\de u}{dx}(0)=-f_0 ;\;EA\displaystyle \frac{\de u}{dx}(L)=f_L&\mbox{ conditions aux limites de Neumann} 
+\end{array}
+\right.
+\]
+
+\subsubsection*{Formulation variationnelle}
+On cherche une solution $u\in V=H^1(\Omega)$. Multiplions l'équation $-EA u''=p$ par une fonction test $v\in V$:
+\[
+\begin{array}{c}
+-\displaystyle EA\frac{\de^2 u}{dx^2}\cdot v=p\cdot v\\
+-\displaystyle \int_0^LEA\frac{\de^2 u}{dx^2}\cdot v(x)\,\de x=\int_0^L p\cdot v(x)\de x\\
+\displaystyle EA\int_0^L\frac{\de u}{dx}\cdot \frac{\de v}{dx}\,\de x-\left[ EA\frac{\de u}{dx} \cdot v(x)\right]_0^L=\int_0^L p\cdot v(x)\de x\\
+\displaystyle EA\int_0^L\frac{\de u}{dx}\cdot \frac{\de v}{dx}\,\de x=\int_0^L p\cdot v(x)\de x+f_L \cdot v(L)+f_0 \cdot v(0)
+\end{array}
+\]
+
+D'où le problème variationnelle:
+\[
+({\cal P}_v)\;\left\{
+\begin{array}{l}
+\mbox{Trouver } u\in V \mbox{ vérifiant}\\
+a(u,v)=\ell(v)\quad \forall v\in V
+\end{array}
+\right.
+\]
+
+où \[ a(u,v)=\displaystyle EA\int_0^L\frac{\de u}{dx}\cdot \frac{\de v}{dx}\,\de x\]
+et \[ \ell(v)=\displaystyle \int_0^L p\cdot v(x)\de x+f_L \cdot v(L)+f_0 \cdot v(0)\]
+\subsubsection*{Matrice élémentaire}
+On approche l'espace $V$ par $\mathbb{P}_1=\{ax+b,\;(a,b)\in \mathbb{R}^2\}$ et on considère un maillage de la barre $[0,L]$ réduit à un élément fini unique.
+
+Les deux fonctions de base $\varphi_i$, $i=1,2$ définies par $\varphi_i(a_j)=u _{ij}$ sont données pour tout $x\in [0,L]$  par
+\[\varphi_1(x)=1-\frac{x}{h},\quad \varphi_2(x)=\frac{x}{h}\]
+Nous avons
+\[a(\varphi_1,\varphi_1)=EA \int_0^h\left(\frac{\de \varphi_1}{dx}\right)^2\de x=EA \int_0^h\left(\frac{-1}{L}\right)^2\de x=\frac{EA }{h}\]
+\[a(\varphi_2,\varphi_2)=EA \int_0^h\left(\frac{\de \varphi_2}{dx}\right)^2\de x=EA \int_0^L\left(\frac{1}{h}\right)^2\de x=\frac{EA }{h}\]
+\[a(\varphi_1,\varphi_2)=a(\varphi_2,\varphi_1)=EA \int_0^h\left(\frac{\de \varphi_2}{dx}\right)\left(\frac{\de \varphi_1}{dx}\right)\de x=EA \int_0^h\left(\frac{-1}{h}\right)\left(\frac{1}{h}\right)\de x=-\frac{EA }{h}\]
+
+Nous avons aussi $\ell(\varphi_1)=f_1$ et $\ell(\varphi_2)=f_2$.  D'où le système élémentaire
+\[\frac{EA}{h}\left(\begin{array}{rr} 
+1&-1\\-1&1
+\end{array}\right) \left(\begin{array}{l} 
+u_{1}\\u_{2}
+\end{array}\right)=\left(\begin{array}{r} 
+f_{1}\\f_{2}
+\end{array}\right)
+\]
+
+où $f_1$ et $f_2$ sont les efforts appliqués à la barre aux deux extrémités.
+\subsubsection*{Barre à section variable}
+Soit $(u _0,u _1,u _2,u _3,u _4)$ les déplacements aux 5 nœuds. La matrice élémentaire de l'élément $e_i$, $i=0,3$ est donnée
+par
+\[\frac{EA_i}{h_i}\left(\begin{array}{rr} 
+1&-1\\-1&1
+\end{array}\right) \left(\begin{array}{l} 
+u _{i}\\u _{i+1}
+\end{array}\right)=\left(\begin{array}{r} 
+f_{i}\\f_{i+1}
+\end{array}\right)
+\]
+Soit explicitement pour chacune des 4 barres:
+\[\left(\begin{array}{ccccc} 
+\frac{EA_0}{h_0}&-\frac{EA_0}{h_0}&0&0&0\\-\frac{EA_0}{h_0}&\frac{EA_0}{h_0}&0&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0
+\end{array}\right) \left(\begin{array}{l} 
+u _{0}\\u _{1}\\u _{2}\\u _{3}\\u _{4}
+\end{array}\right)=\left(\begin{array}{c} 
+f_{0}\\f_{1}\\f_{2}\\f_{3}\\f_{4}
+\end{array}\right)
+\]
+\[\left(\begin{array}{ccccc} 
+0&0&0&0&0\\
+0&\frac{EA_1}{h_1}&-\frac{EA_1}{h_1}&0&0\\0&-\frac{EA_1}{h_1}&\frac{EA_1}{h_1}&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0
+\end{array}\right) \left(\begin{array}{l} 
+u _{0}\\u _{1}\\u _{2}\\u _{3}\\u _{4}
+\end{array}\right)=\left(\begin{array}{c} 
+f_{0}\\f_{1}\\f_{2}\\f_{3}\\f_{4}
+\end{array}\right)
+\]
+\[\left(\begin{array}{ccccc} 
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&\frac{EA_2}{h_2}&-\frac{EA_2}{h_2}&0\\0&0&-\frac{EA_2}{h_2}&\frac{EA_2}{h_2}&0\\
+0&0&0&0&0\\
+\end{array}\right) \left(\begin{array}{l} 
+u _{0}\\u _{1}\\u _{2}\\u _{3}\\u _{4}
+\end{array}\right)=\left(\begin{array}{c} 
+f_{0}\\f_{1}\\f_{2}\\f_{3}\\f_{4}
+\end{array}\right)
+\]
+\[\left(\begin{array}{ccccc} 
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&0&0&0\\
+0&0&0&\frac{EA_3}{h_3}&-\frac{EA_3}{h_3}\\0&0&0&-\frac{EA_3}{h_3}&\frac{EA_3}{h_3}
+\end{array}\right) \left(\begin{array}{l} 
+u _{0}\\u _{1}\\u _{2}\\u _{3}\\u _{4}
+\end{array}\right)=\left(\begin{array}{c} 
+f_{0}\\f_{1}\\f_{2}\\f_{3}\\f_{4}
+\end{array}\right)
+\]
+La matrice d'assemblage s'obtient en sommant les 4 matrices élémentaires:
+\[\left(\begin{array}{ccccc} 
+\frac{EA_0}{h_0}&-\frac{EA_0}{h_0}&0&0&0\\-\frac{EA_0}{h_0}&\frac{EA_0}{h_0}+\frac{EA_1}{h_1}&-\frac{EA_1}{h_1}&0&0\\
+0&-\frac{EA_1}{h_1}&\frac{EA_1}{h_1}+\frac{EA_2}{h_2}&-\frac{EA_2}{h_2}&0\\0&0&-\frac{EA_2}{h_2}&\frac{EA_2}{h_2}+\frac{EA_3}{h_3}&-\frac{EA_3}{h_3}\\
+0&0&0&-\frac{EA_3}{h_3}&\frac{EA_3}{h_3}
+\end{array}\right) \left(\begin{array}{l} 
+u _{0}=0\\u _{1}\\u _{2}\\u _{3}\\u _{4}
+\end{array}\right)=\left(\begin{array}{c} 
+f_{0}\\f_{1}\\f_{2}\\f_{3}\\f_{4}
+\end{array}\right)
+\]
+On $u _0=0$, La première ligne nous donne la réaction à l'origine $f_0=-\frac{EA_0}{h_0}u _1$. Le système n'a que 4 inconnues, on obtient le système d'ordre 4 en supprimant la première ligne et la première colonne:
+\[\left(\begin{array}{cccc} 
+\frac{EA_0}{h_0}+\frac{EA_1}{h_1}&-\frac{EA_1}{h_1}&0&0\\
+-\frac{EA_1}{h_1}&\frac{EA_1}{h_1}+\frac{EA_2}{h_2}&-\frac{EA_2}{h_2}&0\\
+0&-\frac{EA_2}{h_2}&\frac{EA_2}{h_2}+\frac{EA_3}{h_3}&-\frac{EA_3}{h_3}\\
+0&0&-\frac{EA_3}{h_3}&\frac{EA_3}{h_3}
+\end{array}\right) \left(\begin{array}{l} 
+u _{1}\\u _{2}\\u _{3}\\u _{4}
+\end{array}\right)=\left(\begin{array}{c} 
+f_{1}\\f_{2}\\f_{3}\\f_{4}
+\end{array}\right)
+\]
+Soit numériquement ($E=2\times 10^{11}$Pa) :
+\[
+10^{6}\left(
+{\begin{array}{cccc}
+{\displaystyle \frac {1939}{9}} \,\pi  &  - {\displaystyle 
+\frac {1210}{9}} \,\pi  & 0 & 0 \\ [2ex]
+ - {\displaystyle \frac {1210}{9}} \,\pi  & {\displaystyle 
+\frac {8045}{18}} \,\pi  &  - {\displaystyle \frac {625}{2}} 
+\,\pi  & 0 \\ [2ex]
+0 &  - {\displaystyle \frac {625}{2}} \,\pi  & {\displaystyle 
+\frac {2125}{6}} \,\pi  &  - {\displaystyle \frac {125}{3}} \,
+\pi  \\ [2ex]
+0 & 0 &  - {\displaystyle \frac {125}{3}} \,\pi  & 
+{\displaystyle \frac {125}{3}} \,\pi 
+\end{array}}
+ \right) \left(\begin{array}{l} 
+u _{1}\\ \\u _{2}\\ \\u _{3}\\ \\u _{4}
+\end{array}\right)=10^{3}\left(\begin{array}{l} 
+20\\ \\0\\ \\20\\ \\10
+\end{array}\right)
+\]
+La solution en (m) est:
+\[
+ \left[  \! {\displaystyle \frac {1}{1620}} \,{\displaystyle 
+\frac {1}{\pi }} , \,{\displaystyle \frac {8237}{9801000}} \,
+{\displaystyle \frac {1}{\pi }} , \,{\displaystyle \frac {1147237
+}{1225125000}} \,{\displaystyle \frac {1}{\pi }} , \,{\displaystyle 
+\frac {1441267}{1225125000}} \,{\displaystyle \frac {1}{\pi }}  \! 
+ \right] 
+\]
+soit en (mm):
+\[
+[0.1964875840,\,0.2675154098,\,0.2980731589,\,0.3744675314]
+\]
+Le déplacement à l'extrémité est alors $u _4=0.37$mm.
+
+La réaction $f_0$ est donc $f_0=-\frac{EA_0}{h_0}u _1=50$kN.
+
+
+
+\subsubsection*{Poutre en flexion}
+On cherche une solution $u\in V=H^2(\Omega)$. Multiplions l'équation $EIu''''=p$ par une fonction test $v\in V$:
+\[
+\begin{array}{c}
+\displaystyle EI_z\frac{\de^4 u}{dx^4}\cdot v=p\cdot v\\
+\displaystyle \int_0^LEI_z\frac{\de^4 u}{dx^4}\cdot v(x)\,\de x=\int_0^L p\cdot v(x)\de x\\
+-\displaystyle EI_z\int_0^L\frac{\de u^3}{dx^3}\cdot \frac{\de v}{dx}\,\de x+\left[ EI_z\frac{\de^3 u}{dx^3} \cdot v(x)\right]_0^L=\int_0^L p\cdot v(x)\de x\\
+\displaystyle EI_z\int_0^L\frac{\de^2 u}{dx^2}\cdot \frac{\de^2 v}{dx^2}\,\de x-\left[ EI_z\frac{\de^2 u}{dx^2} \cdot \frac{\de v}{dx} \right]_0^L+\left[ EI_z\frac{\de^3 u}{dx^3} \cdot v(x)\right]_0^L=\int_0^L p\cdot v(x)\de x\\
+\displaystyle EI_z\int_0^L\frac{\de^2 u}{dx^2}\cdot \frac{\de^2 v}{dx^2}\,\de x- \left. EI_z
+\frac{\de^2 u}{dx^2} \cdot \frac{\de v}{dx} \right|_{x=L} +\left. EI_z
+\frac{\de^2 u}{dx^2} \cdot \frac{\de v}{dx}  \right|_{x=0} +
+\left. EI_z\frac{\de^3 u}{dx^3} \right|_{x=L} v(L) - \left. EI_z\frac{\de^3 u}{dx^3} \right|_{x=0} v(0)
+=\int_0^L p\cdot v(x)\de x\\
+\displaystyle EI_z\int_0^L\frac{\de^2 u}{dx^2}\cdot \frac{\de^2 v}{dx^2}\,\de x-  M_L \frac{\de v}{dx}(L)-  M_0 \frac{\de v}{dx}(0)-F_Lv(L) - F_0 v(0)
+=\int_0^L p\cdot v(x)\de x\\
+\displaystyle EI_z\int_0^L\frac{\de^2 u}{dx^2}\cdot \frac{\de^2 v}{dx^2}\,\de x= \int_0^L p\cdot v(x)\de x+ F_0 v(0) +F_Lv(L) +  M_0 \frac{\de v}{dx}(0) + M_L \frac{\de v}{dx}(L)
+\end{array}
+\]
+
+D'où le problème variationnelle:
+\[
+({\cal P}_v)\;\left\{
+\begin{array}{l}
+\mbox{Trouver } u\in V \mbox{ vérifiant}\\
+a(u,v)=\ell(v)\quad \forall v\in V
+\end{array}
+\right.
+\]
+
+où \[ a(u,v)=\displaystyle EI_z\int_0^L\frac{\de^2 u}{dx^2}\cdot \frac{\de^2 v}{dx^2}\,\de x\]
+et \[ \ell(v)=\int_0^L p\cdot v(x)\de x+ F_0 v(0) +F_Lv(L) +  M_0 \frac{\de v}{dx}(0) + M_L \frac{\de v}{dx}(L)\]
+
+
+
+En notant $\Phi_{i}(x)$ les fonctions de base associées aux valeurs nodales de la fonction $v_{i}$ et $\Psi_{i}(x)$ les fonctions de base associées aux valeurs nodales de la dérivée $(\frac{dv}{dx})_{i}$, on écrit:
+
+
+
+\begin{displaymath}
+v^{h}(x)=\sum_{i=1}^{n}v_{i}\Phi_{i}(x)+\sum_{i=1}^{n}(\frac{dv}{dx})_{i}\Psi_{i}(x)\end{displaymath}
+
+Sur un élément $e_{k}=[x_{k},x_{k+1}]$, cette approximation s'écrit:
+
+
+
+\begin{displaymath}
+v^{h}(x)=v_{k}\Phi_{k}(x)+(\frac{dv}{dx})_{k}\Psi_{k}(x)+v_{k+1}\Phi_{k+1}(x)+(\frac{dv}{dx})_{k+1}\Psi_{k+1}(x)\end{displaymath}
+
+$\Phi_{i}$ et $\Psi_i$ vérifient les conditions:
+\[\left\{\begin{array}{l}
+\Phi_{i}(x_j)=u _{ij}\quad \Phi'_{i}(x_j)=0\\
+\Psi_{i}(x_j)=0\quad \Psi'_{i}(x_j)=u _{ij}
+\end{array} \right. \]
+
+D'après le cours:
+
+\[\left\{\begin{array}{l}
+\Phi_i(x) = \left[1-2(x-x_i)\lambda'_i(x_i)\right]\lambda^2_i(x) \\
+\Psi_i(x) = (x-x_i)\lambda^2_i(x) 
+\end{array}\right.
+ \]
+Sur l'élément de référence $x_0=0$ et $x_1=1$, $\lambda_0=1-\frac{x}{L}$ et $\lambda_1=\frac{x}{L}$
+D'où en posant $\frac{x}{L}=\xi$:
+\[\left\{\begin{array}{l}
+\Phi_0(x) = (1+2\xi)(1-\xi)^2 =1-3\xi^2+2\xi^3\\
+\Phi_1(x) = (3-2\xi)\xi^2 =3\xi^2-2\xi^3\\
+\Psi_0(x) = L \xi(1-\xi)^2=L (\xi-2\xi^2+\xi^3)\\
+\Psi_1(x) = L (\xi-1)\xi^2=L(-\xi^2 +\xi^3)
+\end{array}\right.
+ \]
+\[\left\{\begin{array}{l}
+\Phi'_0(x) = -6\xi+6\xi^2\\
+\Phi'_1(x) = 6\xi-6\xi^2\\
+\Psi'_0(x) = L(1-4\xi+3\xi^2)\\
+\Psi'_1(x) = L(-2\xi+3\xi^2)
+\end{array}\right.
+ \]
+ \[\left\{\begin{array}{l}
+\Phi''_0(x) = -6+12\xi\\
+\Phi''_1(x) = 6-12\xi\\
+\Psi''_0(x) = L(-4+6\xi)\\
+\Psi''_1(x) = L(-2+6\xi)
+\end{array}\right.
+ \]
+ Calcul de la matrice de rigidité:
+ 
+ \[a_{11}=a(\Phi_0,\Phi_0)=EI\int_0^L\left(\frac{\de^2 \Phi_1}{dx^2}\right)^2\de x=\frac{EI}{L^3}\int_0^1\left(\frac{\de^2 \Phi_1}{d\xi^2}\right)^2\de \xi=\frac{EI}{L^3}\int_0^1\left(-6+12\xi\right)^2\de \xi=12\frac{EI}{L^3}\]
+\[a_{22}=a(\Psi_0,\Psi_0)=EI\int_0^L\left(\frac{\de^2 \Psi_0}{dx^2}\right)^2\de x=\frac{EI}{L^3}\int_0^1\left(\frac{\de^2 \Psi_0}{d\xi^2}\right)^2\de \xi=\frac{EI}{L^3}\int_0^1L^2\left(-4+6\xi\right)^2\de \xi=4\frac{EI}{L}\]
+\[a12=a(\Phi_0,\Psi_0)=EI\int_0^L\frac{\de^2 \Phi_0}{dx^2}\frac{\de^2 \Psi_0}{dx^2}\de x=\frac{EI}{L^3}\int_0^1\left(-6+12\xi\right)L(-4+6\xi)\de \xi=6\frac{EI}{L^2}\]
+Les autres coefficients se calculent de la même façon, d'où la matrice élémentaire:
+\[\frac{EI}{L^3}\left(\begin{array}{rrrr} 
+12&6L&-12&6L\\
+6L&4L^2&-6L&2L^2\\
+-12&-6L&12&-6L\\
+6L&2L^2&-6L&4L^2
+\end{array}\right) 
+\]
+\begin{enumerate}
+\item Si la poutre est bi-encastrée alors $v(0)=v(L)=0$ et $\frac{\de v}{dx}(0) =\frac{\de v}{dx}(L) =0$ donc 
+\[ \ell(v)=\int_0^L p\cdot v(x)\de x+ F_0 v(0) +F_Lv(L) +  M_0 \frac{\de v}{dx}(0) + M_L \frac{\de v}{dx}(L)\quad \Longrightarrow \quad \ell(v)=\int_0^L p\cdot v(x)\de x\]
+Le second membre élémentaire est alors
+\[\left(\begin{array}{r} 
+\ell(\Phi_0)\\\ell(\Psi_0)\\\ell(\Phi_1)\\\ell(\Psi_1)
+\end{array}\right)= \left(\begin{array}{r} 
+\int_0^Lp(x)\Phi_0(x)\de x\\\int_0^Lp(x)\Psi_0(x)\de x\\\int_0^Lp(x)\Phi_1(x)\de x\\\int_0^Lp(x)\Psi_1(x)\de x
+\end{array}\right)= \left(\begin{array}{l} 
+pL\int_0^11-3\xi^2+2\xi^3\de \xi\\pL^2\int_0^1(\xi-2\xi^2+\xi^3)\de \xi\\pL\int_0^13\xi^2-2\xi^3\de \xi\\pL^2\int_0^1(-\xi^2 +\xi^3)\de \xi
+\end{array}\right)= \left(\begin{array}{l} 
+\frac{pL}2\\\frac{pL^2}{12}\\\frac{pL}2\\\frac{-pL^2}{12}
+\end{array}\right)\]
+\item Si la poutre est encastrée à l'origine alors $v(0)=0$ et si elle est soumise uniquement à une force ponctuelle $\vec P$ à l'autre extrémité alors $p=0$, $M_L=0$ donc 
+\[ \ell(v)=P\cdot v(L) \]
+Le second membre élémentaire est alors
+\[\left(\begin{array}{r} 
+\ell(\Phi_0)\\\ell(\Psi_0)\\\ell(\Phi_1)\\\ell(\Psi_1)
+\end{array}\right)= \left(\begin{array}{r} 
+P\Phi_0(L)\\P\Psi_0(L)\\P\Phi_1(L)\\P\Psi_1(l)
+\end{array}\right)= \left(\begin{array}{r} 
+0\\0\\P\\0
+\end{array}\right)\]
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
