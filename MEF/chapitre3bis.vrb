@@ -1,0 +1,46 @@
+\frametitle{Exemple}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\appui{0}{0}{.3};
+\appui{0}{-2}{.3};
+\draw[double distance = 1pt] (0,0) - - (2,0);
+\draw[double distance = 1pt] (2,0) - - (4,0);
+\draw[double distance = 1pt] (4,0) - - (6,0);
+\draw[double distance = 1pt] (6,0) - - (4,-2);
+\draw[double distance = 1pt] (4,-2) - - (2,-2);
+\draw[double distance = 1pt] (2,-2) - - (0,-2);
+\draw[double distance = 1pt] (4,0) - - (2,-2);
+\draw[double distance = 1pt] (2,0) - - (0,-2);
+\draw[double distance = 1pt] (2,0) - - (2,-2);
+\draw[double distance = 1pt] (4,0) - - (4,-2);
+\path[fill=black]  (0,0) circle (.75mm) [fill=gray];
+\path[fill=black]  (2,0) circle (.75mm) [fill=gray];
+\path[fill=black]  (4,0) circle (.75mm) [fill=gray];
+\path[fill=black]  (6,0) circle (.75mm) [fill=gray];
+\path[fill=black]  (4,-2) circle (.75mm) [fill=gray];
+\path[fill=black]  (2,-2) circle (.75mm) [fill=gray];
+\path[fill=black]  (0,-2) circle (.75mm) [fill=gray];
+
+\draw[red,double distance = 1pt] (0.0,0.0) - - (2.0300000000000002,-0.07242640687119303);
+\draw[red,double distance = 1pt] (2.0300000000000002,-0.07242640687119303) - - (4.045,-0.1898528137423861);
+\draw[red,double distance = 1pt] (4.045,-0.1898528137423861) - - (6.045,-0.24985281374238621);
+\draw[red,double distance = 1pt] (6.045,-0.24985281374238621) - - (3.985,-2.189852813742386);
+\draw[red,double distance = 1pt] (3.985,-2.189852813742386) - - (1.9849999999999999,-2.087426406871193);
+\draw[red,double distance = 1pt] (1.9849999999999999,-2.087426406871193) - - (0.0,-2.0);
+\draw[red,double distance = 1pt] (4.045,-0.1898528137423861) - - (1.9849999999999999,-2.087426406871193);
+\draw[red,double distance = 1pt] (2.0300000000000002,-0.07242640687119303) - - (0.0,-2.0);
+\draw[red,double distance = 1pt] (2.0300000000000002,-0.07242640687119303) - - (1.9849999999999999,-2.087426406871193);
+\draw[red,double distance = 1pt] (4.045,-0.1898528137423861) - - (3.985,-2.189852813742386);
+\path[fill=black]  (0.0,0.0) circle (.75mm) [fill=gray];
+\path[fill=black]  (2.0300000000000002,-0.07242640687119303) circle (.75mm) [fill=gray];
+\path[fill=black]  (4.045,-0.1898528137423861) circle (.75mm) [fill=gray];
+\path[fill=black]  (6.045,-0.24985281374238621) circle (.75mm) [fill=gray];
+\path[fill=black]  (3.985,-2.189852813742386) circle (.75mm) [fill=gray];
+\path[fill=black]  (1.9849999999999999,-2.087426406871193) circle (.75mm) [fill=gray];
+\path[fill=black]  (0.0,-2.0) circle (.75mm) [fill=gray];
+(6.045,-0.24985281374238621)
+\draw [blue,->,very thick] (6.045,-0.25)-- (6.045,-2.25);
+\end{tikzpicture}
+\end{center}

@@ -1,0 +1,2 @@
+\babel@toc {french}{}\relax 
+\beamer@subsubsectionintoc {0}{0}{1}{Matrice de rigidité}{40}{0}{0}
