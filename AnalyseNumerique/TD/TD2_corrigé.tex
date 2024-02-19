@@ -1,0 +1,450 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+%%%%%%%%   bleclercq@adm.estp.fr
+\title{TD 2 Analyse numérique (B1-TP1)}
+\author{Ibrahim ALAME}
+\date{19/02/2024}
+\begin{document}
+\maketitle
+
+\section{Méthodes d'Euler explicite, implicite et Runge-Kutta}
+Le problème de Cauchy :
+\[({\cal P})\left\{\begin{array}{l}
+y'(t)=f(t,y(t)),\quad t\in [0,1],\\
+y(0)=1
+\end{array}\right.\]
+où $f(t, y) = 3t + y$.
+\begin{enumerate}
+\item  
+\begin{enumerate}
+\item  On a $|f(t, y_1) - f(t, y_2)|= |y_1 - y_2|$, $f$ est 1-lipschitzienne par rapport à la deuxième
+variable.
+\item $f$ est continue et 1-lipschitzienne par rapport à $y$, on peut appliquer le théorème
+de Cauchy Lipschitz : existence et unicité de la solution.
+\end{enumerate}
+\item On calcule $y'(t) = 4e^t - 3$, on a bien $y'(t) = 3t + y(t)$. De plus $y(0) = 1$. $y$ est bien
+solution de $(\mathcal{P})$, c'est l'unique solution d'après la question précédente.
+\item On écrit $y_{n+1} = y_n + hf(t_n; y_n)$ avec $y_n$ approchant $y(t_n)$ avec $t_n = nh$.
+On a :
+\begin{enumerate}
+\item $y_0 = 1$ (condition initiale)
+\item $y_1 = y_0 + h(3t_0 + y_0) = 1.1$
+\item $y_2 = y_1 + h(3t_1 + y_1) = 1.24$
+\end{enumerate}
+
+\item On écrit $y_{n+1} = y_n + hf(t_{n+1}; y_{n+1})$ avec $y_n$ approchant $y(t_n)$ avec $t_n = nh$. Ici on a donc $(1-h)y_{n+1} = y_n + 3(n + 1)h^2$ et donc $y_{n+1} =\frac{y_n + 3(n + 1)h^2}{1-h}$.
+
+On a :
+\begin{enumerate}
+\item  $y_0 = 1$ (condition initiale)
+\item  $y_1 = 1.1444...$
+\item  $y_2 = 1.338... $
+\end{enumerate}
+\item On pose $y_{n+1} = y_n + hf(t_{n}+\frac h2,\hat{y}_{n})$ avec $\hat{y}_{n} = y_n + \frac h2f(t_{n},y_{n})$
+
+\begin{enumerate}
+\item  On a $\hat{y}_{0} = 1.05$ et donc $y_1 = 1.12$
+\item  On a $\hat{y}_{1} = 1.191$ et $y_2 = 1.2841$
+\end{enumerate}
+\item  On a $y(0.2) = 1.2856...$
+Les erreurs relatives sont de $0.03$ avec Euler explicite, $0.04$ avec Euler implicite, et $0.001$
+avec RK2.
+\end{enumerate}
+\section{Majoration de l'erreur}
+L'équation différentielle est $y' = -y$ considérée sur $[0; 10]$ avec la condition initiale $y(0) = 1$.
+\begin{enumerate}
+\item   La solution est $y = e^{-t}$ et l'inégalité donc évidente.
+\item   $y_n = (1 - h)^n$ après calcul...
+\item  Pour $h < 1$, l'inégalité est vérifié. Mais pour $h\geq 1$, on a $y_1\leq 0$.
+\item On doit majorer :
+\[|y_n-y(t_n)|\leq |(1 - h)^n- e^{-nh}| \leq n|1-h-e^{-h}|\leq n\frac{h^2}{2}\leq 5h\]
+(On utilise les accroissements finis sur $t_n$, puis Taylor-Lagrange pour $e^t$ et enfin $nh\leq Nh = 10$).
+\item  EI : $y_n = (1+h)^n$. Pas de condition sur $h$ pour avoir les inégalités. Majoration similaire
+par un multiple de $h$...
+
+RK2 : $y_n = (1 - h+\frac{h^2}2)^n$. Condition $h < 2$. Majoration par un multiple de $h^2$... (car $1-h + \frac{h^2}2$ approche plus précisément $e^{-h}$).
+
+RK4 : $y_n = (1 - h+\frac{h^2}2-\frac{h^3}6+\frac{h^4}{24})^n$. Inégalité valable au moins pour $h < 1$ (étude détaillée semble délicate). Erreur en $h^4$ - conforme à l'ordre attendu...
+\end{enumerate}
+
+\section{Erreur de la méthode d'Euler}
+\begin{enumerate}
+\item Solution exacte: $y=e^{-t}+t-1$.
+\item Méthode d'Euler sur l'intervalle $[0,1]$
+\[\left\{\begin{array}{l}
+y_{k+1}=y_k+h(-y_k+t_k)\\
+y_0=0
+\end{array}\right.
+\]
+où $h=\frac{1-0}{n} =\frac 1n$ et $t_k=a+k h =kh=\frac{k}{n}$
+Donc 
+
+\[y_{k+1}=(1-h)y_{k}+kh^2\]
+On divise par $(1-h)^{k+1}$:
+\[\frac{y_{k+1}}{(1-h)^{k+1} }=\frac{y_{k}}{(1-h)^{k} }+h^2 \frac{k}{(1-h)^{k+1} }\]
+On somme entre 0 et $n-1$:
+\[\sum_{k=0}^{n-1}\left[\frac{y_{k+1}}{(1-h)^{k+1} }-\frac{y_{k}}{(1-h)^{k} }\right]=h^2 \sum_{k=0}^{n-1}\frac{k}{(1-h)^{k+1} }\]
+\[\frac{y_{n}}{(1-h)^{n} }-\frac{y_{0}}{(1-h)^{0} }=h^2 \sum_{k=0}^{n-1}\frac{k}{(1-h)^{k+1} }\]
+\[\frac{y_{n}}{(1-h)^{n} }=\frac{h^2}{(1-h)^2} \sum_{k=0}^{n-1}\frac{k}{(1-h)^{k-1} }\]
+Or $\sum_{k=0}^{n-1}x^k=\frac{1-x^n}{1-x}$ donc $\sum_{k=0}^{n-1}kx^{k-1}=\frac{x^{n-1}[(n-1)x-n]+1}{(1-x)^2}$
+
+On applique cette dernière somme pour $x=\frac{1}{1-h}=\frac{n}{n-1}$ car $h=\frac 1n$:
+\[ \sum_{k=0}^{n-1}\frac{k}{(1-h)^{k-1} }=\frac{\left(\frac{n}{n-1}\right)^{n-1}[(n-1)\frac{n}{n-1}-n]+1}{(1-\frac{n}{n-1})^2}=\frac{\left(\frac{n}{n-1}\right)^{n-1}\times 0+1}{(1-\frac{n}{n-1})^2}=(n-1)^2\]
+D'où 
+\[\frac{y_{n}}{(1-h)^{n} }=\frac{h^2}{(1-h)^2} \sum_{k=0}^{n-1}\frac{k}{(1-h)^{k-1} }= \left(\frac{\frac{1}{n}}{1-\frac{1}{n}}\right)^2(n-1)^2=1   \]
+\[y_{n}=(1-h)^{n} \]
+D'où l'erreur en $t=1$:
+\[\varepsilon =y(1)-y_n= e^{-1}-(1-\frac 1n)^n =e^{-1}-e^{n\ln(1-\frac 1n)}=e^{-1}-e^{n(-\frac 1n-\frac 1{2n^2}+o(\frac 1{n^2}))}=e^{-1}-e^{-1-\frac 1{2n}+o(\frac 1n)}\]
+\[\varepsilon =e^{-1}\left(1-e^{-\frac 1{2n}+o(\frac 1n)}\right)=e^{-1}\left(1-[1-\frac 1{2n}+o(\frac 1n)]\right)\]
+\[\varepsilon =e^{-1}\left(\frac 1{2n}+o(\frac 1n)\right)\]
+\[\varepsilon \sim \frac {1}{2en}\]
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Équation différentielle du second ordre}
+L'équation différentielle du second ordre 
+\[y'' + ty' + (1 - t)y = 2\]
+ considérée sur l'intervalle $I = [0; 1]$ avec les conditions initiales $y(0) = 0$ et $y'(0) = 0$.
+\begin{enumerate}
+\item  On pose $Y (t) =\left(\begin{array}{c} y(t)\\y'(t) \end{array}\right)$.
+
+On a $Y' = F(t, Y )$ avec
+\[F(t,Y) =\left(\begin{array}{c} y_2\\2-ty_2-(1-t)y_1 \end{array}\right)\]
+\item $F$ est clairement continue. Étudions $\|F(t, Y )-F(t,Z)\|$ (on peut utiliser la norme 1) :
+\[\begin{array}{ccl} 
+\|F(t, Y )-F(t,Z)\|&= &\left\|\left(\begin{array}{c} y_2-z_2\\-t(y_2-z_2)-(1-t)(y_1-z_1) \end{array}\right)\right\|\\
+&\leq & (1+t) |y_2-z_2|+(1-t)|y_1-z_1|\\
+&\leq & 2\|Y-Z\|
+\end{array}
+\]
+
+$F$ est 2-lipschitzienne. Cauchy-Lipschitz, etc.
+\item $Y_{n+1} = Y_n + hF(t_n, Y_n)$
+\begin{enumerate}
+\item $Y_0=\left(\begin{array}{c}0\\0\end{array}\right)$
+\item $Y_1=\left(\begin{array}{c}0\\0.2\end{array}\right)$
+\item $Y_2=\left(\begin{array}{c}0.02\\0.398 \end{array}\right)$
+\item $Y_3=\left(\begin{array}{c}0.0598\\0.58844\end{array}\right)$
+\end{enumerate}
+On trouve $y(0.3)\simeq 0.0598$ (remarque : calcul de la deuxième composante de $Y_3$ n'est
+pas nécessaire...).
+\item La récurrence s'écrit $Y_{n+1} = Y_n + hF(t_{n+1}, Y_{n+1})$. Notons $Y_n =\left(\begin{array}{c} y_n\\z_n\end{array}\right)$.
+On a donc :
+\[\left\{\begin{array}{l}
+y_{n+1} = y_n + hz_{n+1}\\
+z_{n+1} = z_n + h(2-t_{n+1}z_{n+1} - (1 - t_{n+1})y_{n+1})
+\end{array}\right.\]
+
+Les composantes de $Y_{n+1}$ s'obtiennent moyennant la résolution du système linéaire suivant
+:
+\[\left\{\begin{array}{rrcl}
+y_{n+1} & -hz_{n+1} &= &y_n \\
+h(1 - t_{n+1})y_{n+1} & +(1+ht_{n+1})z_{n+1} &=&z_n+2h
+\end{array}\right.\]
+\[\left(\begin{array}{cc}
+1& -h \\
+h(1 - t_{n+1})& (1+ht_{n+1})
+\end{array}\right)  \left(\begin{array}{c} y_{n+1}\\z_{n+1}\end{array}\right)=\left(\begin{array}{c} y_n\\z_n+2h\end{array}\right)\]
+
+(On pourrait poursuivre la résolution explicite ou utiliser un algorithme pour résoudre le système à chaque itération).
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Équation différentielle non linéaire}
+ Le problème de Cauchy est le suivant (avec $T > 0$) :
+\[({\cal P})\left\{\begin{array}{l}
+y'(t)= \sin y(t) + \sin t,\quad \forall t\in[0,T]\\
+y(0)=0
+\end{array}\right.\]
+\begin{enumerate}
+\item  $f(t, y) = \sin y + \sin t$ est 1-lipschitzienne après calcul et $f$ continue : on peut
+appliquer Cauchy-Lipschitz.
+\item  On a $|y'|\leq 2$ et comme $y''(t) = y'(t) \cos y(t) + \cos t$, on a $|y''|\leq 3$.
+\item  On applique le théorème de cours. On obtient une majoration par $\frac 32(e^T-1)h$.
+\item  Avec $T = 1$, on a $h = 1/N$. On doit avoir $N >\frac 3{2\times 10^{-3}}(e-1)$. Donc $N > 2577$.
+
+Avec $T = 10$, on a $h = 10/N$. On doit avoir $N > 10 \times \frac 3{2\times 10^{-3}}(e^{10}-1)$. Donc $N >330381986$. (beaucoup ! ! ! !, ceci dit, on peut espérer qu'en pratique on obtient un résultat
+acceptable pour un N inférieur...).
+\end{enumerate}
+
+%\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Méthode à un pas}
+ On considère un problème de Cauchy $y' = f(t; y)$ avec $y(a) = \alpha$.
+La méthode de Heun est une méthode numérique à un pas où le calcul de $y_{n+1}$ à partir de $y_n$ est décrite par :
+\[({\cal P})\left\{\begin{array}{l}
+\overline{y}_n= y_n + hf(t_n; y_n)\\
+y_{n+1} = y_n +\frac h2\left(f(t_n,y_n) + f(t_{n+1},\overline{y}_n)\right)
+\end{array}\right.\]
+
+\begin{enumerate}
+\item  Nous avons 
+\[\begin{array}{ccl}
+y' = f(t; y) &\Longrightarrow &\int_{t_n}^{t_{n+1}} y'(t)\de t  = \int_{t_n}^{t_{n+1}} f(t; y) \de t\\
+               &\Longrightarrow &y(t_{n+1})-y(t_n)  \simeq h\frac{f(t_n,y(t_n))+f(t_{n+1},y(t_{n+1})) }{2}
+\end{array} \]
+$y(t_{n+1})$ au premier membre est approché par $y_{n+1}$ tandis qu'au second membre il est approché par le schéma d'Euler explicite et noté $\overline{y}_{n}$. D'où la méthode.
+
+\item   Il s'agit d'une méthode à un pas avec
+\[\Phi(t,y,h)=\frac 12\left[f(t,y)+f(t+h,y+h f(t,y))\right]\]
+et on a $\Phi(t,y,0)=f(t,y)$. Donc méthode est consistante.
+\item  On montrer que (sachant que $f$ es $L-$Lipschitzienne):
+\[|\Phi(t,y,h)-\Phi(t,z,h)|\leq (L+\frac{hL^2}{2})|y-z|\]
+Donc cette méthode est stable.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%\section{Schéma d'Euler explicite}
+%\begin{enumerate}
+%\item \[\left\{\begin{array}{l}
+%x_{k+1}=x_k+hf(t_k,x_k)\\
+%x_0 \mbox{ donné}
+%\end{array}\right.
+%\]
+%\item La méthode d'Euler explicite converge à l'ordre 1 (cours).
+%\item \[\left\{\begin{array}{l}
+%x_{k+1}=x_k+ht_k\sin(x_k)\\
+%x_0 =\frac{\pi}{2}
+%\end{array}\right.
+%\]
+%où $t_k=a+kh=kh$:
+% \[\left\{\begin{array}{l}
+%x_{k+1}=x_k+h^2k\sin(x_k)\\
+%x_0 =\frac{\pi}{2}
+%\end{array}\right.
+%\]
+%On trouve $x_1=\frac{\pi}{2}$ et $x_2=\frac{\pi}{2}+0.01$
+%
+%L'application $(t,x)\mapsto t\sin(x)$ est de classe $C^1$ donc Lipschitzienne, donc le schéma converge.
+%\item De même pour le problème B.
+%\end{enumerate}
+
+\section{Méthode de Heun}
+(Solution dans le cas où $\beta=0$).
+\[\left\{\begin{array}{l}
+y_{n+1}=y_n+\frac h2\left[f(t_n,y_n)+f(t_n+h,y_n+hf(t_n,y_n))\right]\\
+y_0 \mbox{ donné}
+\end{array}\right.
+\]
+
+
+\begin{enumerate}
+\item On pose 
+\[\Phi(t,y,h)=\frac 12\left[f(t,y)+f(t+h,y+hf(t,y))\right]\]
+On a $\Phi(t,y,0)=f(t,y)$
+Donc la méthode est consistante. On rappelle
+
+\[\frac{\partial F(x,y)}{\partial h}= \frac{\de x}{\de h}F'_x(x,y)+\frac{\de y}{\de h}F'_y(x,y)\]
+
+\[\frac{\partial \Phi(t,y,h)}{\partial h}=\frac 12\left[\frac{\de (t+h)}{\de h}\frac{\partial f(t+h,y+hf(t,y))}{\partial t}+\frac{\de (y+hf(t,y))}{\de h}\frac{\partial f(t+h,y+hf(t,y))}{\partial y}\right]\]
+\[\frac{\partial \Phi(t,y,h)}{\partial h}=\frac 12\left[\frac{\partial f(t+h,y+hf(t,y))}{\partial t}+f(t,y)\times \frac{\partial f(t+h,y+hf(t,y))}{\partial y}\right]\]
+
+\[\frac{\partial \Phi(t,y,0)}{\partial h}=\frac 12\left[\frac{\partial f(t,y)}{\partial t}+\frac{\partial f(t,y)}{\partial y}\times f(t,y)\right]=\frac 12f^{[2]}(t,y)\]
+Donc la méthode est d'ordre $2$.
+
+
+où $y_0$ est une valeur donnée.
+
+\item Nous avons $f(t,y)=-\alpha y+\beta$ et
+\[\Phi(t,y,h)=\frac 12\left[f(t,y)+f(t+h,y+hf(t,y))\right]\]
+\[\Phi(t,y,h)=\frac 12\left[-\alpha y+\beta-\alpha(y+h (-\alpha y+\beta))+\beta\right]\]
+
+ $\Phi(t,y,h)=(-\alpha+\frac 12 \alpha^2 h)y + \beta -\frac{\alpha\beta h}2$. $\Phi$ est donc lipschitzienne par rapport à $y$ car
+ \[|\Phi(t,y_1,h)-\Phi(t,y_2,h)|=|-\alpha+\frac 12 \alpha^2 h|\times|y_1-y_2|\]
+ donc la méthode est stable et convergente. 
+\item (ici on suppose $\beta=0$)
+\[y_{n+1}=y_n+h \Phi(t_n,y_n,h)\]
+
+\[\left\{\begin{array}{l}
+y_{n+1}=\left(1-\alpha h +\frac 12 \alpha^2 h^2\right)y_n \mbox{ pour }n\geq 0\\
+y_0 \mbox{ donné}
+\end{array}\right.
+\]
+La suite $y_n$ est donc géométrique et on a
+\[y_{n}=\left(1-\alpha h +\frac 12 \alpha^2 h^2\right)^ny_0\]
+ \[\lim_{n\to\infty}y_n=0 \mbox{ ssi }\left|1-\alpha h +\frac 12 \alpha^2 h^2\right|<1\]
+ Une étude simple de la fonction $\varphi(x)=\frac 12x^2-x+1$ montre que  
+ \[h<\frac 2{\alpha}\]
+\end{enumerate}
+\section{Asymptotique, raideur}
+\begin{enumerate}
+\item On trouve \[x(t)=\left(x_0-\frac ba\right)e^{-a t}+\frac ba\]
+\item \begin{enumerate}
+\item Schéma d'Euler:
+\[\left\{\begin{array}{l}
+x_{k+1}=x_k+h(b-a x_k)\\
+x_0 \mbox{ donné}
+\end{array}\right.
+\]
+soit
+\[\left\{\begin{array}{l}
+x_{k+1}=(1-ah)x_k+bh\\
+x_0 \mbox{ donné}
+\end{array}\right.
+\]
+Calculons le point fixe
+\[x=(1-ah)x+bh\]
+\[x=b/a\]
+On pose $X_k=x_k-x$:
+\[X_{k+1}=(1-ha)X_k\ \Longrightarrow X_k=(1-h a)^k(x_0-b/a)\]
+D'où \[x_k=X_k+x=(1-h a)^k(x_0-b/a)+b/a\]
+\item On a 
+\[x_n=(1-ha)^n(x_0-b/a)+b/a\]
+Cette suite converge si $|1-ha|<1$ soit $0<h<\frac 2a$.
+\item On a $h=\frac 1n$, donc
+  \[x_n=(1-\frac {ta}n)^n(x_0-b/a)+b/a\]
+\[\lim_{n\to\infty}x_n=e^{-ta}(x_0-b/a)+b/a=x(t)\]
+
+%\item 
+%\[x_n=(1-a\frac tn)^nx_0-\frac ba \left[(1-a\frac tn)^n-1\right]\]
+%D'où \[ \lim_{n\to\infty}x_n=e^{-at}-\frac ba \left[e^{-at}-1\right]\]
+\item On a \[x(t)-x_n=(x_0-\frac ba)\left(e^{-at}-(1-a\frac tn)^n\right)\]
+En faisant un développement limité:
+\[x(t)-x_n=(x_0-\frac ba)\frac{a^2t^2e^{-at}}{2n}+o(\frac 1n)\]
+D'où l'estimation de l'erreur
+\[|x(t)-x_n|\sim\frac{50a^2|x_0-\frac ba|}{n}\]
+\end{enumerate}
+\end{enumerate}
+\section{Méthode d'Euler en dimension 2}
+\begin{enumerate}
+\item Nous avons 
+\[x'(t)=-y(t)\Longrightarrow x''(t)=-y'(t)=-x(t)\Longrightarrow x''(t)+x(t)=0\]
+et 
+\[y'(t)=x(t)\Longrightarrow y''(t)=x'(t)=-y(t)\Longrightarrow y''(t)+y(t)=0\]
+Donc
+\[\left\{\begin{array}{l}
+x(t)=a\cos t+b\sin t\\
+y(t)=c\cos t+d\sin t
+\end{array}\right.\]
+ $x'=-y \Longrightarrow d=a$ et $c=-b$ d'où
+ \[\left\{\begin{array}{l}
+x(t)=a\cos t+b\sin t\\
+y(t)=-b\cos t+a\sin t
+\end{array}\right.\]
+La condition initiale $x(0)=1$ et $y(0)=0$ nous donne les constantes $a=1$ et $b=0$
+D'où
+ \[\left\{\begin{array}{l}
+x(t)=\cos t\\
+y(t)=\sin t
+\end{array}\right.\]
+L'orbite de $X(t)$ est un cercle unité.
+\item Le schéma d'Euler s'écrit
+ \[\left\{\begin{array}{l}
+X^{n+1}=X^n+hAX^n=(I_2+hA)X^n\\
+X^0=(1,0)^t
+\end{array}\right.\]
+\item Effectuons un DL de $X(t_n+h)$ à l'ordre 2:
+\[X(t_n+h)=X(t_n)+hX'(t_n)+\frac{h^2}{2}X''(t_n)+O(h^3)\]
+Or $X'=AX$ et $X''=AX'=A^2X=-X$ car $A^2=-I_2$ d'où
+\[X(t_n+h)=X(t_n)+hAX(t_n)-\frac{h^2}{2}X(t_n)+O(h^3)\]
+Nous avons
+ \[\left\{\begin{array}{l}
+X^{k+1}=X^k+hAX^k\\
+X(t_{k+1})=X(t_k)+hAX(t_k)-\frac{h^2}{2}X(t_k)+O(h^3)
+\end{array}\right.\]
+On fait la soustraction membre à membre:
+\[X^{k+1}-X(t_{k+1})=X^k-X(t_k)+hA\left(X^k-X(t_k)\right)+\frac{h^2}{2}X(t_k)+O(h^3)\]
+D'où
+\[E^{k+1}=E^k+hAE^k+\frac{h^2}{2}X(t_k)+O(h^3)\]
+Passons aux normes:
+\[\|E^{k+1}\|\leq \|E^k\|+h\|A\|\times \|E^k\|+\frac{h^2}{2}\|X(t_k)\|+K\times h^3\]
+$\|A\|_2= \rho(A)=1$ et $\|X(t_k)\|_2=\sqrt{\sin^2t_k+\cos^2t_k}=1$
+D'où
+\[\|E^{k+1}\|\leq (1+h C_1)\|E^k\|+C_2h^2\]
+avec $C_1=1$ et $C_2=1/2+K$
+
+Divisons les deux membres par $(1+hC_1)^{k+1}$:
+\[\frac{\|E^{k+1}\|}{(1+hC_1)^{k+1}}- \frac{\|E^{k}\|}{(1+hC_1)^{k}}\leq \frac{C_2h^2}{(1+hC_1)^{k+1}}\]
+\[\sum_{k=0}^{N-1}\left(\frac{\|E^{k+1}\|}{(1+hC_1)^{k+1}}- \frac{\|E^{k}\|}{(1+hC_1)^{k}}\right)\leq \sum_{k=0}^{N-1}\frac{C_2h^2}{(1+hC_1)^{k+1}}\]
+La première somme est télescopique:
+\[\frac{\|E^{N}\|}{(1+hC_1)^{N}}- \frac{\|E^{0}\|}{(1+hC_1)^{0}}\leq \sum_{k=0}^{N-1}\frac{C_2h^2}{(1+hC_1)^{k+1}}\leq NC_2h^2=C_2 T\times h\]
+D'où 
+\[\|E^{N}\|\leq C_2 T\times h (1+hC_1)^{N}\leq C_2Te^{C_1 T}h\]
+et $C=C_2Te^{C_1 T}$ une fonction croissante de $C$.
+\item 
+\[X^{n+1}=X^n+h AX^n=(I+hA)X^n\]
+On pose $A_h=I+hA=\left(\begin{array}{cc}
+1&-h\\
+h& 1
+\end{array}\right)$. Les valeurs propres de $A_h$ sont les racines de $(1-\lambda)^2+h^2=0\Longrightarrow \lambda =1\pm i h$. $|\lambda|=\sqrt{1+h^2}$
+\item 
+\[\cos\theta A_h=\left(\begin{array}{cc}
+\cos\theta &-\cos\theta\tan \theta\\
+\cos\theta\tan \theta& \cos\theta
+\end{array}\right)=\left(\begin{array}{cc}
+\cos\theta &-\sin\theta\\
+\sin\theta& \cos\theta
+\end{array}\right)\]
+\[\cos^n\theta A^n_h=\left(\begin{array}{cc}
+\cos\theta &-\sin\theta\\
+\sin\theta& \cos\theta
+\end{array}\right)^n=\left(\begin{array}{cc}
+\cos n\theta &-\sin n\theta\\
+\sin n\theta& \cos n\theta
+\end{array}\right)\]
+soit
+\[A^n_h=\frac{1}{\cos^n\theta }\left(\begin{array}{cc}
+\cos n\theta &-\sin n\theta\\
+\sin n\theta& \cos n\theta
+\end{array}\right)\]
+Donc $X^n$ se déduit de $X^0$ par une similitude d'angle $n\theta$ et de rapport $\frac{1}{\cos^n\theta }$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Système différentiel  d'ordre 2}
+Le système différentiel à deux inconnues $y(t)$ et $z(t)$ considéré sur un intervalle $[0; T]$ est le suivant
+\[
+\left\{\begin{array}{l}
+y''-ty'+2z=t\\
+y'+e^ty+3z'+2z=4t^2+1
+\end{array}\right.
+\]
+\begin{enumerate}
+\item On est amené à poser
+\[Y(t)=\left(\begin{array}{c} y(t)\\y'(t)\\z(t)
+\end{array}\right)\]
+On a $Y' = F(t, Y )$ avec
+\[F(t,Y)=\left(\begin{array}{c} y_2\\ t+ty_2-2y_3\\\frac 13(4t^2+1-y_2-e^ty_1-2y_3)
+\end{array}\right)\]
+\item On vérifie l'hypothèse de Cauchy-Lipschitz... $F$ est clairement continue. On étudie si $F$ lipschitzienne (on utilise la norme 1):
+
+\[\begin{array}{ccl} 
+\|F(t, Y )-F(t,Z)\|&= &\left\|\left(\begin{array}{c} y_2-z_2\\-t(y_2-z_2)-2(y_3-z_3)\\ \frac 13( -(y_2-z_2) -e^t(y_1-z_1)-2(y_3-z_3)) \end{array}\right)\right\|\\
+&\leq &|y_2-z_2|+t|y_2-z_2| +2|y_3-z_3|\\
+&        & + \frac 13(|y_2-z_2| +e^t|y_1-z_1|+2|y_3-z_3|)\\
+&\leq & \frac{e^T}{3}|y_1-z_1|+(\frac 43+T)|y_2-z_2| +\frac 83|y_3-z_3|
+\end{array}
+\]
+En posant, $\ell =\max( \frac{e^T}{3},\frac 43+T,\frac 83)$,  on a bien
+\[\|F(t, Y )-F(t,Z)\|\leq \ell \|Y-Z\|\]
+\item Pour le schéma implicite, noter que cela passera par la résolution d'un système linéaire que l'on pourrait expliciter...
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{enumerate}
+\end{document}

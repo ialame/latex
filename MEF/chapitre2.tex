@@ -35,7 +35,10 @@
  % Appel du package pythontex 
 \usepackage{pythontex}
 
-
+\usepackage{amsmath} 
+\renewcommand*{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
 
 
 
@@ -64,6 +67,258 @@
 %\end{itemize}
 %\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rappel: 3 Points alignés}
+
+\begin{center}
+ \begin{tikzpicture}[scale=0.7]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (6,0) node[right] {$\scriptstyle x$};
+\draw  [very thin, gray] [->] (0,-0.3) -- (0,3) node[above] {$\scriptstyle y$};
+
+\node [blue] at (1,1) {$\scriptstyle \bullet$};
+\node [blue] at (3,2) {$\scriptstyle \bullet$};
+\node [blue] at (5,3) {$\scriptstyle \bullet$};
+\node at (1,1+0.3) {$\scriptstyle  A_1$};
+\node at (3,2+0.3) {$\scriptstyle  A_2$};
+\node at (5,3+0.3) {$\scriptstyle  A_3$};
+\draw [orange,domain=-0.5:5.5] plot(\x,{(\x+1)/2});
+\end{tikzpicture} 
+\end{center}
+\[\lambda x + \mu y +\nu =0\]
+\[\left\{\begin{array}{l}
+\lambda x_1 + \mu y_1 +\nu =0\\
+\lambda x_2 + \mu y_2 +\nu =0\\
+\lambda x_3 + \mu y_3 +\nu =0\\
+\end{array}\right. \Longleftrightarrow \left(\begin{array}{ccc}
+ x_1 & y_1 & 1 \\
+ x_2 & y_2 & 1 \\
+x_3 & y_3 &1\\
+\end{array}\right)  \left(\begin{array}{c} \lambda \\ \mu \\ \nu \end{array}\right)  = \left(\begin{array}{c} 0 \\ 0 \\ 0\end{array}\right) 
+\]
+\[\myredbox{\mbox{ Trois points alignés } \Longleftrightarrow \left|\begin{array}{ccc}
+ x_1 & y_1 & 1 \\
+ x_2 & y_2 & 1 \\
+x_3 & y_3 &1\\
+\end{array}\right| =0}\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rappel: Coordonnées barycentriques}
+
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (5,0) node[right] {$\scriptstyle x$};
+%\draw  [very thin, gray] [->] (1,-0.3) -- (1,2.2) node[above] {$\scriptstyle y$};
+
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
+\node [blue] at (2,0) {$\scriptstyle \bullet$};
+\node [blue] at (4,0) {$\scriptstyle \bullet$};
+\node at (1,-0.2) {$\scriptstyle  B$};
+\node at (2,-0.2) {$\scriptstyle  M$};
+\node at (4,-0.2) {$\scriptstyle  A$};
+\draw  [orange] (1,0) -- ++(3,0);
+\draw  [dotted,<->] (1,0.2) -- ++(1,0) node[midway, above] {$\scriptstyle x$};
+
+%\draw  [dotted] (3,0) -- ++(0,2.2) node[above] {$\scriptstyle y_1$};
+%\draw [orange,domain=-0.5:4] plot(\x,{(\x+1)/2});
+
+\end{tikzpicture} 
+\end{center}
+\[\overrightarrow{BM}=x\overrightarrow{BA}\]
+\[M-B=x(A-B)\quad \Longrightarrow M=x\, A + (1-x) B\]
+$(\lambda,\mu)$ Coordonnées barycentriques de $M$ dans le système $\{A,B\}$ ssi 
+\[M=\lambda A + \mu B \quad\mbox{ où } \lambda +\mu =1\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rappel: Coordonnées barycentriques}
+
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (5,0) node[right] {$\scriptstyle x$};
+\draw  [very thin, gray] [->] (1,-0.5) -- (1.4,3.1) node[above] {$\scriptstyle y$};
+
+\node [blue] at (19/18,0) {$\scriptstyle \bullet$};% C
+\node [blue] at (2,0) {$\scriptstyle \times$}; % M1
+\node [blue] at (4,0) {$\scriptstyle \bullet$}; % A
+\node [blue] at (1.3,2.2) {$\scriptstyle \bullet$}; % B
+\node [blue] at (21/18,1) {$\scriptstyle \times$}; % M2
+\node [red] at (1+21/18,1) {$\scriptstyle \bullet$}; % M
+\node at (0.8,-0.2) {$\scriptstyle  C$};
+\node at (2,-0.2) {$\scriptstyle  M_1$};
+\node at (0.85,1) {$\scriptstyle  M_2$};
+\node at (4,-0.2) {$\scriptstyle  A$};
+\node at (1.1,2.2) {$\scriptstyle  B$};
+\node [red] at (1+21/18+0.2,1) {$\scriptstyle M$}; % M
+\draw  [dotted,blue] (2,0) --(1+21/18,1)--(21/18,1);
+\draw  [orange] (19/18,0) --(4,0)--(1.3,2.2)--(19/18,0);
+\draw  [dotted,<->] (1,-0.5) -- ++(1,0) node[midway, below] {$\scriptstyle x$};
+\draw  [dotted,<->] (19/18-0.6,0) --(21/18-0.6,1) node[midway, left] {$\scriptstyle y$};
+%\draw  [dotted] (3,0) -- ++(0,2.2) node[above] {$\scriptstyle y_1$};
+%\draw [orange,domain=-0.5:4] plot(\x,{(\x+1)/2});
+
+\end{tikzpicture} 
+\end{center}
+\[\overrightarrow{CM}=x\overrightarrow{CA}+y\overrightarrow{CB}\]
+\[M-C=x(A-C)+y(B-C)\quad \Longrightarrow M=x\, A +y\, B+ (1-x-y) C\]
+$(\lambda,\mu,\nu)$ Coordonnées barycentriques de $M$ dans le système $\{A,B,C\}$ ssi 
+\[M=\lambda A + \mu B +\nu C\quad\mbox{ où } \lambda +\mu +\nu=1\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rappel: Interpolation linéaire}
+
+\begin{center}
+ \begin{tikzpicture}[scale=0.7]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (6,0) node[right] {$\scriptstyle x$};
+\draw  [very thin, gray] [->] (0,-0.3) -- (0,3) node[above] {$\scriptstyle y$};
+
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
+\node [blue] at (3,0) {$\scriptstyle \bullet$};
+\node [blue] at (5,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,1) {$\scriptstyle \times$};
+\node [blue] at (3,2) {$\scriptstyle \times$};
+\node [blue] at (5,3) {$\scriptstyle \times$};
+\node at (1,-0.3) {$\scriptstyle  M_1$};
+\node at (3,-0.3) {$\scriptstyle  M$};
+\node at (5,-0.3) {$\scriptstyle  M_2$};
+\draw [orange,domain=-0.5:5.5] plot(\x,{(\x+1)/2});
+\draw  [dotted,->] (1,0) --(1,1)node[midway, right] {$\scriptstyle y_1$};
+\draw  [dotted,->] (3,0) --(3,2)node[midway, right] {$\scriptstyle y$};
+\draw  [dotted,->] (5,0) --(5,3)node[midway, right] {$\scriptstyle y_2$};
+\end{tikzpicture} 
+\end{center}
+\[M=\lambda M_1 + \mu M_2\]
+\[f(M)=\lambda f(M_1) + \mu f(M_2)\]
+\[\myredbox{y=\lambda y_1 + \mu y_2}\]
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rappel: Interpolation linéaire}
+
+\begin{center}
+ \begin{tikzpicture}[scale=0.7]
+ \draw  [very thin, gray] [->]  (0,0) -- (-3,-3) node[right] {$\scriptstyle x$};
+ \draw  [very thin, gray] [->]  (0,0) -- (7,0) node[right] {$\scriptstyle y$};
+ \draw  [very thin, gray] [->] (0,0) -- (0,3) node[above] {$\scriptstyle z$};
+
+\node [blue] at (0.5,-2) {$\scriptstyle \bullet$};
+\node [blue] at (2,-0.5) {$\scriptstyle \bullet$};
+\node [blue] at (5,-2) {$\scriptstyle \bullet$};
+\node [blue] at (0.5,2) {$\scriptstyle \times$};
+\node [blue] at (2,2.5) {$\scriptstyle \times$};
+\node [blue] at (5,1) {$\scriptstyle \times$};
+\node [blue] at (0.5-0.4,-2) {$\scriptstyle M_1$};
+\node [blue] at (2-0.4,-0.5) {$\scriptstyle M_2$};
+\node [blue] at (5+0.4,-2){$\scriptstyle M_3$};
+\draw  [orange] (0.5,-2) --(2,-0.5)--(5,-2)--(0.5,-2) ;
+\draw  [blue] (0.5,2) --(2,2.5)--(5,1)--(0.5,2) ;
+\draw  [dotted,->] (0.5,-2) --(0.5,2);
+\draw  [dotted,->] (2,-0.5)  --(2,2.5);
+\draw  [dotted,->]  (5,-2)--(5,1) ;
+%\draw  [dotted,->] (5,0) --(5,3)node[midway, right] {$\scriptstyle y_2$};
+\end{tikzpicture} 
+\end{center}
+\[M=\lambda M_1 + \mu M_2+\nu M_3\]
+\[f(M)=\lambda f(M_1) + \mu f(M_2)+\nu f(M_3)\]
+\[\myredbox{z=\lambda z_1 + \mu z_2 +\nu z_3}\]
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{frame}
+	\frametitle{Rappel: Interpolation de Lagrange}
+	\begin{block}{Théorème}
+	
+		Soit $f : [a, b] \to \mathbb{R}$ une fonction continue et $x_0<x_1<\cdots <x_n$, 
+$n + 1$ points distincts de $[a, b]$. Il existe un unique $P \in \mathbb{R}_n[X]$ tel que $P(x_i) = f(x_i)$ pour $i = 0, 1, ..., n$.
+De plus, $P$ est donné par :
+\[\myredbox{P(x)=\sum_{i=0}^nf(x_i) L_i(x)}\]
+où les polynômes $L_i$ sont définis par : $L_i(x)=\prod_{j=0,j\neq i}^n\frac{x-x_j}{x_i-x_j}$
+
+	
+	
+	\end{block}
+\begin{center}
+\begin{tikzpicture}[domain=1.1:4.9,scale=0.6]
+   \draw[->] (0.5,-0.4) -- (5.1,-0.4) node[above] {$\scriptstyle x$};
+    \draw[->] (0.7,-0.5) -- (0.7,2.2) node[above] {$\scriptstyle y$};
+   \path[fill=black]  (1.2,0.432) circle (.5mm) [fill=gray];
+    \path[fill=black]  (2,1) circle (.5mm) [fill=gray];
+    \path[fill=black]  (3,0) circle (.5mm) [fill=gray];
+     \path[fill=black]  (4,2) circle (.5mm) [fill=gray];
+      \path[fill=black]  (4.7,0.968) circle (.5mm) [fill=gray];
+  %\draw[color=red,samples=200]    plot ( \x, {-0.625*\x^4+2.25*\x^3-0.875*\x^2-1.75*\x+2} )  ;
+  \draw[color=red,samples=200]    plot ( \x, {-(\x-3)*(5*\x^3-43*\x^2+106*\x-72)/8} )  ;
+  %\draw[color=red,samples=100,domain=0.05:3]    plot ( \x, {ln(1/sqrt(1+5/(exp(\x)-exp(-\x)))} )  ;
+\end{tikzpicture}
+\end{center} 
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+%\lipsum[2]
+
+	\begin{itemize}
+  	\item \fbox{$n=1$} deux points de discrétisation $x_0=0$ et $x_1=1$. On a alors:
+  	\[\myredbox{P(x)=\sum_{i=0}^1f(x_i) L_i(x)=y_0\cdot  L_0(x)+y_1\cdot  L_1(x)}\]
+  	
+  	\begin{center}
+  	\begin{tabular}{cc}
+ \begin{tikzpicture}[scale=1.5]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
+\draw  [dashed] (0,0) -- (0,1);
+\node [blue] at (0,0) {$\bullet$};
+\node [blue] at (1,0) {$\bullet$};
+\node at (0.5,1) {$\scriptstyle  L_0(x)=1-x$};
+\draw [orange,domain=0:1] plot(\x,1-\x);
+
+\end{tikzpicture} 
+  &
+   \begin{tikzpicture}[scale=1.5]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
+\draw  [dashed] (1,0) -- (1,1);
+\node [blue] at (0,0) {$\bullet$};
+\node [blue] at (1,0) {$\bullet$};
+\node at (0.5,1) {$\scriptstyle L_1(x)=x$};
+\draw [orange,domain=0:1] plot(\x,\x);
+\end{tikzpicture} 
+\end{tabular}
+  	\end{center}	
+  	
+\item Exemple: Équation de la droite passant par les deux points $(0,1)$ et $(1,3)$:
+\[y=1\cdot (1-x) +3\cdot x\quad\Longrightarrow\quad y=2x+1\]
+ 	
+  \end{itemize}	
+
+\begin{center}
+ \begin{tikzpicture}[scale=0.7]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (4,0) node[right] {$\scriptstyle x$};
+\draw  [very thin, gray] [->] (1,-0.3) -- (1,2.2) node[above] {$\scriptstyle y$};
+\node [green] at (1,1) {$\bullet$};
+\node [blue] at (1,0) {$\bullet$};
+\draw  [dotted] (1,0) -- ++(0,1.2) node[above] {$\scriptstyle y_0$};
+\node [green] at (3,2) {$\bullet$};
+\node [blue] at (3,0) {$\bullet$};
+\draw  [dotted] (3,0) -- ++(0,2.2) node[above] {$\scriptstyle y_1$};
+%\node at (0.5,-0.5) {$\scriptstyle L_0(x)=(2x-1)(x-1)$};
+\draw [orange,domain=-0.5:4] plot(\x,{(\x+1)/2});
+
+\end{tikzpicture} 
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 \begin{frame}
 \frametitle{Éléments finis de Lagrange}
   On se donne :

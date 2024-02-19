@@ -1,0 +1,268 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+
+\title{TD 2 Analyse numérique (B1-TP1)}
+\author{Ibrahim ALAME}
+\date{19/02/2024}
+\begin{document}
+\maketitle
+
+%\section{Schéma d'Euler explicite}
+%On considère le problème de Cauchy suivant
+%\[\left\{\begin{array}{ccl}
+%x'(t)&=&f(t,x(t)), \qquad t\in [t_0,t_0 + T]\\
+%x(t_0)&=&x_0
+%\end{array}\right.\]
+%
+%où $t_0$, $T$, $x_0 \in \mathbb{R}$ et $f : [t_0, t_0 + T]\to\mathbb{R}$ sont donnés.
+%
+%On suppose de plus qu'il existe $L > 0$ tel que pour tout $t \in [t_0, t_0 + T]$, et pour tous $x$, $y \in \mathbb{R}$,
+%\[|f(t, x)-f(t, y)| \leq L|x-y|\]
+%
+%\begin{enumerate}
+%\item  Donner le schéma d'Euler explicite à pas de temps constant correspondant à ce problème.
+%\item Jusqu'à quel ordre ce schéma est-t-il convergent ?
+%\item Applications :
+%pour les deux problèmes suivants :
+%\[A.\left\{\begin{array}{ccl}
+%x'(t)&=&t\sin(x(t)), \qquad t\in [0, T]\\
+%x(0)&=&\frac {\pi}2
+%\end{array}\right. \qquad B.\left\{\begin{array}{ccl}
+%x'(t)&=&t^2+x(t)+1, \qquad t\in [1, T]\\
+%x(1)&=&1
+%\end{array}\right.\]
+%
+%\begin{enumerate}
+%\item   Écrire le schéma d'Euler explicite en prenant un pas de temps constant.
+%\item  Écrire les 2 premières itérations en prenant comme pas de temps h = 0.1.
+%\item  Est-ce que ce schéma converge vers chacune des solutions de ces problèmes ?
+%\end{enumerate}
+%\end{enumerate}
+%
+
+\section{Méthodes d'Euler explicite, implicite et Runge-Kutta}
+Soit le problème de Cauchy suivant
+\[({\cal P})\left\{\begin{array}{l}
+y'(t)=f(t,y(t)),\quad t\in [0,1],\\
+y(0)=1
+\end{array}\right.\]
+où $f(t, y) = 3t + y$.
+\begin{enumerate}
+\item  
+\begin{enumerate}
+\item  Montrer que la fonction f est lipschitzienne par rapport à la deuxième variable et
+donner une constante de Lipschitz.
+\item Que peut-on dire sur l'existence et l'unicité du problème (P) ?
+\end{enumerate}
+\item Montrer que $y(t) = 4e^t - 3t - 3$ est l'unique solution de$({\cal P})$.
+\item Écrire le schéma d'Euler explicite à ce problème, avec $h = 0.1$, puis évaluer la solution en $t = 0.2$.
+\item Écrire le schéma d'Euler implicite à ce problème, avec $h = 0.1$, puis évaluer la solution en $t = 0.2$.
+\item Écrire la méthode de Runge-Kutta d'ordre 2 et donner l'approximation de $y(0.2)$ à l'aide d'un pas de discrétisation numérique $h = 0.1$.
+\item  Comparer les solutions numériques obtenues par chaque méthode à la valeur exacte.
+\end{enumerate}
+
+\section{Majoration de l'erreur}
+ On étudie l'équation différentielle $y' = -y$.
+Cette équation sera considérée sur $[0; 10]$ avec la condition initiale $y(0) = 1$.
+\begin{enumerate}
+\item   Déterminer la solution exacte de ce problème de Cauchy. Vérifier qu'on a toujours
+\[\forall t\in [0,10],\quad 0<y(t)\leq 1\]
+\item   Exprimer pour la méthode d'Euler explicite, l'expression de $y_n$ en fonction de $n$.
+\item  Déterminer à quelle condition sur $h$, on peut assurer que pour tout $n$, $0<y_n\leq 1$. 
+\item Majorer sommairement $\max_{0\leq n\leq N}\left|y_n-y(t_n)\right|$. (On se limitera au cas où $h\leq\frac 12$).
+\item  Reprendre les questions 2 à 4 avec les autres méthodes vues (Euler implicite, Runge-
+Kutta d'ordres 2 et 4). Retrouve-t-on des résultats compatibles avec les ordres connus
+pour ces méthodes ?
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Erreur de la méthode d'Euler}
+Résoudre explicitement l'équation $y'=-y+t$ avec condition initiale $y(0) = 0$. Utiliser la méthode d'Euler pour donner la valeur de l'erreur en t = 1.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Soit le problème de Cauchy suivant
+%\[({\cal P})\left\{\begin{array}{l}
+%y'(t)=f(t,y(t)),\quad t\in [0,1],\\
+%y(0)=1
+%\end{array}\right.\]
+%où $f(t; y) = -2y+e^{-t}$.
+%
+%\begin{enumerate}
+%\item Montrer que la fonction $f$ est lipschitzienne par rapport à la deuxième variable et donner une constante de Lipschitz.
+%\item Montrer que ce problème admet une solution unique.
+%\item Montrer que $y(t) = e^{-t}$ est l'unique solution de ce problème.
+%\item Écrire la méthode d'Euler explicite associée à ce problème et donner l'approximation $y(0.3)$ à l'aide d'un pas de discrétisation numérique $h = 0.1$.
+%\item Écrire la méthode d'Euler implicite associée à ce problème et donner l'approximation $y(0.3)$ à l'aide d'un pas de discrétisation numérique $h = 0.1$.
+%\item Écrire la méthode de Runge-Kutta d'ordre 2 et donner l'approximation de $y(0.3)$ à l'aide d'un pas de discrétisation numérique $h = 0.1$.
+%\item Comparer les solutions numériques obtenues par chaque méthode à la valeur exacte.
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Équation différentielle du second ordre}
+ Soit l'équation différentielle du second ordre $y'' + ty' + (1 - t)y = 2$, considérée
+sur l'intervalle $I = [0; 1]$ assortie des conditions initiales $y(0) = 0$ et $y'(0) = 0$.
+\begin{enumerate}
+\item  Reformuler cette équation différentielle sous la forme d'un problème de Cauchy.
+\item Montrer que ce problème a une et une seule solution.
+\item Exposer la formulation de la méthode d'Euler explicite pour ce problème. Calculer, pour $h = 0.1$ la valeur approchée obtenue comme approximation de $y(0.3)$.
+\item Exposer la formulation de la méthode d'Euler implicite pour ce problème.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Équation différentielle non linéaire}
+ On considère le problème de Cauchy suivant (avec $T > 0$) :
+\[({\cal P})\left\{\begin{array}{l}
+y'(t)= \sin y(t) + \sin t,\quad \forall t\in[0,T]\\
+y(0)=0
+\end{array}\right.\]
+\begin{enumerate}
+\item  Montrer que ce problème de Cauchy a une et une seule solution.
+\item  Majorer sommairement $|y''|$ sur $[0; T]$.
+\item  Déterminer une majoration de l'erreur $\max_{0\leq n\leq N}\left|y_n-y(t_n)\right|$
+ pour la méthode d'Euler explicite.
+\item  Pour $T = 1$, quel valeur de $N$ choisir pour garantir un résultat correct avec une précision de $10^{-3}$ ? Même question pour $T = 10$.
+\end{enumerate}
+
+%\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Méthode à un pas}
+ On considère un problème de Cauchy $y' = f(t; y)$ avec $y(a) = \alpha$.
+La méthode de Heun est une méthode numérique à un pas où le calcul de $y_{n+1}$ à partir de $y_n$ est décrite par :
+\[({\cal P})\left\{\begin{array}{l}
+\overline{y}_n= y_n + hf(t_n; y_n)\\
+y_{n+1} = y_n +\frac h2\left(f(t_n,y_n) + f(t_{n+1},\overline{y}_n)\right)
+\end{array}\right.\]
+
+\begin{enumerate}
+\item  Expliquer en quoi on peut affirmer que cette méthode est inspirée de la méthode des
+trapèzes.
+\item   Montrer que cette méthode est consistante.
+\item  Montrer que cette méthode est stable.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Méthode de Heun}
+La méthode de Heun consiste à approcher, la solution de l'équation différentielle $y'(t) = f (t, y(t))$,  $y(0) = y0$, par le schéma suivant:
+\[\left\{\begin{array}{l}
+y_{n+1}=y_n+\frac h2\left[f(t_n,y_n)+f(t_n+h,y_n+hf(t_n,y_n))\right]\\
+y_0 \mbox{ donné}
+\end{array}\right.
+\]
+Où $h > 0$ un pas de temps donné, $t_n = nh$ pour $n \in\mathbb{N}$  et $y_n$ une approximation de $y(t_n)$.
+
+\begin{enumerate}
+\item Montrer que la méthode est consistante. Déterminer son ordre. On considère le problème de CAUCHY
+
+\[(\star)\left\{\begin{array}{l}
+y'(t)=-\alpha y(t)+\beta \mbox{ pour }t>0\\
+y(0)=y_0
+\end{array}\right.
+\]
+où $y_0$ est une valeur donnée.
+
+\item Monter que la méthode d'Euler modifiée appliquée au problème de Cauchy $(\star)$ converge.
+\item Écrire le schéma permettant de calculer $y_{n+1}$ à partir de $y_n$. Sous
+quelle condition sur $h$ la relation 
+\[\lim_{n\to\infty}y_n=0\]
+ a-t-elle lieu ?
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Asymptotique, raideur}
+Soit $a > 0$, $b \in \mathbb{R}$ et $x_0 \in \mathbb{R}$. On considère le problème de Cauchy suivant
+\[A.\left\{\begin{array}{ccl}
+x'(t)&=&-a x(t)+b, \qquad t\in \mathbb{R}^+\\
+x(0)&=&x_0
+\end{array}\right.
+\]
+\begin{enumerate}
+\item  Donner explicitement $x$.
+\item  Soit $h > 0$ un pas de temps.
+\begin{enumerate}
+       \item  Écrire explicitement le schéma d'Euler explicite à pas  $h$. 
+\item  On suppose que $h$ est une constante. Donner explicitement $(x_n)_{n\in \mathbb{N}}$.
+\item   Quelle condition doit satisfaire $h$ pour que, quel que soit $x_0$, $x_n$ tende quand $n \to +\infty$ vers $\frac ba$?
+\item  On suppose que $h=\frac{t}{n}$. Montrer que quel que soit $x_0$, $x_n$ tend quand $n \to +\infty$ vers $x(t)$.
+ Exprimer en fonction de $a$, $b$, $x_0$ et $n$ l'erreur d'approximation dans un calcul approché de $x_{/[0,10]}$.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+%\section{Crank-Nicolson, Heun}
+%On considère le problème de CAUCHY
+%
+%\[\left\{\begin{array}{l}
+%y'(t)=-\alpha y(t) \mbox{ pour }t>0\\
+%y(0)=y_0
+%\end{array}\right.
+%\]
+%où $y_0$ est une valeur donnée. Soit $h > 0$ un pas de temps donné, $t_n = nh$ pour $n \in\mathbb{R}$  et $u_n$ une approximation de $y(t_n)$.
+%\begin{enumerate}
+%\item  Écrire le schéma du trapèze (appelé aussi de CRANK-NICOLSON) permettant de calculer $u_{n+1}$ à partir de $u_n$. Sous
+%quelle condition sur $h$ le schéma du trapèze est-il A-stable ? Autrement dit, pour quelles valeurs de $h$ la relation 
+%\[\lim_{n\to\infty}u_n=0\]
+% a-t-elle lieu ?
+%\item À partir du schéma du trapèze, en déduire le schéma de HEUN. Sous quelle condition sur $h$ le schéma de HEUN est-il A-stable ?
+%\end{enumerate}
+\section{Méthode d'Euler en dimension 2}
+ On considère le système différentiel
+\[(S) \left\{\begin{array}{lll}
+x'(t)&=&-y(t)\\
+y'(t)&=&x(t)
+\end{array}\right.\quad t\in [0,T]
+\]
+ que l'on note aussi $X'(t) = AX(t)$, avec
+ \[X(t)= \left(\begin{array}{c} x(t)\\ y(t) \end{array} \right) \quad \mbox{ et }\quad
+ A = \left(\begin{array}{cc} 0& -1 \\ 1&0 \end{array} \right)\]
+\begin{enumerate}
+\item Calculer les valeurs propres de la matrice $A$, et déterminer la solution $X(t)$ du système $(S)$ qui satisfait aux conditions initiales $x(0) = 1, y(0) = 0$, {\em (Indication: $x''+x=0$ et $y''+y=0$)}. Tracer l'orbite de $X(t)$, c'est-à-dire la courbe $t \geq 0 \to X(t) \in \mathbb{R}^2$.
+\item Pour un entier $N \geq 2$ fixé, on pose $h = T/N$ et l'on applique au système $(S)$ le schéma d'Euler explicite avec le pas $h$ et la donnée initiale $X^0 = (x_0,y_0)^T = (1,0)^T$. Écrire explicitement la relation de récurrence qui définit la suite $X^n = (x_n,y_n)^T$.
+\item On note $E^k$ l'erreur $X^k - X(kh)$. Établir la relation 
+\[ E^{k+1} = E^k+h A E^k + \frac{h^2}{2}X(kh)+O(h^3), \quad  0\leq k\leq N-1\]
+{\em (Indication: faire un DL de $X((k+1)h)$ au voisinage de $kh$ à l'ordre 2)}
+
+ Montrer qu'il existe des constantes $C_1$ et $C_2$ telles que
+\[ \|E^{k+1}\| \leq (1+h C_1)\|E^k\| + C_2 h^2,\quad 0\leq n\leq N-1\]
+où  $\|\cdot\|$ désigne la norme euclidienne dans $\mathbb{R}^2$. {\em (Indication: inégalité triangulaire avec $\|O(h^3)\|\leq M h^3\leq M h^2$ pour $h$ assez petit)}. En déduire l'existence d'une constante $C$, dépendant de $T$ mais non de $N$, $h$, telle que $\|E^n\| \leq  C h$ pour tout $0 \leq n \leq N$ {\em (Indication: diviser les deux membres de l'inégalité par $(1+h C_1)^{k+1}$ puis appliquer la somme $\sum_{k=0}^{n-1}$. Remarquer que $(1+hC_1)^n\leq (e^{hC_1})^N$, et $\sum_{k=0}^{n-1}\frac{h^2}{(1+h C_1)^{k+1}}\leq \sum_{k=0}^{N-1}h^2 =Nh^2$)}. Étudier la variation de $C$ en fonction de $T$.
+\item On fixe maintenant $h > 0$. Montrer que le schéma d'Euler peut s'écrire $X^{n+1} = A_h X^n$, où $A_h$ est une matrice que l'on précisera.  Déterminer les valeurs propres de $A_h$ ainsi que leurs modules.
+\item On pose $h=\tan\theta$. Montrer que $\cos\theta A_h$ est une matrice de rotation. En déduire $A_h^n$. calculer $X^n$ pour $0 \leq n \leq N$. Étudier la limite de $\|X^n\| $ quand $n\to\infty$. Esquisser la ligne brisée qui joint les points $(x_0, y_0),\, (x_1, y_1),\, . . .\, , (x_N , y_N )$, et qui est une approximation de l'orbite $X(t)$. Obtient-on une courbe fermée ? Tracer la ligne brisée dans les deux cas particuliers: $\theta=\frac{\pi}{4}$, $N=8$ et $\theta=\frac{\pi}{6}$, $N=12$.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Système différentiel  d'ordre 2}
+ Soit le système différentiel à deux inconnues $y(t)$ et $z(t)$ considéré sur un intervalle $[0; T]$ suivant
+\[
+\left\{\begin{array}{l}
+y''-ty'+2z=t\\
+y'+e^ty+3z'+2z=4t^2+1
+\end{array}\right.
+\]
+\begin{enumerate}
+\item Quelles conditions initiales poser pour constituer avec ce système un problème de Cauchy? L'exprimer sous la forme $Y' = F(t,Y)$.
+\item Justifier que ce problème admet une et une seule solution.
+\item Exposer le principe des méthodes d'Euler explicite et implicite pour ce système.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

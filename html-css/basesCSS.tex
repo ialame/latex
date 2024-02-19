@@ -524,6 +524,119 @@ Nous allons voir + qui permet d'ajouter un élément au même niveau :
 \includegraphics[width=10cm]{images/image11.png}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Mise en forme du texte}
+Dans cette leçon, nous allons voir comment modifier le style des textes en utilisant du CSS.
+
+Police de caractères avec font-family
+En typographie, une fonte de caractères est un ensemble de représentations visuelles de caractères, d'une même police d'écriture, de même style, corps et graisse.
+
+Le corps est la taille d'une fonte de caractères, mesurée en points typographiques.
+
+La graisse est l'épaisseur d'un trait ou d'un caractère.
+
+Une police de caractère est l'ensemble des déclinaisons d'un même caractère.
+
+Une déclinaison est donc une fonte. Par exemple, la police de caractères Times New Roman, est constituée d'une fonte romaine, d'une fonte italique, d'une fonte grasse et d'une fonte grasse italicisée.
+
+font-family permet de définir une police ou une liste de polices.
+
+Le navigateur n'appliquera une police de caractères que si elle est disponible, sinon, il utilisera une police par défaut.
+
+Les polices Web dites sûres sont celles qui sont disponibles sur tous les systèmes et dans tous les navigateurs : Arial, Courrier New, Georgia, Times New Roman, Trebuchet MS et Verdana en sont des exemples.
+
+Les polices se divisent en 5 familles génériques :
+
+1 - serif : Polices avec fioritures.
+
+2 - sans-serif : Les polices qui n'ont pas d'empattements
+
+3 - monospace : Les polices dans lesquelles chaque caractère a la même largeur.
+
+4 - cursive : Les polices qui ressemblent à de l'écriture manuscrite.
+
+5 - fantasy : Les polices décoratives.
+
+Vous pouvez déclarer une liste de polices :
+
+font-family: "Times New Roman", Times, serif;
+Copier
+Dans ce cas la première sera appliquée, et si elle n'est pas disponible la deuxième, et si elle n'est pas disponible la famille de polices génériques serif.
+
+Voici quelques exemples :
+
+
+Vous pouvez trouver des polices gratuites sur https://www.fontsquirrel.com/ et https://www.dafont.com/fr/.
+
+Taille de police avec font-size
+La taille des polices de caractères est définie par la propriété font-size.
+
+Elle accepte la plupart des unités de valeurs que nous étudierons dans la prochaine leçon. Mais voyons la plus utilisée, les pixels :
+
+body {
+  font-size: 20px;
+}
+Copier
+Ici nous fixons à 20 le nombre de pixels souhaités pour la hauteur de tous les textes dans body.
+
+La propriété font-size d'un élément est héritée de son parent. C'est-à-dire de l'élément dans lequel il est imbriqué.
+
+Par défaut, tous les éléments ont une taille de police de 16px.
+
+En effet, tous les éléments sont inclus dans l'élément <html>, et c'est la taille de la police qui est fixée par défaut pour cet élément dans tous les navigateurs.
+
+Certains autres éléments ont des tailles par défaut en HTML, par exemple h1 a une taille par défaut de 2 em, qui comme nous le verrons, équivaut par défaut à 32px.
+
+Graisse de la police avec font-weight
+Comme nous l'avons vu, la graisse en typographie est l'épaisseur d'un caractère.
+
+Elle se définit avec font-weight.
+
+Vous pouvez utiliser bold comme raccourci ou alors utiliser une valeur numérique entre 100 et 900.
+
+Style de la police avec font-style
+Vous pouvez mettre la police en italique avec font-style :
+
+<p style="font-style: italic"">Italique</p>
+Copier
+Décoration du texte avec text-decoration
+Vous pouvez décorer le texte avec text-decoration.
+
+underline permet de le souligner.
+
+overline de tracer une ligne au-dessus.
+
+line-through de le barrer.
+
+A noter que text-decoration est un raccourci pour trois propriétés text-decoration-line, text-decoration-style et text-decoration-color.
+
+Les valeurs possibles pour text-decoration-line sont celles que nous avons vues.
+
+Les valeurs possibles pour text-decoration-style sont solid, double, dotted, dashed et wavy.
+
+Transformer du texte avec text-transform
+Vous pouvez transformer la police avec text-transform.
+
+Les valeurs possibles sont : uppercase (tout en majuscule), lowercase (tout en minuscule) et capitalize (première lettre des mots en majuscule).
+
+Hauteur de ligne
+Il est possible de définir la hauteur de chaque ligne de texte avec line-height.
+
+Vous pouvez passer une hauteur en pixels (ou toute autre unité de mesure que nous verrons) mais aussi juste un nombre qui sera alors un multiplicateur.
+
+La hauteur de ligne recommandée est entre 1.5 et 2.
+
+Espacement entre les lettres et les mots
+Il est possible de définir l'espacement entre les lettres et les mots avec letter-spacing et word-spacing.
+
+Vous pouvez définir la taille des espacements en px ou dans les autres unités de mesure que nous verrons dans la leçon suivante.
+
+Exemples des mises en forme
+Exceptionnellement les exemples utilisent du style en ligne mais uniquement pour que vous puissiez bien visualiser.
+
+N'oubliez pas que ce n'est pas la méthode recommandée.
+
 
 \end{document}
 
