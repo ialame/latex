@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  20 FEB 2024 00:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  20 FEB 2024 06:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1421,8 +1421,7 @@ runsystem(which pygmentize && touch chapitre3bis.aex)...executed.
 
 runsystem(rm chapitre3bis.aex)...executed.
 
-
-No file chapitre3bis.aux.
+ (./chapitre3bis.aux)
 \openout1 = `chapitre3bis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -1443,6 +1442,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1516,6 +1516,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 61.
 LaTeX Info: Redefining \pageref on input line 61.
 LaTeX Info: Redefining \nameref on input line 61.
+ (./chapitre3bis.out) (./chapitre3bis.out)
 \@outlinefile=\write8
 \openout8 = `chapitre3bis.out'.
 
@@ -1621,8 +1622,7 @@ lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `french'. on input line 61.
-
-No file chapitre3bis.nav.
+ (./chapitre3bis.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
 (Font)              using `T1/cmss/m/n' instead on input line 61.
@@ -1697,12 +1697,12 @@ thkerncmss.
 ] [3
 
 ]
-<hermite3-5.png, id=120, 1125.20375pt x 224.84pt>
+<hermite3-5.png, id=122, 1125.20375pt x 224.84pt>
 File: hermite3-5.png Graphic file (type png)
 <use hermite3-5.png>
 Package pdftex.def Info: hermite3-5.png  used on input line 122.
 (pdftex.def)             Requested size: 337.56374pt x 67.45251pt.
-<hermiteTriangle1.png, id=122, 737.75626pt x 245.91875pt>
+<hermiteTriangle1.png, id=124, 737.75626pt x 245.91875pt>
 File: hermiteTriangle1.png Graphic file (type png)
 <use hermiteTriangle1.png>
 Package pdftex.def Info: hermiteTriangle1.png  used on input line 122.
@@ -1710,7 +1710,7 @@ Package pdftex.def Info: hermiteTriangle1.png  used on input line 122.
  [4
 
  <./hermite3-5.png> <./hermiteTriangle1.png>]
-<hermiteTriangleUN.png, id=152, 406.51875pt x 399.4925pt>
+<hermiteTriangleUN.png, id=154, 406.51875pt x 399.4925pt>
 File: hermiteTriangleUN.png Graphic file (type png)
 <use hermiteTriangleUN.png>
 Package pdftex.def Info: hermiteTriangleUN.png  used on input line 134.
@@ -1722,12 +1722,12 @@ Package pdftex.def Info: hermiteTriangle1.png  used on input line 134.
  [5
 
  <./hermiteTriangleUN.png>]
-<elementsHermite.png, id=180, 1552.80125pt x 418.56375pt>
+<elementsHermite.png, id=182, 1552.80125pt x 418.56375pt>
 File: elementsHermite.png Graphic file (type png)
 <use elementsHermite.png>
 Package pdftex.def Info: elementsHermite.png  used on input line 148.
 (pdftex.def)             Requested size: 310.55475pt x 83.71126pt.
-<hermiteBidim1.png, id=181, 1384.17125pt x 245.91875pt>
+<hermiteBidim1.png, id=183, 1384.17125pt x 245.91875pt>
 File: hermiteBidim1.png Graphic file (type png)
 <use hermiteBidim1.png>
 Package pdftex.def Info: hermiteBidim1.png  used on input line 148.
@@ -1737,7 +1737,7 @@ Overfull \hbox (3.74666pt too wide) in paragraph at lines 148--148
  [] 
  []
 
-<hermiteBidim2.png, id=182, 1064.97874pt x 257.96375pt>
+<hermiteBidim2.png, id=184, 1064.97874pt x 257.96375pt>
 File: hermiteBidim2.png Graphic file (type png)
 <use hermiteBidim2.png>
 Package pdftex.def Info: hermiteBidim2.png  used on input line 148.
@@ -1752,7 +1752,7 @@ Overfull \vbox (12.51762pt too high) detected at line 148
 [7
 
 ]
-<HermiteBasis.png, id=240, 441.65pt x 353.32pt>
+<HermiteBasis.png, id=242, 441.65pt x 353.32pt>
 File: HermiteBasis.png Graphic file (type png)
 <use HermiteBasis.png>
 Package pdftex.def Info: HermiteBasis.png  used on input line 200.
@@ -1782,7 +1782,7 @@ Missing character: There is no ; in font nullfont!
 ] [14
 
 ]
-<algorithmeAssemblage.png, id=431, 1224.575pt x 479.7925pt>
+<algorithmeAssemblage.png, id=433, 1224.575pt x 479.7925pt>
 File: algorithmeAssemblage.png Graphic file (type png)
 <use algorithmeAssemblage.png>
 Package pdftex.def Info: algorithmeAssemblage.png  used on input line 418.
@@ -1853,7 +1853,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 )) [26
 
 ]
-<codePython02.png, id=755, 923.45pt x 598.235pt>
+<codePython02.png, id=757, 923.45pt x 598.235pt>
 File: codePython02.png Graphic file (type png)
 <use codePython02.png>
 Package pdftex.def Info: codePython02.png  used on input line 868.
@@ -2059,24 +2059,18 @@ Overfull \hbox (2.30267pt too wide) in paragraph at lines 1705--1705
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `chapitre3bis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `chapitre3bis.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `chapitre3bis.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 runsystem(rm chapitre3bis.pyg)...executed.
 
 runsystem(rm chapitre3bis.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 42244 strings out of 478268
- 883034 string characters out of 5846348
- 1269143 words of memory out of 5000000
- 59433 multiletter control sequences out of 15000+600000
+ 42362 strings out of 478268
+ 884052 string characters out of 5846348
+ 1269223 words of memory out of 5000000
+ 59543 multiletter control sequences out of 15000+600000
  499578 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,671b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2107,7 +2101,7 @@ e/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on chapitre3bis.pdf (52 pages, 1046205 bytes).
+Output written on chapitre3bis.pdf (52 pages, 1047022 bytes).
 PDF statistics:
  1585 PDF objects out of 1728 (max. 8388607)
  1430 compressed objects within 15 object streams
