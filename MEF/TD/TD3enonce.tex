@@ -1,0 +1,417 @@
+\documentclass{article}
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+
+\usepackage[cache=false]{minted}
+ \definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+ \usepackage[cache=false]{minted}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{La Méthode des Éléments Finis: TD3}
+\author{ \textsc{Ibrahim ALAME}}
+\date{23/02/2024}
+  \begin{document}
+  \lstset{
+    frame       = single,
+    numbers     = left,
+    showspaces  = false,
+    showstringspaces    = false,
+    captionpos  = t,
+    caption     = \lstname
+}
+\maketitle
+\section*{Problème de Poisson en dim 2}
+\subsection*{Solution exacte}
+On considère une membrane carrée de coté $a=1$ qui se déforme sous l'effet d'une charge surfacique $ f(x,y)$ . La membrane est sous tension et fixée sur les bords.  On note $ u(x,y)$ la déformée
+
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.8]
+  \draw[->] (0,0) -- (4.5,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (2,1.333) node[left] {$y$};
+  \draw[->] (0,0) -- (0,2) node[left] {$z$};
+\draw  [line width=1pt](0,0) -- (1.5,1)--++(3,0)--++(-1.5,-1)--cycle;
+%\draw [orange,domain=0:2 ] plot(\x,1/4*\x*\x*\x-1/2*\x*\x-5/4*\x+5/2);
+\end{tikzpicture}
+\end{center}
+
+ La déformée $u$ est solution du problème de Poisson avec conditions de Dirichlet homogènes posé sur le domaine
+$\Omega = ]0, 1[ \times ]0, 1[$: 
+\begin{equation}
+\left\{
+\begin{array}{l}
+-\Delta u = f \mbox{ dans } \Omega \quad \mbox{ bilan des forces }\\
+u=0  \mbox{ sur } \partial \Omega \quad \mbox{ condition limite }
+\end{array}
+\right.
+\label{dirichletDim1}
+\end{equation}
+On admet que
+\begin{enumerate}
+\item La solution exacte analytique de l'équation de Poisson \eqref{dirichletDim1}, est donnée,  dans le cas d'un chargement uniforme $f=-1$,  par la somme de la suite double:
+\[u(x,y)=\sum_{\ell=1}^{\infty}\sum_{m=1}^{\infty}u_{\ell m}\sin((2\ell-1)\pi x)\sin((2m-1)\pi y)\]
+avec  $\displaystyle u_{\ell m}=\frac{-16}{((2\ell-1)^{2}+(2m-1)^{2})\pi^{4}(2\ell-1)(2m-1)}$
+\item La flèche au point central de la membrane se calcule à l'aide de la somme:
+$$\displaystyle u_{max}=\sum_{\ell=1}^{\infty}\sum_{m=1}^{\infty}\frac{16(-1)^{\ell+1}(-1)^{m+1}}{((2\ell-1)^{2}+(2m-1)^{2})\pi^{4}(2\ell-1)(2m-1)}$$
+On peut calculer une valeur approchée très précise de cette série avec Maple, et on trouve (pour $ 1\leq m,\ell \leq 200$):
+\[\displaystyle U_{max}=-0.07367135123\]
+\end{enumerate}
+
+\subsection*{Solution approchée par éléments finis P1-triangle}
+On considère le maillage suivant :
+
+  %Maillage
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=1.5]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{1.2}
+  \pgfmathsetmacro{\N}{4}
+  \draw[->] (0,0) -- (\N*\a+\a/2,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (0,\N*\a+\a/2) node[left] {$y$};
+
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](\n*\a,0)-- ++(0,\N*\a);
+    \draw[blue,thick](0,\n*\a)-- ++(\N*\a,0);
+}
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](\n*\a,0)-- (\N*\a,\N*\a-\n*\a);
+    \draw[blue,thick](0,\n*\a)-- (\N*\a-\n*\a,\N*\a);
+}
+\pgfmathsetmacro{\Z}{int(\N-1)}
+  \foreach \i in {1,...,\Z}{
+  		\foreach \j in {1,...,\Z}{
+  		\pgfmathsetmacro{\x}{int((\N-1)*(\j-1)+(\i-1))}
+   \draw[red,thick](\i*\a,\j*\a) node[below right]{\x};
+   }
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1))}
+  \foreach \i in {0,1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\i*\a,0) node[below]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a,\i*\a) node[right]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+2*\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a-\i*\a,\N*\a) node[above]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+3*\N)}
+\pgfmathsetmacro{\U}{int(\N-1)}
+  \foreach \i in {1,...,\U}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](0,\N*\a-\i*\a) node[left]{\x};
+}
+\pgfmathsetmacro{\M}{int(\N-1)}
+  \foreach \i in {0,1,...,\M}{
+  		\foreach \j in {0,1,...,\M}{
+  		\pgfmathsetmacro{\x}{int(\N*\j+\j+\i)}
+  		\pgfmathsetmacro{\k}{int(2*\i+2*\j*\N)}
+   \draw[gray,thick](\i*\a+\a/3,\j*\a+2*\a/3) node{(\k)};
+   \pgfmathsetmacro{\k}{int(2*\i+1+2*\j*\N)}
+   \draw[gray,thick](\i*\a+2*\a/3,\j*\a+\a/3) node{(\k)};
+   }
+}
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item Rappeler la formulation variationnelle du problème. Quel est l'ordre de la matrice de rigidité $A$ pour le maillage ci-dessus ?
+\item Les 9 sommets intérieurs sont numérotés ligne par ligne de la gauche vers la droite en partant
+de la ligne du bas et en remontant jusqu'à la ligne du haut. Les 32 triangles du maillage sont
+numérotés de manière analogue. Toutes les mailles sont des triangles rectangles isocèles de
+côté $h =\frac 14$ et d'hypoténuse $\ell=\frac{\sqrt 2}{4}$. Calculer les coefficients de la matrice élémentaire de rigidité?
+\item Évaluer les coefficients de la matrice de rigidité.
+\item On considère maintenant un maillage structuré plus fin de pas $h =\frac 1{n+1}$ dans chaque direction spatiale ($n = 3$ dans l'exemple ci-dessus). Montrer que la matrice de rigidité a une structure
+bloc tridiagonale. Quel est le rapport entre le nombre de coefficients non-nuls et le nombre
+total de coefficients dans la matrice de rigidité (on retiendra le terme dominant en puissances
+de $n$).
+\item Calculer le second membre et résoudre le système linéaire. Comparer la flèche du milieu avec la solution exacte.
+\end{enumerate}
+
+\subsection*{Poutre à section variable en flexion}
+On considère la poutre à section variable suivante:
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, blue] [->]  (-0.5,0) -- (12,0) node[right] {$x$};
+\draw  [very thin, blue] [->]  (0,-2) -- (0,2) node[right] {$y$};
+\draw[fill=cyan,thick=2, opacity=0.2] (0,-0.5) rectangle (4,0.5);
+\draw[fill=cyan,thick=2, opacity=0.2] (4,-0.3) rectangle (7.6,0.3);
+\draw[fill=cyan,thick=2, opacity=0.2](7.6,-0.2) rectangle (10,0.2);
+
+\draw[dotted,<->] (0,-1.5) --++ (4,0)node[midway, below] {$\scriptstyle   \ell_1=20cm$};
+\draw[dotted,<->] (4,-1.5) --++ (3.6,0)node[midway, below] {$\scriptstyle   \ell_2=18cm$};
+\draw[dotted,<->] (7.6,-1.5) --++ (2.4,0)node[midway, below] {$\scriptstyle   \ell_3=12cm$};
+
+\draw (2,1.5)node {$\scriptstyle   \phi_1=50mm$};
+\draw (5.8,1.5)node {$\scriptstyle   \phi_2=30mm$};
+\draw (8.6,1.5)node {$\scriptstyle   \phi_3=20mm$};
+
+\draw[very thick,orange,->] (10,2) -- ++(0,-1.8) node[midway, right]{\small 100N};
+%\draw [domain=0:5][line width=1] plot(\x,{.8598e-1*\x*\x*\x-.8104*\x*\x+1.697*\x});
+%\draw [domain=0:6] plot(\x,{sin(57.29*\x)});
+\pgfmathsetmacro{\y}{2}
+\foreach \x in {-0.5,-0.4,...,0.6}{
+\draw (0,\x) --++ (-0.1,-0.1);
+}
+\end{tikzpicture} 
+\end{center}
+
+On fait un maillage à 3 éléments finis dont les sommets coïncident avec les points de discontinuité de la section transversale de façon que chaque élément fini possède une section constante. 
+\begin{enumerate}
+\item Écrire les deux tables: Coordonnées de nœuds et table de connectivité. Préciser à la dernière ligne de la deuxième tables les sections des éléments.
+\item  On rappelle que la matrice élémentaire s'écrit:
+\[\frac{EI}{L^3}\left(\begin{array}{rrrr} 
+12&6L&-12&6L\\
+6L&4L^2&-6L&2L^2\\
+-12&-6L&12&-6L\\
+6L&2L^2&-6L&4L^2
+\end{array}\right) 
+\]
+   Écrire la matrice d'assemblage de la structure. {\em A faire en TP1: L'algorithme d'assemblage est le suivant:}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+import numpy as np
+N=3
+E=2.E11
+M=np.zeros((2*(N+1),2*(N+1)),dtype=float)
+Sommets = [0,200,380,500]
+Connectivite = [[0,1,50],[1,2,30],[2,3,20]]
+
+for e in range(N):
+    q,r,d = Connectivite[e]
+    Iz=np.pi*d**4/16/4 * 1E-12
+    x1 = Sommets[q]
+    x2 = Sommets[r]
+    L = (x2-x1)*1.E-2
+    m = E*Iz/(L**3)*np.mat([[12,6*L,-12,6*L],[6*L,4*L**2,-6*L,2*L**2],
+                          [-12,-6*L,12,-6*L],[6*L,2*L**2,-6*L,4*L**2]])
+    ddl = [2*q,2*q+1,2*r,2*r+1]
+    for i in range(4):
+        I = ddl[i]
+        for j in range(4):
+            J = ddl[j]
+            M[I,J] += m[i,j]
+print(M)
+\end{minted}
+\item Écrire le second membre.
+\item {\em En TP1 uniquement:} Résoudre le système linéaire et déterminer le déplacement à l'extrémité de la poutre ($E=210$ GPa).
+\item  Déterminer la réaction à l'encastrement en O.
+\end{enumerate}
+\subsection*{Eléments finis parallélotopes}
+Soit le carré $\Omega=[0,1]\times [0,1]$ et soit une partition en carrés égaux de coté $\frac 1n$.
+  %Maillage
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=1]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{1.2}
+  \pgfmathsetmacro{\N}{4}
+  \draw[->] (0,0) -- (\N*\a+\a/2,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (0,\N*\a+\a/2) node[left] {$y$};
+
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](\n*\a,0)-- ++(0,\N*\a);
+    \draw[blue,thick](0,\n*\a)-- ++(\N*\a,0);
+}
+
+\pgfmathsetmacro{\Z}{int(\N-1)}
+  \foreach \i in {1,...,\Z}{
+  		\foreach \j in {1,...,\Z}{
+  		\pgfmathsetmacro{\x}{int((\N-1)*(\j-1)+(\i-1))}
+   \draw[red,thick](\i*\a,\j*\a) node[below right]{\x};
+   }
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1))}
+  \foreach \i in {0,1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\i*\a,0) node[below]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a,\i*\a) node[right]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+2*\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a-\i*\a,\N*\a) node[above]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+3*\N)}
+\pgfmathsetmacro{\U}{int(\N-1)}
+  \foreach \i in {1,...,\U}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](0,\N*\a-\i*\a) node[left]{\x};
+}
+\pgfmathsetmacro{\M}{int(\N-1)}
+  \foreach \i in {0,1,...,\M}{
+  		\foreach \j in {0,1,...,\M}{
+  		\pgfmathsetmacro{\x}{int(\N*\j+\j+\i)}
+  		\pgfmathsetmacro{\k}{int(\i+\j*\N)}
+   \draw[gray,thick](\i*\a+\a/2,\j*\a+\a/2) node{(\k)};
+   }
+}
+
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item Calculer la matrice élémentaire d'assemblage associée au problème de Dirichlet et à l'élément fini {\em carré unité de type (1)}.
+\item Calculer la matrice assemblée lorsque l'on numérote par lignes.
+\end{enumerate}
+\subsection*{Éléments triangles équilatéraux}
+Soit  $\Omega$ un losange d'angle au sommet $\frac{\pi}{3}$ et de coté 1  et soit une partition en triangles équilatéraux de coté $\frac 1n$.
+  %Maillage
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=1]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{1}
+  \pgfmathsetmacro{\h}{1.732}
+  \pgfmathsetmacro{\N}{3}
+  \draw[->] (0,0) -- (2*\N*\a+\a,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (\N*\a+\a/2,\N*\h+\h/2)  node[right] {$y$};
+
+
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](2*\n*\a,0)-- ++(\N*\a,\N*\h);
+    \draw[blue,thick](\n*\a,\n*\h)-- ++(2*\N*\a,0);
+}
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](2*\n*\a,0)-- (\n*\a,\n*\h);
+   \draw[blue,thick](2*\N*\a+\n*\a,\n*\h)-- (\N*\a+2*\n*\a,\N*\h);
+}
+\pgfmathsetmacro{\Z}{int(\N-1)}
+  \foreach \i in {1,...,\Z}{
+  		\foreach \j in {1,...,\Z}{
+  		\pgfmathsetmacro{\x}{int((\N-1)*(\j-1)+(\i-1))}
+   \draw[red,thick](2*\i*\a+\j*\a,\j*\h) node[below right]{\x};
+   }
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1))}
+  \foreach \i in {0,1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](2*\i*\a,0) node[below]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](2*\N*\a+\i*\a,\i*\h) node[right]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+2*\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](3*\N*\a-2*\i*\a,\N*\h) node[above]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+3*\N)}
+\pgfmathsetmacro{\U}{int(\N-1)}
+  \foreach \i in {1,...,\U}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a-\i*\a,\N*\h-\i*\h) node[left]{\x};
+}
+\pgfmathsetmacro{\M}{int(\N-1)}
+  \foreach \i in {0,1,...,\M}{
+  		\foreach \j in {0,1,...,\M}{
+  		\pgfmathsetmacro{\x}{int(\N*\j+\j+\i)}
+  		\pgfmathsetmacro{\k}{int(2*\i+2*\j*\N)}
+   \draw[gray,thick](2*\i*\a+\a+\j*\a,\j*\h+\h/2) node{(\k)};
+     		\pgfmathsetmacro{\k}{int(\k+1)}
+   \draw[gray,thick](2*\i*\a+2*\a+\j*\a,\j*\h+\h/2) node{(\k)};
+
+   }
+}
+
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Calculer la matrice élémentaire d'assemblage associée au problème de Dirichlet et à l'élément fini {\em triangle de type (1)}.
+\item Calculer la matrice assemblée lorsque l'on numérote par lignes.
+\end{enumerate}
+
+\end{document}

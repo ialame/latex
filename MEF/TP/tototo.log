@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  22 FEB 2024 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  22 FEB 2024 16:35
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**TP1.tex
-(./TP1.tex
+**tototo.tex
+(./tototo.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -197,7 +197,7 @@ Package: filehook-2020 2020/09/29 v0.8a Hooks for input files
 \c@currfiledepth=\count292
 )
 \pytx@codefile=\write4
-\openout4 = `TP1.pytxcode'.
+\openout4 = `tototo.pytxcode'.
 
 \c@pytx@FancyVerbLineTemp=\count293
 \c@pytx@py@default@default=\count294
@@ -681,10 +681,11 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "TP1.w18")...executed.
+runsystem(uname -s > "tototo.w18")...executed.
 
- (./TP1.w18)
-runsystem(rm -- "TP1.w18")...executed.
+
+(./tototo.w18)
+runsystem(rm -- "tototo.w18")...executed.
 
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
@@ -693,8 +694,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \fb@frh=\dimen287
 \FrameRule=\dimen288
 \FrameSep=\dimen289
-)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count339
 \float@exts=\toks47
@@ -718,17 +718,17 @@ Package geometry Warning: Over-specification in `h'-direction.
 Package geometry Warning: Over-specification in `v'-direction.
     `height' (845.04684pt) is ignored.
 
-runsystem(which pygmentize && touch TP1.aex)...executed.
+runsystem(which pygmentize && touch tototo.aex)...executed.
 
-runsystem(rm TP1.aex)...executed.
+runsystem(rm tototo.aex)...executed.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count343
 \l__pdf_internal_box=\box72
 )
-(./TP1.aux)
-\openout1 = `TP1.aux'.
+(./tototo.aux)
+\openout1 = `tototo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
@@ -748,7 +748,7 @@ LaTeX Info: Redefining \degres on input line 50.
 LaTeX Info: Redefining \up on input line 50.
 Package newfloat Info: `float' package detected.
 
-No file pythontex-files-TP1/TP1.pytxmcr.
+No file pythontex-files-tototo/tototo.pytxmcr.
 Run PythonTeX to create it.
 
 Package PythonTeX Warning: A "listing" environment already exists 
@@ -834,122 +834,26 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 5
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > TP1.out.pyg)...
-executed.
-
- (./TP1.out.pyg)
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
-
-(./TP1.out.pyg
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
-
-(./TP1.out.pyg
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-5.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
-File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-))
-Overfull \hbox (9.62321pt too wide) in paragraph at lines 216--219
-[]\T1/cmr/bx/n/10.95 Charges ex-ternes \T1/cmr/m/n/10.95 La charge ap-pli-quée 
-en un noeud est re-pré-sen-tée par un tri-plet : $\OT1/cmr/m/n/10.95 [\OML/cmm/
-m/it/10.95 n[]; F[]; F[]\OT1/cmr/m/n/10.95 ]$ 
- []
-
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
-(./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- [2] (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
-
-(./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- (./TP1.out.pyg) [3] [4] (./TP1.aux)
-runsystem(rm TP1.pyg)...executed.
-
-runsystem(rm TP1.out.pyg)...executed.
-
- ) 
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./toto
+to.aux) ) 
 Here is how much of TeX's memory you used:
- 21366 strings out of 478268
- 428880 string characters out of 5846348
- 781719 words of memory out of 5000000
- 39141 multiletter control sequences out of 15000+600000
- 482219 words of font info for 71 fonts, out of 8000000 for 9000
+ 21161 strings out of 478268
+ 425719 string characters out of 5846348
+ 776761 words of memory out of 5000000
+ 38969 multiletter control sequences out of 15000+600000
+ 479228 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,14n,89p,573b,745s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on TP1.pdf (4 pages, 251026 bytes).
+ 85i,6n,89p,410b,749s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-
+t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.
+pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pf
+b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb>
+
+Output written on tototo.pdf (1 page, 53363 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 32 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

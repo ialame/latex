@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  22 FEB 2024 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  22 FEB 2024 19:54
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**TP1.tex
-(./TP1.tex
+**TD3.tex
+(./TD3.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2022/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -197,7 +197,7 @@ Package: filehook-2020 2020/09/29 v0.8a Hooks for input files
 \c@currfiledepth=\count292
 )
 \pytx@codefile=\write4
-\openout4 = `TP1.pytxcode'.
+\openout4 = `TD3.pytxcode'.
 
 \c@pytx@FancyVerbLineTemp=\count293
 \c@pytx@py@default@default=\count294
@@ -628,18 +628,25 @@ s/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarymatrix.code.tex
-File: tikzlibrarymatrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypatterns.code.tex
 File: tikzlibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
 s.code.tex
 File: pgflibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/minted/minted.sty
-Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
+))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/empheq.sty
+Package: empheq 2017/03/31 v2.15 Emphasizing equations
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
@@ -654,12 +661,333 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count338
 \calc@Cskip=\skip58
 )
-(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+\g_MT_multlinerow_int=\count339
+\l_MT_multwidth_dim=\dimen286
+\origjot=\skip59
+\l_MT_shortvdotswithinadjustabove_dim=\dimen287
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen288
+\l_MT_above_intertext_sep=\dimen289
+\l_MT_below_intertext_sep=\dimen290
+\l_MT_above_shortintertext_sep=\dimen291
+\l_MT_below_shortintertext_sep=\dimen292
+\xmathstrut@box=\box69
+\xmathstrut@dim=\dimen293
 )
-(/usr/local/texlive/2022/texmf-dist/tex/latex/ifplatform/ifplatform.sty
-Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+\l_EQ_equationtype_int=\count340
+\l_EQ_alignmentmode_int=\count341
+\l_EQ_totalwidth_dim=\dimen294
+\l_EQ_displaywidth_dim=\dimen295
+\l_EQ_temp_linewidth_dim=\dimen296
+\l_EQ_linewidth_dim=\dimen297
+\EmphEqdelimitershortfall=\dimen298
+\EmphEqdelimiterfactor=\count342
+\g_EQ_toptag_height_dim=\dimen299
+\g_EQ_bottomtag_depth_dim=\dimen300
+\g_EQ_toprow_height_dim=\dimen301
+\g_EQ_bottomrow_depth_dim=\dimen302
+\g_EQ_widesttag_dim=\dimen303
+\EQ_mathdisplay_box=\box70
+\EQ_tag_box=\box71
+\g_EQ_temprow_int=\count343
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip60
+\LTright=\skip61
+\LTpre=\skip62
+\LTpost=\skip63
+\LTchunksize=\count344
+\LTcapwidth=\dimen304
+\LT@head=\box72
+\LT@firsthead=\box73
+\LT@foot=\box74
+\LT@lastfoot=\box75
+\LT@gbox=\box76
+\LT@cols=\count345
+\LT@rows=\count346
+\c@LT@tables=\count347
+\c@LT@chunks=\count348
+\LT@p@ftn=\toks47
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen305
+\lightrulewidth=\dimen306
+\cmidrulewidth=\dimen307
+\belowrulesep=\dimen308
+\belowbottomsep=\dimen309
+\aboverulesep=\dimen310
+\abovetopsep=\dimen311
+\cmidrulesep=\dimen312
+\cmidrulekern=\dimen313
+\defaultaddspace=\dimen314
+\@cmidla=\count349
+\@cmidlb=\count350
+\@aboverulesep=\dimen315
+\@belowrulesep=\dimen316
+\@thisruleclass=\count351
+\@lastruleclass=\count352
+\@thisrulewidth=\dimen317
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen318
+\ar@mcellbox=\box77
+\extrarowheight=\dimen319
+\NC@list=\toks48
+\extratabsurround=\skip64
+\backup@length=\skip65
+\ar@cellbox=\box78
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2021/08/23 v0.71 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks49
+\XKV@tempa@toks=\toks50
+)
+\XKV@depth=\count353
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.06, 2020/11/20 (hv)
+\pstFP@xs=\count354
+\pstFP@xia=\count355
+\pstFP@xib=\count356
+\pstFP@xfa=\count357
+\pstFP@xfb=\count358
+\pstFP@rega=\count359
+\pstFP@regb=\count360
+\pstFP@regs=\count361
+\pstFP@times=\count362
+)
+\psLoopIndex=\count363
+
+`PSTricks' v3.13  <2022/01/09> (tvz,hv)
+\pst@dima=\dimen320
+\pst@dimb=\dimen321
+\pst@dimc=\dimen322
+\pst@dimd=\dimen323
+\pst@dimg=\dimen324
+\pst@dimh=\dimen325
+\pst@dimm=\dimen326
+\pst@dimn=\dimen327
+\pst@dimo=\dimen328
+\pst@dimp=\dimen329
+\pst@hbox=\box79
+\pst@ibox=\box80
+\pst@boxg=\box81
+\pst@cnta=\count364
+\pst@cntb=\count365
+\pst@cntc=\count366
+\pst@cntd=\count367
+\pst@cntg=\count368
+\pst@cnth=\count369
+\pst@cntm=\count370
+\pst@cntn=\count371
+\pst@cnto=\count372
+\pst@cntp=\count373
+\@zero=\count374
+\pst@toks=\toks51
+--- We are running latex or xelatex ---
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pstricks.con)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pstricks-color.tex)
+\psunit=\dimen330
+\psxunit=\dimen331
+\psyunit=\dimen332
+\pst@C@@rType=\count375
+\pslinewidth=\dimen333
+\psk@startLW=\dimen334
+\psk@endLW=\dimen335
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pstricks-arrows.tex
+\pshooklength=\dimen336
+\pshookwidth=\dimen337
+)
+\pst@customdefs=\toks52
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pstricks-dots.tex)
+\pslinearc=\dimen338
+\pst@symbolStep=\dimen339
+\pst@symbolWidth=\dimen340
+\pst@symbolLinewidth=\dimen341
+\everypsbox=\toks53
+\psframesep=\dimen342
+\pslabelsep=\dimen343
+\sh@wgridXunit=\dimen344
+\sh@wgridYunit=\dimen345
+\pst@shift=\dimen346
+\ps@imagectr=\count376
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pstricks.con))
+File: pstricks.tex 2022/01/09 v3.13 `PSTricks' (tvz,hv)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.06, 2020/11/20 (hv))
+File: pst-fp.tex 2020/11/20 v0.06 `PST-fp' (hv)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-3dplot/pst-3dplot.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-3d/pst-3d.sty
+Package: pst-3d 2009/07/28 package wrapper for pst-3d.tex (hv)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-3d/pst-3d.tex
+`PST-3d' v1.11, 2010/02/14 (tvz))
+File: pst-3d.tex 2010/02/14 v1.11 `PST-3d' (hv)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-plot/pst-plot.sty
+Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/pst-xkey.sty
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/multido/multido.sty
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/multido/multido.tex
+ v1.42, 2010/05/14 <tvz>
+\multido@count=\count377
+\multidocount=\count378
+\multido@stuff=\toks54
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)
+Package: pst-plot 2021/09/23 package wrapper for pst-plot.tex (hv)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-plot/pst-plot.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-tools/pst-tools.tex
+`PST-tools' v0.12, 2021/09/23 (hv)
+\randomi=\count379
+\ranval=\count380
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks-add/pstricks-add.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-node/pst-node.tex
+ v1.43, 2022/01/31
+\psrow=\count381
+\pscol=\count382
+\psmatrixcnt=\count383
+\psrowsep=\skip66
+\pscolsep=\skip67
+\pst@args=\count384
+\num@pts=\count385
+\pst@argcnt=\count386
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-arrow/pst-arrow.tex
+`pst-arrow' v0.05, 2021/11/16 (dr,hv))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-math/pst-math.tex
+`pst-math' v0.64 , (CJ,hv)) `pstricks-add' v3.92, 2021/12/25 (dr,hv)
+\psparallelogramsep=\dimen347
+\pst@cntC=\count387
+\pst@stepcount=\count388
+\chart@ColorIndex=\dimen348
+\chart@ColorStep=\dimen349
+\pst@chartHeight=\dimen350
+\pst@chartStackDepth=\dimen351
+\pst@chartStackWidth=\dimen352
+\chart@Toggle=\count389
+\psVectorCtr=\count390
+)
+ v1.93, 2021/09/23 (tvz,hv)
+\pstRadUnit=\dimen353
+\pstRadUnitInv=\dimen354
+\pst@linecnt=\count391
+\RCD@file=\read5
+\psxlabelsep=\dimen355
+\psylabelsep=\dimen356
+\psk@subticksize=\dimen357
+\pst@xticksizeA=\dimen358
+\pst@xticksizeB=\dimen359
+\pst@xticksizeC=\dimen360
+\pst@yticksizeA=\dimen361
+\pst@yticksizeB=\dimen362
+\pst@yticksizeC=\dimen363
+\@digitcounter=\count392
+\psk@llx=\dimen364
+\psk@lly=\dimen365
+\psk@urx=\dimen366
+\psk@ury=\dimen367
+\pst@xunit=\dimen368
+\pst@yunit=\dimen369
+)
+File: pst-plot.tex 2021/09/23 1.93 `pst-plot' (tvz,hv)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-node/pst-node.sty
+Package: pst-node 2012/09/18 v1.01 LaTeX wrapper for `pst-node' (HV)
+Package: pst-node 2010/04/22 package wrapper for pst-node.tex
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-node/pst-node.tex)
+File: pst-node.tex 2021/09/23 1.93 `pst-node' (tvz,hv)
+)
+Package: pst-3dplot 2010/01/01 package wrapper for pst-3dplot.tex (hv)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-3dplot/pst-3dplot.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-node/pst-node.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/multido/multido.tex
+ v1.42, 2010/05/14 <tvz>) `PST-3dplot' v2.07a, 2022/01/14 (HV,DL)
+\pst@dimf=\dimen370
+\pst@cntx=\count393
+\pst@cnty=\count394
+\pst@cntz=\count395
+\pst@dimx=\dimen371
+\pst@dimy=\dimen372
+\pst@dimz=\dimen373
+\pst@dx=\dimen374
+\pst@dy=\dimen375
+\pszunit=\dimen376
+)
+File: pst-3dplot.tex 2022/01/14 v2.07a `PST-3dplot' (hv)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-tree/pst-tree.sty
+Package: pst-tree 2009/01/25 package wrapper for pst-tree.tex
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-tree/pst-tree.tex
+ v1.14, 2021/09/04(tvz,dg,hv)
+\pstree@rootbox=\box82
+\pstree@box=\box83
+\psnodecnt=\count396
+\pstreelevel=\count397
+\pstreecnt=\count398
+\pstree@cnt=\count399
+\pstree@stop=\count400
+)
+File: pst-tree.tex 2021/09/04 1.14 `pst-tree' (tvz,hv)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pstricks-add/pstricks-add.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-math/pst-math.sty
+Package: pst-math 2018/12/16 v 0.65 package wrapper for PSTricks pst-math.tex
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pst-calculate/pst-calculate.sty
+Package: pst-calculate 2019/01/24 v. 0.02(Herbert Voss) Support for caculations
+ with floating point numbers.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-02-24 L3 programming layer (loader) 
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count401
+\l__pdf_internal_box=\box84
+))
+Package: xparse 2022-01-12 L3 Experimental document command parser
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2022-02-15 v3.0.49 A comprehensive (SI) units package
+\l__siunitx_angle_tmp_dim=\dimen377
+\l__siunitx_angle_marker_box=\box85
+\l__siunitx_angle_unit_box=\box86
+\l__siunitx_compound_count_int=\count402
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -671,104 +999,164 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2022/texmf-dist/tex/generic/catchfile/catchfile.sty
-Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
-
-(/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 ))
-(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
+\l__siunitx_number_exponent_fixed_int=\count403
+\l__siunitx_number_min_decimal_int=\count404
+\l__siunitx_number_min_integer_int=\count405
+\l__siunitx_number_round_precision_int=\count406
+\l__siunitx_number_group_minimum_int=\count407
+\l__siunitx_table_tmp_box=\box87
+\l__siunitx_table_tmp_dim=\dimen378
+\l__siunitx_table_column_width_dim=\dimen379
+\l__siunitx_table_integer_box=\box88
+\l__siunitx_table_decimal_box=\box89
+\l__siunitx_table_before_box=\box90
+\l__siunitx_table_after_box=\box91
+\l__siunitx_table_before_dim=\dimen380
+\l__siunitx_table_carry_dim=\dimen381
+\l__siunitx_unit_tmp_int=\count408
+\l__siunitx_unit_position_int=\count409
+\l__siunitx_unit_total_int=\count410
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+))) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "TP1.w18")...executed.
-
- (./TP1.w18)
-runsystem(rm -- "TP1.w18")...executed.
-
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip59
-\fb@frw=\dimen286
-\fb@frh=\dimen287
-\FrameRule=\dimen288
-\FrameSep=\dimen289
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pst-math/pst-math.tex)
+File: pst-math.tex 2021/09/04 v1.14 `PST-math' (hv)
+\c@Rand@No=\count411
+\c@Random@Left=\count412
+\c@Random@Right=\count413
+\c@Random@No@max=\count414
 )
-(/usr/local/texlive/2022/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count339
-\float@exts=\toks47
-\float@box=\box69
-\@float@everytoks=\toks48
-\@floatcapt=\box70
+Package: pstricks-add 2021/09/10 v. 0.17 package wrapper for pstricks-add.tex (
+hv)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pstricks-add/pstricks-add.tex)
+File: pstricks-add.tex 2021/09/04 v1.14 `PSTricks-add' (hv)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/was/upgreek.sty
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup8
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
 )
-\minted@appexistsfile=\read5
-\minted@bgbox=\box71
-\minted@code=\write6
-\c@minted@FancyVerbLineTemp=\count340
-\c@minted@pygmentizecounter=\count341
-\@float@every@listing=\toks49
-\c@listing=\count342
+(/usr/local/texlive/2022/texmf-dist/tex/generic/oberdiek/eolgrab.sty
+Package: eolgrab 2016/05/16 v1.1 Catch arguments delimited by end of line (HO)
 )
-
-Package geometry Warning: Over-specification in `h'-direction.
-    `width' (597.50787pt) is ignored.
-
-
-Package geometry Warning: Over-specification in `v'-direction.
-    `height' (845.04684pt) is ignored.
-
-runsystem(which pygmentize && touch TP1.aex)...executed.
-
-runsystem(rm TP1.aex)...executed.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count343
-\l__pdf_internal_box=\box72
+(/usr/local/texlive/2022/texmf-dist/tex/latex/changepage/chngpage.sty
+Package: chngpage 2009/10/20 v1.2b change page layout
+\c@cp@cnt=\count415
+\c@cp@tempcnt=\count416
 )
-(./TP1.aux)
-\openout1 = `TP1.aux'.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/calrsfs.sty
+\symrsfscript=\mathgroup9
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip68
+\enit@outerparindent=\dimen382
+\enit@toks=\toks55
+\enit@inbox=\box92
+\enit@count@id=\count417
+\enitdp@description=\count418
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen383
+\pgfdecoratedremainingdistance=\dimen384
+\pgfdecoratedinputsegmentcompleteddistance=\dimen385
+\pgfdecoratedinputsegmentremainingdistance=\dimen386
+\pgf@decorate@distancetomove=\dimen387
+\pgf@decorate@repeatstate=\count419
+\pgfdecorationsegmentamplitude=\dimen388
+\pgfdecorationsegmentlength=\dimen389
+)
+\tikz@lib@dec@box=\box93
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+\c@definition=\count420
+\c@theorem=\count421
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Info: Redefining \degres on input line 50.
-LaTeX Info: Redefining \up on input line 50.
-Package newfloat Info: `float' package detected.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count422
+\lst@gtempboxa=\box94
+\lst@token=\toks56
+\lst@length=\count423
+\lst@currlwidth=\dimen390
+\lst@column=\count424
+\lst@pos=\count425
+\lst@lostspace=\dimen391
+\lst@width=\dimen392
+\lst@newlines=\count426
+\lst@lineno=\count427
+\lst@maxwidth=\dimen393
 
-No file pythontex-files-TP1/TP1.pytxmcr.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count428
+\lst@skipnumbers=\count429
+\lst@framebox=\box95
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+No file TD3.aux.
+\openout1 = `TD3.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Info: Redefining \degres on input line 86.
+Package french.ldf Info: Setting StandardItemizeEnv=true for
+(french.ldf)             compatibility with enumitem package,
+(french.ldf)             reported on input line 86.
+Package french.ldf Info: Setting StandardEnumerateEnv=true for
+(french.ldf)             compatibility with enumitem package,
+(french.ldf)             reported on input line 86.
+LaTeX Info: Redefining \up on input line 86.
+No file pythontex-files-TD3/TD3.pytxmcr.
 Run PythonTeX to create it.
-
-Package PythonTeX Warning: A "listing" environment already exists 
-(PythonTeX)                PythonTeX will not create one 
-(PythonTeX)                Use \setpythontexlistingenv to create a custom listi
-ng environment on input line 50.
-
+Package newfloat Info: New float `listing' with options `fileext=lopytx' on inp
+ut line 86.
+\c@listing=\count430
+\newfloat@ftype=\count431
+Package newfloat Info: float type `listing'=8 on input line 86.
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count344
-\scratchdimen=\dimen290
-\scratchbox=\box73
-\nofMPsegments=\count345
-\nofMParguments=\count346
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count347
-\MPscratchDim=\dimen291
-\MPnumerator=\count348
-\makeMPintoPDFobject=\count349
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count432
+\scratchdimen=\dimen394
+\scratchbox=\box96
+\nofMPsegments=\count433
+\nofMParguments=\count434
+\everyMPshowfont=\toks57
+\MPscratchCnt=\count435
+\MPscratchDim=\dimen395
+\MPnumerator=\count436
+\makeMPintoPDFobject=\count437
+\everyMPtoPDFconversion=\toks58
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -782,27 +1170,27 @@ e
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: a4paper
+* paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=483.69687pt
-* \textheight=731.23584pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
-* \topmargin=-52.36449pt
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=59.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -812,144 +1200,234 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
+\Hy@linkcounter=\count438
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-french.trsl
+File: translations-basic-dictionary-french.trsl (french translation file `trans
+lations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `french'. on input line 86.
+\c@lstlisting=\count439
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 51
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 5
-1.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
-
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > TP1.out.pyg)...
-executed.
-
- (./TP1.out.pyg)
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
-
-(./TP1.out.pyg
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
-
-(./TP1.out.pyg
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 9
 5.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
-File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-))
-Overfull \hbox (9.62321pt too wide) in paragraph at lines 216--219
-[]\T1/cmr/bx/n/10.95 Charges ex-ternes \T1/cmr/m/n/10.95 La charge ap-pli-quée 
-en un noeud est re-pré-sen-tée par un tri-plet : $\OT1/cmr/m/n/10.95 [\OML/cmm/
-m/it/10.95 n[]; F[]; F[]\OT1/cmr/m/n/10.95 ]$ 
- []
 
-\openout3 = `TP1.pyg'.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 
+95.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
 
-(./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- [2] (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
-
- (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
+LaTeX Warning: File `triangleRectangle.png' not found on input line 121.
 
 
-(./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
+! Package pdftex.def Error: File `triangleRectangle.png' not found: using draft
+ setting.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...raphics[width=5cm]{triangleRectangle.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
- (./TP1.out.pyg)
-\openout3 = `TP1.pyg'.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+21.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [1
+Non-PDF special ignored!
+<special> header=pstricks.pro
+Non-PDF special ignored!
+<special> header=pst-algparser.pro
+Non-PDF special ignored!
+<special> header=pst-tools.pro
+Non-PDF special ignored!
+<special> header=pst-dots.pro
+Non-PDF special ignored!
+<special> header=pst-3d.pro
+Non-PDF special ignored!
+<special> header=pst-node.pro
+Non-PDF special ignored!
+<special> header=pst-math.pro
+Non-PDF special ignored!
+<special> header=pstricks-add.pro
+Non-PDF special ignored!
+<special> header=pst-3dplot.pro
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o TP1.out.pyg TP1.pyg)...executed.
+Non-PDF special ignored!
+<special> ps: /pssetRGBcolor /setrgbcolor load def /pssetCMYKcolor /setcmyk...
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
+Non-PDF special ignored!
+<special> ps:0.8 setlinewidth 0 setgray
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
+Non-PDF special ignored!
+<special> ps:0.8 setlinewidth 0 setgray
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
- (./TP1.out.pyg) [3] [4] (./TP1.aux)
-runsystem(rm TP1.pyg)...executed.
+LaTeX Warning: File `fonctionChapeau.png' not found on input line 146.
 
-runsystem(rm TP1.out.pyg)...executed.
+
+! Package pdftex.def Error: File `fonctionChapeau.png' not found: using draft s
+etting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 ...egraphics[scale=0.3]{fonctionChapeau.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `assemblage00.png' not found on input line 156.
+
+
+! Package pdftex.def Error: File `assemblage00.png' not found: using draft sett
+ing.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.156 ...ludegraphics[scale=0.3]{assemblage00.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `profileA.png' not found on input line 160.
+
+
+! Package pdftex.def Error: File `profileA.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 \includegraphics[scale=0.3]{profileA.png}
+                                               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `matriceA.png' not found on input line 164.
+
+
+! Package pdftex.def Error: File `matriceA.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.164 \includegraphics[scale=0.3]{matriceA.png}
+                                               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[2] [3] [4]
+
+LaTeX Warning: File `matriceAparBlocs.png' not found on input line 241.
+
+
+! Package pdftex.def Error: File `matriceAparBlocs.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241 ...raphics[scale=0.25]{matriceAparBlocs.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `poissonSurfaceMEF.png' not found on input line 288.
+
+
+! Package pdftex.def Error: File `poissonSurfaceMEF.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.288 ...aphics[width=10cm]{poissonSurfaceMEF.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5] [6] (./TD3.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 21366 strings out of 478268
- 428880 string characters out of 5846348
- 781719 words of memory out of 5000000
- 39141 multiletter control sequences out of 15000+600000
- 482219 words of font info for 71 fonts, out of 8000000 for 9000
+ 31710 strings out of 478268
+ 648611 string characters out of 5846348
+ 1014891 words of memory out of 5000000
+ 49298 multiletter control sequences out of 15000+600000
+ 487993 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,14n,89p,573b,745s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 126i,7n,121p,662b,761s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on TP1.pdf (4 pages, 251026 bytes).
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texm
+f-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2022/texmf-dist
+/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2022/texmf-dist/f
+onts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fon
+ts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts
+/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
+ype1/public/cm-super/sftt1000.pfb>
+Output written on TD3.pdf (6 pages, 240910 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 131 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

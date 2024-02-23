@@ -1,0 +1,329 @@
+\documentclass{article}
+%\documentclass[12pt,twoside, openany]{extbook}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{lscape}
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\title{La Méthode des Éléments Finis: corrigé du TD2}
+\author{ \textsc{Ibrahim ALAME}}
+\date{05/10/2021}
+  \begin{document}
+  \lstset{
+    frame       = single,
+    numbers     = left,
+    showspaces  = false,
+    showstringspaces    = false,
+    captionpos  = t,
+    caption     = \lstname
+}
+\maketitle
+\section*{Problème de Poisson en dim 2}
+\subsection*{Solution exacte}
+
+
+Nous avons le problème
+\begin{equation}
+\left\{
+\begin{array}{l}
+-\Delta u = f \mbox{ dans } \Omega \quad \mbox{ bilan des forces }\\
+u=0  \mbox{ sur } \partial \Omega \quad \mbox{ condition limite }
+\end{array}
+\right.
+\label{dirichletDim1}
+\end{equation}
+On suppose que le chargement est uniforme $f(x,y)=-1$ et on admet que la solution analytique du problème est donnée par la somme de la série double:
+\[u(x,y)=\sum_{l=1}^{\infty}\sum_{m=1}^{\infty}u_{lm}\sin\left((2l-1)\pi x\right)\sin\left((2m-1)\pi y\right)\]   
+avec  \[u_{lm}=\frac{-16}{((2l-1)^{2}+(2m-1)^{2})\pi^{4}(2l-1)(2m-1)}\]  
+La valeur maximale $u_{max}$ de la déformation se trouve au centre et a pour expression:
+\[u_{max}=\sum_{l=1}^{\infty}\sum_{m=1}^{\infty}\frac{16(-1)^{l+1}(-1)^{m+1}}{((2l-1)^{2}+(2m-1)^{2})\pi^{4}(2l-1)(2m-1)}\]
+On peut calculer une valeur approchée très précise de cette série avec Maple, et on trouve (pour $ m=l=200$ ):
+\[u_{max}=-0.07367135123\]
+
+\subsection*{Solution approchée par éléments finis P1-triangle}
+On rappelle les coordonnées barycentriques dans un triangle rectangle isocèle de côté $h$.
+\begin{center}
+\includegraphics[width=5cm]{triangleRectangle.png}
+\end{center}
+On a \[\lambda_1(\mbox{\bf x})=1-\frac{x+y}{h}\quad \lambda_2(\mbox{\bf x})=\frac{x}{h}\quad \lambda_3(\mbox{\bf x})=\frac{y}{h}\]
+et 
+\[\nabla\lambda_1=\frac{1}{h}\left(\begin{array}{c}
+-1 \\ -1 \end{array}\right)
+\quad 
+\nabla\lambda_2=\frac{1}{h}\left(\begin{array}{c}
+1 \\ 0 \end{array}\right)
+\quad 
+\nabla\lambda_3=\frac{1}{h}\left(\begin{array}{c}
+0 \\ 1 \end{array}\right)
+\]
+On définit les fonctions chapeau $\varphi_i$ pour un élément fini triangle de type (1) par:
+
+Soit $S_i$ un sommet intérieur du maillage, $\forall i \in \{1 . . . N_{so}^{int}\}$
+\begin{itemize}
+\item ${\cal K}(S_i)$ est l'ensemble des mailles ayant $S_i$ pour sommet
+\item $\lambda_{K,S_i}$ est la coordonnée barycentrique de $K$ associée au sommet $S_i$.
+\[\varphi_i=\left\{\begin{array}{ll}
+\lambda_{K,S_i}& \mbox{si }{\bf x}\in K \mbox{ pour } K\in {\cal K}(S_i)\\
+0 & \mbox{sinon }
+\end{array}\right.
+\]
+\begin{center}
+\includegraphics[scale=0.3]{fonctionChapeau.png} 
+\end{center}
+\end{itemize}
+
+\begin{enumerate}
+\item Le terme générique de la matrice de rigidité est $A_{ij} =\int_{\Omega}\nabla\varphi_i\cdot\nabla\varphi_j$  où $\varphi_i$ est la fonction chapeau associée au sommet intérieur de numéro $i$. La matrice de rigidité est d'ordre $N_{so}^{int} = 9$.
+
+Une observation essentielle est que
+\[(A_{ij} \neq 0) \Longrightarrow (S_i \mbox{ et }S_j \mbox{ sont des sommets d’un même triangle})\]
+\begin{center}
+\includegraphics[scale=0.3]{assemblage00.png} 
+\end{center}
+\item En considérant l'intersection des supports des fonctions chapeau, on obtient la disposition suivante des coefficients a priori non-nuls (indiqués par le symbole $\bullet$) :
+\begin{center}
+\includegraphics[scale=0.3]{profileA.png} 
+\end{center}
+\item Pour des raisons de symétrie et d’invariance par translation, il vient
+\begin{center}
+\includegraphics[scale=0.3]{matriceA.png} 
+\end{center}
+Il nous reste à déterminer les coefficients réels $a$, $b$, $c$ et $d$ donnés par les formules suivantes :
+\[\begin{array}{l}
+\displaystyle a=\int_{\Omega}\left|\nabla\varphi_1\right|^2,\\
+\displaystyle b=\int_{\Omega}\nabla\varphi_1\cdot\nabla\varphi_2,\\
+\displaystyle c=\int_{\Omega}\nabla\varphi_1\cdot\nabla\varphi_4,\\
+\displaystyle d=\int_{\Omega}\nabla\varphi_1\cdot\nabla\varphi_5.
+\end{array}\]
+On découpe les intégrales sur Ω en une somme d'intégrales sur les mailles et on ne conserve que les mailles intersectant le support des fonctions chapeau à intégrer. Il vient
+\[\begin{array}{l}
+\displaystyle a=\int_{K_1}\left|\nabla\varphi_1\right|^2+\int_{K_2}\left|\nabla\varphi_1\right|^2+\int_{K_3}\left|\nabla\varphi_1\right|^2+\int_{K_{10}}\left|\nabla\varphi_1\right|^2+\int_{K_{11}}\left|\nabla\varphi_1\right|^2+\int_{K_{12}}\left|\nabla\varphi_1\right|^2\\
+\displaystyle b=\int_{K_3}\nabla\varphi_1\cdot\nabla\varphi_2+\int_{K_{12}}\nabla\varphi_1\cdot\nabla\varphi_2\\
+\displaystyle c=\int_{K_{10}}\nabla\varphi_1\cdot\nabla\varphi_4+\int_{K_{11}}\nabla\varphi_1\cdot\nabla\varphi_4\\
+\displaystyle d=\int_{K_{11}}\nabla\varphi_1\cdot\nabla\varphi_5+\int_{K_{12}}\nabla\varphi_1\cdot\nabla\varphi_5
+\end{array}\]
+Considérons le coefficient $a$. La fonction $\varphi_1$ est affine son gradient  $\nabla\varphi_1$ est donc constant, on peut alors le calculer comme taux d'accroissement en choisissant deux points dans $K_1$.
+
+
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=1]
+  \draw[->] (0,0) -- (3,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (0,3) node[left] {$y$};
+\draw  [line width=1pt](0,0) -- ++(2,2)--++(-2,0)--cycle;
+%\draw [orange,domain=0:2 ] plot(\x,1/4*\x*\x*\x-1/2*\x*\x-5/4*\x+5/2);
+ \draw (2,2)node[above left] {$S_1$};
+ \draw (2,2)node[right] {$(\varphi_1=1)$};
+ \draw (0,2)node[left] {$(\varphi_1=0)$};
+ \draw (0,0)node[below] {$(\varphi_1=0)$};
+ \draw (0.2,1.8)node[below right] {$K_1$};
+\end{tikzpicture}
+\end{center}
+
+
+
+ Sa composante horizontale est $\frac{1-0}{h}=\frac 1h$. Sa composante verticale est $\frac{0-0}{h}$. Donc
+\[\nabla\varphi_1|_{K_1}=\frac{1}{h}\left(\begin{array}{c}1\\0 \end{array}\right)\]
+et comme $K_1$ est de mesure égale à $\frac{h^2}{2}$, il vient
+\[\int_{K_{1}}\left|\nabla\varphi_1\right|^2=\frac{h^2}{2}\frac{1}{h^2}=\frac 12\]
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=1]
+  \draw[->] (0,0) -- (5,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (0,3) node[left] {$y$};
+\draw  [line width=1pt](2,0) -- ++(2,2)--++(-2,0)--cycle;
+%\draw [orange,domain=0:2 ] plot(\x,1/4*\x*\x*\x-1/2*\x*\x-5/4*\x+5/2);
+\draw (2,2)node[above] {$S_1$};
+ \draw (4,2)node[above] {$S_2$};
+ \draw (4,2)node[right] {$(\varphi_1=0)$};
+ \draw (2,2)node[left] {$(\varphi_1=1)$};
+ \draw (2,0)node[below] {$(\varphi_1=0)$};
+ \draw (2.2,1.8)node[below right] {$K_3$};
+\end{tikzpicture}
+\end{center}
+De même,
+\[\nabla\varphi_1|_{K_3}=\left(\begin{array}{c}\frac{0-1}{h}\\\frac{1-0}{h} \end{array}\right)=\frac 1h\left(\begin{array}{c}-1\\1 \end{array}\right)\]
+si bien que
+\[\int_{K_{3}}\left|\nabla\varphi_1\right|^2=\frac{h^2}{2}\frac{2}{h^2}=1\]
+Enfin, pour des raisons de symétrie,
+\[\int_{K_{1}}\left|\nabla\varphi_1\right|^2=\int_{K_{2}}\left|\nabla\varphi_1\right|^2=\int_{K_{11}}\left|\nabla\varphi_1\right|^2=\int_{K_{12}}\left|\nabla\varphi_1\right|^2\]
+et
+\[\int_{K_{3}}\left|\nabla\varphi_1\right|^2=\int_{K_{10}}\left|\nabla\varphi_1\right|^2\]
+En rassemblant les contributions ci-dessus, on obtient
+\[a = 4.\]
+Calcul de b:
+
+Par symétrie $\nabla\varphi_2|_{K_3}=\nabla\varphi_1|_{K_1}=\frac{1}{h}\left(\begin{array}{c}1\\0 \end{array}\right)$. Donc sur $K_3$:
+\[\nabla\varphi_1\cdot\nabla\varphi_2=\left<\frac 1h\left(\begin{array}{c}-1\\1 \end{array}\right),\frac 1h\left(\begin{array}{c}1\\0 \end{array}\right)\right>=-\frac{1}{h^2}\Longrightarrow \int_{K_3} \nabla\varphi_1\cdot\nabla\varphi_2 =-\frac 12\]
+de même sur $K_{12}$
+\[\nabla\varphi_1\cdot\nabla\varphi_2=\left<\frac 1h\left(\begin{array}{c}1\\0 \end{array}\right),\frac 1h\left(\begin{array}{c}-1\\1 \end{array}\right)\right>=-\frac{1}{h^2}\Longrightarrow \int_{K_{12}} \nabla\varphi_1\cdot\nabla\varphi_2 =-\frac 12\]
+Donc
+\[b=\int_{K_3} \nabla\varphi_1\cdot\nabla\varphi_2 + \int_{K_{12}} \nabla\varphi_1\cdot\nabla\varphi_2 =-\frac 12-\frac 12=-1\]
+En procédant comme ci-dessus pour les deux autres coefficients $b$, $c$ et $d$, il vient
+\[ c = -1\quad\mbox{ et }\quad d = 0.\]
+La nullité du coefficient $d$ provient du fait que sur les deux triangles $K_{11}$ et $K_{12}$, les gradients des fonctions chapeau $\varphi_1$ et $\varphi_5$ sont orthogonaux.
+
+\item Il y a $n$ sommets intérieurs dans chaque direction spatiale, donc au total $n^2$ sommets intérieurs dans le maillage. La matrice de rigidité est d'ordre $n^2$ et le nombre total de ses coefficients est $n^4$. En raisonnant sur les supports des fonctions chapeau, on obtient la structure bloc tridiagonale suivante :
+\begin{center}
+\includegraphics[scale=0.25]{matriceAparBlocs.png} 
+\end{center}
+Les blocs $B$, $C$ et $O$ sont des matrices d'ordre $n$ et il y a $n$ blocs par ligne dans la structure de la matrice $A$. De plus, $B = \mbox{tridiag}(-1, 4, -1)$, $C = -I$ où $I$ est la matrice identité d'ordre
+$n$ et $O$ est le bloc nul d'ordre $n$. La plupart des lignes de $A$ ont 5 coefficients non-nuls. Le rapport demandé est donc de l'ordre de $5n^{-2}\ll 1$. On dit que la matrice de rigidité est creuse.
+\end{enumerate}
+Pour n=3 nous obtenons la matrice
+\[
+ A=\left[ 
+{\begin{array}{rrrrrrrrr}
+4 & -1 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+-1 & 4 & -1 & 0 & -1 & 0 & 0 & 0 & 0 \\
+0 & -1 & 4 & 0 & 0 & -1 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 4 & -1 & 0 & -1 & 0 & 0 \\
+0 & -1 & 0 & -1 & 4 & -1 & 0 & -1 & 0 \\
+0 & 0 & -1 & 0 & -1 & 4 & 0 & 0 & -1 \\
+0 & 0 & 0 & -1 & 0 & 0 & 4 & -1 & 0 \\
+0 & 0 & 0 & 0 & -1 & 0 & -1 & 4 & -1 \\
+0 & 0 & 0 & 0 & 0 & -1 & 0 & -1 & 4
+\end{array}}
+ \right] 
+\]
+Le second membre $F=(f_i)_{i=1,9}$ où 
+\[f_i=\int_{supp(\varphi_i)}f(x,y)\varphi_i(x,y)\de x\de y=-\int_{supp(\varphi_i)}\varphi_i\de x\de y=-\frac{1}{3}\times 6\times\frac{h^2}{2}=-h^2=-\frac{1}{16}\]
+
+\[
+F := -\left[{\displaystyle \frac {1}{16}} , \,{\displaystyle \frac {1}{
+16}} , \,{\displaystyle \frac {1}{16}} , \,{\displaystyle \frac {
+1}{16}} , \,{\displaystyle \frac {1}{16}} , \,{\displaystyle 
+\frac {1}{16}} , \,{\displaystyle \frac {1}{16}} , \,
+{\displaystyle \frac {1}{16}} , \,{\displaystyle \frac {1}{16}} \right]
+\]
+Le système linéaire $AU=F$ a pour solution
+\[
+ U=-\left[  \! {\displaystyle \frac {11}{256}} , \,{\displaystyle 
+\frac {7}{128}} , \,{\displaystyle \frac {11}{256}} , \,
+{\displaystyle \frac {7}{128}} , \,{\displaystyle \frac {9}{128}
+} , \,{\displaystyle \frac {7}{128}} , \,{\displaystyle \frac {11
+}{256}} , \,{\displaystyle \frac {7}{128}} , \,{\displaystyle 
+\frac {11}{256}}  \!  \right] 
+\]
+
+La flèche maximale est $\frac{9}{128} = -0.0703125\approx u_{max}=-0.07367135123$. En 9 points de discrétisation nous avons une précision de $3\times 10^{-3}$.
+
+\begin{figure}[!h] %on ouvre l'environnement figure
+ 
+\centering
+ 
+\includegraphics[width=10cm]{poissonSurfaceMEF.png}
+ 
+% Ici on redimensionne une image
+ 
+\caption{La membrane déformée avec 9 points intérieurs (n=3)}
+ 
+\label{membraneDéformée}
+ 
+\end{figure}
+\end{document}
+
+
+
+
+
+
+%\begin{center}
+%\begin{tikzpicture}[domain=0:5,scale=0.8]
+% \pgfmathsetmacro{\alpha}{0.05}
+%  \pgfmathsetmacro{\a}{2}
+%  \pgfmathsetmacro{\N}{4}
+%  \draw[->] (0,0) -- (\N*\a+0.4*\a,0)  node[right] {$x$};
+%  \draw[->] (0,0) -- (0,\N*\a+0.4*\a) node[left] {$y$};
+%
+%  \foreach \n in {0,1,...,\N}{
+%   \draw[blue,thick](\n*\a,0)-- ++(0,\N*\a);
+%    \draw[blue,thick](0,\n*\a)-- ++(\N*\a,0);
+%}
+%  \foreach \n in {0,1,...,\N}{
+%   \draw[blue,thick](\n*\a,0)-- (\N*\a,\N*\a-\n*\a);
+%    \draw[blue,thick](0,\n*\a)-- (\N*\a-\n*\a,\N*\a);
+%}
+%\draw (2*\a,0)  node[below] {$\scriptstyle  \ell h$};
+%\draw (0,3*\a)  node[left] {$\scriptstyle  m h$};
+%\draw[fill=orange!30, fill opacity=0.6] (2*\a,2*\a)  -- ++(\a,0) -- ++(0,\a) ;
+%  \path[fill=gray] (2*\a,2*\a) circle (0.6mm)node[below right] {$ a_i$};
+%  \draw[blue] (2.6*\a,2.2*\a) node{$\scriptstyle  K_{l,m,1}$};
+%  \draw[fill=olive!30, fill opacity=0.6] (2*\a,2*\a)  -- ++(0,\a) -- ++(\a,0) ;
+%  \draw[blue] (2.4*\a,2.8*\a) node{$\scriptstyle  K_{l,m,2}$};
+%\end{tikzpicture}
+%\end{center}
+

@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usepackage[cache=false]{minted}
+ \definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+ \usepackage[cache=false]{minted}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+\def \de {{\rm d}}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{blue}{white}{$\displaystyle#1$}}
+\newcommand{\mybluebox}[1]{\fcolorbox{blue}{white}{$\displaystyle#1$}}
+\newcommand{\mygreenbox}[1]{\fcolorbox{green}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm,
+ }
+%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+ 
+
+%%%%%%%%%%%%%%%%%%%
+\title{Méthode des éléments finis: TP1}
+\author{Ibrahim ALAME}
+\date{4/10/2022}
+\begin{document}
+\maketitle
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+
+    
+  %Maillage
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=2]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{1.2}
+  \pgfmathsetmacro{\N}{4}
+  \draw[->] (0,0) -- (\N*\a+\a/2,0)  node[right] {$x$};
+  \draw[->] (0,0) -- (0,\N*\a+\a/2) node[left] {$y$};
+
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](\n*\a,0)-- ++(0,\N*\a);
+    \draw[blue,thick](0,\n*\a)-- ++(\N*\a,0);
+}
+  \foreach \n in {0,1,...,\N}{
+   \draw[blue,thick](\n*\a,0)-- (\N*\a,\N*\a-\n*\a);
+    \draw[blue,thick](0,\n*\a)-- (\N*\a-\n*\a,\N*\a);
+}
+\pgfmathsetmacro{\Z}{int(\N-1)}
+  \foreach \i in {1,...,\Z}{
+  		\foreach \j in {1,...,\Z}{
+  		\pgfmathsetmacro{\x}{int((\N-1)*(\j-1)+(\i-1))}
+   \draw[red,thick](\i*\a,\j*\a) node[below right]{\x};
+   }
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1))}
+  \foreach \i in {0,1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\i*\a,0) node[below]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a,\i*\a) node[right]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+2*\N)}
+  \foreach \i in {1,...,\N}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](\N*\a-\i*\a,\N*\a) node[above]{\x};
+}
+\pgfmathsetmacro{\Z}{int((\N-1)*(\N-1)+3*\N)}
+\pgfmathsetmacro{\U}{int(\N-1)}
+  \foreach \i in {1,...,\U}{
+  		\pgfmathsetmacro{\x}{int(\Z+\i)}
+   		\draw[red,thick](0,\N*\a-\i*\a) node[left]{\x};
+}
+\pgfmathsetmacro{\M}{int(\N-1)}
+  \foreach \i in {0,1,...,\M}{
+  		\foreach \j in {0,1,...,\M}{
+  		\pgfmathsetmacro{\x}{int(\N*\j+\j+\i)}
+  		\pgfmathsetmacro{\k}{int(2*\i+2*\j*\N)}
+   \draw[gray,thick](\i*\a+\a/3,\j*\a+2*\a/3) node{(\k)};
+   \pgfmathsetmacro{\k}{int(2*\i+1+2*\j*\N)}
+   \draw[gray,thick](\i*\a+2*\a/3,\j*\a+\a/3) node{(\k)};
+   }
+}
+
+\end{tikzpicture}
+\end{center}
+
+  
+    
+    
+    
+    
+\end{document}
