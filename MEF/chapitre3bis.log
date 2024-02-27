@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  23 FEB 2024 14:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  27 FEB 2024 00:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1424,24 +1424,24 @@ runsystem(rm chapitre3bis.aex)...executed.
  (./chapitre3bis.aux)
 \openout1 = `chapitre3bis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1499,7 +1499,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 57.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1513,70 +1513,70 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count474
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 57.
+LaTeX Info: Redefining \pageref on input line 57.
+LaTeX Info: Redefining \nameref on input line 57.
  (./chapitre3bis.out) (./chapitre3bis.out)
 \@outlinefile=\write8
 \openout8 = `chapitre3bis.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 61.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 61.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 57.
 \symnumbers=\mathgroup10
 \sympureletters=\mathgroup11
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 61.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 61.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 61.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 61.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 61.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 61.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 61.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 61.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 61.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 61.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 61.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 61.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 61.
+(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 61.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 61.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 61.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 61.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 57.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 57.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 61
+(Font)              `pureletters' in the math version `normal' on input line 57
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 61
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 57
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 61.
+(Font)              `pureletters' in the math version `bold' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 61
+(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 57
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 61.
+ut line 57.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/translator/translator-basic-dicti
 onary-English.dict
@@ -1602,8 +1602,8 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \degres on input line 61.
-LaTeX Info: Redefining \up on input line 61.
+LaTeX Info: Redefining \degres on input line 57.
+LaTeX Info: Redefining \up on input line 57.
 Package newfloat Info: `float' package detected.
 
 No file pythontex-files-chapitre3bis/chapitre3bis.pytxmcr.
@@ -1612,7 +1612,7 @@ Run PythonTeX to create it.
 Package PythonTeX Warning: A "listing" environment already exists 
 (PythonTeX)                PythonTeX will not create one 
 (PythonTeX)                Use \setpythontexlistingenv to create a custom listi
-ng environment on input line 61.
+ng environment on input line 57.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-d
@@ -1621,11 +1621,11 @@ File: translations-basic-dictionary-french.trsl (french translation file `trans
 lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `french'. on input line 61.
+or `french'. on input line 57.
  (./chapitre3bis.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
-(Font)              using `T1/cmss/m/n' instead on input line 61.
+(Font)              using `T1/cmss/m/n' instead on input line 57.
 
 [1
 Non-PDF special ignored!
@@ -1660,34 +1660,34 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 76
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 72
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 7
-6.
+2.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 
-76.
+72.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 76.
+ut line 72.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
@@ -1700,12 +1700,12 @@ thkerncmss.
 <hermite3-5.png, id=122, 1125.20375pt x 224.84pt>
 File: hermite3-5.png Graphic file (type png)
 <use hermite3-5.png>
-Package pdftex.def Info: hermite3-5.png  used on input line 122.
+Package pdftex.def Info: hermite3-5.png  used on input line 118.
 (pdftex.def)             Requested size: 337.56374pt x 67.45251pt.
 <hermiteTriangle1.png, id=124, 737.75626pt x 245.91875pt>
 File: hermiteTriangle1.png Graphic file (type png)
 <use hermiteTriangle1.png>
-Package pdftex.def Info: hermiteTriangle1.png  used on input line 122.
+Package pdftex.def Info: hermiteTriangle1.png  used on input line 118.
 (pdftex.def)             Requested size: 221.32858pt x 73.77618pt.
  [4
 
@@ -1713,11 +1713,11 @@ Package pdftex.def Info: hermiteTriangle1.png  used on input line 122.
 <hermiteTriangleUN.png, id=154, 406.51875pt x 399.4925pt>
 File: hermiteTriangleUN.png Graphic file (type png)
 <use hermiteTriangleUN.png>
-Package pdftex.def Info: hermiteTriangleUN.png  used on input line 134.
+Package pdftex.def Info: hermiteTriangleUN.png  used on input line 130.
 (pdftex.def)             Requested size: 121.95656pt x 119.84866pt.
 File: hermiteTriangle1.png Graphic file (type png)
 <use hermiteTriangle1.png>
-Package pdftex.def Info: hermiteTriangle1.png  used on input line 134.
+Package pdftex.def Info: hermiteTriangle1.png  used on input line 130.
 (pdftex.def)             Requested size: 221.32858pt x 73.77618pt.
  [5
 
@@ -1725,25 +1725,25 @@ Package pdftex.def Info: hermiteTriangle1.png  used on input line 134.
 <elementsHermite.png, id=182, 1552.80125pt x 418.56375pt>
 File: elementsHermite.png Graphic file (type png)
 <use elementsHermite.png>
-Package pdftex.def Info: elementsHermite.png  used on input line 148.
+Package pdftex.def Info: elementsHermite.png  used on input line 144.
 (pdftex.def)             Requested size: 310.55475pt x 83.71126pt.
 <hermiteBidim1.png, id=183, 1384.17125pt x 245.91875pt>
 File: hermiteBidim1.png Graphic file (type png)
 <use hermiteBidim1.png>
-Package pdftex.def Info: hermiteBidim1.png  used on input line 148.
+Package pdftex.def Info: hermiteBidim1.png  used on input line 144.
 (pdftex.def)             Requested size: 346.04196pt x 61.47952pt.
 
-Overfull \hbox (3.74666pt too wide) in paragraph at lines 148--148
+Overfull \hbox (3.74666pt too wide) in paragraph at lines 144--144
  [] 
  []
 
 <hermiteBidim2.png, id=184, 1064.97874pt x 257.96375pt>
 File: hermiteBidim2.png Graphic file (type png)
 <use hermiteBidim2.png>
-Package pdftex.def Info: hermiteBidim2.png  used on input line 148.
+Package pdftex.def Info: hermiteBidim2.png  used on input line 144.
 (pdftex.def)             Requested size: 266.24403pt x 64.49077pt.
 
-Overfull \vbox (12.51762pt too high) detected at line 148
+Overfull \vbox (12.51762pt too high) detected at line 144
  []
 
 [6
@@ -1755,10 +1755,10 @@ Overfull \vbox (12.51762pt too high) detected at line 148
 <HermiteBasis.png, id=242, 441.65pt x 353.32pt>
 File: HermiteBasis.png Graphic file (type png)
 <use HermiteBasis.png>
-Package pdftex.def Info: HermiteBasis.png  used on input line 200.
+Package pdftex.def Info: HermiteBasis.png  used on input line 196.
 (pdftex.def)             Requested size: 110.41222pt x 88.32977pt.
 
-Overfull \vbox (4.97931pt too high) detected at line 200
+Overfull \vbox (4.97931pt too high) detected at line 196
  []
 
 [8
@@ -1785,10 +1785,10 @@ Missing character: There is no ; in font nullfont!
 <algorithmeAssemblage.png, id=433, 1224.575pt x 479.7925pt>
 File: algorithmeAssemblage.png Graphic file (type png)
 <use algorithmeAssemblage.png>
-Package pdftex.def Info: algorithmeAssemblage.png  used on input line 418.
+Package pdftex.def Info: algorithmeAssemblage.png  used on input line 414.
 (pdftex.def)             Requested size: 428.60768pt x 167.92987pt.
 
-Overfull \hbox (86.31238pt too wide) in paragraph at lines 418--418
+Overfull \hbox (86.31238pt too wide) in paragraph at lines 414--414
  [] 
  []
 
@@ -1804,15 +1804,13 @@ Overfull \hbox (86.31238pt too wide) in paragraph at lines 418--418
 
 ] [20
 
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb) [21
+] [21
 
 ]
 \openout4 = `chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb) [22
+
+(./chapitre3bis.vrb) [22
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -1825,7 +1823,12 @@ Overfull \hbox (86.31238pt too wide) in paragraph at lines 418--418
  (./chapitre3bis.vrb)
 [24
 
-] [25
+]
+\openout4 = `chapitre3bis.vrb'.
+
+ (./chapitre3bis.vrb) [25
+
+] [26
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -1850,23 +1853,21 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-)) [26
+)) [27
 
 ]
-<codePython02.png, id=757, 923.45pt x 598.235pt>
+<codePython02.png, id=783, 923.45pt x 598.235pt>
 File: codePython02.png Graphic file (type png)
 <use codePython02.png>
-Package pdftex.def Info: codePython02.png  used on input line 868.
+Package pdftex.def Info: codePython02.png  used on input line 902.
 (pdftex.def)             Requested size: 313.96884pt x 203.3972pt.
- [27
+ [28
 
  <./codePython02.png>]
-Overfull \vbox (7.83032pt too high) detected at line 899
+Overfull \vbox (7.83032pt too high) detected at line 933
  []
 
-[28
-
-] [29
+[29
 
 ] [30
 
@@ -1874,48 +1875,50 @@ Overfull \vbox (7.83032pt too high) detected at line 899
 
 ] [32
 
+] [33
+
 ]
 \openout4 = `chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb) [33
+ (./chapitre3bis.vrb) [34
 
 ]
 \openout4 = `chapitre3bis.vrb'.
 
  (./chapitre3bis.vrb)
-[34
+[35
 
 ]
 \openout4 = `chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb) [35
+ (./chapitre3bis.vrb) [36
 
 ]
-Overfull \hbox (14.8556pt too wide) detected at line 1188
+Overfull \hbox (14.8556pt too wide) detected at line 1222
 [] \OT1/cmss/m/n/10.95 = [] [] \OMS/cmsy/m/n/10.95 ^^B []
  []
 
 
-Overfull \vbox (0.59349pt too high) detected at line 1188
- []
-
-[36
-
-]
-Overfull \vbox (11.7092pt too high) detected at line 1224
+Overfull \vbox (0.59349pt too high) detected at line 1222
  []
 
 [37
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+Overfull \vbox (11.7092pt too high) detected at line 1258
+ []
 
- (./chapitre3bis.vrb) [38
+[38
 
 ]
 \openout4 = `chapitre3bis.vrb'.
 
  (./chapitre3bis.vrb) [39
+
+]
+\openout4 = `chapitre3bis.vrb'.
+
+ (./chapitre3bis.vrb) [40
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -1929,15 +1932,15 @@ T1/cmss/m/n/10.95 = []
  []
 
 )
-Overfull \vbox (19.61958pt too high) detected at line 1303
+Overfull \vbox (19.61958pt too high) detected at line 1337
  []
 
-[40
+[41
 
 ]
 \openout4 = `chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb) [41
+ (./chapitre3bis.vrb) [42
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -1950,7 +1953,7 @@ tripnl=False -P mathescape=True -o chapitre3bis.out.pyg chapitre3bis.pyg)...exe
 cuted.
 
  (./chapitre3bis.out.pyg))
-[42
+[43
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -1962,7 +1965,7 @@ runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o chapitre3bis.out.pyg chapitre3bis.pyg)...exe
 cuted.
 
- (./chapitre3bis.out.pyg)) [43
+ (./chapitre3bis.out.pyg)) [44
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -1976,10 +1979,10 @@ cuted.
 
 
 (./chapitre3bis.out.pyg))
-Overfull \vbox (5.87073pt too high) detected at line 1434
+Overfull \vbox (5.87073pt too high) detected at line 1468
  []
 
-[44
+[45
 
 ]
 \openout4 = `chapitre3bis.vrb'.
@@ -2015,35 +2018,62 @@ Missing character: There is no 6 in font nullfont!
 Missing character: There is no 2 in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no ) in font nullfont!
-) [45
+) [46
 
 ]
-Overfull \vbox (0.73694pt too high) detected at line 1549
+Overfull \vbox (0.73694pt too high) detected at line 1583
  []
 
-[46
-
-] [47
+[47
 
 ] [48
 
 ] [49
 
-] [50
+]
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 1680.
+
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 1680.
+
+[50
 
 ] [51
 
+] [52
+
 ]
-Overfull \hbox (16.67177pt too wide) in paragraph at lines 1705--1705
+Overfull \hbox (20.50963pt too wide) detected at line 1802
+[]
+ []
+
+
+Overfull \hbox (1.26445pt too wide) detected at line 1802
+[][]
+ []
+
+
+Overfull \vbox (1.76656pt too high) detected at line 1802
+ []
+
+[53
+
+] [54
+
+] [55
+
+]
+Overfull \hbox (16.67177pt too wide) in paragraph at lines 1904--1904
  [] 
  []
 
 
-Overfull \hbox (2.30267pt too wide) in paragraph at lines 1705--1705
+Overfull \hbox (2.30267pt too wide) in paragraph at lines 1904--1904
  [] 
  []
 
-[52
+[56
 
 ]
 \tf@nav=\write9
@@ -2067,44 +2097,53 @@ runsystem(rm chapitre3bis.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 42362 strings out of 478268
- 884052 string characters out of 5846348
- 1269224 words of memory out of 5000000
- 59543 multiletter control sequences out of 15000+600000
- 499578 words of font info for 112 fonts, out of 8000000 for 9000
+ 42431 strings out of 478268
+ 885003 string characters out of 5846348
+ 1270222 words of memory out of 5000000
+ 59595 multiletter control sequences out of 15000+600000
+ 504476 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,20n,122p,671b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,23n,122p,671b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pf
 b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8
-.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf
--dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on chapitre3bis.pdf (52 pages, 1047022 bytes).
+.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cm
+ex9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6
+.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
+xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
+texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/
+2022/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2022/t
+exmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2022/texmf
+-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/texlive/2022/texmf-d
+ist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022/texmf-dis
+t/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-dist/fo
+nts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2022/texmf-dist/font
+s/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/
+type1/public/cm-super/sftt1095.pfb>
+Output written on chapitre3bis.pdf (56 pages, 1140827 bytes).
 PDF statistics:
- 1585 PDF objects out of 1728 (max. 8388607)
- 1430 compressed objects within 15 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 1738 PDF objects out of 2073 (max. 8388607)
+ 1560 compressed objects within 16 object streams
+ 114 named destinations out of 1000 (max. 500000)
  140 words of extra memory for PDF output out of 10000 (max. 10000000)
 

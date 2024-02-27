@@ -1,0 +1,617 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+%%%%%%%%   bleclercq@adm.estp.fr
+\title{TD3 d'Analyse Numérique (B1-TP1) }
+\author{Ibrahim ALAME}
+\date{27/02/2024}
+\begin{document}
+\maketitle
+
+\section{Factorisation}
+\begin{enumerate}
+\item Algorithme de factorisation LU:
+\begin{itemize}
+\item Étape 1
+
+\[A=\left(\begin{array}{cccc}
+1&-2&3&-4\\
+2&1&0&-1\\
+3&4&5&-7\\
+4&7&10&-3
+\end{array}\right)=A^{(1)}
+\]
+\item Étape 2
+\[\begin{array}{cccc}
+\\
+L_2\rightarrow L2-2L_1\\
+L_3\rightarrow L3-3L_1\\
+L_4\rightarrow L4-4L_1
+\end{array}\left(\begin{array}{cccc}
+1&-2&3&-4\\
+0&5&-6&7\\
+0&10&-4&5\\
+0&15&-2&13
+\end{array}\right)=A^{(2)}
+\]
+matriciellement $E_1 A^{(1)}=A^{(2)}$ avec $E_1=\left(\begin{array}{cccc}
+1&0&0&0\\
+-2&1&0&0\\
+-3&0&1&0\\
+-4&0&0&1
+\end{array}\right)$
+\item Étape 3
+\[\begin{array}{cccc}
+\\
+\\
+L_3\rightarrow L3-2L_2\\
+L_4\rightarrow L4-3L_2
+\end{array}\left(\begin{array}{cccc}
+1&-2&3&-4\\
+0&5&-6&7\\
+0&0&8&-9\\
+0&0&16&-8
+\end{array}\right)=A^{(3)}
+\]
+matriciellement $E_2 A^{(2)}=A^{(3)}$ avec $E_2=\left(\begin{array}{cccc}
+1&0&0&0\\
+0&1&0&0\\
+0&-2&1&0\\
+0&-3&0&1
+\end{array}\right)$
+
+\item Étape 4
+\[\begin{array}{cccc}
+\\
+\\
+\\
+L_4\rightarrow L4-2L_3
+\end{array}\left(\begin{array}{cccc}
+1&-2&3&-4\\
+0&5&-6&7\\
+0&0&8&-9\\
+0&0&0&10
+\end{array}\right)=A^{(4)}
+\]
+matriciellement $E_3 A^{(3)}=A^{(4)}$ avec $E_3=\left(\begin{array}{cccc}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&-2&1
+\end{array}\right)$
+
+\end{itemize}
+On a $U=A^{(4)}=E_3 E_2 E_1 A$ donc $A=E_1^{-1}E_2^{-1}E_3^{-1}U$ d'où $L=E_1^{-1}E_2^{-1}E_3^{-1}$.
+\[L=\left(\begin{array}{cccc}
+1&0&0&0\\
+2&1&0&0\\
+3&0&1&0\\
+4&0&0&1
+\end{array}\right)\left(\begin{array}{cccc}
+1&0&0&0\\
+0&1&0&0\\
+0&2&1&0\\
+0&3&0&1
+\end{array}\right)\left(\begin{array}{cccc}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&2&1
+\end{array}\right)=\left(\begin{array}{cccc}
+1&0&0&0\\
+2&1&0&0\\
+3&2&1&0\\
+4&3&2&1
+\end{array}\right)
+\]
+Finalement
+\[A=\left(\begin{array}{cccc}
+1&-2&3&-4\\
+2&1&0&-1\\
+3&4&5&-7\\
+4&7&10&-3
+\end{array}\right)=\left(\begin{array}{cccc}
+1&0&0&0\\
+2&1&0&0\\
+3&2&1&0\\
+4&3&2&1
+\end{array}\right) \left(\begin{array}{cccc}
+1&-2&3&-4\\
+0&5&-6&7\\
+0&0&8&-9\\
+0&0&0&10
+\end{array}\right)
+\]
+%
+%\begin{enumerate}
+%\item Algorithme de factorisation LU:
+%\begin{itemize}
+%\item Étape 1
+%\[A=\left(\begin{array}{cccc}
+%1& 2& -2& -1\\
+%3& 8& -5& -3\\
+%-1& 2& 7& 2\\
+%1& 6& 9& 3
+%\end{array}\right)=A^{(1)}
+%\]
+%\item Étape 2
+%\[\begin{array}{cccc}
+%\\
+%L_2\rightarrow L2-3L_1\\
+%L_3\rightarrow L3+L_1\\
+%L_4\rightarrow L4-L_1
+%\end{array}\left(\begin{array}{cccc}
+%1& 2& -2& -1\\
+%0& 2& 1& 0\\
+%0& 4& 5& 1\\
+%0& 4& 11& 4
+%\end{array}\right)=A^{(2)}
+%\]
+%matriciellement $E_1 A^{(1)}=A^{(2)}$ avec $E_1=\left(\begin{array}{cccc}
+%1&0&0&0\\
+%-3&1&0&0\\
+%1&0&1&0\\
+%-1&0&0&1
+%\end{array}\right)$
+%\item Étape 3
+%\[\begin{array}{cccc}
+%\\
+%\\
+%L_3\rightarrow L3-2L_2\\
+%L_4\rightarrow L4-2L_2
+%\end{array}\left(\begin{array}{cccc}
+%1& 2& -2& -1\\
+%0& 2& 1& 0\\
+%0&0& 3& 1\\
+%0&0&9& 4
+%\end{array}\right)=A^{(3)}
+%\]
+%matriciellement $E_2 A^{(2)}=A^{(3)}$ avec $E_2=\left(\begin{array}{cccc}
+%1&0&0&0\\
+%0&1&0&0\\
+%0&-2&1&0\\
+%0&-2&0&1
+%\end{array}\right)$
+%
+%\item Étape 4
+%\[\begin{array}{cccc}
+%\\
+%\\
+%\\
+%L_4\rightarrow L4-3L_3
+%\end{array}\left(\begin{array}{cccc}
+%1& 2& -2& -1\\
+%0& 2& 1& 0\\
+%0&0& 3& 1\\
+%0&0&0& 1
+%\end{array}\right)=A^{(4)}
+%\]
+%matriciellement $E_3 A^{(3)}=A^{(4)}$ avec $E_3=\left(\begin{array}{cccc}
+%1&0&0&0\\
+%0&1&0&0\\
+%0&0&1&0\\
+%0&0&-3&1
+%\end{array}\right)$
+%
+%\end{itemize}
+%On a $U=A^{(4)}=E_3 E_2 E_1 A$ donc $A=E_1^{-1}E_2^{-1}E_2^{-1}U$ d'où $L=E_1^{-1}E_2^{-1}E_2^{-1}$.
+%\[L=\left(\begin{array}{cccc}
+%1&0&0&0\\
+%3&1&0&0\\
+%-1&0&1&0\\
+%1&0&0&1
+%\end{array}\right)\left(\begin{array}{cccc}
+%1&0&0&0\\
+%0&1&0&0\\
+%0&2&1&0\\
+%0&2&0&1
+%\end{array}\right)\left(\begin{array}{cccc}
+%1&0&0&0\\
+%0&1&0&0\\
+%0&0&1&0\\
+%0&0&3&1
+%\end{array}\right)=\left(\begin{array}{cccc}
+%1&0&0&0\\
+%3&1&0&0\\
+%-1&2&1&0\\
+%1&2&3&1
+%\end{array}\right)
+%\]
+%Finalement
+%\[A=\left(\begin{array}{cccc}
+%1& 2& -2& -1\\
+%3& 8& -5& -3\\
+%-1& 2& 7& 2\\
+%1& 6& 9& 3
+%\end{array}\right)=\left(\begin{array}{cccc}
+%1&0&0&0\\
+%3&1&0&0\\
+%-1&2&1&0\\
+%1&2&3&1
+%\end{array}\right) \left(\begin{array}{cccc}
+%1& 2& -2& -1\\
+%0& 2& 1& 0\\
+%0&0& 3& 1\\
+%0&0&0& 1
+%\end{array}\right)
+%\]
+\[B=\left(\begin{array}{cccc}
+1& 2& 1& 1\\
+2& 3& 4& 3\\
+1& 4& -4& 0\\
+1& 3& 0& 0
+\end{array}\right)=\left(\begin{array}{cccc}
+1&0&0&0\\
+2&1&0&0\\
+1&-2&1&0\\
+1&-1&-1&1
+\end{array}\right) \left(\begin{array}{cccc}
+1&2&1&1\\
+0&-1&2&1\\
+0&0&-1&1\\
+0&0&0&1
+\end{array}\right)
+\]
+%
+\item Algorithme de Choleski:
+\[A=\left(\begin{array}{cccc}
+1&1&1&1\\
+1&5&5&5\\
+1&5&14&14\\
+1&5&14&30
+\end{array}\right)
+\]
+Algorithme:
+\[\left|\begin{array}{cl}
+\mbox{pour} & j=1,\cdots ,n\\
+             & \ell_{jj}=\sqrt{a_{jj}-\sum_{k=1}^{j-1}\ell_{jk}^2}\\
+             &\begin{array}{cl}
+\mbox{pour} & i=j+1,\cdots ,n\\
+             & \ell_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}\ell_{ik}\ell_{jk}}{\ell_{jj}}
+\end{array}
+\end{array}\right.
+\]
+\[\begin{array}{ll}
+j=1& \\
+   & \ell_{11}=\sqrt{a_{11}-0}=\sqrt{1}=1\\
+   & \ell_{21}=\frac{a_{21}-0}{\ell_{11}}=\frac 11=1\\
+   & \ell_{31}=\frac{a_{31}-0}{\ell_{11}}=\frac 11=1\\
+   & \ell_{41}=\frac{a_{41}-0}{\ell_{11}}=\frac 11=1 \\
+j=2& \\
+   & \ell_{22}=\sqrt{a_{22}-\ell_{21}^2}=\sqrt{5-1}=2\\
+   & \ell_{32}=\frac{a_{32}-\ell_{31}\times \ell_{21}}{\ell_{22}}=\frac {5-1\times 1}2=2\\
+   & \ell_{42}=\frac{a_{42}-\ell_{41}\times \ell_{21}}{\ell_{22}}=\frac {5-1\times 1}2=2\\
+j=3& \\
+   & \ell_{33}=\sqrt{a_{33}-\left(\ell_{31}^2+\ell_{32}^2\right)}=\sqrt{14-(1^2+2^2)}=\sqrt{9}=3\\
+   & \ell_{43}=\frac{a_{43}-\left(\ell_{41}\times \ell_{31}+\ell_{42}\times \ell_{32}\right)}{\ell_{33}}=\frac {14-\left(1\times 1+2\times 2\right)}3=3\\   
+j=4& \\
+   & \ell_{44}=\sqrt{a_{44}-\left(\ell_{41}^2+\ell_{42}^2+\ell_{43}^2\right)}=\sqrt{30-(1^2+2^2+3^2)}=\sqrt{16}=4\\
+   
+\end{array}
+\]
+
+\item Soit la matrice 
+\[A=\left(\begin{array}{cc}
+2&1\\
+1&0
+\end{array}\right)
+\]
+\begin{enumerate}
+\item On pose $L=\left(\begin{array}{cc}
+1&0\\
+\ell&1
+\end{array}\right)$ et $D=\left(\begin{array}{cc}
+\alpha&0\\
+0&\beta
+\end{array}\right)$. 
+On a $LDL^t=\left(\begin{array}{cc}
+\alpha&\alpha \ell\\
+\ell \alpha&\ell^2\alpha+\beta
+\end{array}\right)$. Donc $\alpha=2$, $\beta=-\frac 12$ et $\ell=\frac 12$. D'où
+\[A=\left(\begin{array}{cc}
+1&0\\
+-\frac 12&1
+\end{array}\right) \left(\begin{array}{cc}
+2&0\\
+0&-\frac 12
+\end{array}\right)\left(\begin{array}{cc}
+1&-\frac 12\\
+0&1
+\end{array}\right)\]
+\item Il n'existe pas une matrice $L=\left(\begin{array}{cc}
+1&0\\
+\ell&1
+\end{array}\right)$ telle que $\left(\begin{array}{cc}
+2&1\\
+1&0
+\end{array}\right)=L L^t$ car 
+\[\left(\begin{array}{cc}
+2&1\\
+1&0
+\end{array}\right)=\left(\begin{array}{cc}
+1&0\\
+\ell&1
+\end{array}\right) \left(\begin{array}{cc}
+1&\ell\\
+0&1
+\end{array}\right)=\left(\begin{array}{cc}
+1&\ell\\
+\ell&\ell^2+1
+\end{array}\right)\quad \mbox{absurde}\]
+\item La matrice $\left(\begin{array}{cc}
+0&1\\
+1&0
+\end{array}\right)$ n'admet pas une décomposition $LDL^t$ car
+\[\left(\begin{array}{cc}
+0&1\\
+1&0
+\end{array}\right)=\left(\begin{array}{cc}
+1&0\\
+\ell&1
+\end{array}\right) \left(\begin{array}{cc}
+\alpha&0\\
+0&\beta
+\end{array}\right)\left(\begin{array}{cc}
+1&\ell\\
+0&1
+\end{array}\right)=\left(\begin{array}{cc}
+\alpha&\alpha \ell\\
+\ell \alpha&\ell^2\alpha+\beta
+\end{array}\right)\quad \mbox{absurde}\]
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item  $A$ symétrique définie positive donc admet une décomposition de Choleski $LL^t$. Nous allons démontrer par récurrence sur $j$ (indice de colonne) la propriété suivante:
+\[\forall k\leq j\quad \forall i>k+1\quad L_{ik}=0\]  c'est-à-dire que $L$ est de la forme
+\[L=\left(\begin{array}{cccccc}
+\ell_{11}&0&\cdots & & &0\\
+\ell_{21}&\ell_{22} &0& & &0 \\
+0&\ell_{32} &\ell_{33} &0 & & 0\\
+\vdots&&\ddots&\ddots&\ddots&\vdots\\
+
+0&\cdots& &0&\ell_{n\,n-1}&\ell_{nn}
+\end{array}\right)
+\]
+Pour $j=1$
+\[\forall i\geq 3\quad \ell_{i1}=\frac {a_{i1}}{\ell_{11}}=\frac{0}{\ell_{11}}=0\]
+Supposons que $\forall k\leq j-1\quad \forall i>k+1\quad \ell_{ik}=0$ on a alors
+\[\ell_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}\ell_{ik}\ell_{jk}}{\ell_{jj}}=\frac{0-\sum_{k=1}^{j-1}0\times \ell_{jk}}{\ell_{jj}}=0\]
+\item Compte tenu du resultat précédant $\ell_{ij}=0 pour i>j+1$ l'algorithme:
+\[\left|\begin{array}{cl}
+\mbox{pour} & j=1,\cdots ,n\\
+             & \ell_{jj}=\sqrt{a_{jj}-\sum_{k=1}^{j-1}\ell_{jk}^2}\\
+             &\begin{array}{cl}
+\mbox{pour} & i=j+1,\cdots ,n\\
+             & \ell_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}\ell_{ik}\ell_{jk}}{\ell_{jj}}
+\end{array}
+\end{array}\right.
+\]
+se réduit à
+\[\left|\begin{array}{cl}
+j=1 & \\
+             & \alpha_{1}=\sqrt{a_{11}}\\
+             & \beta_{1}=\frac{a_{2\,1}}{\alpha_{1}}\\
+\mbox{pour} & j=2,\cdots ,n-1\\
+             & \alpha_{j}=\sqrt{a_{jj}-\beta_{j-1}^2}\\
+             & \beta_{j}=\frac{a_{j+1\,j}}{\alpha_{j}}\\
+ j=n &\\
+             & \alpha_{n}=\sqrt{a_{nn}-\beta_{n-1}^2}             
+
+\end{array}\right.
+\]
+
+\item On a
+
+\[\left|\begin{array}{cl}
+j=1 & \\
+             & \alpha_{1}=\sqrt{2}\\
+             & \beta_{1}=-\frac 1{\alpha_{1}}\\
+\mbox{pour} & j=2,\cdots ,n-1\\
+             & \alpha_{j}=\sqrt{2-\beta_{j-1}^2}\\
+             & \beta_{j}=-\frac 1{\alpha_{j}}\\
+ j=n &\\
+             & \alpha_{n}=\sqrt{2-\beta_{n-1}^2}             
+
+\end{array}\right.
+\]
+
+En déduire la matrice de Choleski de la matrice 
+
+
+
+\[L=\left(\begin{array}{ccccc}
+\sqrt 2& 0& 0& 0& 0\\
+-\frac{\sqrt 2}2& \frac{\sqrt 6}2& 0& 0& 0\\
+0& -\frac{\sqrt 6}3& \frac{2\sqrt 3}3& 0& 0\\
+0& 0& -\frac{\sqrt 3}2& \frac{\sqrt 5}2& 0\\
+0& 0& 0& -\frac{2\sqrt 5}5& \frac{\sqrt{30}}5
+\end{array}\right)
+\]
+\item Le système $Ax=b$ est équivalent à $Ly=b$ et $L^tx=y$.
+$Ly=b$ donne $y=(\sqrt 2, -\frac{\sqrt 6}3, \frac{2\sqrt 3}3, -\frac{2\sqrt 5}5, \frac{\sqrt{30}}5)^t$.
+et $L^tx=y$ donne $x=(1,0,1,0,1)^t$
+
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section{Norme matricielle et conditionnement}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item On a 
+\[ \| A x\|_\infty=\max_i\sum_{j=1}^n|a_{ij}x_j|\leq \max_i\sum_{j=1}^n|a_{ij}|\times \|x\|_\infty\]donc
+\[ \frac{\| A x\|_\infty}{\|x\|_\infty}\leq\max_i\sum_{j=1}^n|a_{ij}|\]
+Il reste à démontrer que la borne supérieur est atteinte pour un certain $x\neq 0$. En effet, soit $i_0$ tel que  $\max_i\sum_{j=1}^n|a_{ij}|=\sum_{j=1}^n|a_{i_0j}|$, il suffit de choisir $x_j=$signe$(a_{i_0j})$. D'où
+ \[ \sup_x\frac{\| A x\|_\infty}{\|x\|_\infty}=\max_i\sum_{j=1}^n|a_{ij}|\]
+\item On a 
+\[ \begin{array}{ccl}
+\|Ax \|_1&=&\displaystyle \sum_i|\sum_j a_{ij}x_j|\\
+&\leq&\displaystyle \sum_j\left(|x_j|\sum_i |a_{ij}|\right)\\
+&\leq&\displaystyle \left(\max_j\sum_{i=1}^n|a_{ij}|\right)\sum_j|x_j|=\left(\max_j\sum_{i=1}^n|a_{ij}|\right)\|x\|_1
+\end{array} \]
+Donc 
+\[ \frac{\| A x\|_1}{\|x\|_1}\leq\max_j\sum_{i=1}^n|a_{ij}|\]
+Il reste à trouver un vecteur $x \in \mathbb{R}^n$ qui réalise l'égalité. Il suffit de prendre le vecteur défini par $x_{j_0} = 1$ et $x_j = 0$ si $j\neq j_0$, où $j_0$ est tel que $\max_j\sum_{i=1}^n|a_{ij}|=\sum_{i=1}^n|a_{ij_0}|$.
+
+\end{enumerate}
+\item Soit $A=\left(a_{ij}\right)_{i,j}\in {\cal M}_n(\mathbb{R})$ une matrice inversible.
+\begin{enumerate}
+\item On applique la propriété du cours  $\mbox{cond}(AB)\leq \mbox{cond}(A) \mbox{cond}(B)$ en prenant $B=A$.
+\item Pour une matrice  $A$ symétrique,  $\mbox{cond}_2(A^2)= \mbox{cond}_2(A)^2=\rho(A)^2$. La réciproque n'est pas vraie car si $A$ est orthogonale alors $\mbox{cond}_2(A^2)= \mbox{cond}_2(A)^2=1$.
+
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Méthodes itératives}
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item La méthode s'écrit:
+\[\left\{\begin{array}{l}
+x^{(k+1)}=(I-\alpha A)x^{(k)}+\alpha b\\
+x^{(0)}\in\mathbb{R}^n
+
+\end{array}\right.
+\]
+Elle converge si et seulement si $\displaystyle \rho(I-\alpha A)<1$ les valeurs propres de la matrice $B= I-\alpha A$ sont les nombres $1-\alpha \lambda_i$ où les $\lambda_i$ sont les valeurs propres de $A$. Donc
+ \[\rho(B)<1\Longleftrightarrow 0<\alpha \lambda_i<2\]
+  Or la matrice $A$ est symétrique définie positive et toutes ses valeurs propres sont strictement positives donc pour tout $\lambda_i$, $0<\alpha<\frac 2{\lambda_i}$. On suppose que $0<\lambda_1<\lambda_2<\cdots <\lambda_n$, la condition de convergence sur $\alpha$ s'écrit alors
+\[0<\alpha<\frac 2{\lambda_n}\] 
+\item $\rho(B)=\max_i\left|1-\alpha \lambda_i\right|=\max\left(\left|1-\alpha \lambda_1\right|,\left|1-\alpha \lambda_n\right|\right)$
+
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (6.5,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,2.2);
+\draw  [line width=0.5] (0,2) -- (2,0)--(4,2);
+\draw  [line width=0.5] (0,2) -- (3,0)--(6,2);
+\draw  [line width=2] (0,2) -- (2.4,0.4)--(4,2);
+\draw  [dashed] (2.4,0) -- (2.4,0.4)--(0,0.4);
+\end{tikzpicture} 
+
+\end{center}
+
+
+$\alpha_0$ qui réalise le minimum:
+\[\rho(I-\alpha_0A)=\min_{\alpha\in\mathbb{R}}\rho(I-\alpha A)\]
+est solution de 
+\[1-\alpha_0 \lambda_1=\alpha_0 \lambda_n-1\]
+d'où
+\[\alpha_0=\frac 2{\lambda_1+\lambda_n}\]
+\end{enumerate}
+
+
+
+
+
+\item 
+(Solution dans le cas où 
+\[A=\left(\begin{array}{ccc}
+2&-1&0\\
+-1&2&-1\\
+0&-1&2
+\end{array}\right)
+\mbox{ et }b=\left(\begin{array}{c}
+1\\0\\1 
+\end{array}\right)
+\] )
+\begin{itemize}
+\item {\it Méthode de Jacobi.} 
+
+
+On choisit $P=2 I$ et $N=\left(\begin{array}{ccc}
+0&1&0\\
+1&0&1\\
+0&1&0
+\end{array}\right)$. 
+
+\begin{enumerate}
+\item  $x^{(k+1)}=B_J\,x^{(k)}+c_J$ où \[B_J=P^{-1}N=\frac 12\left(\begin{array}{ccc}
+0&1&0\\
+1&0&1\\
+0&1&0
+\end{array}\right)
+\mbox{ et }c_J=\frac 12\left(\begin{array}{c}
+1\\0\\1 
+\end{array}\right)
+\] 
+\item Les valeurs propre de $B_J$ sont $0$ et $\pm\frac{\sqrt 2}2$ donc $\rho(B_J)=\frac{\sqrt 2}2<1$ et la méthode converge.
+\item  $x^{(0)}=\left(\begin{array}{c}
+0\\1\\2 
+\end{array}\right)$, $x^{(1)}=\left(\begin{array}{c}
+1\\1\\1 
+\end{array}\right)$, $x^{(2)}=\left(\begin{array}{c}
+1\\1\\1 
+\end{array}\right)=x^{(3)}=\cdots$ . La solution du système $Ax=b$ est alors $x=\left(\begin{array}{c}
+1\\1\\1 
+\end{array}\right)$.
+\end{enumerate}
+\item {\it Méthode de Gauss-Seidel.} On choisit $P=\left(\begin{array}{ccc}
+2&0&0\\
+-1&2&0\\
+0&-1&2
+\end{array}\right)$ et $N=\left(\begin{array}{ccc}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{array}\right)$. 
+
+\begin{enumerate}
+\item Écrire la méthode itérative sous la forme $x^{(k+1)}=B_{GS}\,x^{(k)}+c_{GS}$
+où
+\[B_{GS}=P^{-1}N=\left(\begin{array}{ccc}
+0&\frac 12&0\\
+0&\frac 14&\frac 12\\
+0&\frac 18&\frac 14
+\end{array}\right)
+\mbox{ et }c_{GS}=\left(\begin{array}{c}
+\frac 12\\ \frac 14\\ \frac 58
+\end{array}\right)
+\] 
+
+
+\item Les valeurs propre de $B_{GS}$ sont $0$ et $\pm\frac{1}2$ donc $\rho(B_{GS})=\frac{1}2<1$ et la méthode de Gauss-Seidel converge.
+\item  $x^{(0)}=\left(\begin{array}{c}
+0\\1\\1 
+\end{array}\right)$, $x^{(1)}=\left(\begin{array}{c}
+1\\1\\1 
+\end{array}\right)$, $x^{(2)}=\left(\begin{array}{c}
+1\\1\\1 
+\end{array}\right)=x^{(3)}=\cdots$ . La solution du système $Ax=b$ est alors $x=\left(\begin{array}{c}
+1\\1\\1 
+\end{array}\right)$.
+\end{enumerate}
+\item On a $\rho(B_{GS})=\frac{1}2<\rho(B_J)=\frac{\sqrt 2}2$. Donc la méthode de Gauss-Seidel converge plus vite que celle de Jacobi.
+
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}

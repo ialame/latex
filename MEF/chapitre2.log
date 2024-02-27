@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  19 FEB 2024 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  25 FEB 2024 00:43
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1845,7 +1845,7 @@ Package rerunfilecheck Info: File `chapitre2.out' has not changed.
 Here is how much of TeX's memory you used:
  41531 strings out of 478268
  859378 string characters out of 5846348
- 1210432 words of memory out of 5000000
+ 1210433 words of memory out of 5000000
  58802 multiletter control sequences out of 15000+600000
  498932 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

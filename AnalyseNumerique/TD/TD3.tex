@@ -1,0 +1,290 @@
+\documentclass[a4paper]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+
+
+
+\title{TD 3 Analyse numérique (B1-TP1)}
+\author{Ibrahim ALAME}
+\date{27/02/2024} 
+\begin{document}
+\maketitle
+
+\section{Factorisation}
+\begin{enumerate}
+\item Appliquer l'algorithme de factorisation LU à la matrice suivante:
+\[
+A=\left(\begin{array}{cccc}
+1&-2&3&-4\\
+2&1&0&-1\\
+3&4&5&-7\\
+4&7&10&-3
+\end{array}\right) \qquad
+B=\left(\begin{array}{cccc}
+1& 2& 1& 1\\
+2& 3& 4& 3\\
+1& 4& -4& 0\\
+1& 3& 0& 0
+\end{array}\right)
+\]
+\item Appliquer l'algorithme de Choleski à la matrice symétrique définie positive suivante:
+\[
+A=\left(\begin{array}{cccc}
+1&1&1&1\\
+1&5&5&5\\
+1&5&14&14\\
+1&5&14&30
+\end{array}\right)\qquad
+B=\left(\begin{array}{cccc}
+4& -6& 8& 2\\
+-6& 10& -15& -3\\
+8& -15& 26& -1\\
+2& -3& -1& 62
+\end{array}\right)
+\]
+\item Soit la matrice 
+\[A=\left(\begin{array}{cc}
+2&1\\
+1&0
+\end{array}\right)
+\]
+\begin{enumerate}
+\item Écrire une décomposition $LDL^t$ de $A$, où $L$ est une matrice triangulaire inférieur dont les éléments diagonaux sont égaux à $1$ et $D$ une matrice diagonale.
+\item Existe-t-il une décomposition $LL^t$ de $A$.
+\item La matrice $\left(\begin{array}{cc}
+0&1\\
+1&0
+\end{array}\right)$ admet-elle une décomposition $LDL^t$.
+\end{enumerate}
+
+\item Soit $A\in{\cal M}_n(\mathbb{R})$ tridiagonale symétrique définie positive.
+\begin{enumerate}
+\item Montrer que $A$ admet une décomposition de Choleski $LL^t$, où $L$ est bidiagonale inférieur de la forme
+\[L=\left(\begin{array}{cccccc}
+\alpha_1&0&\cdots & & &0\\
+\beta_2&\alpha_2 &0& & &0 \\
+0&\ddots &\ddots &\ddots & & 0\\
+\vdots&&\ddots&\ddots&\ddots&\vdots\\
+  & & &\beta_{n-1}&\alpha_{n-1}&0\\
+0&\cdots& &0&\beta_n&\alpha_n
+\end{array}\right)
+\]
+\item Donner un algorithme de calcul des coefficients $\alpha_i$ et $\beta_i$ en fonction des coefficients $a_{ij}$, et calculer le nombre d'opérations élémentaires nécessaire pour ce calcul.
+\item En déduire la matrice de Choleski de la matrice 
+\[A=\left(\begin{array}{ccccc}
+2&-1&0 & 0& 0\\
+-1&2 &-1&0  &0 \\
+0&-1 &2 &-1 &  0\\
+0&0&-1&2&-1\\
+  0&0&0&-1&2
+\end{array}\right)
+\]
+\item Résoudre par la méthode de Choleski le système suivant
+\[\left\{\begin{array}{ccccccccccr}
+2x_1&-&x_2&& && & &&=&2\\
+-x_1&+&2x_2 &-&x_3&& & &&=&-2\\
+&&-x_2 &+&2x_3 &-&x_4& &&=&2\\
+&&&&-x_3&+&2x_4&-&x_5&=&-2\\
+  &&&&&&-x_4&+&2x_5&=&2
+\end{array}\right.
+\]
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\section{Norme matricielle et conditionnement}
+
+\begin{enumerate}
+\item Soit $A=\left(a_{ij}\right)_{i,j}$ une matrice réelle carrée d'ordre $n$.
+\begin{enumerate}
+\item On munit $\mathbb{R}^n$ de la norme $\|\cdot \|_\infty$. et ${\cal M}_n(\mathbb{R})$ de la norme induite correspondante, notée aussi $\|\cdot \|_\infty$. montrer que
+\[ \| A \|_\infty=\max_i\sum_{j=1}^n|a_{ij}|\]
+
+\item On munit $\mathbb{R}^n$ de la norme $\|\cdot \|_1$. et ${\cal M}_n(\mathbb{R})$ de la norme induite correspondante, notée aussi $\|\cdot \|_1$. montrer que
+\[ \| A \|_1=\max_j\sum_{i=1}^n|a_{ij}|\]
+
+\end{enumerate}
+\item Soit $A=\left(a_{ij}\right)_{i,j}\in {\cal M}_n(\mathbb{R})$ une matrice inversible.
+\begin{enumerate}
+\item Montrer que $\mbox{cond}(A^2)\leq \mbox{cond}(A)^2$.
+\item On suppose que $A$ est symétrique, montrer que $\mbox{cond}_2(A^2)= \mbox{cond}_2(A)^2$. La réciproque est-elle vraie?
+
+\end{enumerate}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Méthodes itératives}
+\begin{enumerate}
+\item Soit $A\in {\cal M}_n(\mathbb{R})$ une matrice symétrique définie positive, $b\in\mathbb{R}^n$ et $\alpha\in\mathbb{R}$. On considère la suite de vecteurs de $\mathbb{R}^n$ suivante:
+\[\left\{\begin{array}{l}
+x^{(k+1)}=x^{(k)}+\alpha(b-Ax^{(k)})\\
+x^{(0)}\in\mathbb{R}^n
+
+\end{array}\right.
+\]
+\begin{enumerate}
+\item Déterminer une condition sur $\alpha$ pour que la suite converge.
+\item Calculer $\alpha_0$ qui réalise le minimum:
+\[\rho(I-\alpha_0A)=\min_{\alpha\in\mathbb{R}}\rho(I-\alpha A)\]
+
+\end{enumerate}
+
+\item Soient $A\in {\cal M}_3(\mathbb{R})$ et $b\in\mathbb{R}^3$. On cherche à résoudre le système $Ax=b$ dans le cas particulier:
+
+\[A=\left(\begin{array}{cccc}
+3& -2& 0& 0\\
+-1& 3& -2& 0\\
+0& -1& 3& -2\\
+0& 0& -1& 3
+\end{array}\right)
+\mbox{ et }b=\left(\begin{array}{c}
+-1\\3\\-3\\5 
+\end{array}\right)
+\] 
+
+par la méthode itérative suivante:
+\[\left\{\begin{array}{l}P x^{(k+1)}=N x^{(k)}+b\\x^{(0)}\in \mathbb{R}^3\end{array}\right.\]
+ Où $P$ et $N$ sont deux matrices de ${\cal M}_3(\mathbb{R})$ telles que $P$ est inversible et  $A=P-N$. 
+\begin{itemize}
+\item {\it Méthode de Jacobi.} On choisit $P=3 I$ et 
+$N=\left(\begin{array}{cccc}
+0& 2& 0& 0\\
+1& 0& 2& 0\\
+0& 1& 0& 2\\
+0& 0& 1& 0
+\end{array}\right)$. 
+
+\begin{enumerate}
+\item Écrire la méthode itérative sous la forme $x^{(k+1)}=B_J\,x^{(k)}+c_J$
+\item Calculer le rayon spectral de $B_J$ et en déduire que la méthode converge.
+\item Calculer $x^{(1)}, x^{(2)}, x^{(3)},\cdots$ pour le choix de $x^{(0)}=\left(\begin{array}{c}
+1\\1\\1\\1
+\end{array}\right)$. En déduire la solution du système $Ax=b$.
+\end{enumerate}
+\item {\it Méthode de Gauss-Seidel.} On choisit 
+$P=\left(\begin{array}{cccc}
+3& 0& 0& 0\\
+-1& 3& 0& 0\\
+0& -1& 3& 0 \\
+0& 0& -1& 3
+\end{array}\right)$ et $N=\left(\begin{array}{cccc}
+0&2&0&0\\
+0&0&2&0\\
+0&0&0&2 \\
+0&0&0&0
+\end{array}\right)$. 
+
+\begin{enumerate}
+\item Écrire la méthode itérative sous la forme $x^{(k+1)}=B_{GS}\,x^{(k)}+c_{GS}$
+\item Calculer le rayon spectral de $B_{GS}$ et en déduire que la méthode converge.
+\item Calculer $x^{(1)}, x^{(2)}, x^{(3)},\cdots$ pour le choix de $x^{(0)}=\left(\begin{array}{c}
+1\\1\\1\\1 
+\end{array}\right)$. En déduire la solution du système $Ax=b$.
+\end{enumerate}
+\item Comparer les deux méthodes.
+
+\end{itemize}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Méthode de Jacobi et de Gauss-Seidel}
+\begin{enumerate}
+\item Soit $A$ une matrice $n\times n$ inversible avec $a_{ii} \neq 0$ et $b \in \mathbb{R}^n$. On veut résoudre le système $Ax = b$. On note $D$ la matrice diagonale constituée de la diagonale de $A$. Soit $\alpha \neq 0$, on
+étudie la méthode itérative
+\[x_{k+1}=\left(I-\alpha D^{-1}A\right) x_k +\alpha D^{-1} b \]
+\begin{enumerate}
+\item Montrer que si $x_k$ converge vers $x$ alors $x$ est solution.
+\item Exprimer les coefficients de la matrice $D^{-1}A$ en fonction des coefficients de la matrice $A$.
+\item On suppose $A$ est à diagonale strictement dominante et $0< \alpha \leq 1$. Montrer que la méthode est bien définie et
+\[\left\| I- \alpha D^{-1}A\right\|_{\infty}<1\]
+En déduire la convergence de la méthode.
+\end{enumerate}
+
+
+\item Soit $A$ la matrice du système linéaire $Ax = b$, définie par
+\[a_{ij}=\left\{\begin{array}{lll}
+1+i & \mbox{ si } & i=j\\
+-1 & \mbox{ si } & i=j+1\\
+-i & \mbox{ si } & i+1=j\\
+0 & \mbox{ sinon } & 
+\end{array}\right.
+\]
+\begin{enumerate}
+\item Calculer la matrice d'itération $B_J$ de Jacobi. Calculer $\|B_J\|_\infty$, $\|B_J\|_1$. Conclure.
+\item Soit $B_G$ la matrice d'itération de Gauss-Seidel. On pose $L=D^{-1}E$ et $U=D^{-1}F$. Montrer que $B_G=(I-L)^{-1}U$. Montrer que le polynôme caractéristique de $B_G$ s'écrit:
+\[P(\lambda)=\lambda^n \mbox{det}\left(I-L-\frac 1\lambda U\right)\]
+et si $|\lambda|\geq 1$ $\mbox{det}\left(I-L-\frac 1\lambda U\right)\neq 0$. En déduire que la méthode est convergente.
+\item Le fait d'avoir trouvé une méthode itérative (au moins) convergente prouve que la matrice $A$ est inversible. Pourquoi ?
+\item Décrire l'algorithme de calcul de la méthode de Gauss-Seidel appliquée à cet exemple.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Soit $A$ une matrice réelle, symétrique et définie positive. on considère la décomposition $A = D-E -E^t$ avec $D$ la diagonale, $-E$ la partie
+inférieure de $A$. On définit la méthode itérative suivante :
+\[\left\{\begin{array}{l}
+x_0 \mbox{ arbitraire dans }\mathbb{R}^n\\
+(D-E)y_{k+1} = E^t x_k + b\\
+(D-E^t)x_{k+1} = E y_{k+1} + b
+\end{array}\right.
+\]
+
+
+
+\begin{enumerate}
+\item Montrer que les itérés sont bien définis.
+\item Montrer que la méthode est consistante ( c-à-d si $x_k\to x$ alors $Ax = b$).
+\item Écrire les matrices $G$ et $H$ telles que
+\[ x_{k+1} = G x_k + Hb\]
+\item En posant $L = D^{-\frac 12}E D^{-\frac 12}$, montrer que $G$ est semblable à $B = (I-L^t)^{-1}L(I-L)^{-1}L^t$ et que la matrice $B$ s'écrit également $B = (I-L^t)^{-1}(I-L)^{-1}L L^t$.
+\item On suppose $Sp(G) \subset \mathbb{R}^+$, montrer que la méthode est convergente
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthode du gradient}
+\item Soit $A$ une matrice symétrique définie positive de valeurs propres
+$0 < \lambda_1 \leq \lambda_1 \leq \cdots  \leq\lambda_n$.
+
+ Pour résoudre le système linéaire $Ax = b$, on considère la méthode de Richardson suivante
+\[x_{k+1} = x_k + \alpha (b - Ax_k),\quad \alpha \neq 0\]
+\begin{enumerate}
+\item Montrer que la méthode est consistante.
+\item Écrire la matrice d'itération et montrer que pour $0 < \alpha  < \frac 2{\lambda_n}$, la méthode est convergente.
+\item Soit $f_i(\alpha) = |1 -\alpha\lambda_i|$, $i = 1,\cdots,N$. Tracer $f_1(\alpha)$, $f_N(\alpha)$ et $f_i(\alpha)$ pour $i \neq 1$ et $i \neq N$.
+\item Trouver le meilleur choix de $\alpha$, noté $\alpha_{opt}$, c'est à dire celui qui minimise $\rho(I - \alpha A)$, et montrer que $\rho(I - \alpha_{opt} A) =\frac{ \mbox{cond}_2(A)-1}{\mbox{cond}_2(A)+1}$.
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\end{enumerate}
+
+\end{document}

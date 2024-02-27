@@ -41,10 +41,6 @@
  % Appel du package pythontex 
 \usepackage{pythontex}
 
-
-
-
-
 \usetikzlibrary{decorations.pathmorphing}
 \def \de {{\rm d}}
 \usepackage{color}
@@ -418,6 +414,44 @@ Pour former $K^{\#}$, il suffit de parcourir les éléments en ajoutant successi
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rappel de calcul tensoriel}
+
+ \begin{center}
+ \begin{tikzpicture}[domain=0:3,scale = 0.5]
+
+  \draw[->,orange] (-0.5,0.5) -- (3.5,0.5)  node[right] {$\scriptstyle x_1$};
+\draw[->,orange] (0,-0.1) -- (0,2.5) node[left] {$\scriptstyle x_2$};
+
+   \draw[->,blue] (-4.3,0) -- (-1,0)  node[right] {$\scriptstyle \xi_1$};
+   \draw[->,blue] (-4,-0.1) -- (-4,1.5) node[above] {$\scriptstyle \xi_2$};
+
+\sffamily
+\node[blue] (a) at (-3,1) {$\xi$};
+\node[align=center,orange] (b) at (2.5,1.5) {$x$};
+\draw[-latex] (a) to[out=60,in=120] node[midway,font=\scriptsize,above] {$x=F(\xi)+C$} (b);
+
+\end{tikzpicture}
+ \end{center}
+
+\begin{itemize}
+\item {\bf Changement de coordonnées} entre $(x_i)_{i=1,n}$ et $(\xi_i)_{i=1,n}$
+\item {\bf Repère naturel:} $(e_1=\frac{\partial x}{\partial \xi_1}, \quad e_2=\frac{\partial x}{\partial \xi_2},\quad\cdots)$
+\item {\bf Tenseur symétrique:}  $g_{i,j}=<e_i,e_j>$,  $g^{i,j}=(g_{i,j})^{-1}$, $|g|=det(g)$
+\item On a alors
+\end{itemize}
+\[\int_{K_e}(\cdots) \de x\de y=\int_{\widehat{K}}(\cdots) \sqrt{|g|} \de \xi\de \eta\]
+\[\displaystyle \int_{K_e}\nabla \varphi_i\cdot \nabla \varphi_j\;\de x\de y=\int_{\widehat{K}}\frac{1}{\sqrt{|g|} } g^{ij}\frac{\partial \widehat{\varphi_i}}{\partial \xi_i}\frac{\partial \widehat{\varphi_j}}{\partial \xi_j}\de \xi\de \eta=\int_{\widehat{K}}\frac{1}{|J|} \nabla \widehat{\varphi_i}^t G  \nabla \widehat{\varphi_j}\de \xi\de \eta\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -1551,113 +1585,278 @@ où \[ a(u,v)=\displaystyle \int_{\Omega}\nabla u\cdot \nabla v \quad \mbox{ et 
 
 \begin{frame}
 \frametitle{Éléments finis triangles de type (1)}
-
 \begin{center}
 \begin{tikzpicture}[domain=0:5,scale=0.5]
  \pgfmathsetmacro{\alpha}{0.05}
   \pgfmathsetmacro{\a}{0.5}
   \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
   \draw[->] (0,0) -- (0,5) node[left] {$\eta$};
-  \draw (3,0)  node[above right] {$\scriptstyle  \widehat{a}_1$};
-  \draw (0,3)  node[above right] {$\scriptstyle  \widehat{a}_2$};
-  \draw (0,0)  node[above left] {$\scriptstyle  \widehat{a}_3$};
-  \draw (0.8,1.5)  node {$\scriptstyle  \widehat{x}$};
-  \draw (12.2,2.4)  node {$\scriptstyle  x$};
- \draw[->] (8,0) -- ++(7,0)  node[right] {$X$};
-  \draw[->] (8,0) --++ (0,5) node[left] {$Y$};
+ \draw[->] (8,0) -- ++(7,0)  node[right] {$x$};
+  \draw[->] (8,0) --++ (0,5) node[left] {$y$};
    \draw[blue,thick,fill=blue!30, fill opacity=0.6](10,2)-- ++(3,-1)-- ++(0,3)-- ++(-3,-2);
 
-\path[fill=gray] (10,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_3$};
-\path[fill=gray] (13,1) circle (1.0mm)node[left,below] {$\scriptstyle  a_1$};
-\path[fill=gray] (13,4) circle (1.0mm)node[right] {$\scriptstyle  a_2$};
+\path[fill=gray] (10,2) circle (1.0mm)node[left,below] {$\scriptstyle  C$};
+\path[fill=gray] (13,1) circle (1.0mm)node[left,below] {$\scriptstyle  A$};
+\path[fill=gray] (13,4) circle (1.0mm)node[right] {$\scriptstyle  B$};
 
 
 \draw[fill=orange!30, fill opacity=0.6] (0,0) -- ++(3,0) -- ++(-3,3) -- ++(0,-3) ;
-
+\path[fill=gray] (0,0) circle (1.0mm)node[left,] {$\scriptstyle \widehat{C} $};
+\path[fill=gray] (3,0) circle (1.0mm)node[right,above] {$\scriptstyle  \widehat{A}$};
+\path[fill=gray] (0,3) circle (1.0mm)node[left] {$\scriptstyle  \widehat{B}$};
+\draw (2,0)  node[below] {$\scriptstyle  \widehat{x} =(\xi,\eta)$};
+\draw (11,0)  node[below] {\small {\bf x} $\scriptstyle =\,(x,y)$};
+  
  \draw [->, >=latex,olive] (1,1.5) arc (120:70:13) ;
 \end{tikzpicture}
 
 \end{center}
-\[\widehat{\varphi_i} = \lambda_i,\quad   1\leq i\leq 3\]
-où \[\lambda_i = \xi_i,\quad   1\leq i\leq n\quad \mbox{ et } \lambda_{n+1}=1-\sum_{i=1}^n\lambda_i\]
-\[\lambda_1=\xi,\quad \lambda_2=\eta,\quad \lambda_3=1-\xi-\eta\] 
-Donc
-\[\myredbox{\widehat{\varphi_1}=\xi,\quad \widehat{\varphi_2}=\eta,\quad \widehat{\varphi_3}=1-\xi-\eta}\] 
+Nous avons 
+\[x=\xi A + \eta B + (1-\xi-\eta) C\]
+Donc \[e_1=\frac{\partial x}{\partial \xi}=A-C=\overrightarrow{CA}\]
+		\[e_2=\frac{\partial x}{\partial \eta}=B-C=\overrightarrow{CB}\]
+
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Matrice élémentaire}
-\begin{itemize}
-\item Matrice $A=(a_{ij})_{1\leq i,j \leq 3}$ où $\displaystyle a_{ij} = a(\varphi_i,\varphi_j)=\displaystyle \int_{K_e}\nabla \varphi_i\cdot \nabla \varphi_j$
-\item Calcul de $\nabla \varphi$: Nous avons
-\[\frac{\partial \varphi}{\partial \xi_i}=\frac{\partial x_j}{\partial \xi_i}\frac{\partial \varphi}{\partial x_j}\]
-\[\frac{\partial \varphi}{\partial \xi_i}=\frac{\partial x_1}{\partial \xi_i}\frac{\partial \varphi}{\partial x_1}+\frac{\partial x_2}{\partial \xi_i}\frac{\partial \varphi}{\partial x_2}\]
-
-\[\left\{\begin{array}{l}
-\displaystyle \frac{\partial \varphi}{\partial \xi_1}=\frac{\partial x_1}{\partial \xi_1}\frac{\partial \varphi}{\partial x_1}+\frac{\partial x_2}{\partial \xi_1}\frac{\partial \varphi}{\partial x_2}\\
-\displaystyle \frac{\partial \varphi}{\partial \xi_2}=\frac{\partial x_1}{\partial \xi_2}\frac{\partial \varphi}{\partial x_1}+\frac{\partial x_2}{\partial \xi_2}\frac{\partial \varphi}{\partial x_2}
-\end{array}\right.\]
-
-\[\left\{\begin{array}{l}
-\displaystyle \frac{\partial \varphi}{\partial \xi}=\frac{\partial x}{\partial \xi}\frac{\partial \varphi}{\partial x_1}+\frac{\partial y}{\partial \xi}\frac{\partial \varphi}{\partial y}\\
-\displaystyle \frac{\partial \varphi}{\partial \eta}=\frac{\partial x}{\partial \eta}\frac{\partial \varphi}{\partial x}+\frac{\partial y}{\partial \eta}\frac{\partial \varphi}{\partial y}
-\end{array}\right.\]
-\end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Matrice élémentaire}
-
-
-\[\left(\begin{array}{l}
-\displaystyle \frac{\partial \widehat{\varphi}}{\partial \xi}\\
-\displaystyle \frac{\partial \widehat{\varphi}}{\partial \eta}
-\end{array}\right)
-=\left(\begin{array}{cc}
-\displaystyle \frac{\partial x}{\partial \xi}&\displaystyle \frac{\partial y}{\partial \xi}\\
-\displaystyle \frac{\partial x}{\partial \eta}&\displaystyle \frac{\partial y}{\partial \eta}
-\end{array}\right)
-\left(\begin{array}{l}
-\displaystyle \frac{\partial \varphi}{\partial x}\\
-\displaystyle \frac{\partial \varphi}{\partial y}
-\end{array}\right)
-\]
-\[\nabla\widehat{\varphi} = J^t\; \nabla\varphi\]
-Dans le cas d'une transformation affine la matrice jacobienne n'est autre que la matrice de passage:
-\[J=\;<\overrightarrow{CA} \; \overrightarrow{CB}>\;=\left(\begin{array}{cc}
+\begin{frame}		
+		
+Donc la matrice jacobienne $Jacobienne=mat(e_1,e_2)$:
+\[Jacobienne=\;<\overrightarrow{CA} \; \overrightarrow{CB}>\;=\left(\begin{array}{cc}
 x_1-x_3 & x_2-x_3 \\
 y_1-y_3 & y_2-y_3 
 \end{array}\right)\]
-Nous avons \[\nabla \varphi=( J^t)^{-1}\; \nabla\widehat{\varphi} \]
-On pose \[B= ( J^t)^{-1}=\frac{1}{\mbox{det}\,  J}\left(\begin{array}{cc}
-y_2-y_3   & -(x_2-x_3) \\
--(y_1-y_3) & x_1-x_3
-\end{array}\right)\]
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Matrice élémentaire}
-\[a(\varphi_i,\varphi_j)=\displaystyle \int\int_{K_e}\nabla \varphi_i\cdot \nabla \varphi_j \de x\de y=\displaystyle \int\int_{\widehat{K}}(\nabla \widehat{\varphi_i})^t\cdot B^tB\cdot \nabla \widehat{\varphi_j}\;\mbox{det}\,  J\;\de\xi\de\eta\] 
-{\tiny
-\[B^tB=\frac{1}{\left(\mbox{det}\,  J\right)^2}\left(\begin{array}{cc}
-(x_2-x_3)^2+(y_2-y_3)^2   &-(x_2-x_3)(x_1-x_3)-(y_2-y_3)(y_1-y_3)  \\
--(x_2-x_3)(x_1-x_3)-(y_2-y_3)(y_1-y_3) & (x_1-x_3)^2+(y_1-y_3)^2
-\end{array}\right)\]
-}
-\[B^tB=\frac{1}{\left(\mbox{det}\,  J\right)^2}\left(\begin{array}{cc}
+Le jacobien est
+\[\det J=\det(\overrightarrow{CA} , \overrightarrow{CB})\;=\left|\begin{array}{cc}
+x_1-x_3 & x_2-x_3 \\
+y_1-y_3 & y_2-y_3 
+\end{array}\right| =\|\overrightarrow{CA}\|\cdot\|\overrightarrow{CB}\|\sin\alpha\]
+On a donc 
+\[|\det J|=\|\overrightarrow{CA}\wedge \overrightarrow{CB} \|\]
+Le tenseur symétrique est
+\[(g_{ij})=\left(\begin{array}{cc}
+e_1\cdot e_1 & e_1\cdot e_2 \\
+e_2\cdot e_1& e_2\cdot e_2
+\end{array}\right) =\left(\begin{array}{cc}
+\|\overrightarrow{CA}\|^2   &\overrightarrow{CA}\cdot \overrightarrow{CB} \\
+\overrightarrow{CA}\cdot \overrightarrow{CB} & \|\overrightarrow{CB}\|^2
+\end{array}\right)=J^t\cdot J\]
+
+\[(g^{ij})=\frac{1}{\|\overrightarrow{CA}\wedge \overrightarrow{CB} \|^2}\left(\begin{array}{cc}
 \|\overrightarrow{CB}\|^2   &-\overrightarrow{CA}\cdot \overrightarrow{CB} \\
 -\overrightarrow{CA}\cdot \overrightarrow{CB} & \|\overrightarrow{CA}\|^2
 \end{array}\right)\]
-Si le triangle $ABC$ est rectangle isocèle alors $B^tB=Id$ et on a
 
-\[\myredbox{a(\varphi_i,\varphi_j)=\displaystyle \int\int_{\widehat{K}}\nabla \widehat{\varphi_i} \cdot \nabla \widehat{\varphi_j}\;\de\xi\de\eta}\] 
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Matrice élémentaire}
+
+Soit la formule de changement de variables
+\[\int_{K_e}(\cdots) \de x\de y=\int_{\widehat{K}}(\cdots) \sqrt{|g|} \de \xi\de \eta\]
+
+On a alors pour un élément fini triangle $T_e=ABC$ de type (1):
+\[\myredbox{\int_{T_e}(\cdots) \de x\de y=\int_{\widehat{T}}(\cdots) \|\overrightarrow{CA}\wedge \overrightarrow{CB} \| \de \xi\de \eta}\]
+
+Nous avons aussi, en posant $G=(g^{ij})$:
+\[\displaystyle \int_{K_e}\nabla \varphi_i\cdot \nabla \varphi_j\;\de x\de y=\int_{\widehat{K}}\frac{1}{\sqrt{|g|} } g^{ij}\frac{\partial \widehat{\varphi_i}}{\partial \xi_i}\frac{\partial \widehat{\varphi_j}}{\partial \xi_j}\de \xi\de \eta=\int_{\widehat{K}}\frac{1}{|J|} \nabla \widehat{\varphi_i}^t G  \nabla \widehat{\varphi_j}\de \xi\de \eta\]
+Donc
+\[\myredbox{\displaystyle \int_{K_e}\nabla \varphi_i\cdot \nabla \varphi_j\;\de x\de y=\int_{\widehat{K}}
+{\tiny
+\frac{1}{\|\overrightarrow{CA}\wedge \overrightarrow{CB} \|} 
+}
+\nabla \widehat{\varphi_i}^t 
+{\tiny
+\left(\begin{array}{cc}
+\|\overrightarrow{CB}\|^2   &-\overrightarrow{CA}\cdot \overrightarrow{CB} \\
+-\overrightarrow{CA}\cdot \overrightarrow{CB} & \|\overrightarrow{CA}\|^2
+\end{array}\right) 
+}
+\nabla \widehat{\varphi_j}\de \xi\de \eta}\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Cas particulier élément fini triangle isocèle de type (1) }
+
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.4]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{0.5}
+  \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
+  \draw[->] (0,0) -- (0,5) node[left] {$\eta$};
+ \draw[->] (8,0) -- ++(8,0)  node[right] {$x$};
+  \draw[->] (8,0) --++ (0,7) node[left] {$y$};
+   \draw[blue,thick,fill=blue!30, fill opacity=0.6](11,2)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](13,2)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](11,4)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](9,4)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](9,2)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](9,0)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](11,0)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](13,0)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	\draw[blue,thick,](13,4)-- ++(2,0)-- ++(-2,2)-- ++(0,-2);
+	%\draw[blue,thick,](15,0)-- ++(0,2);
+	\draw[blue,thick,](9,6)-- ++(6,0)--++(0,-6);
+\path[fill=gray] (11,2) circle (1.0mm)node[below left] {$\scriptstyle  C$};
+\path[fill=gray] (13,2) circle (1.0mm)node[below left] {$\scriptstyle  A$};
+\path[fill=gray] (11,4) circle (1.0mm)node[above right] {$\scriptstyle  B$};
+
+
+\draw[fill=orange!30, fill opacity=0.6] (0,0) -- ++(3,0) -- ++(-3,3) -- ++(0,-3) ;
+\path[fill=gray] (0,0) circle (1.0mm)node[left,] {$\scriptstyle \widehat{C} $};
+\path[fill=gray] (3,0) circle (1.0mm)node[right,above] {$\scriptstyle  \widehat{A}$};
+\path[fill=gray] (0,3) circle (1.0mm)node[left] {$\scriptstyle  \widehat{B}$};
+\draw (2,0)  node[below] {$\scriptstyle  \widehat{x} =(\xi,\eta)$};
+\draw (11,0)  node[below] {\small {\bf x} $\scriptstyle =\,(x,y)$};
+  
+ \draw [->, >=latex,olive] (1,1.5) arc (120:70:13) ;
+\end{tikzpicture}
+
+\end{center}
+\[\myredbox{a(\varphi_i,\varphi_j)=\displaystyle \int_{K_e}\nabla \varphi_i\cdot \nabla \varphi_j\;\de x\de y=\int_{\widehat{K}}
+\nabla \widehat{\varphi_i}\cdot
+\nabla \widehat{\varphi_j}\de \xi\de \eta}\]
+
+\[\myredbox{\ell(\varphi_i)=\int_{T_e}f(x,y)\varphi_i(x,y) \de x\de y=h^2 \int_{\widehat{T}}\hat{f}(\xi,\eta)\widehat{\varphi_i}(\xi,\eta) \de \xi\de \eta}\]
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Éléments finis carré de type (1)}
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.5]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{0.5}
+  \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
+  \draw[->] (0,0) -- (0,5) node[left] {$\eta$};
+ \draw[->] (8,0) -- ++(7,0)  node[right] {$x$};
+  \draw[->] (8,0) --++ (0,5) node[left] {$y$};
+   \draw[blue,thick,fill=blue!30, fill opacity=0.6](10,2)-- ++(3,-1)-- ++(1,3)-- ++(-3,0)--++(-1,-2);
+
+\path[fill=gray] (10,2) circle (1.0mm)node[left,below] {$\scriptstyle  A$};
+\path[fill=gray] (13,1) circle (1.0mm)node[left,below] {$\scriptstyle  B$};
+\path[fill=gray] (14,4) circle (1.0mm)node[right] {$\scriptstyle  C$};
+\path[fill=gray] (11,4) circle (1.0mm)node[above left] {$\scriptstyle  D$};
+ \draw[red,thick,->](11.8,2.8)-- ++(2.5,-0.3)node[right] {$\scriptstyle  e_1$};
+  \draw[red,thick,->](11.8,2.8)-- ++(0.8,2.3)node[right] {$\scriptstyle  e_2$};
+
+\draw[fill=orange!30, fill opacity=0.6] (0,0) -- ++(3,0)-- ++(0,3) -- ++(-3,0) -- ++(0,-3) ;
+\path[fill=gray] (0,0) circle (1.0mm)node[left,] {$\scriptstyle \widehat{A} $};
+\path[fill=gray] (3,0) circle (1.0mm)node[above right] {$\scriptstyle  \widehat{B}$};
+\path[fill=gray] (3,3) circle (1.0mm)node[above right] {$\scriptstyle  \widehat{C}$};
+\path[fill=gray] (0,3) circle (1.0mm)node[above left] {$\scriptstyle  \widehat{D}$};
+\draw (2,0)  node[below] {$\scriptstyle  \widehat{x} =(\xi,\eta)$};
+\draw (11,0)  node[below] {\small {\bf x} $\scriptstyle =\,(x,y)$};
+  
+ \draw [->, >=latex,olive] (1,1.5) arc (120:70:13) ;
+\end{tikzpicture}
+
+\end{center}
+Nous avons 
+\[x=\widehat{x}_3\widehat{x}_4 A + \widehat{x}_4\widehat{x}_1 B + \widehat{x}_1\widehat{x}_2 C +\widehat{x}_2\widehat{x}_3 D\]
+\[x=(1-\xi)(1-\eta) A + (1-\eta)\xi B + \xi\eta C +(1-\xi)\eta D\]
+Donc \[e_1=\frac{\partial x}{\partial \xi}=-(1-\eta) A+(1-\eta) B+\eta C-\eta D=(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\]
+		\[e_2=\frac{\partial x}{\partial \eta}=-(1-\xi) A-\xi B+\xi C+(1-\xi) D=(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}		
+		
+Donc la matrice jacobienne $Jacobienne=mat(e_1,e_2)$:
+\[Jacobienne=\;mat((1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}, (1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC})\]
+Le jacobien est
+\[\det J=\det((1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}, (1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC})\]
+
+\[\begin{array}{lll}
+\det J &= & (1-\eta)(1-\xi)\det(\overrightarrow{AB},\overrightarrow{AD})+(1-\eta)\xi\det(\overrightarrow{AB},\overrightarrow{BC})\\   
+&  & +\eta (1-\xi)\det(\overrightarrow{DC},\overrightarrow{AD})+\eta \xi\det(\overrightarrow{DC},\overrightarrow{BC})
+\end{array} \]
+On a donc 
+\[\myredbox{\det J=\det(\overrightarrow{AB},\overrightarrow{AD}) +\xi\det(\overrightarrow{AB},\overrightarrow{DC})+\eta \det(\overrightarrow{BC},\overrightarrow{AD})}\]
+
+Le tenseur symétrique $(g_{ij})$ est
+{\footnotesize
+\[\left[\begin{array}{cc}
+\|(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\|^2   &\left[(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\right]\cdot \left[(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\right] \\
+\left[(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\right]\cdot \left[(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\right] & \|(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\|^2
+\end{array}\right]\]
+}
+{\tiny
+\[\myredbox{(g^{ij})=\frac{1}{\left(\det J\right)^2}\left[\begin{array}{cc}
+\|(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\|^2   &-\left[(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\right]\cdot \left[(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\right] \\
+-\left[(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\right]\cdot \left[(1-\xi)\overrightarrow{AD}+\xi\overrightarrow{BC}\right] & \|(1-\eta)\overrightarrow{AB}+\eta\overrightarrow{DC}\|^2 
+\end{array}\right]}\]
+}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Cas particulier d'un élément fini parallélogramme}
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.5]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{0.5}
+  \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
+  \draw[->] (0,0) -- (0,5) node[left] {$\eta$};
+ \draw[->] (8,0) -- ++(7,0)  node[right] {$x$};
+  \draw[->] (8,0) --++ (0,5) node[left] {$y$};
+  
+ \draw[fill=orange!30, fill opacity=0.6] (0,0) -- ++(3,0)-- ++(0,3) -- ++(-3,0) -- ++(0,-3) ;
+\path[fill=gray] (0,0) circle (1.0mm)node[left,] {$\scriptstyle \widehat{A} $};
+\path[fill=gray] (3,0) circle (1.0mm)node[above right] {$\scriptstyle  \widehat{B}$};
+\path[fill=gray] (3,3) circle (1.0mm)node[above right] {$\scriptstyle  \widehat{C}$};
+\path[fill=gray] (0,3) circle (1.0mm)node[above left] {$\scriptstyle  \widehat{D}$};
+\draw (2,0)  node[below] {$\scriptstyle  \widehat{x} =(\xi,\eta)$}; 
+
+  \draw[blue,thick](9,0)-- ++(1,4); 
+  \draw[blue,thick](10,0)-- ++(1,4); 
+    \draw[blue,thick](11,0)-- ++(1,4); 
+      \draw[blue,thick](12,0)-- ++(1,4); 
+        \draw[blue,thick](13,0)-- ++(1,4); 
+        \draw[blue,thick](4/4+8,0)-- ++(4,0);
+    \draw[blue,thick](5/4+8,1)-- ++(4,0);
+    \draw[blue,thick](6/4+8,2)-- ++(4,0);     
+        \draw[blue,thick](7/4+8,3)-- ++(4,0);         
+        \draw[blue,thick](8/4+8,4)-- ++(4,0);               
+   \draw[blue,thick,fill=blue!30, fill opacity=0.6](11.5,2)-- ++(1,0)-- ++(0.25,1)-- ++(-1,0)--++(-0.25,-1);
+
+\path[fill=gray] (11.5,2) circle (1.0mm)node[below left] {\tiny  A};
+\path[fill=gray] (12.5,2) circle (1.0mm)node[below right] {\tiny  B};
+\path[fill=gray] (12.75,3) circle (1.0mm)node[above right] {\tiny  C};
+\path[fill=gray] (11.75,3) circle (1.0mm)node[above left] {\tiny  D};
+
+
+\draw (11,0)  node[below] {\small {\bf x} $\scriptstyle =\,(x,y)$};
+  
+ \draw [->, >=latex,olive] (1,1.5) arc (120:70:13.2) ;
+\end{tikzpicture}
+\end{center}
+\[\myredbox{\det J=\det(\overrightarrow{AB},\overrightarrow{AD})}\]
+\[(g_{ij}) =\left(\begin{array}{cc}
+\|\overrightarrow{AB}\|^2   &\overrightarrow{AB}\cdot \overrightarrow{AD} \\
+\overrightarrow{AB}\cdot \overrightarrow{AD} & \|\overrightarrow{AD}\|^2
+\end{array}\right)\]
+\[\myredbox{(g^{ij})=\frac{1}{\|\overrightarrow{AB}\wedge \overrightarrow{AD} \|^2}\left(\begin{array}{cc}
+\|\overrightarrow{AD}\|^2   &-\overrightarrow{AB}\cdot \overrightarrow{AD} \\
+-\overrightarrow{AB}\cdot \overrightarrow{AD} & \|\overrightarrow{AB}\|^2
+\end{array}\right)}\]
+
+
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Matrice élémentaire}
