@@ -21,7 +21,11 @@
 %\usepackage[T1]{fontenc}
 %\usepackage[francais]{babel}
 
-
+\usepackage[cache=false]{minted}
+ \definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+ \usepackage[cache=false]{minted}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
 
 %%%%%%%%%%%%%%%
 
@@ -62,31 +66,8 @@
 \usepackage{listings}
 \definecolor{purple2}{RGB}{153,0,153} % there’s actually no standard purple
 \definecolor{green2}{RGB}{0,153,0} % a
-\lstset{%
-language=Python, % 
-basicstyle=\normalsize\ttfamily, % 
-% Color settings to match IDLE style 
-keywordstyle=\color{orange}, % 
-keywordstyle={[2]\color{purple2}}, % 
-stringstyle=\color{green2}, 
-commentstyle=\color{red}, 
-upquote=true, %
-}
-\lstdefinestyle{Python}{
-    language        = Python,
-    basicstyle      = \ttfamily,
-    keywordstyle    = \color{blue},
-    keywordstyle    = [2] \color{teal}, % just to check that it works
-    stringstyle     = \color{violet},
-    commentstyle    = \color{red}\ttfamily
-}
+
 \usepackage{algorithm2e}
-\RestyleAlgo{algoruled}
-  \SetKw{KwFrom}{from} 
-\newenvironment{algo}{
-\begin{algorithm}[H]
-\DontPrintSemicolon \SetAlgoVlined}
-{\end{algorithm}}
 
 \usepackage{varwidth}
 
@@ -95,67 +76,11 @@ upquote=true, %
 \usepackage{lmodern} 
 
 
-%\tikzset{% 
-%  highlight/.style={rectangle,rounded corners,fill=orange!35,draw,thick,inner sep=2pt} 
-%} 
-%\newcommand{\tikzmark}[2]{\tikz[remember picture,baseline=(#1.base),inner sep=0,outer sep=0pt] \node (#1) {#2};} 
-
-
-
   \title{Équations aux dérivées partielles (EDP)}
   \author{ \textsc{Ibrahim ALAME}}\institute{ESTP}
 \date{21/02/2024}
   \begin{document}
-  \lstset{
-    frame       = single,
-    numbers     = left,
-    showspaces  = false,
-    showstringspaces    = false,
-    captionpos  = t,
-    caption     = \lstname
-}
-\pgfmathsetmacro{\myscale}{2}
-\pgfkeys{tikz/mymatrixenv/.style={decoration={brace},every left delimiter/.style={xshift=8pt},every right delimiter/.style={xshift=-8pt}}}
-\pgfkeys{tikz/mymatrix/.style={matrix of math nodes,nodes in empty cells,
-left delimiter={[},right delimiter={]},inner sep=1pt,outer sep=1.5pt,
-column sep=8pt,row sep=8pt,nodes={minimum width=20pt,minimum height=10pt,
-anchor=center,inner sep=0pt,outer sep=0pt,scale=\myscale,transform shape}}}
-\pgfkeys{tikz/mymatrixbrace/.style={decorate,thick}}
 
-\newcommand*\mymatrixbraceright[4][m]{
-    \draw[mymatrixbrace] (#1.west|-#1-#3-1.south west) -- node[left=2pt] {#4} (#1.west|-#1-#2-1.north west);
-}
-\newcommand*\mymatrixbraceleft[4][m]{
-    \draw[mymatrixbrace] (#1.east|-#1-#2-1.north east) -- node[right=2pt] {#4} (#1.east|-#1-#2-1.south east);
-}
-\newcommand*\mymatrixbracetop[4][m]{
-    \draw[mymatrixbrace] (#1.north-|#1-1-#2.north west) -- node[above=2pt] {#4} (#1.north-|#1-1-#3.north east);
-}
-\newcommand*\mymatrixbracebottom[4][m]{
-    \draw[mymatrixbrace] (#1.south-|#1-1-#2.north east) -- node[below=2pt] {#4} (#1.south-|#1-1-#3.north west);
-}
-
-
-\tikzset{greenish/.style={
-    fill=green!50!lime!60,draw opacity=0.4,
-    draw=green!50!lime!60,fill opacity=0.1,
-  },
-  cyanish/.style={
-    fill=cyan!90!blue!60, draw opacity=0.4,
-    draw=blue!70!cyan!30,fill opacity=0.1,
-  },
-  orangeish/.style={
-    fill=orange!90, draw opacity=0.8,
-    draw=orange!90, fill opacity=0.3,
-  },
-  brownish/.style={
-    fill=brown!70!orange!40, draw opacity=0.4,
-    draw=brown, fill opacity=0.3,
-  },
-  purpleish/.style={
-    fill=violet!90!pink!20, draw opacity=0.5,
-    draw=violet, fill opacity=0.3,    
-  }}
 
 
 
@@ -166,45 +91,49 @@ anchor=center,inner sep=0pt,outer sep=0pt,scale=\myscale,transform shape}}}
   \titlepage
   \end{frame}
 
-\begin{frame}
-\frametitle{Différences finies}
-le problème aux limites d'ordre 2 en dimension 1
-On considère le problème aux limites
-\begin{equation}
-\left\{\begin{array}{l}
--\frac{\de^2 u}{\de x^2}+c(x) u(x) =f(x), \qquad \mbox{ pour }x\in ]0,1[ \\
-u(0)=u_0,\qquad u(1)=u_1,
-\end{array}\right.
-\end{equation}
- 
-où $f$ et $c$ sont des fonctions données sur $[0, 1]$ avec $c \geqslant 0$.
-Les deux ingrédients principaux d'une approximation par différences finies sont le schéma d'approximation des dérivées et la grille de discrétisation.
- \end{frame}
+
  
 
 
 \begin{frame}
 \frametitle{Approximations des dérivées d'une fonction régulière}
- L'idée fondamentale consiste à approcher les dérivées de la fonction $u$ en un point $x$ en écrivant
+ L'idée fondamentale consiste à approcher les dérivées d'une fonction:
 \[\frac{\de u}{\de x} =\lim_{h\to 0} \frac{u(x+h)-u(x)}{h}\simeq  \frac{u(x+h)-u(x)}{h} \]
 pour un $h$ petit fixé. 
- Si la fonction $u$ est $C^2$ sur l'intervalle $[0, 1]$, on déduit aisément du développement de Taylor
+ Si la fonction $u$ est $C^2$:
 \[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(\theta) \]
 où $\theta \in ]x, x + h[,$ l'inégalité
 \[\myredbox{\left|\frac{u(x+h)-u(x)}h- u'(x)\right| \leqslant C h }\]
- où $C = \sup_{y\in [0,1]} |u''(y)|$, pour tout $0 \leqslant x \leqslant 1 - h$.
+ où $C = \sup_{y\in [0,1]} |u''(y)|$.
 \begin{block}{Définition}
 Si l'erreur est majorée par $C h^p$ pour $p > 0$ fixé, on dit plus généralement que l'approximation est consistante d'ordre $p$.
 \end{block}
 
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Approximations des dérivées d'une fonction régulière}
 On vérifie facilement que $u'(x) \simeq \frac{u(x) - u(x - h)}h$
 est également consistante d'ordre 1.
 
-Si la fonction $u$ est $C^3$, la formule de Taylor à l'ordre 3 donne
+ Si la fonction $u$ est $C^2$:
+\[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(\theta) \]
+où $\theta \in ]x-h, x[,$ l'inégalité
+\[\myredbox{\left|\frac{u(x)-u(x-h)}h- u'(x)\right| \leqslant C h }\]
+ où $C = \sup_{y\in [0,1]} |u''(y)|$.
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+
+Si la fonction $u$ est $C^3$:
 
 \[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(\xi_1) ,\]
 \[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(x)-\frac{h^3}6 u'''(\xi_2) ,\]
@@ -212,10 +141,7 @@ Si la fonction $u$ est $C^3$, la formule de Taylor à l'ordre 3 donne
 où $\xi_1\in ]x,x+h[$ et $\xi_2\in ]x-h,x[$ . On obtient alors:
 \[\left| \frac{u(x+h)-u(x-h)}{2h}- u'(x) \right|=\frac{h^2}{2}\left| u'''(\xi_1)+u'''(\xi_2) \right|  \leqslant C h^2 \]
 
-
-
-
- où $C'=\sup_{y\in[0,1]} |u'''(y)|$. L'approximation
+ L'approximation
 \[\myredbox{u'(x)\simeq \frac{u(x+h)-u(x-h)}{2h}}\] 
  
 est donc consistante d'ordre 2.
@@ -264,16 +190,15 @@ Donc
 \[\Delta^2=\left(\frac 1h(T_{h/2}-T_{-h/2})\right)^2\]
 \[\Delta^2=\frac 1{h^2}(T_{h/2}^2-2T_{h/2}T_{-h/2} +T_{-h/2}^2)\]
 \[\Delta^2u=\frac 1{h^2}(T_h-2\,I+T_{-h})\]
-\[\myredbox{\Delta^2u=\frac 1{h^2}(u(x+h)-2u(x)+u(x-h))}\]
-\[\Delta^2u(x_i)=\frac 1{h^2}(u(x_i+h)-2u(x_i)+u(x_i-h))\]
-\[\myredbox{\Delta^2u_i=\frac {u_{i+1}-2u_i+u_{i-1}}{h^2}}\]
+\[\frac{\de^2u(x_i)}{\de x^2} =\frac {u(x_i+h)-2u(x_i)+u(x_i-h)}{h^2}\]
+\[\myredbox{u''_i=\frac {u_{i+1}-2u_i+u_{i-1}}{h^2}}\]
 
 \end{frame}
 \begin{frame}
 
 \[\Delta^4=\left(\frac 1h(T_{h/2}-T_{-h/2})\right)^4\]\[=\frac 1{h^4}(T^4_{h/2}-4T^3_{h/2}T_{-h/2}+6T^2_{h/2}T^2_{-h/2}-4T_{h/2}T^3_{-h/2}+T^4_{-h/2})\]
-\[=\frac 1{h^4}(T_{2h}-4T_{3h/2}T_{-h/2}+6T_{h}T_{-h}-4T_{h/2}T_{-3h/2}+T_{-2h})u\]
-\[\Delta^4u=\frac 1{h^2}(u(x+2h)-4u(x+h)+6u(x)-4u(x-h)+u(x-2h))\]
+\[=\frac 1{h^4}(T_{2h}-4T_{3h/2}T_{-h/2}+6T_{h}T_{-h}-4T_{h/2}T_{-3h/2}+T_{-2h})\]
+\[=\frac 1{h^4}(T_{2h}-4T_{h}+6I-4T_{-h}+T_{-2h})\]
 \[\Delta^4u(x_i)=\frac 1{h^2}(u(x_i+2h)-4u(x_i+h)+6u(x_i)-4u(x_i-h)+u(x_i-2h))\]
 \[\Delta^4u(x_i)=\frac 1{h^2}(u(x_{i+2})-4u(x_{i+1})+6u(x_i)-4u(x_{i-1})+u(x_{i-2}))\]
 \[\myredbox{\frac{\partial^4 u_i}{\partial x^4}=\frac 1{h^2}(u_{i+2}-4u_{i+1}+6u_i-4u_{i-1}+u_{i-2})}\]
@@ -281,6 +206,7 @@ Donc
 \end{frame}
 
 \begin{frame}
+\frametitle{Exercice}
 Résoudre
 \[\left\{\begin{array}{l}
 \displaystyle \frac{\de ^4 u(x)}{\de x^4} =f(x)\quad\mbox{dans }]0,L[\\
@@ -290,7 +216,7 @@ u(0)=0,\;u'(0)=0\\
 \end{array}\right.\]
 \end{frame}
 \begin{frame}
-Si $u$ est de classe $C^4$ au voisinage de $x$, on fait un développement de Taylor à l'ordre 4 de u:
+Si $u$ est de classe $C^4$ au voisinage de $x$:
 \[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(\xi_1) ,\]
 \[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(x)-\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(\xi_2) ,\]
 Donc
@@ -301,12 +227,26 @@ Donc
 
 D'où
 \[\left| \frac{u(x+h)-2u(x)+u(x-h)}{h^2}- u''(x) \right|\leq \frac{h^2}{12}\sup_{y\in[0,1]} |u^{(4)}(y)| \]
-pour tout $x \in [h, 1 - h]$. L'approximation 
+
 
  \[\myredbox{u''(x)\simeq \frac{u(x+h)-2u(x)+u(x-h)}{h^2}}\] 
  est donc consistante d'ordre 2. 
 \end{frame}
  
+ \begin{frame}
+\frametitle{Différences finies ou Problème de Cauchy?}
+le problème aux limites d'ordre 2 en dimension 1
+On considère le problème aux limites
+\begin{equation}
+\left\{\begin{array}{l}
+-\frac{\de^2 u}{\de x^2}+c(x) u(x) =f(x), \qquad \mbox{ pour }x\in ]0,1[ \\
+u(0)=u_0,\qquad u(1)=u_1,
+\end{array}\right.
+\end{equation}
+ 
+où $f$ et $c$ sont des fonctions données sur $[0, 1]$ avec $c \geqslant 0$.
+Les deux ingrédients principaux d'une approximation par différences finies sont le schéma d'approximation des dérivées et la grille de discrétisation.
+ \end{frame}
  
  \begin{frame}
 \frametitle{Approximation  par différences finies}
@@ -423,12 +363,13 @@ f_1+\frac{g_0}{h^2}\\f_2\\ \vdots \\ f_{n-1} \\ f_n+\frac{g_1}{h^2}
  
  
 \begin{frame} 
+\frametitle{Exemple numérique}
 Soit à résoudre l'équation différentielle
 \begin{equation}
-\left\{\begin{array}{l}
+\myredbox{\left\{\begin{array}{l}
 {\displaystyle \frac{\de^2 u(x)}{\de x^2}}+4 u(x) =4x, \quad \mbox{ pour }x\in ]0,\frac{5\pi}{4}[ \\
 u(0)=0,\quad u(\frac{5\pi}{4})=0,
-\end{array}\right.
+\end{array}\right.}
 \end{equation}
 La solution exacte est $y(x)=x-\frac{5\pi}{4}\sin(x)$.
  \[\frac{1}{4h^3}
@@ -447,7 +388,15 @@ u_1\\u_2\\ \vdots \\ \vdots  \\ u_n
 \] 
 \end{frame}
 \begin{frame}[fragile] 
-\begin{lstlisting}
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 # Courbe
 import numpy as np
 import matplotlib.pyplot as plt
@@ -456,24 +405,30 @@ b = 5 * np.pi / 4
 t = np.linspace(a, b, 50)
 y = t - 5 * np.pi / 4 * np.sin(2 * t)
 plt.plot(t, y)
-\end{lstlisting}
- 
+\end{minted}
+
  \begin{center}
 \includegraphics[width=5cm]{courbe.png}
 \end{center}
  \end{frame}
  
  \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 import numpy as np
 import matplotlib.pyplot as plt
 a = 0; b = 5 * np.pi / 4; t = np.linspace(a, b, 50)
 y = t - 5 * np.pi / 4 * np.sin(2 * t)
 plt.plot(t, y)
-N = 10
-h = (b - a) / (N + 1)
+N = 10; h = (b - a) / (N + 1)
 x = np.linspace(a, b, N + 2)
-M = ((-2 + 4 * h ** 2) * np.eye(N)
+M = ((-2 + 4 * h ** 2) * np.diag(np.ones(N))
      + np.diag(np.ones(N - 1), -1)
      + np.diag(np.ones(N - 1), 1)) / (4*h**3)
 F = np.arange(1,N+1,1)
@@ -482,7 +437,7 @@ U = np.insert(U, N, 0)
 U = np.insert(U, 0, 0)
 plt.plot(x, U)
 plt.show()
-\end{lstlisting}
+\end{minted}
  
  \end{frame}
  
@@ -983,12 +938,17 @@ f_{11}\\f_{12}\\ f_{13} \\ \hline
 
 
 \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 import matplotlib.pyplot as plt
 import numpy as np
-
-N = 3
-h = 1 / (N + 1)
+N = 3; h = 1 / (N + 1)
 # La matrice
 M = np.diag(4 * np.ones(N * N)) \
     - np.diag(np.ones(N * N - 1), -1) \
@@ -1001,14 +961,21 @@ for k in range(N - 1):
 
 F = h * h * np.ones(N * N)
 U = np.linalg.solve(M, F)
-\end{lstlisting}
+\end{minted}
  
 
  \end{frame}
 
 
 \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 
@@ -1023,9 +990,8 @@ for i in range(1, N + 1):
 
 # Plot the surface.
 ax.plot_wireframe(X, Y, Z)
-
 plt.show()
-\end{lstlisting}
+\end{minted}
 
 \end{frame}
 
@@ -1236,7 +1202,14 @@ de calculer la valeur approchée au temps $t_{j+1}$ par simple produit de matric
    \end{frame}
    
   \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -1252,13 +1225,20 @@ A = np.diag(2 * np.ones(N)) \
     - np.diag(np.ones(N - 1), 1)
 
 
-  \end{lstlisting}
+  \end{minted}
 
 \end{frame}
 
 
  \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 
 # Theta initiale
 theta0 = 100
@@ -1273,7 +1253,7 @@ for k in range(1, M):
     plt.plot(x, u)
 
 plt.show()
-  \end{lstlisting}
+  \end{minted}
 
 \end{frame}
 
@@ -1361,7 +1341,14 @@ Ce schéma est dit implicite puisque, contrairement au schéma explicite, sa ré
    \end{frame}
    
   \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -1377,13 +1364,20 @@ A = np.diag(2 * np.ones(N)) \
     - np.diag(np.ones(N - 1), 1)
 
 
-  \end{lstlisting}
+  \end{minted}
 
 \end{frame}
 
 
  \begin{frame}[fragile] 
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 
 # Theta initiale
 theta0 = 100
@@ -1398,7 +1392,7 @@ for k in range(1, M):
     plt.plot(x, u)
 
 plt.show()
-  \end{lstlisting}
+  \end{minted}
 
 \end{frame}
 

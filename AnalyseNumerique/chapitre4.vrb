@@ -1,4 +1,11 @@
-\begin{lstlisting}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
 
 # Theta initiale
 theta0 = 100
@@ -13,5 +20,5 @@ for k in range(1, M):
     plt.plot(x, u)
 
 plt.show()
-  \end{lstlisting}
+  \end{minted}
 
