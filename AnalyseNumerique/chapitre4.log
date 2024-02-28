@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  27 FEB 2024 23:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  28 FEB 2024 10:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2091,13 +2091,13 @@ Package pdftex.def Info: courbe2.png  used on input line 448.
 ] [24
 
 ]
-Overfull \vbox (1.26427pt too high) detected at line 568
+Overfull \vbox (1.26427pt too high) detected at line 567
  []
 
 [25
 
 ]
-Overfull \hbox (7.58919pt too wide) detected at line 586
+Overfull \hbox (7.58919pt too wide) detected at line 583
 \OMS/lmsy/m/n/10.95 ^^@[]k\T1/lmss/m/sl/10.95 u[]\OMS/lmsy/m/n/10.95 k[] ^^T \T
 1/lmss/m/sl/10.95 u\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[] \OT1/lmss/m/n/1
 0.95 + \T1/lmss/m/sl/10.95 h\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ \T1/l
@@ -2111,7 +2111,7 @@ lmsy/m/n/10.95 ^^@ []\T1/lmss/m/sl/10.95 u[]\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/
  []
 
 
-Overfull \hbox (7.58939pt too wide) detected at line 586
+Overfull \hbox (7.58939pt too wide) detected at line 583
 \OMS/lmsy/m/n/10.95 ^^@[]k\T1/lmss/m/sl/10.95 u[]\OMS/lmsy/m/n/10.95 k[] ^^T \T
 1/lmss/m/sl/10.95 u\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[] \OMS/lmsy/m/n/1
 0.95 ^^@ \T1/lmss/m/sl/10.95 h\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ \T1
@@ -2126,51 +2126,24 @@ n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1/lmss/m/n/10.95 ) + []\T1/lmss/m/sl/10.95 u
 [26
 
 ]
-Overfull \hbox (7.58919pt too wide) detected at line 598
-\OMS/lmsy/m/n/10.95 ^^@[]k\T1/lmss/m/sl/10.95 u[]\OMS/lmsy/m/n/10.95 k[] ^^T \T
-1/lmss/m/sl/10.95 u\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[] \OT1/lmss/m/n/1
-0.95 + \T1/lmss/m/sl/10.95 h\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ \T1/l
-mss/m/sl/10.95 u\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1/lmss/m/n/10.95
- ) \OMS/lmsy/m/n/10.95 ^^@ \T1/lmss/m/sl/10.95 hu[]\OT1/lmss/m/n/10.95 (\T1/lms
-s/m/sl/10.95 x[]\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ []\T1/lmss/m/sl/1
-0.95 u[]\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1/lmss/m/n/10.95 ) \OMS/
-lmsy/m/n/10.95 ^^@ []\T1/lmss/m/sl/10.95 u[]\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/
-10.95 x[]\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^T []k\T1/lmss/m/sl/10.95 u
-[]\OMS/lmsy/m/n/10.95 k[]
- []
-
-
-Overfull \hbox (7.58939pt too wide) detected at line 598
-\OMS/lmsy/m/n/10.95 ^^@[]k\T1/lmss/m/sl/10.95 u[]\OMS/lmsy/m/n/10.95 k[] ^^T \T
-1/lmss/m/sl/10.95 u\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[] \OMS/lmsy/m/n/1
-0.95 ^^@ \T1/lmss/m/sl/10.95 h\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ \T1
-/lmss/m/sl/10.95 u\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1/lmss/m/n/10.
-95 ) + \T1/lmss/m/sl/10.95 hu[]\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1
-/lmss/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ []\T1/lmss/m/sl/10.95 u[]\OT1/lmss/m/
-n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1/lmss/m/n/10.95 ) + []\T1/lmss/m/sl/10.95 u
-[]\OT1/lmss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OT1/lmss/m/n/10.95 ) \OMS/lmsy/m
-/n/10.95 ^^T []k\T1/lmss/m/sl/10.95 u[]\OMS/lmsy/m/n/10.95 k[]
+Overfull \vbox (7.86336pt too high) detected at line 604
  []
 
 [27
 
 ]
-Overfull \vbox (7.86336pt too high) detected at line 618
+Overfull \vbox (1.84947pt too high) detected at line 626
  []
 
 [28
 
 ]
-Overfull \vbox (1.84947pt too high) detected at line 640
+Overfull \vbox (22.10406pt too high) detected at line 645
  []
 
 [29
 
-]
-Overfull \vbox (22.10406pt too high) detected at line 659
- []
-
-[30
+] [30
 
 ] [31
 
@@ -2180,43 +2153,41 @@ Overfull \vbox (22.10406pt too high) detected at line 659
 
 ] [34
 
-] [35
-
 ]
-Overfull \hbox (17.4286pt too wide) detected at line 805
+Overfull \hbox (17.4286pt too wide) detected at line 791
 [] \OMS/lmsy/m/n/10.95 ' [] ' []
  []
 
 
-Overfull \hbox (17.4286pt too wide) detected at line 805
+Overfull \hbox (17.4286pt too wide) detected at line 791
 [] \OMS/lmsy/m/n/10.95 ' [] ' []
  []
 
-[36
+[35
 
-] [37
+] [36
 
 ]
-Overfull \hbox (102.65894pt too wide) detected at line 842
+Overfull \hbox (102.65894pt too wide) detected at line 828
 []
  []
 
-[38
+[37
 
-] [39
+] [38
 
 ]
-Overfull \hbox (55.96523pt too wide) detected at line 910
+Overfull \hbox (55.96523pt too wide) detected at line 896
 []
  []
 
 
-Overfull \vbox (119.7122pt too high) detected at line 910
+Overfull \vbox (119.7122pt too high) detected at line 896
  []
 
-[40
+[39
 
-] [41
+] [40
 
 ]
 \openout4 = `chapitre4.vrb'.
@@ -2227,7 +2198,7 @@ Overfull \vbox (119.7122pt too high) detected at line 910
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o chapitre4.out.pyg chapitre4.pyg)...executed.
 
- (./chapitre4.out.pyg)) [42
+ (./chapitre4.out.pyg)) [41
 
 ]
 \openout4 = `chapitre4.vrb'.
@@ -2245,26 +2216,26 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-))) [43
+))) [42
 
 ]
-<surface.png, id=1357, 462.528pt x 346.896pt>
+<surface.png, id=1330, 462.528pt x 346.896pt>
 File: surface.png Graphic file (type png)
 <use surface.png>
-Package pdftex.def Info: surface.png  used on input line 1002.
+Package pdftex.def Info: surface.png  used on input line 988.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
- [44
+ [43
 
- <./surface.png>] [45
+ <./surface.png>] [44
+
+] [45
 
 ] [46
 
 ] [47
 
-] [48
-
 ]
-Overfull \hbox (17.0559pt too wide) detected at line 1127
+Overfull \hbox (17.0559pt too wide) detected at line 1113
 [] \OMS/lmsy/m/n/10.95 ^^@ [] \OT1/lmss/m/n/10.95 = \T1/lmss/m/sl/10.95 f\OT1/l
 mss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/10.95
  t[]\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 ;  \OMS/lmsy/m/n/10.95 8\T1/lmss/m
@@ -2274,19 +2245,19 @@ n/10.95 8\T1/lmss/m/sl/10.95 j \OMS/lmsy/m/n/10.95 2 f\T1/lmss/m/n/10.95 0\OML/
 lmm/m/it/10.95 ; :::; \T1/lmss/m/sl/10.95 m\OMS/lmsy/m/n/10.95 g
  []
 
-[49
+[48
+
+] [49
 
 ] [50
 
-] [51
-
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-1202.
+1188.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-[52
+[51
 
 ]
 \openout4 = `chapitre4.vrb'.
@@ -2297,7 +2268,7 @@ File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o chapitre4.out.pyg chapitre4.pyg)...executed.
 
- (./chapitre4.out.pyg)) [53
+ (./chapitre4.out.pyg)) [52
 
 ]
 \openout4 = `chapitre4.vrb'.
@@ -2309,18 +2280,18 @@ runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o chapitre4.out.pyg chapitre4.pyg)...executed.
 
 
-(./chapitre4.out.pyg)) [54
+(./chapitre4.out.pyg)) [53
 
 ]
-<chaleur1.png, id=1648, 462.528pt x 346.896pt>
+<chaleur1.png, id=1622, 462.528pt x 346.896pt>
 File: chaleur1.png Graphic file (type png)
 <use chaleur1.png>
-Package pdftex.def Info: chaleur1.png  used on input line 1264.
+Package pdftex.def Info: chaleur1.png  used on input line 1250.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
- [55
+ [54
 
  <./chaleur1.png>]
-Overfull \hbox (17.0561pt too wide) detected at line 1282
+Overfull \hbox (17.0561pt too wide) detected at line 1268
 [] \OMS/lmsy/m/n/10.95 ^^@ [] \OT1/lmss/m/n/10.95 = \T1/lmss/m/sl/10.95 f\OT1/l
 mss/m/n/10.95 (\T1/lmss/m/sl/10.95 x[]\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/10.95
  t[]\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 ;  \OMS/lmsy/m/n/10.95 8\T1/lmss/m
@@ -2330,11 +2301,22 @@ n/10.95 8\T1/lmss/m/sl/10.95 j \OMS/lmsy/m/n/10.95 2 f\T1/lmss/m/n/10.95 1\OML/
 lmm/m/it/10.95 ; :::; \T1/lmss/m/sl/10.95 m\OMS/lmsy/m/n/10.95 g
  []
 
-[56
+[55
+
+] [56
 
 ] [57
 
-] [58
+]
+\openout4 = `chapitre4.vrb'.
+
+ (./chapitre4.vrb
+\openout5 = `chapitre4.pyg'.
+
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl=False -P mathescape=True -o chapitre4.out.pyg chapitre4.pyg)...executed.
+
+ (./chapitre4.out.pyg)) [58
 
 ]
 \openout4 = `chapitre4.vrb'.
@@ -2345,35 +2327,26 @@ lmm/m/it/10.95 ; :::; \T1/lmss/m/sl/10.95 m\OMS/lmsy/m/n/10.95 g
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o chapitre4.out.pyg chapitre4.pyg)...executed.
 
- (./chapitre4.out.pyg)) [59
+
+(./chapitre4.out.pyg)) [59
 
 ]
-\openout4 = `chapitre4.vrb'.
-
- (./chapitre4.vrb
-\openout5 = `chapitre4.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o chapitre4.out.pyg chapitre4.pyg)...executed.
-
-
-(./chapitre4.out.pyg)) [60
-
-]
-<chaleur2.png, id=1808, 462.528pt x 346.896pt>
+<chaleur2.png, id=1782, 462.528pt x 346.896pt>
 File: chaleur2.png Graphic file (type png)
 <use chaleur2.png>
-Package pdftex.def Info: chaleur2.png  used on input line 1403.
+Package pdftex.def Info: chaleur2.png  used on input line 1389.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
- [61
+ [60
 
- <./chaleur2.png>] [62
+ <./chaleur2.png>] [61
 
 ]
-Overfull \vbox (9.02669pt too high) detected at line 1439
+Overfull \vbox (9.02669pt too high) detected at line 1425
  []
 
-[63
+[62
+
+] [63
 
 ] [64
 
@@ -2382,8 +2355,6 @@ Overfull \vbox (9.02669pt too high) detected at line 1439
 ] [66
 
 ] [67
-
-] [68
 
 ]
 \tf@nav=\write9
@@ -2404,41 +2375,45 @@ runsystem(rm chapitre4.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 45013 strings out of 478268
- 930646 string characters out of 5846348
+ 45012 strings out of 478268
+ 930639 string characters out of 5846348
  1324168 words of memory out of 5000000
  62108 multiletter control sequences out of 15000+600000
  525609 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,668b,787s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
-/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2
-022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-
-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc
-/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-m
-athex.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive
-/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf
--dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/publ
-ic/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10
-.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2022/texmf-dist
-/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
-e1/public/lm/lmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/l
-m/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtk10.pf
-b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on chapitre4.pdf (68 pages, 688724 bytes).
+
+pdfTeX warning (dest): name{Navigation68} has been referenced but does not exis
+t, replaced by a fixed one
+
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/t
+exlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/202
+2/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-di
+st/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/d
+vips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mat
+hex.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-d
+ist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
+ype1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
+/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.p
+fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texliv
+e/2022/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2022/texmf-dist/f
+onts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
+/public/lm/lmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/
+lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtk10.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive
+/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/tex
+live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
+Output written on chapitre4.pdf (67 pages, 686369 bytes).
 PDF statistics:
- 2215 PDF objects out of 2487 (max. 8388607)
- 1947 compressed objects within 20 object streams
- 138 named destinations out of 1000 (max. 500000)
+ 2190 PDF objects out of 2487 (max. 8388607)
+ 1923 compressed objects within 20 object streams
+ 137 named destinations out of 1000 (max. 500000)
  766 words of extra memory for PDF output out of 10000 (max. 10000000)
 

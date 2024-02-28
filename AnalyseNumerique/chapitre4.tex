@@ -532,8 +532,7 @@ Soit $V_m=\inf_i(V_i)$
 \item $m=1$ : $2V_1-V_2\geq 0 \Longrightarrow V_1\geq V_2-V_1\geq 0 $
 \item $m=n$ : $-V_{n-1}+2V_n \geq 0 \Longrightarrow V_n\geq V_{n-1}-V_n\geq 0 $
 \item $m\neq n$ et $m \neq 1$ : 
-\[-V_{m-1}+2V_m-V_{
-}\geq 0  \Longrightarrow (V_m-V_{m+1})\geq (V_{m-1}-V_m)\geq 0\]
+\[-V_{m-1}+2V_m-V_{m+1}\geq 0  \Longrightarrow (V_m-V_{m+1})\geq (V_{m-1}-V_m)\geq 0\]
 \[ \Longrightarrow V_m=V_{m+1}=V_{m-1} \Longrightarrow V_{m-1}=\inf_i(V_i)\Longrightarrow V_1=\inf_i(V_i)\]
 \end{itemize}
 
@@ -543,7 +542,7 @@ Soit $V_m=\inf_i(V_i)$
 \begin{frame}
   \frametitle{Démo}
   \[AV=0 \Longrightarrow AV\geq 0 \mbox { et } AV\leq 0\Longrightarrow V\geq 0 \mbox { et } V\leq 0\Longrightarrow V=0\]
-  Les coefficients de $A$ sont tous positifs: si $A=[C_1\,C_2\,\cdots\,C_n]$ alors
+  Les coefficients de $A$ sont tous positifs: si $A^{-1}=[C_1\,C_2\,\cdots\,C_n]$ alors
   \[ A A^{-1}=I  \Longrightarrow A C_i =e_i \Longrightarrow C_i\geq 0 \Longrightarrow  A^{-1}\geq 0 \]
   $\Longrightarrow V = A^{-1}F\geq 0$
   
@@ -574,28 +573,15 @@ Soit $V_m=\inf_i(V_i)$
   \end{block}
   \[\begin{array}{lll}
   (\varepsilon_h)_j&=&\displaystyle  \frac{u(x_{j-1})-2u(x_j)+u(x_{j+1})}{h^2}-f(x_j)\\
-  &=&\displaystyle   \frac{u(x_{j-1})-2u(x_j)+u(x_{j+1})}{h^2}-u''(x_j)\\
-  &=& O(h^2)
+  &=&\displaystyle   \frac{u(x_{j-1})-2u(x_j)+u(x_{j+1})}{h^2}-u''(x_j)=O(h^2)\\
   \end{array}\]
-  On a
   \[\left|u(x_j+h)-u(x_j)-hu'(x_j)-\frac{h^2}{2}u''(x_j)-\frac{h^3}{6}u'''(x_j)\right|\leq \frac{h^4}{24}\|u^{(4)}\|_{\infty}\]
   \[- \frac{h^4}{24}\|u^{(4)}\|_{\infty}\leq u(x_j+h)-u(x_j)-hu'(x_j)-\frac{h^2}{2}u''(x_j)-\frac{h^3}{6}u'''(x_j)\leq \frac{h^4}{24}\|u^{(4)}\|_{\infty}\]
    \[- \frac{h^4}{24}\|u^{(4)}\|_{\infty}\leq u(x_j-h)-u(x_j)+hu'(x_j)-\frac{h^2}{2}u''(x_j)+\frac{h^3}{6}u'''(x_j)\leq \frac{h^4}{24}\|u^{(4)}\|_{\infty}\]
- 
+ \[\Longrightarrow \|\varepsilon_h\|_{\infty} \leq \frac{h^2}{12} \|u^{(4)}\|_{\infty}\] 
  
  \end{frame} 
 
- \begin{frame}
-  \frametitle{Consistance}
-  \[- \frac{h^4}{24}\|u^{(4)}\|_{\infty}\leq u(x_j+h)-u(x_j)-hu'(x_j)-\frac{h^2}{2}u''(x_j)-\frac{h^3}{6}u'''(x_j)\leq \frac{h^4}{24}\|u^{(4)}\|_{\infty}\]
-   \[- \frac{h^4}{24}\|u^{(4)}\|_{\infty}\leq u(x_j-h)-u(x_j)+hu'(x_j)-\frac{h^2}{2}u''(x_j)+\frac{h^3}{6}u'''(x_j)\leq \frac{h^4}{24}\|u^{(4)}\|_{\infty}\]
-
-   \[\Longrightarrow \|\varepsilon_h\|_{\infty} \leq \frac{h^2}{12} \|u^{(4)}\|_{\infty}\] 
-   
-  
- 
- 
- \end{frame} 
  
  \begin{frame}
   \frametitle{Stabilité}
