@@ -6,19 +6,18 @@ baselinestretch=1.2,
 bgcolor=LightGray,
 %linenos
 ]{python}
-
-# Theta initiale
-theta0 = 100
-U = theta0 * np.ones(N)
-u = np.insert(U, 0, theta0)
-u = np.insert(u, N + 1, theta0)
-plt.plot(x, u)
-for k in range(1, M):
-    U = np.linalg.solve((np.eye(N) + dt / (h ** 2) * A), U)
-    u = np.insert(U, 0, 0)
-    u = np.insert(u, N + 1, 0)
-    plt.plot(x, u)
-
+# Initialisation de la solution
+U = np.zeros((nmax + 1, N + 1))
+U[0, :] = (np.cos(np.pi * X)) ** 8
+# Matrice de taille N-N
+M=np.eye(N+1)+c/2*np.diag(np.ones(N),1)
+                        -c/2*np.diag(np.ones(N),-1)
+M[0,N]=-c/2
+M[N,0]=c/2
+for n in range(nmax):
+    U[n + 1,:] = np.dot(M, U[n,:])
+K=nmax//10
+for i in range(nmax//K):
+    plt.plot(X, U[K*i,:], label = 'explicite centre')
 plt.show()
-  \end{minted}
-
+\end{minted}

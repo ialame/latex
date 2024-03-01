@@ -205,16 +205,16 @@ Donc
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Exercice}
-Résoudre
-\[\left\{\begin{array}{l}
-\displaystyle \frac{\de ^4 u(x)}{\de x^4} =f(x)\quad\mbox{dans }]0,L[\\
-\\
-u(0)=0,\;u'(0)=0\\
- u(L)=a,\;u'(L)=b
-\end{array}\right.\]
-\end{frame}
+%\begin{frame}
+%\frametitle{Exercice}
+%Résoudre
+%\[\left\{\begin{array}{l}
+%\displaystyle \frac{\de ^4 u(x)}{\de x^4} =f(x)\quad\mbox{dans }]0,L[\\
+%\\
+%u(0)=0,\;u'(0)=0\\
+% u(L)=a,\;u'(L)=b
+%\end{array}\right.\]
+%\end{frame}
 \begin{frame}
 Si $u$ est de classe $C^4$ au voisinage de $x$:
 \[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(\xi_1) ,\]
@@ -586,7 +586,7 @@ Soit $V_m=\inf_i(V_i)$
  \begin{frame}
   \frametitle{Stabilité}
   \begin{block}{Définition}
-  On dit que le schéma numérique $A_h V_h =F_h$  est stable si'il existe une constante $C$ telle que
+  On dit que le schéma numérique $A_h V_h =F_h$  est stable s'il existe une constante $C$ telle que
   \[\|V_h\|\leq C\|F_h\|  \qquad \forall F_h\]
   \end{block}
   \begin{block}{Théorème}
@@ -921,73 +921,6 @@ f_{11}\\f_{12}\\ f_{13} \\ \hline
  
 \end{frame}
 
-
-
-\begin{frame}[fragile] 
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-%fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{python}
-import matplotlib.pyplot as plt
-import numpy as np
-N = 3; h = 1 / (N + 1)
-# La matrice
-M = np.diag(4 * np.ones(N * N)) \
-    - np.diag(np.ones(N * N - 1), -1) \
-    - np.diag(np.ones(N * N - 1), 1) \
-    - np.diag(np.ones(N * N - 3), -3) \
-    - np.diag(np.ones(N * N - 3), 3)
-for k in range(N - 1):
-    M[(k + 1) * N, (k + 1) * N - 1] = 0
-    M[(k + 1) * N - 1, (k + 1) * N] = 0
-
-F = h * h * np.ones(N * N)
-U = np.linalg.solve(M, F)
-\end{minted}
- 
-
- \end{frame}
-
-
-\begin{frame}[fragile] 
-\begin{minted}[
-mathescape,
-framesep=2mm,
-baselinestretch=1.2,
-%fontsize=\footnotesize,
-bgcolor=LightGray,
-%linenos
-]{python}
-fig = plt.figure()
-ax = fig.gca(projection='3d')
-
-# Make data.
-X = np.linspace(0, 1, N + 2)
-Y = np.linspace(0, 1, N + 2)
-X, Y = np.meshgrid(X, Y)
-Z = np.zeros((N + 2, N + 2))
-for i in range(1, N + 1):
-    for j in range(1, N + 1):
-        Z[i, j] = U[(i - 1) * N + j - 1]
-
-# Plot the surface.
-ax.plot_wireframe(X, Y, Z)
-plt.show()
-\end{minted}
-
-\end{frame}
-
-\begin{frame}
- \begin{center}
-\includegraphics[width=7cm]{surface.png}
-\end{center}
-\end{frame}
-
-
 \begin{frame}
  \begin{center}
  \begin{tikzpicture}[domain=0:5]
@@ -1021,6 +954,101 @@ plt.show()
 \[(i,j)\mapsto (j-1)N+i-1 \]
  \end{center}
 \end{frame}
+
+\begin{frame}[fragile] 
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import numpy as np
+N = 3; h = 1 / (N + 1)
+# La matrice
+M = np.diag(4 * np.ones(N * N)) \
+    - np.diag(np.ones(N * N - 1), -1) \
+    - np.diag(np.ones(N * N - 1), 1) \
+    - np.diag(np.ones(N * N - N), -N) \
+    - np.diag(np.ones(N * N - N), N)
+for k in range(N - 1):
+    M[(k + 1) * N, (k + 1) * N - 1] = 0
+    M[(k + 1) * N - 1, (k + 1) * N] = 0
+F = h * h * np.ones(N * N)
+U = np.linalg.solve(M, F)
+\end{minted}
+ 
+
+ \end{frame}
+
+
+\begin{frame}[fragile] 
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+fig = plt.figure()
+ax = fig.add_subplot(projection = '3d') 
+# Make data.
+X = np.linspace(0, 1, N + 2)
+Y = np.linspace(0, 1, N + 2)
+X, Y = np.meshgrid(X, Y)
+Z = np.zeros((N + 2, N + 2))
+for i in range(1, N + 1):
+    for j in range(1, N + 1):
+        Z[i, j] = U[(i - 1) * N + j - 1]
+# Plot the surface.
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1,
+     cmap=cm.coolwarm,linewidth=0, antialiased=False)
+fig.colorbar(surf, shrink=0.5, aspect=10)
+plt.show()
+\end{minted}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{$N=3$}
+ \begin{center}
+\includegraphics[width=7cm]{surface.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{$N=3$}
+ \begin{center}
+\includegraphics[width=12cm]{surfaceN3.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{$N=10$}
+ \begin{center}
+\includegraphics[width=12cm]{surfaceN10.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{$N=50$}
+ \begin{center}
+\includegraphics[width=12cm]{surfaceN50.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{$N=100$}
+ \begin{center}
+\includegraphics[width=12cm]{surfaceN100.png}
+\end{center}
+\end{frame}
+
 
 
 
@@ -1147,7 +1175,7 @@ de calculer la valeur approchée au temps $t_{j+1}$ par simple produit de matric
  \begin{frame}     
   \frametitle{Exemple}
   \begin{center}
- \begin{tikzpicture}[domain=0:5]
+ \begin{tikzpicture}[scale=0.8]
   \draw[->] (-0.1,0) -- (4.5,0)  node[right] {$\scriptstyle x$};
   \draw[->] (0,-0.1) -- (0,2.3) node[above] {$\scriptstyle \theta$};
   \path[fill=black]  (0,0) circle (.4mm) node[below] {$\scriptstyle O$};
@@ -1158,13 +1186,11 @@ de calculer la valeur approchée au temps $t_{j+1}$ par simple produit de matric
 	\draw[<->] (1,-0.2) -- ++(1,0);
  \draw  (1.5,-0.5) node {$\scriptstyle h=\frac{1}{n+1}$};
 
-\draw[dotted,red] (0,2) -- ++(4,0) node[right] {$\scriptstyle \theta_0=100$°};
-
+%\draw[dotted,red] (0,2) -- ++(4,0) node[right] {$\scriptstyle \theta_0=100$°};
+ \draw[color=blue][domain=0:4]   plot (\x,{2*sin(3.14/2*\x r)});
+  \draw  (2.4,1.8) node[blue]{$\scriptstyle \theta_0=\sin (2\pi x)$};
 \draw[fill=orange] (0.02,0.02) -- ++(4,0)  -- ++(0,0.04) -- ++(-4,0)  -- ++(0,-0.04)  ;
-
-  
 \end{tikzpicture}
-
  \end{center}
   \[\Delta t = 0.01\]
   \[\left\{\begin{array}{l}
@@ -1177,8 +1203,8 @@ de calculer la valeur approchée au temps $t_{j+1}$ par simple produit de matric
   \right)\right]U^{(j)}\\
   U^{(0)}=\left( \begin{array}{c}
   100\\
-  100\\
-  100\\
+  0\\
+  -100\\
   \end{array}
   \right)
   
@@ -1199,8 +1225,8 @@ bgcolor=LightGray,
 import matplotlib.pyplot as plt
 import numpy as np
 
-N = 3;
-M = 10;
+N = 50;
+M = 5;
 h = 1 / (N + 1);
 dt = 0.01
 x = np.linspace(0, 1, N + 2)
@@ -1209,7 +1235,6 @@ x = np.linspace(0, 1, N + 2)
 A = np.diag(2 * np.ones(N)) \
     - np.diag(np.ones(N - 1), -1) \
     - np.diag(np.ones(N - 1), 1)
-
 
   \end{minted}
 
@@ -1227,17 +1252,13 @@ bgcolor=LightGray,
 ]{python}
 
 # Theta initiale
-theta0 = 100
-U = theta0 * np.ones(N)
-u = np.insert(U, 0, theta0)
-u = np.insert(u, N + 1, theta0)
-plt.plot(x, u)
+U = 100 * np.sin(2*np.pi*x)
+plt.plot(x, U)
 for k in range(1, M):
-    U = np.dot((np.eye(N) - dt / (h ** 2) * A), U)
-    u = np.insert(U, 0, 0)
-    u = np.insert(u, N + 1, 0)
-    plt.plot(x, u)
+  U[1:-1] = np.dot((np.eye(N) - dt / (h ** 2) * A), U[1:-1])
+  plt.plot(x, U)
 
+plt.savefig('chaleurExplicite.png')
 plt.show()
   \end{minted}
 
@@ -1245,7 +1266,7 @@ plt.show()
 
 \begin{frame}
  \begin{center}
-\includegraphics[width=7cm]{chaleur1.png}
+\includegraphics[width=7cm]{chaleurExplicite.png}
 \end{center}
 \end{frame}
   
@@ -1285,8 +1306,8 @@ Ce schéma est dit implicite puisque, contrairement au schéma explicite, sa ré
   
   \begin{frame}     
   \frametitle{Exemple}
-  \begin{center}
- \begin{tikzpicture}[domain=0:5]
+   \begin{center}
+ \begin{tikzpicture}[scale=0.8]
   \draw[->] (-0.1,0) -- (4.5,0)  node[right] {$\scriptstyle x$};
   \draw[->] (0,-0.1) -- (0,2.3) node[above] {$\scriptstyle \theta$};
   \path[fill=black]  (0,0) circle (.4mm) node[below] {$\scriptstyle O$};
@@ -1297,13 +1318,11 @@ Ce schéma est dit implicite puisque, contrairement au schéma explicite, sa ré
 	\draw[<->] (1,-0.2) -- ++(1,0);
  \draw  (1.5,-0.5) node {$\scriptstyle h=\frac{1}{n+1}$};
 
-\draw[dotted,red] (0,2) -- ++(4,0) node[right] {$\scriptstyle \theta_0=100$°};
-
+%\draw[dotted,red] (0,2) -- ++(4,0) node[right] {$\scriptstyle \theta_0=100$°};
+ \draw[color=blue][domain=0:4]   plot (\x,{2*sin(3.14/2*\x r)});
+  \draw  (2.4,1.8) node[blue]{$\scriptstyle \theta_0=\sin (2\pi x)$};
 \draw[fill=orange] (0.02,0.02) -- ++(4,0)  -- ++(0,0.04) -- ++(-4,0)  -- ++(0,-0.04)  ;
-
-  
 \end{tikzpicture}
-
  \end{center}
   \[\Delta t = 0.01\]
   \[\left\{\begin{array}{l}
@@ -1316,8 +1335,8 @@ Ce schéma est dit implicite puisque, contrairement au schéma explicite, sa ré
   \right)\right]^{-1}U^{(j)}\\
   U^{(0)}=\left( \begin{array}{c}
   100\\
-  100\\
-  100\\
+  0\\
+  -100\\
   \end{array}
   \right)
   
@@ -1338,17 +1357,16 @@ bgcolor=LightGray,
 import matplotlib.pyplot as plt
 import numpy as np
 
-N = 3;
-M = 10;
+N = 50;
+M = 5;
 h = 1 / (N + 1);
-dt = 0.1
+dt = 0.05
 x = np.linspace(0, 1, N + 2)
 
 # La matrice
 A = np.diag(2 * np.ones(N)) \
     - np.diag(np.ones(N - 1), -1) \
     - np.diag(np.ones(N - 1), 1)
-
 
   \end{minted}
 
@@ -1366,17 +1384,14 @@ bgcolor=LightGray,
 ]{python}
 
 # Theta initiale
-theta0 = 100
-U = theta0 * np.ones(N)
-u = np.insert(U, 0, theta0)
-u = np.insert(u, N + 1, theta0)
-plt.plot(x, u)
+U = 100 * np.sin(2*np.pi*x)
+plt.plot(x, U)
 for k in range(1, M):
-    U = np.linalg.solve((np.eye(N) + dt / (h ** 2) * A), U)
-    u = np.insert(U, 0, 0)
-    u = np.insert(u, N + 1, 0)
-    plt.plot(x, u)
+ U[1:-1] = np.linalg.solve((np.eye(N) + dt / (h ** 2) * A),
+                           U[1:-1])
+ plt.plot(x, U)
 
+plt.savefig('chaleurImplicite.png')
 plt.show()
   \end{minted}
 
@@ -1384,7 +1399,7 @@ plt.show()
 
 \begin{frame}
  \begin{center}
-\includegraphics[width=7cm]{chaleur2.png}
+\includegraphics[width=7cm]{chaleurImplicite.png}
 \end{center}
 \end{frame}
   
@@ -1461,7 +1476,7 @@ F_i=\frac{u(t_{j},x_{i+1})-2u(t_j,x_i)+u(t_{j},x_{i-1})  }{h^2}-\frac{\partial^2
    
    \begin{frame}    
   D'où
-  \[E_i=\frac{\Delta t^2}{2}\frac{\partial^2 u}{\partial t^2}(\theta,x_i)\]
+  \[E_i=\frac{\Delta t}{2}\frac{\partial^2 u}{\partial t^2}(\theta,x_i)\]
 De même
  \[F_i=\frac{h^2}{2}\left(\frac{\partial^4 u}{\partial t^4}(t_j,\xi_1)+\frac{\partial^4 u}{\partial t^4}(t_j,\xi_2)\right)\]
  \begin{block}{Définition}
@@ -1492,42 +1507,215 @@ De même
  \begin{block}{Proposition}
  Sous la condition \[\frac{\Delta t}{h^2}\leq \frac 12\]
  Le schéma explicite converge.
-  \end{block}
-  
-  
-  
+  \end{block} 
    \end{frame}
-   
- \end{document}
- 
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    \begin{frame}  
+    \frametitle{Équation d'advection}
+    \[\myredbox{\left\{\begin{array}{ll}
+    \displaystyle \frac{\partial u}{\partial t} +V \frac{\partial u}{\partial x}  = 0 & \forall(x,t)\in [0,1]\times \mathbb{R}^+\\
+    u(x+1,t)=u(x,t) & \forall(x,t)\in \mathbb{R}\times \mathbb{R}^+\\ 
+    u(x,t=0)=u_0(x) & \forall(x,t)\in [0,1]
+    \end{array}\right.}\]
+    
+On va étudier l'équation aux dérivées partielles suivante :
+où $V$ est un réel non nul.
+
+
+ \begin{block}{Remarque}
+  Cette équation, aussi appelée équation de transport, intervient par exemple dans l'étude du transport d'un polluant
+dans un courant d'un fluide. 
+
+$V$ est alors à interpréter comme la vitesse du courant. Noter qu'on peut avoir $V>0$ ou $V< 0$ en fonction du sens du courant.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Équation d'advection}
+ Dans le cas de ce problème simple, l'expression de la solution est
+connue. La solution s'écrit
+    \[\myredbox{u(x, t) = u_0(x-V t)}\]
+En effet, on aura $\frac{\partial u}{\partial x} =u'_0(x-V t) $ et
+$\frac{\partial u}{\partial t} -V u'_0(x-Vt)$ et donc bien 
+$\frac{\partial u}{\partial t} +V \frac{\partial u}{\partial x}  = 0$
+
+
+ \begin{block}{Remarque}
+On a choisi ici des conditions aux limites de périodicité, mais on aurait pu envisager d'autres types de conditions aux limites. Il faudrait en tenir compte pour le traitement des équations aux bords de l'intervalle d'espace.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Équation d'advection}
+Discrétisation
+Posons $h =\frac 1N$ pour discrétiser l'intervalle d'espace.
+
+On a donc $x_j=jh$  et en particulier $x_0=0$, $x_N=1$.
+
+On pose $t_n=n\tau$  avec $\tau$  le pas de temps.
+
+Ainsi, on posera comme inconnue discrète à chaque pas de temps
+le vecteur
+\[u^{(n)} = \left(\begin{array}{c}
+u_0^{(n)}  \\ u_1^{(n)} \\ \vdots \\ u_{N-1}^{(n)} 
+\end{array}\right)\]
+La condition de périodicité se traduira par $u_N^{(n)} =u_0^{(n)} $.
+
+On considère aussi $u_{N-1}^{(n)} =u_{-1}^{(n)} $.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Équation d'advection: Discrétisation}
+
+Posons $h =\frac 1N$ pour discrétiser l'intervalle d'espace.
+
+On a donc $x_j=jh$  et en particulier $x_0=0$, $x_N=1$.
+
+On pose $t_n=n\tau$  avec $\tau$  le pas de temps.
+
+Ainsi, on posera comme inconnue discrète à chaque pas de temps
+le vecteur
+\[u^{(n)} = \left(\begin{array}{c}
+u_0^{(n)}  \\ u_1^{(n)} \\ \vdots \\ u_{N-1}^{(n)} 
+\end{array}\right)\]
+La condition de périodicité se traduira par $u_N^{(n)} =u_0^{(n)} $.
+
+On considère aussi $u_{N-1}^{(n)} =u_{-1}^{(n)} $.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Équation d'advection: Schéma explicite centré}
+\[\frac{u_j^{(n+1)}-u_j^{(n)}}{\tau}-\frac{u_{j+1}^{(n)}-u_{j-1}^{(n)}}{2h}=0\quad
+(n\geq 0, \; 0\leq j\leq N-1)\]
+
+Un schéma possible serait le schéma explicite centré :
+\[u_j^{(n+1)}=\frac{c}{2}u_{j-1}^{(n)}+u_j^{(n)}-\frac{c}{2}u_{j+1}^{(n)}\quad \mbox{ avec } c=\frac{V\tau}{h}\]
+Ce schéma pourrait se formuler ainsi :
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Équation d'advection: Schéma explicite centré}
+Et donc une formulation matricielle de la forme 
+\[ u^{(n+1)} = M u^{(n)}\]
+avec
+\[M=\left(\begin{array}{ccccccc}
+1 & -\frac c2 & 0 & 0 & 0 & \cdots & \frac c2\\
+\frac c2 &1 & -\frac c2 & 0 & 0 &   \cdots & 0\\
+0 & \frac c2 &1 & -\frac c2 & 0 &   \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \ddots & \ddots & \vdots  \\
+-\frac c2 &0 & 0 & 0 & 0 &   \cdots & 1\\
+\end{array}\right)\]
+
+en tenant de la condition de périodicité.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Propriétés du schéma explicite centré}
 
 
 
+ \begin{block}{Lemme}
+Le schéma explicite centré est consistant avec l'équation
+d'advection ci-dessus, précis à l'ordre 1 en temps et 2 en espace,
+\end{block}
+\end{frame}
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+\frametitle{Équation d'advection: Exemple}
+
+On considère l'équation d'advection suivante:
+$$ \left\{ 
+    \begin{array}{l}
+\displaystyle \frac{\partial u}{\partial t}+ 3\frac{\partial u}{\partial x}=0, \quad 0\leq x\leq 1,\quad t \in \mathbb{R}^+\\
+u(x+1,t)=u(x,t)\\
+u(x,0)=u_0(x)= \cos(\pi x)^8
+    \end{array}  
+    \right. 
+  $$
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-   
+\begin{frame}[fragile]   
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Initialisation des constantes
+h=0.005; tau=0.0002
+nu = 3.0;c = nu * tau / h
+N = int(1 / h)
+nmax = int(1 / tau)
+
+# Coordonnées en espace
+X = np.linspace(0, 1, N + 2)[:-1]
+
+# Initialisation temporelle
+t = np.linspace(0, 1, nmax + 1)
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]   
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+bgcolor=LightGray,
+%linenos
+]{python}
+# Initialisation de la solution
+U = np.zeros((nmax + 1, N + 1))
+U[0, :] = (np.cos(np.pi * X)) ** 8
+# Matrice de taille N-N
+M=np.eye(N+1)+c/2*np.diag(np.ones(N),1)
+                        -c/2*np.diag(np.ones(N),-1)
+M[0,N]=-c/2
+M[N,0]=c/2
+for n in range(nmax):
+    U[n + 1,:] = np.dot(M, U[n,:])
+K=nmax//10
+for i in range(nmax//K):
+    plt.plot(X, U[K*i,:], label = 'explicite centre')
+plt.show()
+\end{minted}
+\end{frame}
+
+\begin{frame}
+ \begin{center}
+\includegraphics[width=7cm]{advection.png}
+\end{center}
+\end{frame}
 
 
-
-
-
-   
-
-  
-
-
-
-
-
-
-
-
-
- 
-  \end{document}
+\end{document}
    
 
 
