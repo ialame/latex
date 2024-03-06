@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usepackage[cache=false]{minted}
+
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usepackage{algorithm2e}
+\RestyleAlgo{algoruled}
+  \SetKw{KwFrom}{from} 
+\newenvironment{algo}{
+\begin{algorithm}[H]
+\DontPrintSemicolon \SetAlgoVlined}
+{\end{algorithm}}
+
+
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\usepackage{xcolor}
+%\setbeamercolor{background canvas}{bg=lightgray}
+\usepackage{listings}
+\definecolor{purple2}{RGB}{153,0,153} % there’s actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a
+
+ \title{TP1 Analyse numérique (B1-TP1)}
+\author{Ibrahim ALAME}
+\date{28/02/2024}
+\begin{document}
+\maketitle
+
+\section{Problème de la chaleur}  
+ Soit $OL$ une barre chauffée initialement à la température $\theta(x)=\sin^2(2\pi \frac xL)$, $0\leq x\leq L$. On cherche à refroidir la barre en appliquant une température $0$ aux extrémités $O$ et $L$. Déterminer l'évolution de la température $u(x,t)$ en tout point $x$ de la barre et à chaque instant $t\geq 0$:
+ \[\left\{\begin{array}{ll}
+ \frac{\partial u}{\partial t}-\kappa \frac{\partial^2 u}{\partial x^2}=0 & \forall (x,t)\in [0,L]\times\mathbb{R}^+\\
+ u(x,0)=\theta(x) & \forall x \in [0,L]\\
+ u(0,t)=u(L,t)=0 & \forall t\in \mathbb{R}^+
+ \end{array}\right.\]
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+  \draw[->] (-0.1,0) -- (5.5,0)  node[right] {$x$};
+  \draw[->] (0,-0.1) -- (0,3) node[right] {$\theta$};
+   \draw [domain=0:5][line width=0.5,samples=500] plot(\x,{2*sin(2*pi*\x/5 r)^2});
+    \draw[line width=2pt,orange] (0,0) -- (5,0) node[below] {$L$};
+	\draw[orange] (0,0) node[below] {$O$};
+\end{tikzpicture}
+ \end{center}
+On prendra $\kappa=0.1$, $L=1$ et on choisira un pas de temps $\tau=0.0005$ et on discrétisera l'intervalle $[0,L]$ en $N$ sous-intervalles avec un pas $h=0.01$. L'animation de l'évolution de la température est à afficher dans une fenêtre $800\times 600$  de la librairie python {\tt tkinter}:
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]{python}
+#=============  PROGRAMME PRINCIPAL  ==============
+fen1 = Tk()
+fen1.title("Equation de la chaleur")
+W=800; H=600
+can1 = Canvas(fen1,bg = 'dark gray', width=W, height=H)
+can1.pack()
+DF()
+fen1.mainloop()
+\end{minted} 
+
+où {\tt DF()} est la fonction qui calcule et affiche la température de la barre à l'instant $t_n=n\tau$ à partir du schéma de la méthode explicite:
+\[\frac{u^n_i-u^{n-1}_i}{\tau}-\kappa \frac{u^{n-1}_{i-1}-2u^{n-1}_i+u^{n-1}_{i+1}}{h^2}=0\]
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]{python}
+def DF():
+    global X, U0, H, W
+    can1.delete('all')
+    U=np.zeros(N+1)
+    for i in range(1,N):
+        U[i]=....
+    for i in range(1,N+1):
+        can1.create_line(X[i-1]*W,(1-U[i-1])*H,X[i]*W,(1-U[i])*H,fill='blue', width=5)
+    U0 = U.copy()
+
+    fen1.after(10, DF)
+\end{minted}     
+%  U[i]=U0[i]+c*(U0[i-1]-2*U0[i]+U0[i+1])    
+\section{Propagation des ondes}
+On considère une corde de masse linéïque $\rho$  fixée en ses deux extrémités $O$ et $L$ et tendue avec une grande force $F$. On pose $c=\sqrt\frac{F}{\rho}$. A l'instant $t=0$, on déplace verticalement chaque point d'abscisse $x$  d'une distance $f(x)$ à une vitesse initiale $g(x)$. En petites perturbations, le déplacement $u(x,t)$ en tout point $x$ de la corde et à chaque instant $t\geq 0$ est solution du problème des ondes suivant:
+ \[\left\{\begin{array}{ll}
+ \frac{\partial^2 u}{\partial t^2}-c^2 \frac{\partial^2 u}{\partial x^2}=0 & \forall (x,t)\in [0,L]\times\mathbb{R}^+\\
+ u(x,0)=f(x) & \forall x \in [0,L]\\
+  \frac{\partial u}{\partial t}(x,0)=g(x) & \forall x \in [0,L]\\
+ u(0,t)=u(L,t)=0 & \forall t\in \mathbb{R}^+
+ \end{array}\right.\]
+Résoudre numériquement ce problème par la méthode des différences finies, en prenant les données numériques suivantes:
+\[L=1\mbox{ m},\quad c=3\mbox{ m/s},\quad f(x)=e^{-500 (x-L/2)^2},\quad g(x)=0,\]
+
+afficher le résultat en animation graphique dans une fenêtre {\tt tkinter} de hauteur $H=800$px et de largeur $W=800$px.
+\section{Équation de diffusion}
+
+
+  \end{document}
