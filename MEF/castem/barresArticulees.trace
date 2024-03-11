@@ -1,0 +1,69 @@
+ ************************************************************************ 
+ * Poutres articulées en triangle 1D elastique 
+ ************************************************************************ 
+ * 
+ * fichier poutre1D.dgibi 
+ * 
+ TITR 'Poutres articulées en triangle 1D elastique' ; 
+ OPTI DIME 2 ELEM SEG2 ; 
+ * 
+ * Données du problème (Unités : m, Pa) 
+ * 
+ F = -1000 ; 
+ L = 2.00 ; 
+ H = -1.732 ; 
+ h1 = 0.02 ; 
+ b1 = 0.01 ; 
+ E1 = 1.E11 ; 
+ nu1= 0.3 ; 
+ Izz = (h1**3)*b1/12 ; 
+ S1=b1 * h1; 
+ * 
+ * Géométrie 
+ * 
+ P0 = 0. 0. ; 
+ P1 = L 0. ; 
+ P2 = 0. H ; 
+ Nelt1 = 1 ; 
+ Poutre0 = P0 DROI Nelt1 P1 ; 
+ Poutre1 = P1 DROI Nelt1 P2 ; 
+ Poutre2 = P2 DROI Nelt1 P0 ; 
+ Poutres = POUTRE0 ET POUTRE1 ET POUTRE2; 
+ TRAC POUTRES; 
+ * 
+ * Modèle (Comportement et modélisation EF) 
+ * 
+ mo1=MODE POUTRES MECANIQUE ELASTIQUE ISOTROPE POUT ; 
+ * 
+ * Données matériau et élément 
+ * 
+ ma1=MATE mo1 YOUN E1 SECT S1 NU nu1 INRZ IZZ; 
+ * 
+ * Conditions aux limites 
+ * 
+ Cond1 =BLOQ UX UY P0; 
+ Cond2 =BLOQ UX P2; 
+ Cond0 = Cond1 ET Cond2; 
+ * 
+ * Chargement 
+ * 
+ Force1=FORC (0. F) P1 ; 
+ * 
+ * Résolution 
+ * 
+ Rigi1=RIGI mo1 ma1 ; 
+ RigiCL1=Rigi1 ET Cond0 ; 
+ Depl1=RESO RigiCL1 Force1 ; 
+ * 
+ * Poste Traitement 
+ * 
+ Fleche1=EXTR Depl1 UY P1 ; 
+ MESS 'Flèche CASTEM : ' Fleche1 'm' ; 
+ * 
+ Def0=DEFO Poutres Depl1 0. BLAN ; 
+ Def1=DEFO Poutres Depl1 ROUG ; 
+ TRAC (Def0 ET Def1) ; 
+ * 
+ * Fin du fichier 
+ * 
+ FIN ; 

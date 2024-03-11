@@ -104,6 +104,49 @@ x_3 & y_3 &1\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+\frametitle{Rappel: 4 Points coplanaires}
+
+\begin{center}
+ \begin{tikzpicture}[scale=0.5]
+ \draw  [very thin, orange] [->] (0,0) -- (-1,-1) node[above] {$\scriptstyle x$};
+\draw  [very thin, orange] [->]  (0,0) -- (6,0) node[right] {$\scriptstyle y$};
+\draw  [very thin, orange] [->] (0,0) -- (0,3) node[above] {$\scriptstyle z$};
+\draw[gray,thick,fill=blue!30, fill opacity=0.6] (0.5,1.25) -- ++(2,-1) -- ++(4,2)-- ++(-2,1)-- ++(-4,-2);
+
+\node [gray] at (1.5,1) {$\scriptstyle \bullet$};
+\node at (1.2,1+0.3) {$\scriptstyle  a_1$};
+\node [gray] at (3,2) {$\scriptstyle \bullet$};
+\node at (3,2+0.3) {$\scriptstyle  a_2$};
+\node [gray] at (5,2) {$\scriptstyle \bullet$};
+\node at (5,2+0.3) {$\scriptstyle  a_4$};
+\node [gray] at (2.7,1) {$\scriptstyle \bullet$};
+\node at (3,1+0.3) {$\scriptstyle  a_3$};
+
+\end{tikzpicture} 
+\end{center}
+\[a x + b y +c z + d=0\]
+\[\left\{\begin{array}{l}
+a x_1 + b y_1 +b z_1 +d =0\\
+a x_2 + b y_2 +b z_2 +d =0\\
+a x_3 + b y_3 +b z_3 +d =0\\
+a x_4 + b y_4 +b z_4 +d =0\\
+\end{array}\right. \Longleftrightarrow \left(\begin{array}{cccc}
+ x_1 & y_1 & z_1 &  1 \\
+ x_2 & y_2& z_2 & 1 \\
+x_3 & y_3& z_3 &1\\
+x_4 & y_4& z_4 &1\\
+\end{array}\right)  \left(\begin{array}{c} a \\ b \\ c \\ d \end{array}\right)  = \left(\begin{array}{c} 0 \\ 0 \\ 0 \\ 0\end{array}\right) 
+\]
+\[\myredbox{\mbox{ Quatre points coplanaires } \Longleftrightarrow \left|\begin{array}{cccc}
+  x_1 & y_1 & z_1 &  1 \\
+ x_2 & y_2& z_2 & 1 \\
+x_3 & y_3& z_3 &1\\
+x_4 & y_4& z_4 &1\\
+\end{array}\right| =0}\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Rappel: Coordonnées barycentriques}
 
 \begin{center}
@@ -217,7 +260,7 @@ $(\lambda,\mu,\nu)$ Coordonnées barycentriques de $M$ dans le système $\{A,B,C
 \node [blue] at (2-0.4,-0.5) {$\scriptstyle M_2$};
 \node [blue] at (5+0.4,-2){$\scriptstyle M_3$};
 \draw  [orange] (0.5,-2) --(2,-0.5)--(5,-2)--(0.5,-2) ;
-\draw  [blue] (0.5,2) --(2,2.5)--(5,1)--(0.5,2) ;
+\draw[gray,thick,fill=blue!30, fill opacity=0.6]  (0.5,2) --(2,2.5)--(5,1)--(0.5,2) ;
 \draw  [dotted,->] (0.5,-2) --(0.5,2);
 \draw  [dotted,->] (2,-0.5)  --(2,2.5);
 \draw  [dotted,->]  (5,-2)--(5,1) ;
@@ -323,9 +366,9 @@ où les polynômes $L_i$ sont définis par : $L_i(x)=\prod_{j=0,j\neq i}^n\frac{
 \frametitle{Éléments finis de Lagrange}
   On se donne :
   \begin{enumerate}
-  \item une partie compacte $K$ de $\mathbb{R}^n$, connexe et d'intérieur non vide ; 
-  \item un ensemble fini $\Sigma =\{a_j\}_{j=1}^N$ de $N$ points distincts de $K$ ;
-  \item un espace vectoriel $\mathbb{P}$ de dimension finie et composé de fonctions définies 
+  \item une partie compacte ${\color{red} K}$ de $\mathbb{R}^n$, connexe et d'intérieur non vide ; 
+  \item un ensemble fini ${\color{red}\Sigma} =\{a_j\}_{j=1}^N$ de $N$ points distincts de $K$ ;
+  \item un espace vectoriel ${\color{red}\mathbb{P}}$ de dimension finie et composé de fonctions définies 
 sur $K$ à valeurs réelles.
   \end{enumerate}  
   \begin{itemize}
@@ -334,7 +377,7 @@ sur $K$ à valeurs réelles.
                           p(a_j)=\alpha_j,\qquad 1\leq j \leq N
                           \end{equation}
 
-Lorsque l'ensemble $\Sigma$ est $\mathbb{P}$-unisolvant, le triplet $(K, \mathbb{P}, \Sigma)$ est appelé élément fini de Lagrange.
+Lorsque l'ensemble $\Sigma$ est $\mathbb{P}$-unisolvant, le triplet $(K, \mathbb{P}, \Sigma)$ est appelé  {\color{red}élément fini de Lagrange}.
 \item Une condition nécessaire évidente pour que l'ensemble $\Sigma$ soit 
 $\mathbb{P}$-unisolvant est que $\dim(\mathbb{P})=\mbox{card}(\Sigma)=N$
   \end{itemize}
@@ -382,7 +425,29 @@ on a posé
 est un élément fini de Lagrange.
 \item Deux éléments finis de Lagrange $(\widehat{K},\widehat{P},\widehat{\Sigma})$ et $(K, P, \Sigma)$ sont dits affine-équivalents s'il existe une bijection $F$ de $\widehat{K}$ sur $K$ vérifiant \eqref{transformation} ; 
  \end{itemize}
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.5]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{0.5}
+  \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
+  \draw[->] (0,0) -- (0,5) node[left] {$\eta$};
+ \draw[->] (8,0) -- ++(7,0)  node[right] {$x$};
+  \draw[->] (8,0) --++ (0,5) node[left] {$y$};
+   \draw[blue,thick,fill=blue!30, fill opacity=0.6](10,2)-- ++(3,-1)-- ++(0,3)-- ++(-3,-2);
 
+\path[fill=gray] (10,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_i$};
+\path[fill=gray] (13,1) circle (1.0mm)node[left,below] {$\scriptstyle  a_j$};
+\path[fill=gray] (13,4) circle (1.0mm)node[right] {$\scriptstyle  a_k$};
+
+
+\draw[fill=orange!30, fill opacity=0.6] (0,0) -- ++(3,0) -- ++(-3,3) -- ++(0,-3) ;
+\draw (2,0)  node[below] {$\scriptstyle  \widehat{x} =(\xi,\eta)$};
+\draw (11,0)  node[below] {\small {\bf x} $\scriptstyle =\,(x,y)$};
+  
+ \draw [->, >=latex,olive] (1,1.5) arc (120:70:13) ;
+\end{tikzpicture}
+
+\end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1447,6 +1512,143 @@ est constitué par les 8 sommets du cube et les milieux des 12 arêtes de ce cub
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments finis d'Hermite}
+$\varphi_i$ des éléments finis de Lagrange est construite pour être continue d'un élément à l'autre, mais pas sa dérivée... 
+
+Un élément fini d'Hermite est un triplet $(K,\Sigma,P)$ tel que :
+\begin{itemize}
+\item K est un élément géométrique de $\mathbb{R}^n$, compact, connexe, et d'intérieur non vide ;
+\item $\Sigma=\{\sigma_1,\cdots,\sigma_N\}$ un ensemble de $N$ formes linéaires sur l'espace des fonctions définies sur $K$, ou sur un sous-espace plus régulier contenant $P$ ;
+\item $P$ est un espace vectoriel de dimension finie de fonctions réelles définies sur $K$, et tel que $\Sigma$ soit $P-$unisolvant.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Opérateur de $P-$interpolation }
+
+
+\begin{itemize}
+\item Un opérateur de $P-$interpolation sur $\Sigma$ est un opérateur $\Pi$ qui à toute fonction $v$ définie sur $K$ associe la fonction $\Pi v$ de P définie par :
+\[\Pi v=\sum_{i=1}^N\sigma_i(v)\varphi_i\]
+\item $\Pi v$  est l'unique élément de $P$ qui prend les mêmes valeurs que $v$ sur les points de $\Sigma$.
+\item
+\[\sigma_j(\varphi_i)=\delta_{ij},\quad 1\leq i,j \leq N\]
+\item Suivant les éléments utilisés, ces fonctions de base pourront être de classe $C^1$ ou même plus, et il en sera donc de même pour la solution approchée $u_h$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments unidimensionnels}
+
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.50]
+  \draw[-] (0,0) -- (6,0);
+  \node [gray] at (0,0) {$\bullet$};
+\draw (0,0) circle (0.3);
+  \node [gray] at (6,0) {$\bullet$};
+\draw (6,0) circle (0.3);
+
+  \draw[-] (8,0) -- ++(6,0);
+  \node [gray] at (8,0) {$\bullet$};
+\draw (8,0) circle (0.3);
+\draw (8,0) circle (0.5);
+  \node [gray] at (8+6,0) {$\bullet$};
+\draw (8+6,0) circle (0.3);
+\draw (8+6,0) circle (0.5);
+\end{tikzpicture}
+
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.3]{hermite3-5.png} 
+\end{center}
+\begin{center}
+\includegraphics[scale=0.3]{hermiteTriangle1.png} 
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Élément triangle}
+
+
+\begin{center}
+\includegraphics[scale=0.3]{hermiteTriangleUN.png} 
+\end{center}
+\begin{center}
+\includegraphics[scale=0.3]{hermiteTriangle1.png} 
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments bidimensionnels}
+\begin{center}
+\includegraphics[scale=0.2]{elementsHermite.png} 
+\end{center}
+\begin{center}
+\includegraphics[scale=0.25]{hermiteBidim1.png} 
+\end{center}
+\begin{center}
+\includegraphics[scale=0.25]{hermiteBidim2.png} 
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Les fonctions de base}
+
+\begin{itemize}
+\item $\Phi_{i}(x)$ les fonctions de base associées aux valeurs nodales de la fonction $v_{i}$.
+\item $\Psi_{i}(x)$ les fonctions de base associées aux valeurs nodales de la dérivée $(\frac{dv}{dx})_{i}$,
+\end{itemize}
+
+
+\begin{displaymath}
+\Pi v (x)=\sum_{i=1}^{n}v_{i}\Phi_{i}(x)+\sum_{i=1}^{n}(\frac{dv}{dx})_{i}\Psi_{i}(x)\end{displaymath}
+
+Sur un élément $[x_{1},x_{2}]$, cette approximation s'écrit:
+
+\begin{displaymath}
+v^{h}(x)=v_{1}\Phi_{1}(x)+(\frac{dv}{dx})_{1}\Psi_{1}(x)+v_{2}\Phi_{2}(x)+(\frac{dv}{dx})_{2}\Psi_{2}(x)\end{displaymath}
+
+$\Phi_{i}$ et $\Psi_i$ vérifient les conditions:
+\[\left\{\begin{array}{l}
+\Phi_{i}(x_j)=\delta_{ij}\quad \Phi'_{i}(x_j)=0\\
+\Psi_{i}(x_j)=0\quad \Psi'_{i}(x_j)=\delta_{ij}
+\end{array} \right. \]
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Les fonctions de base}
+\[\left\{\begin{array}{l}
+\Phi_i(x) = \left[1-2(x-x_i)\lambda'_i(x_i)\right]\lambda^2_i(x) \\
+\Psi_i(x) = (x-x_i)\lambda^2_i(x) 
+\end{array}\right.
+ \]
+ \begin{itemize}
+ \item élément de référence de longueur $h$:  $x_1=0$ et $x_2=h$, 
+ \item $\lambda_1(x)=1-\frac{x}{h}$ et $\lambda_2(x)=\frac{x}{h}$. On pose $\xi= \frac{x}{h}$:
+ \[\left\{\begin{array}{l}
+\Phi_1(x) = (1+2\xi)(1-\xi)^2 \\
+\Phi_2(x) = (3-2\xi)\xi^2 \\
+\Psi_1(x) = h \xi(1-\xi)^2\\
+\Psi_2(x) = h (\xi-1)\xi^2
+\end{array}\right.
+ \]
+ \begin{center}
+\includegraphics[scale=0.25]{HermiteBasis.png} 
+\end{center}
+ \end{itemize}
+
+\end{frame}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

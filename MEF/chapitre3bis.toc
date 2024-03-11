@@ -1,2 +1,2 @@
 \babel@toc {french}{}\relax 
-\beamer@subsubsectionintoc {0}{0}{1}{Matrice de rigidité}{41}{0}{0}
+\beamer@subsubsectionintoc {0}{0}{1}{Matrice de rigidité}{33}{0}{0}

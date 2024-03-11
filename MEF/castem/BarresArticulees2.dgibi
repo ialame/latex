@@ -1,0 +1,88 @@
+************************************************************************
+* Poutre 1D elastique en bois
+************************************************************************
+*
+* fichier poutre1D.dgibi
+*
+TITR 'Poutre 1D élastique en bois' ;
+OPTI DIME 2 ELEM SEG2 ;
+*
+* Données du problème (Unités : m, MPa, MN)
+*
+F1 = -150000 ;
+L = 1.00 ;
+H = 1.732 ;
+h1 = 0.01 ;
+b1 = 0.02 ;
+E1 = 200E9 ;
+nu1= 0.3 ;
+Izz =(h1**3)*b1/12 ;
+S1=b1 * h1;
+*
+* Géométrie
+*
+P0 = 0. 0. ;
+P1 = L H ;
+P2 = 0. H;
+P3 = (2*L) 0.;
+P4 = (3*L) H;
+P5 = (4*L) 0.;
+P6 = (5*L) H;
+P7 = (6*L) 0.;
+P8 = (6*L) H;
+Nelt1 = 1 ;
+Poutre0 = P0 DROI Nelt1 P1 ;
+Poutre1 = P1 DROI Nelt1 P2 ;
+Poutre2 = P0 DROI Nelt1 P3 ;
+Poutre3 = P1 DROI Nelt1 P3 ;
+Poutre4 = P1 DROI Nelt1 P4 ;
+Poutre5 = P3 DROI Nelt1 P4 ;
+Poutre6 = P3 DROI Nelt1 P5 ;
+Poutre7 = P4 DROI Nelt1 P5 ;
+Poutre8 = P4 DROI Nelt1 P6 ;
+Poutre9 = P5 DROI Nelt1 P6 ;
+Poutre10 = P5 DROI Nelt1 P7 ;
+Poutre11 = P6 DROI Nelt1 P7 ;
+Poutre12 = P6 DROI Nelt1 P8 ;
+
+Poutres = POUTRE0 ET POUTRE1 ET POUTRE2 ET POUTRE3 ET POUTRE4 ET POUTRE5 ET POUTRE6 ET POUTRE7 ET POUTRE8 ET POUTRE9 ET POUTRE10 ET POUTRE11 ET POUTRE12;
+TRAC POUTRES;
+*
+* Modèle (Comportement et modélisation EF)
+*
+mo1=MODE POUTRES MECANIQUE ELASTIQUE ISOTROPE POUT ;
+*
+* Données matériau et élément
+*
+ma1=MATE mo1 YOUN E1 SECT S1 NU nu1 INRZ IZZ;
+*
+* Conditions aux limites
+*
+Cond1 =(BLOQ UX UY P0) ET (BLOQ UX UY P2) ET  (BLOQ UX UY P7) ET (BLOQ UX UY P8);
+
+*
+* Chargement
+*
+Force1= (FORC (0. F1) P1) ET (FORC (0. F1) P4) ET (FORC (0. F1) P6);
+*
+* Résolution
+*
+Rigi1=RIGI mo1 ma1 ;
+RigiCL1=Rigi1 ET Cond1 ;
+Depl1=RESO RigiCL1 Force1 ;
+*
+* Poste Traitement
+*
+dx=EXTR Depl1 UX P4 ;
+dy=EXTR Depl1 UY P4 ;
+*Fleche1=1e3*Fleche1 ;
+MESS 'deplacement du milieu en x : ' dx 'm' ;
+MESS 'deplacement du milieu en y : ' dy 'm' ;
+*
+Def0=DEFO Poutres Depl1 0. BLAN ;
+Def1=DEFO Poutres Depl1 ROUG ;
+TRAC (Def0 ET Def1) ;
+*
+* Fin du fichier
+*
+FIN ;

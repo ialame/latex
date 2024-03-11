@@ -81,7 +81,33 @@
 	\draw[orange] (0,0) node[below] {$O$};
 \end{tikzpicture}
  \end{center}
-On prendra $\kappa=0.1$, $L=1$ et on choisira un pas de temps $\tau=0.0005$ et on discrétisera l'intervalle $[0,L]$ en $N$ sous-intervalles avec un pas $h=0.01$. L'animation de l'évolution de la température est à afficher dans une fenêtre $800\times 600$  de la librairie python {\tt tkinter}:
+On prendra $\kappa=0.1$, $L=1$ et on choisira un pas de temps $\tau=0.0005$
+
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]{python}
+# Initialisation des constantes
+L=1; kappa = 0.1
+h=0.01; tau= 0.0005
+c = kappa * tau / h**2
+\end{minted} 
+ et on discrétisera l'intervalle $[0,L]$ en $N$ sous-intervalles avec un pas $h=0.01$ ($N+1$ points de discrétisation). 
+ \begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]{python}
+# Coordonnées en espace
+N = int(L / h)
+X = np.linspace(0, L, N+1)
+\end{minted} 
+ L'animation de l'évolution de la température est à afficher dans une fenêtre $800\times 600$  de la librairie python {\tt tkinter}:
 \begin{minted}[
 mathescape,
 framesep=2mm,
@@ -90,15 +116,15 @@ fontsize=\footnotesize,
 linenos
 ]{python}
 #=============  PROGRAMME PRINCIPAL  ==============
-fen1 = Tk()
+fen1 = Tk() # Création de la fenêtre principale
 fen1.title("Equation de la chaleur")
 W=800; H=600
+# Définir une zone graphique $W \times H$
 can1 = Canvas(fen1,bg = 'dark gray', width=W, height=H)
-can1.pack()
-DF()
-fen1.mainloop()
+can1.pack() # Positionne can1 dans la fenêtre fen1
+DF() # Fonction de calcul en Diff Finies et affichage graphique
+fen1.mainloop() # Boucle principale de la fenêtre
 \end{minted} 
-
 où {\tt DF()} est la fonction qui calcule et affiche la température de la barre à l'instant $t_n=n\tau$ à partir du schéma de la méthode explicite:
 \[\frac{u^n_i-u^{n-1}_i}{\tau}-\kappa \frac{u^{n-1}_{i-1}-2u^{n-1}_i+u^{n-1}_{i+1}}{h^2}=0\]
 \begin{minted}[
@@ -109,18 +135,41 @@ fontsize=\footnotesize,
 linenos
 ]{python}
 def DF():
-    global X, U0, H, W
-    can1.delete('all')
-    U=np.zeros(N+1)
+    global U0 # on désigne par U0[i] la solution à l'instant précédent  $u(x_i,t_{n-1})=u^{n-1}_i$
+    can1.delete('all') # on efface la courbe de l'instant t-1
+    U=np.zeros(N+1)# U[i] est la solution à l'instant actuel  $u(x_i,t_{n})=u^n_i$
     for i in range(1,N):
-        U[i]=....
+        U[i]=...
+    # courbe à l'instant t; segment entre deux points consécutifs: create_line($x_{i-1},y_{i-1},x_i,y_i$)
     for i in range(1,N+1):
         can1.create_line(X[i-1]*W,(1-U[i-1])*H,X[i]*W,(1-U[i])*H,fill='blue', width=5)
     U0 = U.copy()
-
-    fen1.after(10, DF)
+    fen1.after(10, DF) # réexécute la fonction $DF()$ à l'instant suivant après 10ms
 \end{minted}     
-%  U[i]=U0[i]+c*(U0[i-1]-2*U0[i]+U0[i+1])    
+%  U[i]=U0[i]+c*(U0[i-1]-2*U0[i]+U0[i+1])   
+\subsubsection*{Transformation géométrique entre le repère informatique $(Oxy)$ et le repère mathématique $(\Omega X Y)$  }
+
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+  \draw[dashed, olive, fill=blue!30, fill opacity=0.6](5,0) -- ++(0,-4)--++(-5,0)--++(0,4);
+  \draw[->,orange] (-0.1,0) -- (5.5,0)  node[right] {$x$};
+  \draw[->,blue] (-0.1,-2) -- (5.5,-2)  node[right] {$X$};
+  \draw[->,orange] (0,0.1) -- (0,-4.5) node[left] {$y$};
+\draw[->,blue] (-0.05,-4) -- (-0.05,0.5) node[above] {$Y$};
+\draw[olive,dashed] (5,0) -- ++(0,-4)--++(-5,0)  node[left] {$H$};
+
+\draw[olive] (5,0) node[above] {$W$};
+\draw[blue] (0,-4) node[above right] {$-1$};
+ \draw[blue] (0,0) node[below right] {$+1$};
+  \draw[blue] (5,-2) node[below left] {$+1$};
+	\draw[orange] (0,0) node[left] {$O$};
+		\draw[blue] (0,-2) node[left] {$\Omega$};
+	\draw(-4,-2) node{$\left\{\begin{array}{l}
+x=X\cdot W \\
+y=(1-Y)\cdot H/2
+\end{array}\right.$};
+\end{tikzpicture}
+\end{center}
 \section{Propagation des ondes}
 On considère une corde de masse linéïque $\rho$  fixée en ses deux extrémités $O$ et $L$ et tendue avec une grande force $F$. On pose $c=\sqrt\frac{F}{\rho}$. A l'instant $t=0$, on déplace verticalement chaque point d'abscisse $x$  d'une distance $f(x)$ à une vitesse initiale $g(x)$. En petites perturbations, le déplacement $u(x,t)$ en tout point $x$ de la corde et à chaque instant $t\geq 0$ est solution du problème des ondes suivant:
  \[\left\{\begin{array}{ll}
@@ -129,11 +178,37 @@ On considère une corde de masse linéïque $\rho$  fixée en ses deux extrémit
   \frac{\partial u}{\partial t}(x,0)=g(x) & \forall x \in [0,L]\\
  u(0,t)=u(L,t)=0 & \forall t\in \mathbb{R}^+
  \end{array}\right.\]
-Résoudre numériquement ce problème par la méthode des différences finies, en prenant les données numériques suivantes:
+Résoudre numériquement ce problème par la méthode des différences finies:
+\[\frac{u^n_i-2u^{n-1}_i+u^{n-2}_i}{\tau^2}-c^2\frac{u^{n-1}_{i+1}-2u^{n-1}_{i}+u^{n-1}_{i-1}}{h^2}=0\]
+en prenant les données numériques suivantes:
 \[L=1\mbox{ m},\quad c=3\mbox{ m/s},\quad f(x)=e^{-500 (x-L/2)^2},\quad g(x)=0,\]
-
 afficher le résultat en animation graphique dans une fenêtre {\tt tkinter} de hauteur $H=800$px et de largeur $W=800$px.
 \section{Équation de diffusion}
+On considère l'équation d'advection suivante:
+$$ \left\{ 
+    \begin{array}{l}
+\displaystyle \frac{\partial u}{\partial t}+ V\frac{\partial u}{\partial x}=0, \quad 0 \leq x \leq 1,\quad t \in \mathbb{R}^+\\
+u(x+1,t)=u(x,t)\\
+u(x,0)=u_0(x)= \cos(\pi x)^8
+    \end{array}  
+    \right. 
+  $$
+\begin{enumerate}
+\item   Pour résoudre ce problème, programmer le {\em schéma explicite centré}, suivants:
+  \[\frac{u^n_i-u^{n-1}_i}{\tau}+V \frac{u^{n-1}_{i+1}-u^{n-1}_{i-1}}{2h}=0\]
+\item {\em Schéma de Lax-Wendroff}
+On fait un développement limité à l'ordre 2 en temps de $u(x,t)$:
+\[u(x_i,t_{n+1}) = u(x_i,t_{n})+\tau \frac{\partial u}{\partial t}(x_i,t_n)+\frac{\tau^2}{2}\frac{\partial^2 u}{\partial t^2}(x_i,t_n)+o(\tau^2)\]
+Nous allons passer les dérivées partielles par rapport au temps à des dérivées partielles par rapport à l'espace:
+\[\frac{\partial u}{\partial t}=- V\frac{\partial u}{\partial x}\]
+et 
+\[\frac{\partial^2 u}{\partial t^2}=- V\frac{\partial}{\partial t}\left[\frac{\partial u}{\partial x}\right]=- V\frac{\partial}{\partial x}\left[\frac{\partial u}{\partial t}\right]=+ V^2\frac{\partial^2 u}{\partial x^2}\]
+Finalement
+\[u(x_i,t_{n+1})= u(x_i,t_{n})-\tau V\frac{\partial u}{\partial x}(x_i,t_n)+\frac{\tau^2 V^2}{2}\frac{\partial^2 u}{\partial x^2}(x_i,t_n)+o(\tau^2)\]
+D'où le schéma de Lax-Wendroff:
+\[\frac{u^n_i-u^{n-1}_i}{\tau}+V \frac{u^{n-1}_{i+1}-u^{n-1}_{i-1}}{2h}-\frac{\tau V^2}{2}\frac{u^{n-1}_{i+1}-2u^{n-1}_{i}+u^{n-1}_{i-1}}{h^2}=0\]
+Programmer ce schéma et comparer avec la méthode explicite centrée.
+\end{enumerate}
 
 
   \end{document}

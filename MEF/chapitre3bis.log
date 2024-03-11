@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  27 FEB 2024 00:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  11 MAR 2024 11:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**chapitre3bis.tex
-(./chapitre3bis.tex
+**Chapitre3bis.tex
+(./Chapitre3bis.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (/usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamer.cls
@@ -848,7 +848,7 @@ Package: filehook-2020 2020/09/29 v0.8a Hooks for input files
 \c@currfiledepth=\count365
 )
 \pytx@codefile=\write6
-\openout6 = `chapitre3bis.pytxcode'.
+\openout6 = `Chapitre3bis.pytxcode'.
 
 \c@pytx@FancyVerbLineTemp=\count366
 \c@pytx@py@default@default=\count367
@@ -981,11 +981,11 @@ Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "chapitre3bis.w18")...executed.
+runsystem(uname -s > "Chapitre3bis.w18")...executed.
 
 
-(./chapitre3bis.w18)
-runsystem(rm -- "chapitre3bis.w18")...executed.
+(./Chapitre3bis.w18)
+runsystem(rm -- "Chapitre3bis.w18")...executed.
 
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/framed/framed.sty
@@ -1417,12 +1417,12 @@ s.code.tex
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathmorphing.code.tex))
-runsystem(which pygmentize && touch chapitre3bis.aex)...executed.
+runsystem(which pygmentize && touch Chapitre3bis.aex)...executed.
 
-runsystem(rm chapitre3bis.aex)...executed.
+runsystem(rm Chapitre3bis.aex)...executed.
 
- (./chapitre3bis.aux)
-\openout1 = `chapitre3bis.aux'.
+ (./Chapitre3bis.aux)
+\openout1 = `Chapitre3bis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
@@ -1516,9 +1516,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 57.
 LaTeX Info: Redefining \pageref on input line 57.
 LaTeX Info: Redefining \nameref on input line 57.
- (./chapitre3bis.out) (./chapitre3bis.out)
+ (./Chapitre3bis.out) (./Chapitre3bis.out)
 \@outlinefile=\write8
-\openout8 = `chapitre3bis.out'.
+\openout8 = `Chapitre3bis.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 57.
@@ -1606,7 +1606,7 @@ LaTeX Info: Redefining \degres on input line 57.
 LaTeX Info: Redefining \up on input line 57.
 Package newfloat Info: `float' package detected.
 
-No file pythontex-files-chapitre3bis/chapitre3bis.pytxmcr.
+No file pythontex-files-Chapitre3bis/Chapitre3bis.pytxmcr.
 Run PythonTeX to create it.
 
 Package PythonTeX Warning: A "listing" environment already exists 
@@ -1622,7 +1622,7 @@ lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `french'. on input line 57.
- (./chapitre3bis.nav)
+ (./Chapitre3bis.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
 (Font)              using `T1/cmss/m/n' instead on input line 57.
@@ -1660,191 +1660,70 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 115
+.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 115
+.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 72
-.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 11
+5.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 7
-2.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
+15.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 
-72.
+115.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 72.
+ut line 115.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-) [2
-
-] [3
-
-]
-<hermite3-5.png, id=122, 1125.20375pt x 224.84pt>
-File: hermite3-5.png Graphic file (type png)
-<use hermite3-5.png>
-Package pdftex.def Info: hermite3-5.png  used on input line 118.
-(pdftex.def)             Requested size: 337.56374pt x 67.45251pt.
-<hermiteTriangle1.png, id=124, 737.75626pt x 245.91875pt>
-File: hermiteTriangle1.png Graphic file (type png)
-<use hermiteTriangle1.png>
-Package pdftex.def Info: hermiteTriangle1.png  used on input line 118.
-(pdftex.def)             Requested size: 221.32858pt x 73.77618pt.
- [4
-
- <./hermite3-5.png> <./hermiteTriangle1.png>]
-<hermiteTriangleUN.png, id=154, 406.51875pt x 399.4925pt>
-File: hermiteTriangleUN.png Graphic file (type png)
-<use hermiteTriangleUN.png>
-Package pdftex.def Info: hermiteTriangleUN.png  used on input line 130.
-(pdftex.def)             Requested size: 121.95656pt x 119.84866pt.
-File: hermiteTriangle1.png Graphic file (type png)
-<use hermiteTriangle1.png>
-Package pdftex.def Info: hermiteTriangle1.png  used on input line 130.
-(pdftex.def)             Requested size: 221.32858pt x 73.77618pt.
- [5
-
- <./hermiteTriangleUN.png>]
-<elementsHermite.png, id=182, 1552.80125pt x 418.56375pt>
-File: elementsHermite.png Graphic file (type png)
-<use elementsHermite.png>
-Package pdftex.def Info: elementsHermite.png  used on input line 144.
-(pdftex.def)             Requested size: 310.55475pt x 83.71126pt.
-<hermiteBidim1.png, id=183, 1384.17125pt x 245.91875pt>
-File: hermiteBidim1.png Graphic file (type png)
-<use hermiteBidim1.png>
-Package pdftex.def Info: hermiteBidim1.png  used on input line 144.
-(pdftex.def)             Requested size: 346.04196pt x 61.47952pt.
-
-Overfull \hbox (3.74666pt too wide) in paragraph at lines 144--144
- [] 
- []
-
-<hermiteBidim2.png, id=184, 1064.97874pt x 257.96375pt>
-File: hermiteBidim2.png Graphic file (type png)
-<use hermiteBidim2.png>
-Package pdftex.def Info: hermiteBidim2.png  used on input line 144.
-(pdftex.def)             Requested size: 266.24403pt x 64.49077pt.
-
-Overfull \vbox (12.51762pt too high) detected at line 144
- []
-
-[6
-
- <./elementsHermite.png> <./hermiteBidim1.png> <./hermiteBidim2.png>]
-[7
-
-]
-<HermiteBasis.png, id=242, 441.65pt x 353.32pt>
-File: HermiteBasis.png Graphic file (type png)
-<use HermiteBasis.png>
-Package pdftex.def Info: HermiteBasis.png  used on input line 196.
-(pdftex.def)             Requested size: 110.41222pt x 88.32977pt.
-
-Overfull \vbox (4.97931pt too high) detected at line 196
- []
-
-[8
-
- <./HermiteBasis.png>]
+)
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-[9
+[2
 
 ]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-[10
+[3
 
-] [11
+] [4
 
-] [12
+] [5
 
-] [13
-
-] [14
+] [6
 
 ]
-<algorithmeAssemblage.png, id=433, 1224.575pt x 479.7925pt>
-File: algorithmeAssemblage.png Graphic file (type png)
-<use algorithmeAssemblage.png>
-Package pdftex.def Info: algorithmeAssemblage.png  used on input line 414.
-(pdftex.def)             Requested size: 428.60768pt x 167.92987pt.
+\openout4 = `Chapitre3bis.vrb'.
 
-Overfull \hbox (86.31238pt too wide) in paragraph at lines 414--414
- [] 
- []
+ (./Chapitre3bis.vrb
+\openout5 = `Chapitre3bis.pyg'.
 
-[15
-
- <./algorithmeAssemblage.png>] [16
-
-] [17
-
-] [18
-
-] [19
-
-] [20
-
-] [21
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
-
-(./chapitre3bis.vrb) [22
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb) [23
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb)
-[24
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb) [25
-
-] [26
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb
-\openout5 = `chapitre3bis.pyg'.
-
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > chapitre3bis.ou
+runsystem(pygmentize -S default -f latex -P commandprefix=PYG > Chapitre3bis.ou
 t.pyg)...executed.
 
- (./chapitre3bis.out.pyg)
+ (./Chapitre3bis.out.pyg)
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o chapitre3bis.out.pyg chapitre3bis.pyg)...exe
+tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
- (./chapitre3bis.out.pyg
+
+(./Chapitre3bis.out.pyg
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
 
@@ -1853,77 +1732,126 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-)) [27
+)) [7
+
+] [8
 
 ]
-<codePython02.png, id=783, 923.45pt x 598.235pt>
+[9
+
+] [10
+
+] [11
+
+] [12
+
+] [13
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [14
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [15
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+
+(./Chapitre3bis.vrb) [16
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [17
+
+] [18
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb
+\openout5 = `Chapitre3bis.pyg'.
+
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
+cuted.
+
+
+(./Chapitre3bis.out.pyg)) [19
+
+]
+<codePython02.png, id=555, 923.45pt x 598.235pt>
 File: codePython02.png Graphic file (type png)
 <use codePython02.png>
-Package pdftex.def Info: codePython02.png  used on input line 902.
+Package pdftex.def Info: codePython02.png  used on input line 773.
 (pdftex.def)             Requested size: 313.96884pt x 203.3972pt.
- [28
+ [20
 
  <./codePython02.png>]
-Overfull \vbox (7.83032pt too high) detected at line 933
+Overfull \vbox (7.83032pt too high) detected at line 804
  []
 
-[29
+[21
 
-] [30
+] [22
 
-] [31
+] [23
 
-] [32
+] [24
 
-] [33
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb) [34
+] [25
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb)
-[35
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb) [36
+ (./Chapitre3bis.vrb) [26
 
 ]
-Overfull \hbox (14.8556pt too wide) detected at line 1222
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb)
+[27
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [28
+
+]
+Overfull \hbox (14.8556pt too wide) detected at line 1093
 [] \OT1/cmss/m/n/10.95 = [] [] \OMS/cmsy/m/n/10.95 ^^B []
  []
 
 
-Overfull \vbox (0.59349pt too high) detected at line 1222
+Overfull \vbox (0.59349pt too high) detected at line 1093
  []
 
-[37
+[29
 
 ]
-Overfull \vbox (11.7092pt too high) detected at line 1258
+Overfull \vbox (11.7092pt too high) detected at line 1129
  []
 
-[38
+[30
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb) [39
-
-]
-\openout4 = `chapitre3bis.vrb'.
-
- (./chapitre3bis.vrb) [40
+ (./Chapitre3bis.vrb) [31
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb
+ (./Chapitre3bis.vrb) [32
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb
 Overfull \hbox (24.99867pt too wide) detected at line 4
 \OT1/mathkerncmss/m/sl/10.95 c \OT1/cmss/m/n/10.95 = [] \OML/cmm/m/it/10.95 ^^R
  \OT1/cmss/m/n/10.95 = [][]\OT1/mathkerncmss/m/sl/10.95 s \OT1/cmss/m/n/10.95 =
@@ -1932,62 +1860,62 @@ T1/cmss/m/n/10.95 = []
  []
 
 )
-Overfull \vbox (19.61958pt too high) detected at line 1337
+Overfull \vbox (19.61958pt too high) detected at line 1208
  []
 
-[41
+[33
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb) [42
+ (./Chapitre3bis.vrb) [34
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb
-\openout5 = `chapitre3bis.pyg'.
+ (./Chapitre3bis.vrb
+\openout5 = `Chapitre3bis.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o chapitre3bis.out.pyg chapitre3bis.pyg)...exe
+tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
- (./chapitre3bis.out.pyg))
-[43
+ (./Chapitre3bis.out.pyg))
+[35
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb
-\openout5 = `chapitre3bis.pyg'.
+ (./Chapitre3bis.vrb
+\openout5 = `Chapitre3bis.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o chapitre3bis.out.pyg chapitre3bis.pyg)...exe
+tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
- (./chapitre3bis.out.pyg)) [44
+ (./Chapitre3bis.out.pyg)) [36
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb
-\openout5 = `chapitre3bis.pyg'.
+ (./Chapitre3bis.vrb
+\openout5 = `Chapitre3bis.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl=False -P mathescape=True -o chapitre3bis.out.pyg chapitre3bis.pyg)...exe
+tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
 
-(./chapitre3bis.out.pyg))
-Overfull \vbox (5.87073pt too high) detected at line 1468
+(./Chapitre3bis.out.pyg))
+Overfull \vbox (5.87073pt too high) detected at line 1339
  []
 
-[45
+[37
 
 ]
-\openout4 = `chapitre3bis.vrb'.
+\openout4 = `Chapitre3bis.vrb'.
 
- (./chapitre3bis.vrb
+ (./Chapitre3bis.vrb
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ( in font nullfont!
@@ -2018,92 +1946,92 @@ Missing character: There is no 6 in font nullfont!
 Missing character: There is no 2 in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no ) in font nullfont!
-) [46
+) [38
 
 ]
-Overfull \vbox (0.73694pt too high) detected at line 1583
+Overfull \vbox (0.73694pt too high) detected at line 1454
  []
 
-[47
+[39
 
-] [48
+] [40
 
-] [49
-
-]
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 1680.
-
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 1680.
-
-[50
-
-] [51
-
-] [52
+] [41
 
 ]
-Overfull \hbox (20.50963pt too wide) detected at line 1802
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 1551.
+
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 1551.
+
+[42
+
+] [43
+
+] [44
+
+]
+Overfull \hbox (20.50963pt too wide) detected at line 1673
 []
  []
 
 
-Overfull \hbox (1.26445pt too wide) detected at line 1802
+Overfull \hbox (1.26445pt too wide) detected at line 1673
 [][]
  []
 
 
-Overfull \vbox (1.76656pt too high) detected at line 1802
+Overfull \vbox (1.76656pt too high) detected at line 1673
  []
 
-[53
+[45
 
-] [54
+] [46
 
-] [55
+] [47
 
 ]
-Overfull \hbox (16.67177pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (16.67177pt too wide) in paragraph at lines 1775--1775
  [] 
  []
 
 
-Overfull \hbox (2.30267pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (2.30267pt too wide) in paragraph at lines 1775--1775
  [] 
  []
 
-[56
+[48
 
 ]
 \tf@nav=\write9
-\openout9 = `chapitre3bis.nav'.
+\openout9 = `Chapitre3bis.nav'.
 
 \tf@toc=\write10
-\openout10 = `chapitre3bis.toc'.
+\openout10 = `Chapitre3bis.toc'.
 
 \tf@snm=\write11
-\openout11 = `chapitre3bis.snm'.
+\openout11 = `Chapitre3bis.snm'.
 
- (./chapitre3bis.aux)
+ (./Chapitre3bis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `chapitre3bis.out' has not changed.
+Package rerunfilecheck Info: File `Chapitre3bis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-runsystem(rm chapitre3bis.pyg)...executed.
+runsystem(rm Chapitre3bis.pyg)...executed.
 
-runsystem(rm chapitre3bis.out.pyg)...executed.
+runsystem(rm Chapitre3bis.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 42431 strings out of 478268
- 885003 string characters out of 5846348
- 1270222 words of memory out of 5000000
- 59595 multiletter control sequences out of 15000+600000
- 504476 words of font info for 125 fonts, out of 8000000 for 9000
+ 42343 strings out of 478268
+ 883433 string characters out of 5846348
+ 1340694 words of memory out of 5000000
+ 59526 multiletter control sequences out of 15000+600000
+ 505303 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,23n,122p,671b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,23n,122p,11919b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pf
@@ -2140,10 +2068,10 @@ fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-dist/fo
 nts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2022/texmf-dist/font
 s/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/
 type1/public/cm-super/sftt1095.pfb>
-Output written on chapitre3bis.pdf (56 pages, 1140827 bytes).
+Output written on Chapitre3bis.pdf (48 pages, 583945 bytes).
 PDF statistics:
- 1738 PDF objects out of 2073 (max. 8388607)
- 1560 compressed objects within 16 object streams
- 114 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1507 PDF objects out of 1728 (max. 8388607)
+ 1355 compressed objects within 14 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 

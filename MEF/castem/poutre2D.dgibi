@@ -1,0 +1,68 @@
+************************************************************************
+* Poutre 1D elastique
+************************************************************************
+*
+* fichier poutre1D.dgibi
+*
+TITR 'Poutre 1D élastique' ;
+OPTI DIME 2 ELEM SEG2 ;
+*
+* Données du problème (Unités : m, Pa)
+*
+F = -100 ;
+L = 1.00 ;
+h1 = 0.02 ;
+b1 = 0.01 ;
+E = 2E11 ;
+nu1= 0.3 ;
+Izz =(h1**3)*b1/12 ;
+S1=b1 * h1;
+*
+* Solution analytique RdM
+*
+fana0 =F*(L**3)/(3*E*Izz);
+*
+* Géométrie
+*
+P1=0. 0. ;
+P2 = L 0. ;
+NBelements = 10 ;
+Poutre1 = P1 DROI NBelements P2 ;
+TRAC Poutre1;
+*
+* Modèle (Comportement et modélisation EF)
+*
+mo1=MODE Poutre1 MECANIQUE ELASTIQUE ISOTROPE POUT ;
+*
+* Données matériau et élément
+*
+ma1=MATE mo1 YOUN E SECT S1 NU nu1 INRZ IZZ;
+*
+* Conditions aux limites
+*
+Cond1 =BLOQ UX UY RZ P1 ;
+*
+* Chargement
+*
+Force1=FORC (0. F) P2 ;
+*
+* Résolution
+*
+Rigi1=RIGI mo1 ma1 ;
+RigiCL1=Rigi1 ET Cond1 ;
+Depl1=RESO RigiCL1 Force1 ;
+*
+* Poste Traitement
+*
+Fleche1=EXTR Depl1 UY P2 ;
+
+MESS 'Flèche CASTEM : ' Fleche1 'm' ;
+MESS 'Flèche analytique : ' fana0 'm' ;
+*
+Def0=DEFO Poutre1 Depl1 0. BLAN ;
+Def1=DEFO Poutre1 Depl1 ROUG ;
+TRAC (Def0 ET Def1) ;
+*
+* Fin du fichier
+*
+FIN ;

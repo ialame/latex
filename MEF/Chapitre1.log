@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  5 FEB 2024 06:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  7 MAR 2024 15:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1735,15 +1735,30 @@ l.344 \end{frame}
                   [13
 
  <./corde00.png>]
-<mailleD1.png, id=408, 1220.56pt x 240.9pt>
-File: mailleD1.png Graphic file (type png)
-<use mailleD1.png>
-Package pdftex.def Info: mailleD1.png  used on input line 368.
-(pdftex.def)             Requested size: 244.10767pt x 48.17914pt.
- [14
 
- <./mailleD1.png>]
-<VhD1.png, id=436, 1752.5475pt x 438.63875pt>
+LaTeX Warning: File `mailleD1.png' not found on input line 368.
+
+
+! Package pdftex.def Error: File `mailleD1.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.368 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+68.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [14
+
+]
+<VhD1.png, id=435, 1752.5475pt x 438.63875pt>
 File: VhD1.png Graphic file (type png)
 <use VhD1.png>
 Package pdftex.def Info: VhD1.png  used on input line 387.
@@ -1751,13 +1766,12 @@ Package pdftex.def Info: VhD1.png  used on input line 387.
  [15
 
  <./VhD1.png>]
-<varphiD1.png, id=464, 980.66376pt x 416.55624pt>
+<varphiD1.png, id=463, 980.66376pt x 416.55624pt>
 File: varphiD1.png Graphic file (type png)
 <use varphiD1.png>
 Package pdftex.def Info: varphiD1.png  used on input line 412.
 (pdftex.def)             Requested size: 176.51186pt x 74.97688pt.
-
-[16
+ [16
 
  <./varphiD1.png>] [17
 
@@ -1766,14 +1780,15 @@ Package pdftex.def Info: varphiD1.png  used on input line 412.
 ] [19
 
 ]
-<interpolation00.png, id=573, 1010.77625pt x 486.81876pt>
+<interpolation00.png, id=572, 1010.77625pt x 486.81876pt>
 File: interpolation00.png Graphic file (type png)
 <use interpolation00.png>
 Package pdftex.def Info: interpolation00.png  used on input line 502.
 (pdftex.def)             Requested size: 181.93187pt x 87.6236pt.
  [20
 
- <./interpolation00.png>] [21
+ <./interpolation00.png>]
+[21
 
 ]
 Overfull \vbox (0.94226pt too high) detected at line 574
@@ -1830,11 +1845,11 @@ Package rerunfilecheck Info: File `Chapitre1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 40376 strings out of 478268
- 836107 string characters out of 5846348
- 1223778 words of memory out of 5000000
- 57679 multiletter control sequences out of 15000+600000
- 497403 words of font info for 108 fonts, out of 8000000 for 9000
+ 40431 strings out of 478268
+ 837346 string characters out of 5846348
+ 1224779 words of memory out of 5000000
+ 57719 multiletter control sequences out of 15000+600000
+ 497717 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,668b,864s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -1859,11 +1874,12 @@ texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2022/tex
 mf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022/texmf-d
-ist/fonts/type1/public/cm-super/sfss1440.pfb>
-Output written on Chapitre1.pdf (30 pages, 610605 bytes).
+ist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-dis
+t/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on Chapitre1.pdf (30 pages, 607357 bytes).
 PDF statistics:
- 976 PDF objects out of 1000 (max. 8388607)
- 863 compressed objects within 9 object streams
+ 979 PDF objects out of 1000 (max. 8388607)
+ 866 compressed objects within 9 object streams
  67 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
