@@ -115,6 +115,7 @@ int p=0,q=0;
 while(p++<10)q++;
 printf("%d\n",q);
 \end{verbatim} & Quelle est la valeur de {\tt q} à la fin de la boucle {\tt while}?
+% rep: 10
  &
     \begin{tabular}{c}
      10\\9 \\ 11\\0
@@ -124,6 +125,7 @@ int k=10,i;
 for(i=0;i<k;++i)
 printf("%d\n",i++);
 \end{verbatim} &Combien de fois l'instruction {\tt printf} s'exécutera ?
+% rep: 5
  &
     \begin{tabular}{c}
      4 fois\\5 fois\\ 6 fois\\11 fois
@@ -135,6 +137,7 @@ for(j=0;j<3;j++)
 s+=i*j;
 printf("%d\n",s);
 \end{verbatim} & Quelle est la valeur affichée par {\tt printf} ?
+% rep: 9
  &
 \begin{tabular}{c}
      0\\3 \\ 9\\12
@@ -149,6 +152,7 @@ int str2int(char* t){
     return s;}
 printf("%d",str2int(m));
 \end{verbatim} & Quelle est la valeur  affichée par {\tt printf} ?
+% rep: 38
  &
     \begin{tabular}{c}
      38\\83 \\68\\86 
@@ -159,6 +163,7 @@ int n;
 n=sizeof(t)/sizeof(char);
 printf("%d\n",n);
 \end{verbatim} & Quelle est la valeur de {\tt n}  affichée par {\tt printf}  ?
+% rep: 5
  &
     \begin{tabular}{c}
      4\\5 \\ 8\\10
@@ -171,17 +176,50 @@ Soit la suite $(u_n)$ défini par $u_0=2$ et $\forall n\in \mathbb{N},\quad u_{2
  Écrire une fonction récursive qui retourne la valeur de la suite $u_n$ pour $n$ donné. Calculer à la main les 10
 premières valeurs, puis donner sans calcul les valeurs de $u_{32}$, $u_{256}$, $u_{513}$.
 
+%#include <stdio.h>
+%
+%int u(int n){
+%    if(n==0)return 2;
+%    if(n%2==0)
+%        return u(n/2);
+%    else
+%        return -u(n/2);
+%}
+%
+%int main()
+%{
+%for(int i=0;i<11;i++)
+%printf("%d\n",u(i));
+%
+%    return 0;
+%}
+
+
 \section*{Problème 3 : Pointeur}
 Soit $t$ un tableau {\tt char t[] = "bonjour";} et $p$ un pointeur sur $t$,  {\tt char* p=t;}
 Quelles valeurs ou adresses fournissent ces expressions:
 \begin{enumerate}
 \item {\tt *p+3}
+% rep: 'e'
 \item  {\tt *(p+3)}
+% rep: 'j'
 \item {\tt p[3]-3}
+% rep: 'g'
 \item  {\tt *(p++)-'a'}
+% rep: 1
 \item  {\tt *(++p)-'n'}
+% rep: 1 ou 0 ça depond si on tien compte de la ligne prrécédente
 
 \end{enumerate}
+%
+%char t[] = "bonjour";
+%char* p =t;
+%printf("*p+3=%c\n",*p+3);
+%printf("*(p+3)=%c\n",*(p+3));
+%printf("p[3]-3=%c\n",p[3]-3);
+%printf("*(p++)-'a'=%d\n",*(p++)-'a');
+%printf("*(++p)-'n'=%d\n",*(++p)-'n');
+
 
 \section*{Problème 4 : Erreurs}
 Corriger exactement quatre erreurs (compilation, fonctionnelle), puis commenter
@@ -235,5 +273,11 @@ int main() {
 }
 
 \end{minted}
+%1. #include <stdoi.h>
+%2. char* T =(char) malloc(sizeof(char));
+%3. printf("%c \n",s);
+%4. free(s);
 A la fin de l'exécution, qu'affiche-t-on sur la sortie standard ?
+%  2021120119 
+%  salut 
 \end{document}

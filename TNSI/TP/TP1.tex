@@ -1,0 +1,261 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage[cache=false]{minted}
+ \definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+ \usepackage[cache=false]{minted}
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{monOrange}{rgb}{0.97,0.35,0.04}
+
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = [2] \color{teal}, % just to check that it works
+    stringstyle     = \color{violet},
+    commentstyle    = \color{red}\ttfamily
+}
+
+
+  \title{TP1 Traitement du signal}
+  \author{ \textsc{Ibrahim ALAME}}
+\date{18/03/2024}
+  \begin{document}
+  \lstset{
+    frame       = single,
+    numbers     = left,
+    showspaces  = false,
+    showstringspaces    = false,
+    captionpos  = t,
+    caption     = \lstname
+}
+\maketitle
+La transformation de Fourier discrète (TFD), outil mathématique, sert à traiter un signal numérique. Elle constitue un équivalent discret de la transformation de Fourier (continue) utilisée pour traiter un signal analogique:
+
+Soit $(s_n)$ un signal discret périodique de période $N$. Sa transformation (TFD) est un signal discret périodique de même période $N$ défini par:
+\[
+{\displaystyle S_p=\frac 1N\sum _{n=0}^{N-1}s_n\mathrm {e} ^{-2\mathrm {i} \pi p{\frac {n}{N}}}\qquad {\text{pour}}\qquad p\in\mathbb{Z}}
+\]
+Sa transformation inverse est donnée par
+\[
+{\displaystyle s(n)=\sum _{p=0}^{N-1}S_p\mathrm {e} ^{2\mathrm {i} \pi n{\frac {p}{N}}}\qquad {\text{pour}}\qquad n\in \mathbb{Z}}
+\]
+La transformation de Fourier rapide {\bf fft}  est un algorithme particulier de calcul de la transformation de Fourier discrète:
+
+\[\mbox {\bf fft}(s)[p]=\sum _{n=0}^{N-1}s_n\mathrm {e} ^{-2\mathrm {i} \pi p{\frac {n}{N}}}\qquad {\text{pour}}\qquad 0\leq p< N\]
+Sa transformation inverse {\bf ifft} est donnée par:
+ \[
+\mbox {\bf ifft}(S)[n]=\frac 1N\sum _{p=0}^{N-1}S_p\mathrm {e} ^{2\mathrm {i} \pi n{\frac {p}{N}}}\qquad {\text{pour}}\qquad 0\leq n< N
+\]
+Nous avons alors 
+ \[ S= \frac 1N\times \mbox {\bf fft}(s) \quad\mbox{ et }\quad s= N\times \mbox {\bf ifft}(S) \]
+ou bien 
+ \[ N\times S= \mbox {\bf fft}(s) \quad\mbox{ et }\quad s= \mbox {\bf ifft}(N\times S) \]
+En python:
+\begin{itemize}
+\item La fonction {\tt fft(signal)} du paquetage {\tt numpy.fft} renvoie à un coefficient de normalisation $\frac 1N$ près, la transformée de Fourier discrète d'un signal à une dimension éventuellement complexe. La fonction abs de {\tt numpy} renvoie le module d'un tableau de complexes. Sa réciproque à un coefficient multiplicatif $N$ près est la fonction  {\tt ifft(signal)} du même paquetage {\tt numpy.fft}.
+\item La fonction {\tt fftfreq(N, d)}de la bibliothèque {\tt numpy.fft} renvoie un tableau contenant les fréquences associées à la transformée de Fourier pour un signal contenant $N$ échantillons espacés d'un intervalle $d$($d$ est la période d'échantillonnage noté $T_e$). 
+\item La fonction {\tt fftshift(X)} de {\tt numpy.fft} associe à la restriction $X_{/\llbracket0,N-1\rrbracket}$ d'un signal $N$-périodique, la restriction $X_{/\llbracket-\frac N2,\frac N2-1\rrbracket}$ du même signal $X$.
+\end{itemize}
+
+\subsection*{Transformation de Fourier discrète (TFD)}
+Soit $x=(x_n)$ un signal 4-périodique qui coïncide sur l'intervalle $\llbracket0,3\rrbracket$ avec la liste $[1,1,0,1]$.
+\begin{enumerate}
+\item Tracer $x$ sur $\llbracket-10,10\rrbracket$.
+\item Calculer analytiquement puis avec python sa transformée de Fourier discrète $X$.
+\item Calculer par la formule de la définition puis par python $\mathcal{F}^{-1}(X)$.
+\item Tracer $X$ sur un intervalle de fréquence convenable.
+\item Soit $y=(y_n)$ un signal défini par $y_n=x_{n-1}$ pour tout $n\in \mathbb{Z}$. Calculer par trois méthodes le spectre $Y=\mathcal{F}(y)$ transformation de Fourier de $y$.
+\item Tracer sur deux graphiques $y$ et $Y$.
+\end{enumerate}
+\subsection*{Transformation de Fourier}
+\begin{enumerate}
+\item {\em Calcul analytique:} Soit $x$ le signal continu défini par $x(t)=e^{-|t|}$. Montrer que la transformation de Fourier de $x$ s'écrit pour $f\in\mathbb{R}$:
+\[ \hat x(f)=\frac{2}{1+4\pi^2f^2}\]
+\item {\em Approximation par FFT de  python:}  On approche le domaine d'intégration $]-\infty,+\infty[$ par l'intervalle $[-\frac A2,+\frac A2]$, où $A$ est un réel positif  assez grand:
+\[\hat x(f)=\int_{-\infty}^{\infty}x(t)e^{-2i\pi f t}\, \de t\simeq \int_{-\frac A2}^{\frac A2}x(t)e^{-2i\pi f t}\, \de t\]
+\begin{enumerate}
+\item On discrétise l'intervalle $[-\frac A2,+\frac A2]$ en $N+1$ points $(t_n)_{n=-\frac{N}{2},\frac{N}{2}}$ régulièrement espacés avec un pas $T_e=\frac{A}{N}$, on a donc $t_n=nT_e$. On pose $x_n=x(t_n)$ , montrer en utilisant une méthode d'intégration approchée que l'on a:
+\[\hat x(f)\simeq T_e\sum_{n=-\frac{N}{2}}^{\frac{N}{2}-1}x_n e^{-2i\pi f n T_e}\]
+\item On pose $f_k=k\frac{1}{NT_e}$ et $\hat x_k=\hat x(f_k)$. Montrer que
+\[\hat x_k=\frac AN\sum_{n=0}^{N-1}x_ne^{-2i\pi \frac{kn}{N}},\quad k=0,...,N-1\]
+Donc $\hat x_k\simeq A\times X_k$. La FFT décrit alors, à une constante près, la
+TF de $x(t)$, notée $\hat x_k=\hat x(f_k)$ pour $f_k$ entre $-\frac{1}{2 T_e}$ et $\frac{1}{2 T_e}$  par pas de $F_e=\frac{1}{N T_e}$ où $N$ est le nombre de sous intervalles subdivisant  $[-\frac A2,+\frac A2]$.
+
+\item La fonction {\tt numpy.fft.fftfreq} renvoie les fréquences du signal calculé dans la FFT. La liste {\tt f} renvoyé contient les fréquences discrètes en Hz. Si le signal contient $N$ pas de temps et que le pas de temps vaut $Te$ :
+\begin{itemize}
+\item si n est pair, $f=[0, 1, …, \frac n2-1, -\frac n2, …, -1]\times\frac 1 {N\; Te}$ 
+\item si n est impair, $f=[0, 1, …, \frac {n-1}2, -\frac {n-1}2, …, -1]\times\frac 1 {N\; Te}$ 
+\end{itemize}
+
+ Justifier l'algorithme suivant:
+%\[
+%\begin{array}{l}
+%t=\textbf{np.arange}(-A,A,T_e)\\
+%x=s(t)\\
+%\tilde{x}= \textbf{np.fft.fftshift}(x)\\
+%\tilde{X} = \textbf{np.fft.fft}(\tilde{x})/N\\
+%\tilde{f} = \textbf{np.fft.fftfreq}(N, d=Te)\\
+%\textbf{plt.plot}(\tilde{f},\tilde{X})
+%\end{array}
+%\]
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+linenos
+]{python}
+t=np.arange(-A,A,Te)
+x=s(t)
+xtilde = np.fft.fftshift(x)
+Xtilde = np.fft.fft(xtilde)/N
+ftilde = np.fft.fftfreq(N,Te)
+plt.plot(ftilde,Xtilde)
+\end{minted}
+\item Soit $X$ le spectre de $x$ centré à l'origine (déshifté), et $f$ l'intervalle des fréquences déshifté. tracer $X$ en fonction de $f$ et comparer avec le graphe précédent:
+%\[
+%\begin{array}{l}
+%X = \textbf{np.fft.ifftshift}(\tilde{X} )\\
+%f = \textbf{np.fft.ifftshift}(\tilde{f} )\\
+%\textbf{plt.plot}(f,X)
+%\end{array}
+%\]
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+bgcolor=LightGray,
+linenos
+]{python}
+X = np.fft.ifftshift(Xtilde)
+f = np.fft.ifftshift(ftilde)
+plt.plot(f,X)
+\end{minted}
+On prendra $A=5$ et $N=64$.
+\end{enumerate}
+\item {\em Décalage fréquentiel:} Illustrer la propriété de décalage fréquentiel de la TF en représentant le module de la TF de $x(t) \times e^{i2\pi f_0t}$. En déduire que la transformation de Fourier de $s:t\mapsto e^{-|t|}\cos(2\pi t)$ est donnée par:
+\[\hat s:f\mapsto \frac{1}{1+4\pi^2(f-1)^2}+\frac{1}{1+4\pi^2(f+1)^2}\]
+Tracer $\hat x$ et $\hat s$ sur l'intervalle $[-3,3]$. Comparer graphiquement avec la transformée de Fourier rapide obtenue à l'aide de {\tt fft}.
+\end{enumerate}
+\subsection*{Signal périodique}
+Considérer le signal $x$ suivant:
+\[t\mapsto x(t)=2\cos(4\pi t)+3\cos(8\pi t)\]
+\begin{enumerate}
+\item Quelle est sa période que l'on note $T$?
+\item Écrire le signal $x(t)$ sous forme exponentielle (formule d'Euler!). En déduire les coefficients de Fourier de $x(t)$. 
+\item On définit $\tilde{x}:n\mapsto \tilde{x}[n]=x(t_n)$ le signal en temps discret résultant de l'échantillonnage de $x$ à la fréquence $f_e=8$ Hz. Quel est le pas de discrétisation correspondant à une telle fréquence?
+\item Calculer le nombre d'échantillons $N$ sur une période en fonction de $T$ et $f_e$.
+\item Dessiner sur le même graphique la fonction $x(t)$ sur l'intervalle $[0,T]$ et le signal précédent $\tilde{x}[n]$ tronqué à $N$ échantillons correspondant aux temps $t_n$, $n=0,...,N-1$. On utilisera les deux fonctions python: {\tt plot} et {\tt stem} de la bibliothèque {\tt matplotlib.pyplot}.
+\item Calculer et tracer la transformée de Fourier discrète (TFD) du signal évalué aux temps $t_n$, $n=0,...,N-1$. Comparer avec le spectre de la question 2.
+\item Refaire les questions 4 et 5 pour $fe=10, 12, 20, ...$
+\end{enumerate}
+%\subsection*{Série de Fourier}
+%Soit $x$ un signal créneau $2T$-périodique qui coïncide sur $[-T,T]$ avec la fonction caractéristique de $[-\frac T2,\frac T2]$.
+
+%\subsection*{Représentation fréquentielle d'un signal réel}
+%Les modules {\tt scipy.io.wavfile} et {\tt sounddevice} fournissent les fonctions utiles pour la manipulation de fichiers audio au format WAV. Dans ce qui suit, les données audio seront représentées sous la forme d'un tableau à une dimension contenant des nombres compris entre -1 et 1. Ces nombres décrivent une pression dans l'air (exprimée comme la différence par rapport à la pression au repos) au cours du temps. L'oreille perçoit ces variations de pression comme un son. Voici quelques fonctions utiles dans la suite de notre TP:
+%\begin{itemize}
+%\item Chargement d'un fichier audio
+%\begin{verbatim}
+%from scipy.io import wavfile as wf
+%s, Fe = wf.read("flute.wav")
+%\end{verbatim}
+%\item Enregistrement d'un fichier audio
+%\begin{verbatim}
+%from scipy.io import wavfile as wf
+%import numpy as np
+%t=np.linspace(tmin,tmax,Ne+1)
+%wf.write('new_file.wav', Ne, s(t))
+%\end{verbatim}
+%\item Jouer un fichier wave (indisponible sous Datalore!)
+%\begin{verbatim}
+%import sounddevice as sd
+%sd.play(s, Fe, blocking=True)
+%\end{verbatim}
+%\end{itemize}
+%Dans ce qui suit, on travaille avec une fréquence d'échantillonnage des donnée saudio de 30 kHz.
+%\begin{enumerate}
+%
+%\item Générer un tableau contenant l'échantillonnage d'une fonction sinusoïdale à 440 Hz pendant 3 secondes.
+%\item Sauvegarder et écouter le fichier audio obtenu.
+%\item Représenter le module de la FFT du signal en ordonnée en fonction des fréquences en abscisse.
+%\item Même question en remplaçant le signal sinusoïdal par un signal carré (on pourra utiliser l'expression $sign(\sin x)$, qui renvoie un signal carré de période 2, compris entre -1 et 1).
+%\item Même question en remplaçant le signal sinusoïdal par un signal triangulaire (on pourra utiliser l'expression  $2\arcsin(\sin x)$, qui renvoie un signal triangulaire de période 2, compris entre -1 et 1).
+%\item Décrire qualitativement les résultats obtenus
+%
+%\end{enumerate}
+%\subsection*{Identifier des notes de musique}
+%Voici un tableau contenant les fréquences de quelques notes de musique.
+%\begin{center}
+%\begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+%Note & do & ré & mi & fa & sol & la & si & do & ré \\ \hline
+%Fréquence (Hz) & 261,6 & 293,7 & 329,6 & 349,2 & 392,0 & 440 & 493,9 & 523,2 & 587,3
+%\end{tabular}
+%\end{center}
+%\begin{enumerate}
+%\item Ouvrir les trois fichiers fournis : {\tt flute.wav}, {\tt basson.wav} et {\tt compose.wav}, et représenter le module de leur FFT en fonction des fréquences.
+%\item Essayer d'identifier graphiquement la fréquence fondamentale (la plus petite fréquence non nulle) de chacun des fichiers, et en déduire la note perçue par l'oreille.
+%\item Décrire qualitativement les résultats obtenus
+%\end{enumerate}   
+  \end{document}
+  
+ 
+
+
+
+

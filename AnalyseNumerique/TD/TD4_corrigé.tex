@@ -1,0 +1,496 @@
+\documentclass[a4paper,11pt]{article} 
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+
+\def \de {{\rm d}}
+\usepackage{algorithm2e}
+\RestyleAlgo{algoruled}
+  \SetKw{KwFrom}{from} 
+\newenvironment{algo}{
+\begin{algorithm}[H]
+\DontPrintSemicolon \SetAlgoVlined}
+{\end{algorithm}}
+\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+%%%%%%%%   bleclercq@adm.estp.fr
+\title{TD4 d'Analyse Numérique (B1-TP1) }
+\author{Ibrahim ALAME}
+\date{14/04/2023}
+\begin{document}
+\maketitle
+
+\section{Méthode des différences finies}
+\begin{enumerate}
+\item Si $u$ est de classe $C^4$ au voisinage de $x$, on fait un développement de Taylor à l'ordre 4 de $u$:
+\[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(\xi_1) ,\]
+\[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(x)-\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(\xi_2) ,\]
+Donc
+\[u(x+h)+u(x-h)=2u(x)+h^2 u''(x)+\frac{h^4}{24} \left(u^{(4)}(\xi_1) + u^{(4)}(\xi_2)\right) ,\]
+D'où
+\[\left| \frac{u(x+h)-2u(x)+u(x-h)}{h^2}- u''(x) \right|\leq \frac{h^2}{12}\sup_{y\in[0,1]} |u^{(4)}(y)| \]
+pour tout $x \in [h, 1 - h]$. L'approximation 
+
+ \[\myredbox{u''(x)\simeq \frac{u(x+h)-2u(x)+u(x-h)}{h^2}}\] 
+ est donc consistante d'ordre 2. 
+\item Approximation de la dérivée seconde:
+\[u''(x_i)\simeq \frac{u(x_i+h)-2u(x_i)+u(x_i-h)}{h^2}\simeq \frac{u_{i+1}-2u_i+u_{i-1}}{h^2}\] 
+
+
+D'où le problème approché
+\begin{equation}
+\left\{\begin{array}{l}
+-{\displaystyle \frac{u_{i-1}-2u_i+u_{i+1}}{h^2}+c u_i }= f_i, \mbox { pour } i\in\{1, \cdots , N\},\\
+u_0=0,\quad u_{N+1}=0
+\end{array}
+\right.
+\end{equation}
+où $c_i=c(x_i)$ et $f_i=f(x_i)$.
+
+On obtient $N$ équations à $N$ inconnues $u_1, \cdots , u_N$ . 
+
+\[\begin{array}{lllll}
+i=1:\quad -{\displaystyle \frac{u_{0}-2u_1+u_{2}}{h^2} }&+&c u_1&=& f_1, \\
+i=2:\quad -{\displaystyle \frac{u_{1}-2u_2+u_{3}}{h^2} }&+&c u_2 &= &f_2, \\
+\cdots&&&&\\
+%i=N-1:\quad -{\displaystyle \frac{u_{N-2}-2u_{N-1}+u_{N}}{h^2} }+c u_{N-1} = f_{N-1}, \\
+i=N:\quad -{\displaystyle \frac{u_{N-1}-2u_{N}+u_{N+1}}{h^2} }&+&c u_{N} &=& f_{N},
+
+\end{array}
+\]
+D'où le système
+\[\myredbox{\left\{\begin{array}{lllll}
+-{\displaystyle \frac{-2u_1+u_{2}}{h^2}}&+&c u_1 &= &f_1, \\
+-{\displaystyle \frac{u_{1}-2u_2+u_{3}}{h^2}}&+&c u_2 &=& f_2, \\
+\cdots&\cdots&\cdots&\cdots\\
+-{\displaystyle \frac{u_{N-1}-2u_{N}}{h^2}}&+&c u_{N} &=& f_{N},
+
+\end{array}\right.}
+\]
+\item  Matriciellement, le problème s'écrit : 
+ 
+ \begin{equation}
+A U =b
+ \end{equation}
+ 
+  avec
+ 
+ 
+ 
+ \[A=\frac{1}{h^2}
+\left(\begin{array}{ccccc}
+2&-1&0&\cdots&0\\
+-1&2&-1&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &-1&2&-1\\
+   0&\cdots &0&-1 &2
+\end{array}\right)+c I_n
+\] 
+\item Soit \[A_0=
+\left(\begin{array}{ccccc}
+2&-1&0&\cdots&0\\
+-1&2&-1&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &-1&2&-1\\
+   0&\cdots &0&-1 &2
+\end{array}\right)
+\] 
+On 
+\[<A_0x\,,\, x> = 2\sum_{i=1}^nx_i^2-2\sum_{i=1}^{n-1}x_i x_{i+1}=x_1^2+\sum_{i=1}^{n-1}(x_i-x_{i+1})^2+x_n^2\]
+On a alors $<A_0x\,,\, x>\;\geq 0$ et 
+\[<A_0x\,,\, x>\;= 0\Longrightarrow x_1^2=x_n^2=0 \mbox{ et }(x_i-x_{i+1})^2=0 \;\forall i=1,n-1\]
+Donc $\Longrightarrow x=0$ et $A_0$ définie positive donc $A$ est définie positive.
+
+\end{enumerate}
+
+\section{Problème aux limites d'ordre 4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\[\left\{\begin{array}{l}
+\frac{d^4u(x)}{dx^4}=f(x)\quad\mbox{dans }]0,1[\\
+u(0)=u(1)=0\\
+u'(0)=u'(1)=0\\
+\end{array}\right.
+\]
+
+\begin{enumerate}
+\item On a $0=u'(0)\simeq \frac{u(h)-u(0)}{h}\Longrightarrow u_1=u(h)=0$ de même $u_{N+1}=0$. Nous avons donc 4 valeurs de $u$ connues, il reste $N-1$ valeurs de $u_i$ à déterminer pour $i$ allant de 2 à $N$. 
+
+\item On a
+\[\Delta u(x)= \frac{T_{\frac h2}u(x)-T_{-\frac h2}u(x)}{h}= \frac{u(x+\frac h2)-u(x-\frac h2)}{h}\simeq u'(x)\]
+On a
+\[\Delta^4=\left(\frac 1h(T_{h/2}-T_{-h/2})\right)^4\]\[=\frac 1{h^4}(T^4_{h/2}-4T^3_{h/2}T_{-h/2}+6T^2_{h/2}T^2_{-h/2}-4T_{h/2}T^3_{-h/2}+T^4_{-h/2})\]
+\[=\frac 1{h^4}(T_{2h}-4T_{3h/2}T_{-h/2}+6T_{h}T_{-h}-4T_{h/2}T_{-3h/2}+T_{-2h})\]
+\[=\frac 1{h^4}(T_{2h}-4T_{h}+6I-4T_{-h}+T_{-2h})\]
+\[\Delta^4u(x_i)=\frac 1{h^4}(u(x_i+2h)-4u(x_i+h)+6u(x_i)-4u(x_i-h)+u(x_i-2h))\]
+\[\Delta^4u(x_i)=\frac 1{h^4}(u(x_{i+2})-4u(x_{i+1})+6u(x_i)-4u(x_{i-1})+u(x_{i-2}))\]
+\[\myredbox{\frac{\de^4 u_i}{\de x^4}=\frac 1{h^4}(u_{i+2}-4u_{i+1}+6u_i-4u_{i-1}+u_{i-2})}\]
+
+
+Cette approximation est  d'ordre 2: On fait un développement de Taylor à l'ordre 6 de $u$:
+\[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(x) +\frac{h^5}{120} u^{(5)}(x) +\frac{h^6}{720} u^{(6)}(\xi_1)  ,\]
+\[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(x)-\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(x) -\frac{h^5}{120} u^{(5)}(x) +\frac{h^6}{720} u^{(6)}(\xi_2)  ,\]
+\[u(x+2h)=u(x)+2h u'(x)+2h^2 u''(x)+\frac{4h^3}3 u'''(x)+\frac{2h^4}{3} u^{(4)}(x) +\frac{4h^5}{15} u^{(5)}(x) +\frac{4h^6}{45} u^{(6)}(\xi_3)  ,\]
+\[u(x-2h)=u(x)-2h u'(x)+2h^2 u''(x)-\frac{4h^3}3 u'''(x)+\frac{2h^4}{3} u^{(4)}(x) -\frac{4h^5}{15} u^{(5)}(x) +\frac{4h^6}{45} u^{(6)}(\xi_4)  ,\]
+En faisant une combinaison des 4 dernières lignes: $-4u(x+h)-4u(x-h)+u(x+h)+u(x-h)$, on trouve:
+\[6u(x)+h^4 u^{(4)}(x)+\frac{h^6}{180} \left(-u^{(6)}(\xi_1) - u^{(6)}(\xi_2)+16u^{(6)}(\xi_3) + 16u^{(6)}(\xi_4)\right) ,\]
+D'où
+\[\left| \frac{u(x-2h)-4u(x-h)+6u(x)-4u(x+h)+u(x+2h)}{h^4}- u^{(4)}(x) \right|\leq \frac{17h^2}{90}\sup_{y\in[0,1]} |u^{(6)}(y)| \]
+\item 
+\[\left\{\begin{array}{l}
+\frac{u_{i-2}-4u_{i-1}+6u_i-4u_{i+1}+u_{i+2}}{h^4}=f_i \quad 2\leq i\leq N\\
+u_0=u_{N+2}=0\\
+u_1=u_{N+1}=0
+\end{array}\right.
+\]
+où  $f_i=f(x_i)$.
+\item On pose $U=\left(\begin{array}{c}  u_2 \\ \vdots \\ u_N \end{array}\right)$ et $b=\left(\begin{array}{c} f_2 \\ \vdots \\ f_N \end{array}\right)$. Le problème approché se ramène à une résolution d'un système linéaire $A U = b$ où $A$ est la matrice pentadiagonale:
+Soit \[A=
+\left(\begin{array}{ccccccc}
+6&-4&1&0&0&\cdots&0\\
+-4&6&-4&1&0&\cdots&0\\
+1&-4&6&-4&1& \ddots  &\vdots\\
+0& 1 &\ddots &\ddots &\ddots&\ddots&0 \\
+\vdots &  \ddots &\ddots &\ddots &\ddots&\ddots&1\\
+0 &\cdots &0&1 &-4&6&-4\\
+   0&\cdots&0  &0&1&-4  &6
+\end{array}\right)
+\] 
+\end{enumerate}
+
+\section{Équation de la chaleur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[\left\{\begin{array}{ll}
+\displaystyle \frac{\partial u(x,t)}{\partial t} -\nu \frac{\partial^2u(x,t)}{\partial x^2}=0 & \forall (x,t)\in ]0,1[\times \mathbb{R}_+^*\\
+u(0,t)=u(1,t)=0&\\
+u(x,0)=u_0(x) & \forall x \in [0,1]
+\end{array}\right.
+\]
+ On subdivise l'intervalle $[0; 1]$ en $N+2$ points d'abscisses $x_i = ih$ où $0\leq i\leq N+1$ avec $h = \frac 1{N+1}$ et soit $\tau$ le pas de temps.  On note $u^n_i$ la valeur approchée de $u(x_i,t_n)$ avec $t_n=n\tau$ et on considère le schéma dit d'Euler implicite qui est le suivant:
+ \[ \frac{u_{i}^{n+1}-u_{i}^n}{\tau}-\nu \frac{u_{i-1}^{n+1}-2u_i^{n+1}+u_{i+1}^{n+1}}{h^2}=0
+\]
+  
+
+\begin{enumerate}
+\item Posons $t=t_{n+1}$ et $x=x_i$ pour alléger les notations.
+Pour déterminer l'erreur de troncature, on va dans le schéma remplacer $u_i^n$ par $u(x,t-\tau)$, $u_{i-1}^{n+1}$ par $u(x-h,t)$, $u_i^{n+1}$ par $u(x,t)$ et $u_{i+1}^{n+1}$ par $u(x+h,t)$. A l'aide de la formule de Taylor à l'ordre 2 de $u$ suivant $t$, on a
+\[u(x,t-\tau)=u(x,t)-\tau\frac{\partial u}{\partial t}+\frac{\tau^2}{2}\frac{\partial^2u}{\partial t^2}+o(\tau^2)\]
+D'où
+\[\frac{u(x,t) - u(x,t-\tau)}{\tau}  =\frac{\partial u}{\partial t}-\frac{\tau}{2}\frac{\partial^2u}{\partial t^2}+o(\tau)\]
+Par ailleurs, en considérant la variation de $x$, on a
+\[u(x+h,t)=u(x,t)+h\frac{\partial u}{\partial x}+\frac{h^2}{2}\frac{\partial^2u}{\partial x^2}+\frac{h^3}{6}\frac{\partial^3u}{\partial x^3}+\frac{h^4}{24}\frac{\partial^4u}{\partial x^4}+o(h^4)\]
+et de la même façon
+\[u(x-h,t)=u(x,t)-h\frac{\partial u}{\partial x}+\frac{h^2}{2}\frac{\partial^2u}{\partial x^2}-\frac{h^3}{6}\frac{\partial^3u}{\partial x^3}+\frac{h^4}{24}\frac{\partial^4u}{\partial x^4}+o(h^4)\]
+Donc
+\[\frac{u(x-h,t) - 2u(x,t)+u(x+h,t)}{h^2}  =\frac{\partial^2 u}{\partial x^2}+\frac{h^2}{12}\frac{\partial^4u}{\partial x^4}+o(h^2)\]
+En remplaçant $u_i^n$ dans le schéma par $u(x_i,t_n)$, on se retrouve avec l'erreur de troncature:
+\[\frac{\partial u}{\partial t}-\frac{\tau}{2}\frac{\partial^2u}{\partial t^2}+o(\tau) -\nu\left(\frac{\partial^2 u}{\partial x^2}+\frac{h^2}{12}\frac{\partial^4u}{\partial x^4}+o(h^2)\right)=-\frac{\tau}{2}\frac{\partial^2u}{\partial t^2}-\nu \frac{h^2}{12}\frac{\partial^4u}{\partial x^4} +o(\tau+h^2)\]
+qui converge bien vers 0 pour $h\to 0$, $\tau\to 0$. Le schéma est bien consistant, et précis d'ordre 1 en temps et d'ordre 2 en espace.
+\item On pose $u^n=\left(\begin{array}{c}  u_1^n  \\ u_2^n \\\vdots \\ u_N^n \end{array}\right)$. Dans le schéma, isolons $u_i^n$, en posant $c=\frac{\nu\tau}{h^2}$:
+\[u_i^n=-c u_{i-1}^{n+1}+(1+2c)u_i^{n+1}-cu_{i+1}^{n+1}\]
+Précisons les équations, en notant leur forme particulières pour $i=1$ et $i=N$ lorsque l'on prend en compte les conditions aux limites:
+\[\begin{array}{rcl}
+u_1^n & = & (1+2c)u_1^{n+1}-cu_2^{n+1}\\
+u_2^n & = & -cu_1^{n+1}+(1+2c)u_2^{n+1}-cu_3^{n+1}\\
+u_3^n & = & -cu_2^{n+1}+(1+2c)u_3^{n+1}-cu_4^{n+1}\\
+\vdots &\vdots &\vdots \\
+u_{N-1}^n & = & -cu_{N-2}^{n+1}+(1+2c)u_{N-1}^{n+1}-cu_{N}^{n+1}\\
+u_N^n & = & -cu_{N-1}^{n+1}+(1+2c)u_N^{n+1}
+\end{array}\]
+On a bien $ M u^{n+1} = u^n$ avec
+\[M=
+\left(\begin{array}{ccccc}
+1+2c&-c&0&\cdots&0\\
+-c&1+2c&-c&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &-c&1+2c&-c\\
+   0&\cdots &0&-c &1+2c
+\end{array}\right)
+\] 
+
+\item Expliquer rapidement comment on programmerait l'algorithme:
+
+$u^0$ étant connu par la condition initiale, on calcule de proche en proche les $u^n$
+successifs. $u^1$ est la solution du système $Mu^1=u^0$. Puis $u^2$ est la solution du système $Mu^2=u^1$ et ainsi de suite...
+
+Il faut donc résoudre successivement des systèmes décrits par $Mu^{n+1}=u^n$ 
+\item On a
+\[A=
+\left(\begin{array}{ccccc}
+2&-1&0&\cdots&0\\
+-1&2&-1&\ddots&\vdots\\
+0&  \ddots &\ddots&\ddots&0\\
+\vdots &\ddots &-1&2&-1\\
+   0&\cdots &0&-1 &2
+\end{array}\right)
+\] 
+Soit $\lambda$ une valeur propre de $A$ et $v$ un vecteur propre associé. On développe la composante $i_0$ de l'égalité matricielle: $Av=\lambda v$ où $i_0$ est un indice tel que $v_{i_0}=max_{i}|v_i|$:
+
+\[-v_{i_0-1}+2v_{i_0}-v_{i_0+1}=\lambda v_{i_0}\]
+\[(2-\lambda)v_{i_0} = v_{i_0-1}+v_{i_0+1}\]
+\[|2-\lambda|\times |v_{i_0}| \leq |v_{i_0-1}|+|v_{i_0+1}|\]
+\[|2-\lambda| \leq 2\]
+\[0<\lambda<4\]
+Comme $M$ s'écrit $M=I+cA$ et que toutes les valeurs de $A$ sont entre 0 et 4, il s'avère que $M$ a ses valeurs propres comprises entre 1 et $1+4c>1$ donc $M^{-1}$ a ses valeurs propres comprises entre $\frac{1}{1+4c}$ et 1. Comme $M^{-1}$ est symétrique définie positive, sa norme 2 est la plus grande valeur propre (cf cours) et donc $\|M^{-1}\|\leq 1$. 
+\item On a $u^{n+1}=M^{-1}u^n$ donc $\|u^{n+1}\|\leq \|M^{-1}\| \|u^n\|\leq \|u^n\|$ et par récurrence $\|u^n\|\leq \|u^0\|$. Donc le schéma est stable.
+\end{enumerate}
+
+
+
+\section{Problème de Dirichlet}
+\begin{enumerate}
+\item
+\item Le système avec $u$ en deux indices:
+\begin{center}
+ \begin{tikzpicture}[domain=0:5]
+  \draw[->] (-0.1,0) -- (4.5,0)  node[right] {$\scriptstyle x$};
+  \draw[->] (0,-0.1) -- (0,4.3) node[above] {$\scriptstyle y$};
+  \path[fill=black]  (0,0) circle (.4mm) [fill=orange] node[below] {$\scriptstyle O$};
+
+
+   \path[fill=black]  (4,0) circle (.4mm) [fill=orange] node[below] {$\scriptstyle A$};
+
+   \path[fill=black]  (0,4) circle (.4mm) [fill=orange] node[left] {$\scriptstyle C$};
+      \path[fill=black]  (4,4) circle (.4mm) [fill=orange] node[above right] {$\scriptstyle B$};
+\draw[dotted,blue] (1,0) -- ++(0,4) ;
+\draw[dotted,blue] (2,0) -- ++(0,4) ;
+\draw[dotted,blue] (3,0) -- ++(0,4) ;
+\draw[dotted,blue] (0,1) -- ++(4,0) ;
+\draw[dotted,blue] (0,2) -- ++(4,0) ;
+\draw[dotted,blue] (0,3) -- ++(4,0) ;
+\draw[orange] (0.02,0.02) -- ++(4,0)  -- ++(0,4) -- ++(-4,0)  -- ++(0,-4)  ;
+ \path[fill=red]  (1,1) circle (.5mm)node[below] {$\scriptstyle (1,1)$};
+ \path[fill=red]  (2,1) circle (.5mm) node[below] {$\scriptstyle (2,1)$};
+ \path[fill=red]  (3,1) circle (.5mm)node[below] {$\scriptstyle (3,1)$};
+  \path[fill=red]  (1,2) circle (.5mm) node[below] {$\scriptstyle  (1,2)$};
+  \path[fill=red]  (2,2) circle (.5mm)  node[ below] {$\scriptstyle (2,2)$};
+   \path[fill=red]  (3,2) circle (.5mm)  node[ below] {$\scriptstyle (3,2) $};
+   \path[fill=red]  (1,3) circle (.5mm) node[below] {$\scriptstyle (1,3)$};
+  \path[fill=red]  (2,3) circle (.5mm)  node[ below] {$\scriptstyle (2,3)$};
+   \path[fill=red]  (3,3) circle (.5mm)  node[ below] {$\scriptstyle (3,3)$};
+  
+\end{tikzpicture}
+ \end{center}
+ 
+\[\begin{array}{l}
+i=1, j=1:\quad {\displaystyle -\frac{u_{0,1}-2u_{1,1}+u_{2,1}}{\delta x^2}-\frac{u_{1,0}-2u_{1,1}+u_{1,2}}{\delta y^2} }=f_{1,1} \\
+i=2, j=1:\quad {\displaystyle -\frac{u_{1,1}-2u_{2,1}+u_{3,1}}{\delta x^2}-\frac{u_{2,0}-2u_{2,1}+u_{2,2}}{\delta y^2} }=f_{2,1} \\
+i=3, j=1:\quad {\displaystyle -\frac{u_{2,1}-2u_{3,1}+u_{4,1}}{\delta x^2}-\frac{u_{3,0}-2u_{3,1}+u_{3,2}}{\delta y^2} }=f_{3,1} \\
+i=1, j=2:\quad {\displaystyle -\frac{u_{0,2}-2u_{1,2}+u_{2,2}}{\delta x^2}-\frac{u_{1,1}-2u_{1,2}+u_{1,3}}{\delta y^2} }=f_{1,2} \\
+i=2, j=2:\quad {\displaystyle -\frac{u_{1,2}-2u_{2,2}+u_{3,2}}{\delta x^2}-\frac{u_{2,1}-2u_{2,2}+u_{2,3}}{\delta y^2} }=f_{2,2} \\
+i=3, j=2:\quad {\displaystyle -\frac{u_{2,2}-2u_{3,2}+u_{4,2}}{\delta x^2}-\frac{u_{3,1}-2u_{3,2}+u_{3,3}}{\delta y^2} }=f_{3,2} \\
+i=1, j=3:\quad {\displaystyle -\frac{u_{0,3}-2u_{1,3}+u_{2,3}}{\delta x^2}-\frac{u_{1,2}-2u_{1,3}+u_{1,4}}{\delta y^2} }=f_{1,3} \\
+i=2, j=3:\quad {\displaystyle -\frac{u_{1,3}-2u_{2,3}+u_{3,3}}{\delta x^2}-\frac{u_{2,2}-2u_{2,3}+u_{2,4}}{\delta y^2} }=f_{2,3} \\
+i=3, j=3:\quad {\displaystyle -\frac{u_{2,3}-2u_{3,3}+u_{4,3}}{\delta x^2}-\frac{u_{3,2}-2u_{3,3}+u_{3,4}}{\delta y^2} }=f_{3,3} \\
+\end{array}
+\]
+Avec les conditions aux bords:
+\[\begin{array}{l}
+i=1, j=1:\quad {\displaystyle -\frac{0-2u_{1,1}+u_{2,1}}{\delta x^2}-\frac{0-2u_{1,1}+u_{1,2}}{\delta y^2} }=f_{1,1} \\
+i=2, j=1:\quad {\displaystyle -\frac{u_{1,1}-2u_{2,1}+u_{3,1}}{\delta x^2}-\frac{0-2u_{2,1}+u_{2,2}}{\delta y^2} }=f_{2,1} \\
+i=3, j=1:\quad {\displaystyle -\frac{u_{2,1}-2u_{3,1}+0}{\delta x^2}-\frac{0-2u_{3,1}+u_{3,2}}{\delta y^2} }=f_{3,1} \\
+i=1, j=2:\quad {\displaystyle -\frac{0-2u_{1,2}+u_{2,2}}{\delta x^2}-\frac{u_{1,1}-2u_{1,2}+u_{1,3}}{\delta y^2} }=f_{1,2} \\
+i=2, j=2:\quad {\displaystyle -\frac{u_{1,2}-2u_{2,2}+u_{3,2}}{\delta x^2}-\frac{u_{2,1}-2u_{2,2}+u_{2,3}}{\delta y^2} }=f_{2,2} \\
+i=3, j=2:\quad {\displaystyle -\frac{u_{2,2}-2u_{3,2}+0}{\delta x^2}-\frac{u_{3,1}-2u_{3,2}+u_{3,3}}{\delta y^2} }=f_{3,2} \\
+i=1, j=3:\quad {\displaystyle -\frac{0-2u_{1,3}+u_{2,3}}{\delta x^2}-\frac{u_{1,2}-2u_{1,3}+0}{\delta y^2} }=f_{1,3} \\
+i=2, j=3:\quad {\displaystyle -\frac{u_{1,3}-2u_{2,3}+u_{3,3}}{\delta x^2}-\frac{u_{2,2}-2u_{2,3}+0}{\delta y^2} }=f_{2,3} \\
+i=3, j=3:\quad {\displaystyle -\frac{u_{2,3}-2u_{3,3}+0}{\delta x^2}-\frac{u_{3,2}-2u_{3,3}+0}{\delta y^2} }=f_{3,3} \\
+\end{array}
+\]
+
+Le système avec $u$ en seul  indice:
+\begin{center}
+ \begin{tikzpicture}[domain=0:5]
+  \draw[->] (-0.1,0) -- (4.5,0)  node[right] {$\scriptstyle x$};
+  \draw[->] (0,-0.1) -- (0,4.3) node[above] {$\scriptstyle y$};
+  \path[fill=black]  (0,0) circle (.4mm) [fill=orange] node[below] {$\scriptstyle O$};
+
+
+   \path[fill=black]  (4,0) circle (.4mm) [fill=orange] node[below] {$\scriptstyle A$};
+
+   \path[fill=black]  (0,4) circle (.4mm) [fill=orange] node[left] {$\scriptstyle C$};
+      \path[fill=black]  (4,4) circle (.4mm) [fill=orange] node[above right] {$\scriptstyle B$};
+\draw[dotted,blue] (1,0) -- ++(0,4) ;
+\draw[dotted,blue] (2,0) -- ++(0,4) ;
+\draw[dotted,blue] (3,0) -- ++(0,4) ;
+\draw[dotted,blue] (0,1) -- ++(4,0) ;
+\draw[dotted,blue] (0,2) -- ++(4,0) ;
+\draw[dotted,blue] (0,3) -- ++(4,0) ;
+\draw[orange] (0.02,0.02) -- ++(4,0)  -- ++(0,4) -- ++(-4,0)  -- ++(0,-4)  ;
+ \path[fill=red]  (1,1) circle (.5mm)node[below] {$\scriptstyle 1$};
+ \path[fill=red]  (2,1) circle (.5mm) node[below] {$\scriptstyle 2$};
+ \path[fill=red]  (3,1) circle (.5mm)node[below] {$\scriptstyle 3$};
+  \path[fill=red]  (1,2) circle (.5mm) node[below] {$\scriptstyle 4$};
+  \path[fill=red]  (2,2) circle (.5mm)  node[ below] {$\scriptstyle 5$};
+   \path[fill=red]  (3,2) circle (.5mm)  node[ below] {$\scriptstyle 6$};
+   \path[fill=red]  (1,3) circle (.5mm) node[below] {$\scriptstyle 7$};
+  \path[fill=red]  (2,3) circle (.5mm)  node[ below] {$\scriptstyle 8$};
+   \path[fill=red]  (3,3) circle (.5mm)  node[ below] {$\scriptstyle 9$};
+  
+\end{tikzpicture}
+\[(i,j)\mapsto i+(j-1)N \]
+ \end{center}
+ 
+\[\begin{array}{l}
+m=1:\quad {\displaystyle -\frac{0-2u_{1}+u_{2}}{\delta x^2}-\frac{0-2u_{1}+u_{4}}{\delta y^2} }=f_{1} \\
+m=2:\quad {\displaystyle -\frac{u_{1}-2u_{2}+u_{3}}{\delta x^2}-\frac{0-2u_{2}+u_{5}}{\delta y^2} }=f_{2} \\
+m=3:\quad {\displaystyle -\frac{u_{2}-2u_{3}+0}{\delta x^2}-\frac{0-2u_{3}+u_{6}}{\delta y^2} }=f_{3} \\
+m=4:\quad {\displaystyle -\frac{0-2u_{4}+u_{5}}{\delta x^2}-\frac{u_{1}-2u_{4}+u_{7}}{\delta y^2} }=f_{4} \\
+m=5:\quad {\displaystyle -\frac{u_{4}-2u_{5}+u_{6}}{\delta x^2}-\frac{u_{2}-2u_{5}+u_{8}}{\delta y^2} }=f_{5} \\
+m=6:\quad {\displaystyle -\frac{u_{5}-2u_{6}+0}{\delta x^2}-\frac{u_{3}-2u_{6}+u_{9}}{\delta y^2} }=f_{6} \\
+m=7:\quad {\displaystyle -\frac{0-2u_{7}+u_{8}}{\delta x^2}-\frac{u_{4}-2u_{7}+0}{\delta y^2} }=f_{7} \\
+m=8:\quad {\displaystyle -\frac{u_{7}-2u_{8}+u_{9}}{\delta x^2}-\frac{u_{5}-2u_{8}+0}{\delta y^2} }=f_{8} \\
+m=9:\quad {\displaystyle -\frac{u_{8}-2u_{9}+0}{\delta x^2}-\frac{u_{6}-2u_{9}+0}{\delta y^2} }=f_{9} \\
+\end{array}
+\]
+
+\[\begin{array}{l}
+m=1:\quad {\displaystyle 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_1-\frac{1}{\delta x^2}u_2-\frac{1}{\delta y^2}u_4}=f_{1} \\
+m=2:\quad {\displaystyle -\frac{1}{\delta x^2}u_1+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_2-\frac{1}{\delta x^2}u_3-\frac{1}{\delta y^2}u_5 }=f_{2} \\
+m=3:\quad {\displaystyle -\frac{1}{\delta x^2}u_2+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_3-\frac{1}{\delta y^2}u_6}=f_{3} \\
+m=4:\quad {\displaystyle -\frac{1}{\delta y^2}u_1+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_4-\frac{1}{\delta x^2}u_5-\frac{1}{\delta y^2}u_7 }=f_{4} \\
+m=5:\quad {\displaystyle -\frac{1}{\delta y^2}u_2-\frac{1}{\delta x^2}u_4+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_5-\frac{1}{\delta x^2}u_6-\frac{1}{\delta y^2}u_8}=f_{5} \\
+m=6:\quad {\displaystyle -\frac{1}{\delta y^2}u_3-\frac{1}{\delta x^2}u_5+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_6-\frac{1}{\delta y^2}u_9}=f_{6} \\
+m=7:\quad {\displaystyle -\frac{1}{\delta y^2}u_4+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_7-\frac{1}{\delta x^2}u_8 }=f_{7} \\
+m=8:\quad {\displaystyle -\frac{1}{\delta y^2}u_5-\frac{1}{\delta x^2}u_7+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_8-\frac{1}{\delta x^2}u_9}=f_{8} \\
+m=9:\quad {\displaystyle -\frac{1}{\delta y^2}u_6-\frac{1}{\delta x^2}u_8+ 2\left(\frac{1}{\delta x^2}+\frac{1}{\delta y^2}\right)u_9 }=f_{9} \\
+\end{array}
+\]
+Pour simplifier, on pose $\beta = \frac{1}{\delta x^2}$, $\gamma = \frac{1}{\delta y^2}$ et $\alpha =2(\beta+\gamma)$:
+\[\myredbox{\begin{array}{l}
+m=1:\quad {\displaystyle \alpha u_1-\beta u_2-\gamma u_4}=f_{1} \\
+m=2:\quad {\displaystyle -\beta u_1+ \alpha  u_2-\beta u_3-\gamma u_5 }=f_{2} \\
+m=3:\quad {\displaystyle -\beta u_2+ \alpha u_3-\gamma u_6}=f_{3} \\
+m=4:\quad {\displaystyle -\gamma u_1+ \alpha u_4-\beta u_5-\gamma u_7 }=f_{4} \\
+m=5:\quad {\displaystyle -\gamma u_2-\beta u_4+ \alpha u_5-\beta u_6-\gamma u_8}=f_{5} \\
+m=6:\quad {\displaystyle -\gamma u_3-\beta u_5+ \alpha u_6-\gamma u_9}=f_{6} \\
+m=7:\quad {\displaystyle -\gamma u_4+ \alpha u_7-\beta u_8 }=f_{7} \\
+m=8:\quad {\displaystyle -\gamma u_5-\beta u_7+ \alpha u_8-\beta u_9}=f_{8} \\
+m=9:\quad {\displaystyle -\gamma u_6-\beta u_8+ \alpha u_9 }=f_{9} \\
+\end{array}}
+\]
+\[
+\left[\begin{array}{ccc|ccc|ccc}
+\alpha &-\beta &0&-\gamma &&\\
+-\beta &\alpha &-\beta &&-\gamma &\\
+0&-\beta &\alpha &&&-\gamma \\  \hline
+-\gamma &&&\alpha &-\beta &0&-\gamma &&\\
+&-\gamma &&-\beta &\alpha &-\beta &&-\gamma &\\
+&&-\gamma &0&-\beta &\alpha &&&-\gamma \\  \hline
+&&&-\gamma &&&\alpha &-\beta &0\\
+&&&&-\gamma &&-\beta &\alpha &-\beta \\
+&&&&&-\gamma &0&-\beta &\alpha 
+\end{array}\right]
+\left[\begin{array}{c}
+u_{1}\\u_{2}\\ u_{3} \\  \hline
+u_{4}\\u_{5}\\ u_{6} \\  \hline
+u_{7}\\u_{8}\\ u_{9}
+\end{array}\right] =h^2\left[\begin{array}{c}
+f_{1}\\f_{2}\\ f_{3} \\ \hline
+ f_{4}\\f_{5}\\ f_{6} \\  \hline
+ f_{7}\\f_{8}\\ f_{9}
+\end{array}\right]
+\] 
+La matrice $A$ peut s'écrire en blocs de la façon suivante:
+\[
+\left[\begin{array}{c|c|c}
+\beta K+2\gamma I_3 &-\gamma I_3 &\\ \hline
+ -\gamma I_3 &\beta K+2\gamma I_3 &-\gamma I_3 \\ \hline
+ &-\gamma I_3 &\beta K+2\gamma I_3  
+\end{array}\right]
+\]
+où $K$ est la matrice symétrique définie positive suivante:
+\[
+K=\left[\begin{array}{ccc}
+2 &-1 &0\\ 
+ -1 &2&-1 \\ 
+ 0&-1 &2  
+\end{array}\right]
+\]
+Soit le vecteur en blocs:
+\[X=\left[\begin{array}{c}
+X_1 \\ \hline
+ X_2 \\  \hline
+ X_3
+\end{array}\right]
+\]
+On a
+\[
+\begin{array}{lcl}
+<A X\,,\, X>&=&<
+\left[\begin{array}{c|c|c}
+\beta K+2\gamma I_3 &-\gamma I_3 &\\ \hline
+ -\gamma I_3 &\beta K+2\gamma I_3 &-\gamma I_3 \\ \hline
+ &-\gamma I_3 &\beta K+2\gamma I_3  
+\end{array}\right]\, \left[\begin{array}{c}
+X_1 \\ \hline
+ X_2 \\  \hline
+ X_3
+\end{array}\right]\;,\; \left[\begin{array}{c}
+X_1 \\ \hline
+ X_2 \\  \hline
+ X_3
+\end{array}\right]
+>\\
+&&\\
+&=&{\displaystyle \beta\left(^tX_1KX_1+^tX_2KX_2+^tX_3KX_3\right)}\\
+&&+\gamma\left(2\|X_1\|^2+2\|X_2\|^2+2\|X_3\|^2-2^tX_1X_2-2^tX_2X_3\right)\\
+&&\\
+&=&{\displaystyle \beta\left(^tX_1KX_1+^tX_2KX_2+^tX_3KX_3\right)}\\
+&&+\gamma\left(\|X_1\|^2+\|X_1-X_2\|^2+\|X_2-X_3\|^2+\|X_3\|^2\right)\\
+&&\\
+&\geq 0&
+\end{array}
+\]
+et $<A X\,,\, X>=0 \Longrightarrow X=0$ et donc $A$ est bien une matrice symétrique définie positive.
+\item Appliquons la matrice $A$ au vecteur ligne par ligne:
+\[
+\begin{array}{l}
+\displaystyle (A u(p,q))_{i,j}=\underbrace{\frac {-u(p,q)_{i-1,j} + 2u(p,q)_{i,j}-u(p,q)_{i+1,j}}{\delta x^2} }_{\color{red}{A_1}}+
+\underbrace{\frac {-u(p,q)_{i,j-1} + 2u(p,q)_{i,j}-u(p,q)_{i,j+1}}{\delta y^2}}_{\color{red}{ A_2}}
+\end{array}
+\]
+\[
+\begin{array}{lcl}
+A_1&=&\displaystyle \frac {-u(p,q)_{i-1,j} + 2u(p,q)_{i,j}-u(p,q)_{i+1,j}}{\delta x^2} \\
+      &= &\displaystyle  \frac {-\sin\left(p\pi \frac{(i-1)\delta x}{a}\right) + 2\sin\left(p\pi \frac{i\delta x}{a}\right)-\sin\left(p\pi \frac{(i+1)\delta x}{a}\right)}{\delta x^2} \sin\left(q\pi \frac{j\delta y}{b}\right)\\
+      &= &\displaystyle  \frac {-2\sin\left(p\pi \frac{i\delta x}{a}\right)\cos\left(p\pi \frac{\delta x}{a}\right)  + 2\sin\left(p\pi \frac{i\delta x}{a}\right)}{\delta x^2} \sin\left(q\pi \frac{j\delta y}{b}\right)\\
+      &= &\displaystyle 2 \frac {1-\cos\left(p\pi \frac{\delta x}{a}\right)}{\delta x^2}\sin\left(p\pi \frac{i\delta x}{a}\right) \sin\left(q\pi \frac{j\delta y}{b}\right)\\
+      &= &\displaystyle \frac{4}{\delta x^2} \sin^2\left(p\pi \frac{\delta x}{2a}\right)\sin\left(p\pi \frac{i\delta x}{a}\right) \sin\left(q\pi \frac{j\delta y}{b}\right)\\
+      &= &\displaystyle \frac{4}{\delta x^2} \sin^2\left(p\pi \frac{\delta x}{2a}\right)u(p,q)_{i,j}
+\end{array}
+\]
+
+\[\myredbox{A_1=\displaystyle \frac{4}{\delta x^2} \sin^2\left(p\pi \frac{\delta x}{2a}\right)u(p,q)_{i,j}}
+\]
+
+Il en est de même pour $A_2$:
+\[\myredbox{A_2=\displaystyle \frac{4}{\delta y^2} \sin^2\left(q\pi \frac{\delta y}{2b}\right)u(p,q)_{i,j}}
+\]
+D'où
+\[(A u(p,q))_{i,j} =A_1+A_2=\left[\frac{4}{\delta x^2} \sin^2\left(p\pi \frac{\delta x}{2a}\right)+ \frac{4}{\delta y^2} \sin^2\left(q\pi \frac{\delta y}{2b}\right)\right]u(p,q)_{i,j}\]
+et
+\[\myredbox{\lambda_{p,q}=\frac{4}{\delta x^2} \sin^2\left(p\pi \frac{\delta x}{2a}\right)+ \frac{4}{\delta y^2} \sin^2\left(q\pi \frac{\delta y}{2b}\right)}\]
+\item \[\max \lambda_{p,q} = \lambda_{N,M}\simeq \frac{4}{\delta x^2} \times 1+ \frac{4}{\delta y^2}  \times 1 = 4\left(\frac{1}{\delta x^2} +\frac{1}{\delta y^2} \right)\]
+ \[\min \lambda_{p,q}= \lambda_{1,1} \simeq \frac{4}{\delta x^2} \times \left(\pi \frac{\delta x}{2a}\right)^2+ \frac{4}{\delta y^2}  \times \left(\pi \frac{\delta y}{2b}\right)^2 = \pi^2\left(\frac{1}{a^2} +\frac{1}{b^2} \right)\]
+ D'où 
+ \[\myredbox{\mbox{cond}_2A=\frac{4}{\pi^2}\frac{\frac{1}{\delta x^2} +\frac{1}{\delta y^2}}{\frac{1}{a^2} +\frac{1}{b^2} }}\]
+ Si $M=N$ et $a=b$ alors
+ \[\myredbox{\mbox{cond}_2A \sim \frac{4N^2}{\pi^2}}\]
+\end{enumerate}
+
+\end{document}
