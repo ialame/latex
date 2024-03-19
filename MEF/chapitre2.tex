@@ -471,7 +471,45 @@ est un élément fini de Lagrange.
 
 \begin{frame}
 \frametitle{Éléments finis simpliciaux}
-On considère $n +1$ points $a_j=(a_{ij})_{i=1}^n\in \mathbb{R}^n$, $1\leq j \leq n+1$, non situés dans un même hyperplan de $\mathbb{R}^n$, c'est-à-dire tels que la matrice d'ordre n +1
+
+\begin{center}
+\begin{tikzpicture}[domain=0:5,scale=0.3]
+ \pgfmathsetmacro{\alpha}{0.05}
+  \pgfmathsetmacro{\a}{0.5}
+  \draw[orange,->] (-2,2) -- (5,2)  node[right] {$x$};
+  \path[fill=gray] (0,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_1$};
+  \path[fill=gray] (3,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_2$};
+  \draw[blue,thick] (0,2) -- (3,2);
+  
+ \draw[orange,->] (10,1) -- ++(7,0)  node[right] {$x$};
+  \draw[orange,->] (10,1) --++ (0,5) node[left] {$y$};
+   \draw[blue,thick,fill=blue!30, fill opacity=0.6](12,3)-- ++(3,-1)-- ++(0,3)-- ++(-3,-2);
+
+\path[fill=gray] (12,3) circle (1.0mm)node[left,below] {$\scriptstyle  a_1$};
+\path[fill=gray] (15,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_2$};
+\path[fill=gray] (15,5) circle (1.0mm)node[right] {$\scriptstyle  a_3$};
+
+\draw[orange,->] (25,1) --++ (-1.5,-1.5) node[left] {$x$};
+ \draw[orange,->] (25,1) -- ++(7,0)  node[right] {$y$};
+  \draw[orange,->] (25,1) --++ (0,5) node[left] {$z$};
+
+
+\path[fill=gray] (27,3) circle (1.0mm)node[left,below] {$\scriptstyle  a_1$};
+\path[fill=gray] (30,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_2$};
+\path[fill=gray] (32,3) circle (1.0mm)node[right] {$\scriptstyle  a_3$};
+\path[fill=gray] (29,6) circle (1.0mm)node[right] {$\scriptstyle  a_4$};
+   \draw[blue,thick,fill=blue!30, fill opacity=0.6] (27,3)-- ++(3,-1)-- ++(-1,4)-- ++(-2,-3);
+      \draw[blue,thick,fill=blue!20, fill opacity=0.5] (30,2)-- ++(2,1)-- ++(-3,3);
+  \draw[blue,dashed] (27,3)--(32,3);
+\draw[olive] (1,0)  node[below] {dim 1};
+\draw[olive]  (13,0)  node[below] {dim 2};
+\draw[olive]  (28,0)  node[below] {dim 2};
+
+\end{tikzpicture}
+
+\end{center}
+
+On considère $n +1$ points $a_j=(a_{ij})_{i=1}^n\in \mathbb{R}^n$, $1\leq j \leq n+1$, non situés dans un même hyperplan, c'est-à-dire tels que la matrice d'ordre $n +1$
 
 \begin{equation}
 A=\left(\begin{array}{llll}
@@ -483,10 +521,10 @@ a_{n1} & a_{n2} & \cdots & a_{n,n+1} \\
 \end{array}\right)
 \end{equation}
 soit inversible. On appelle $n$-simplexe $K$ de sommets $a_j$, $1\leq j\leq n+1$,                                                                                                         l'enveloppe convexe des points $a_j$ ; 
-\begin{itemize}
-\item pour $n=2$, $K$ est un triangle.
-\item pour $n = 3$, $K$ est un tétraèdre.
-\end{itemize}
+%\begin{itemize}
+%\item pour $n=2$, $K$ est un triangle.
+%\item pour $n = 3$, $K$ est un tétraèdre.
+%\end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -496,23 +534,26 @@ soit inversible. On appelle $n$-simplexe $K$ de sommets $a_j$, $1\leq j\leq n+1$
 
 \begin{equation}
 \left\{\begin{array}{l}
+\displaystyle x=\sum_{j=1}^{n+1}\lambda_j(x) a_{j}\\
+\displaystyle \sum_{j=1}^{n+1}\lambda_j =1
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
 \displaystyle \sum_{j=1}^{n+1}a_{ij}\lambda_j =x_i, \quad 1\leq i\leq n\\
 \displaystyle \sum_{j=1}^{n+1}\lambda_j =1
 \end{array}\right.
 \label{systLinBarycentrique}
 \end{equation}
 Ces scalaires $\lambda_j(x)$ sont  appelés les coordonnées barycentriques du point $x$ par rapport aux $n+ 1$ points 
-$a_j$, $1\leq j\leq n+1$. D'après \eqref{systLinBarycentrique}, chacune de ces fonctions coordonnées barycentriques est une fonction affine de$\mathbb{R}^n$ dans $\mathbb{R}$ et on a
-\begin{equation}
-\forall x\in\mathbb{R}^n,\quad x=\sum_{j=1}^{n+1}\lambda_j(x) a_{j}
-\end{equation}
+$a_j$, $1\leq j\leq n+1$. D'après \eqref{systLinBarycentrique}, chacune de ces fonctions coordonnées barycentriques est une fonction affine de $\mathbb{R}^n$ dans $\mathbb{R}$
+
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Coordonnées barycentriques}
+\frametitle{Polynôme d'interpolation en dimension $n$}
 
 Le $n$-simplexe $K$ de sommets $a_j$, $1\leq j\leq n+1$, est caractérisé par
 \begin{equation}
@@ -532,7 +573,65 @@ $\binom {n+k-1}k$, nombre de combinaisons avec répétitions de longueur $k$ for
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+\frametitle{Polynôme d'interpolation en dimension 1}
+
+\begin{itemize}
+\item $n=1$
+\[
+\forall x\in\mathbb{R},\quad p(x)=\sum_{i=0}^k\alpha_{i}x^{i},
+\]
+\[\mathbb{P}_k^{(1)}=vect\{1,x,x^2,\cdots,x^k\},\quad \dim \mathbb{P}_k^{(1)}=k+1\]
+En particuler
+\[\mathbb{P}_0^{(1)}=vect\{1\}=\mathbb{R} ,\quad \dim \mathbb{P}_0^{(1)}=1\]
+\[\mathbb{P}_1^{(1)}=\{ax+b; a\in\mathbb{R}\mbox{ et }b\in\mathbb{R}\},\quad \dim \mathbb{P}_1^{(1)}=2\]
+\[\mathbb{P}_2^{(1)}=\{ax^2+bx+c; a,b,c\in\mathbb{R}\},\quad \dim \mathbb{P}_1^{(1)}=3\]
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Polynôme d'interpolation en dimension 2}
+
+\begin{itemize}
+\item $n=2$
+\[
+\forall (x,y)\in\mathbb{R},\quad p(x,y)=\sum_{0\leq i+j\leq k}\alpha_{ij}x^{i}y^j,
+\]
+\[\mathbb{P}_k^{(2)}=vect\{x^iy^j;\; 0\leq i+j \leq k\}, \quad \dim \mathbb{P}_k^{(2)}=\frac{(k+1)(k+2)}{2}\]
+En particuler
+\[\mathbb{P}_0^{(2)}=vect\{1\}=\mathbb{R} ,\quad \dim \mathbb{P}_0^{(2)}=1\]
+\[\mathbb{P}_1^{(2)}=vect\{1,x,y\},\quad \dim \mathbb{P}_1^{(2)}=3\]
+\[\mathbb{P}_2^{(2)}=vect\{1,x,x^2,y,y^2,xy\},\quad \dim \mathbb{P}_2^{(2)}=6\]
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Polynôme d'interpolation en dimension 3}
+
+\begin{itemize}
+\item $n=3$
+\[
+\forall (x,y,z)\in\mathbb{R},\quad p(x,y,z)=\sum_{0\leq p+q+r\leq k}\alpha_{pqr}x^{p}y^qz^r,
+\]
+\[\mathbb{P}_k^{(3)}=vect\{x^{p}y^qz^r; 0\leq p+q+r \leq k\}, \dim \mathbb{P}_k^{(3)}=\frac{(k+1)(k+2)(k+3)}{6}\]
+En particuler
+\[\mathbb{P}_0^{(3)}=vect\{1\}=\mathbb{R} ,\quad \dim \mathbb{P}_0^{(3)}=1\]
+\[\mathbb{P}_1^{(3)}=vect\{1,x,y,z\},\quad \dim \mathbb{P}_1^{(3)}=4\]
+\[\mathbb{P}_2^{(3)}=vect\{1,x,x^2,y,y^2,z,z^2,xy,xz,yz\},\quad \dim \mathbb{P}_2^{(3)}=10\]
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Espace de polynômes d'interpolation}
 
@@ -554,12 +653,8 @@ $\binom {n+k-1}k$, nombre de combinaisons avec répétitions de longueur $k$ for
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \begin{frame}
 \frametitle{Treillis principal d'ordre $k$}
-
-
 
   On définit enfin, pour tout entier $k$ le treillis d'ordre $k$ du $n$-simplexe $K$ comme étant l'ensemble de points de $\mathbb{R}^n$ défini  par
 \begin{equation}
@@ -655,18 +750,180 @@ En tenant compte de $\lambda_{n+1}=1-\sum_{j=1}^n\lambda_j$, on vérifie que le 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Treillis principal d'ordre $k$ en dimension 1}
+\begin{equation}
+\Sigma_k^{(1)}=\left\{x\in\mathbb{R};\;\lambda_j(x)\in\{0,\frac 1k,\cdots,\frac{k-1}{k},1\}, \;1\leq j\leq 2\right\}
+\end{equation}
+  %Pour k=0, on posera
+\begin{equation}
+\Sigma_0^{(1)}=\left\{x\in\mathbb{R};\;\lambda_1(x)=\lambda_2(x)=\frac{1}{2}\right\}=\left\{x=\frac{a_1+a_2}{2}=a_0\right\}
+\end{equation}
+\begin{center}
+ \begin{tikzpicture}[scale=0.25]
+ \draw (-7,0)--++(6,0)node[right]{$\scriptstyle  k=3$};
+ \path[fill=orange] (-7,0) circle (1.8mm);
+ \path[fill=orange] (-5,0) circle (1.8mm);
+ \path[fill=orange] (-3,0) circle (1.8mm);
+ \path[fill=orange] (-1,0) circle (1.8mm);
+ \draw (-7,1.5)--++(6,0)node[right]{$\scriptstyle  k=2$};
+ \path[fill=orange] (-7,1.5) circle (1.8mm);
+ \path[fill=orange] (-4,1.5) circle (1.8mm);
+ \path[fill=orange] (-1,1.5) circle (1.8mm);
+ \draw (-7,3)--++(6,0)node[right]{$\scriptstyle  k=1$};
+ \path[fill=orange] (-7,3) circle (1.8mm);
+ %\path[fill=orange] (-4,0) circle (1.8mm);
+ \path[fill=orange] (-1,3) circle (1.8mm);
+  \draw (-7,4.5)--++(6,0)node[right]{$\scriptstyle  k=0$};
+ %\path[fill=orange] (-7,6) circle (1.8mm);
+ \path[fill=orange] (-4,4.5) circle (1.8mm);
+ %\path[fill=gray] (-1,6) circle (1.8mm);
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\end{tikzpicture}
+ \end{center}
+ En particulier
+ \begin{equation}
+\Sigma_1^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,1\}\right\}=\{a_1,a_2\}
+\end{equation}
+ \begin{equation}
+\Sigma_2^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,\frac 12,1\}\right\}=\{a_1,a_2,a_0\}
+\end{equation}
+ \begin{equation}
+\Sigma_3^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,\frac 13,\frac 23,1\}\right\}=\{a_1,a_2,a_{112},a_{122}\}
+\end{equation}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Treillis principal d'ordre $k$ en dimension 2}
+\begin{equation}
+\Sigma_k^{(2)}=\left\{x\in\mathbb{R}^2;\;\lambda_j(x)\in\{0,\frac 1k,\cdots,\frac{k-1}{k},1\}, \;1\leq j\leq 3\right\}
+\end{equation}
+  %Pour k=0, on posera
+\begin{equation}
+\Sigma_0^{(2)}=\left\{x\in\mathbb{R}^2;\;\lambda_1=\lambda_2=\lambda_3=\frac{1}{3}\right\}=\left\{x=\frac{a_1+a_2+a_3}{3}=a_0\right\}
+\end{equation}
+\begin{center}
+ \begin{tikzpicture}[scale=0.25]
+   \draw (0,0)--++(4,1)--++(-1,4)--++(-3,-5);
+  \path[fill=orange] (2.33,2) circle (1.8mm);
+  \draw (5,0)--++(4,1)--++(-1,4)--++(-3,-5);
+  \path[fill=orange] (5,0) circle (1.8mm);
+   \path[fill=orange] (9,1) circle (1.8mm);
+   \path[fill=orange] (8,5) circle (1.8mm);
+  
+  \draw (10,0)--++(4,1)--++(-1,4)--++(-3,-5);
+  \path[fill=orange] (10,0) circle (1.8mm);
+   \path[fill=orange] (14,1) circle (1.8mm);
+   \path[fill=orange] (13,5) circle (1.8mm);
+   
+    \path[fill=orange] (10+2,0.5) circle (1.8mm);
+   \path[fill=orange] (10+3.5,3) circle (1.8mm);
+   \path[fill=orange] (10+1.5,2.5) circle (1.8mm);
+  \draw (15,0)--++(4,1)--++(-1,4)--++(-3,-5);
+   \path[fill=orange] (15,0) circle (1.8mm);
+   \path[fill=orange] (19,1) circle (1.8mm);
+   \path[fill=orange] (18,5) circle (1.8mm);
+   
+   \path[fill=orange] (15+1.33,0.33) circle (1.8mm);
+   \path[fill=orange] (15+2.66,0.66) circle (1.8mm);
+   \path[fill=orange] (15+3.67,2) circle (1.8mm);
+   \path[fill=orange] (15+3.33,3.66) circle (1.8mm);
+   \path[fill=orange] (15+2,3.33) circle (1.8mm);
+   \path[fill=orange] (15+1.,1.66) circle (1.8mm);
+ \path[fill=black] (0,0) circle (0.3mm) [fill=gray];
+ \path[fill=orange] (15+2.33,2) circle (1.8mm);
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\end{tikzpicture}
+ \end{center}
+ \begin{equation}
+\Sigma_1^{(2)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2+\lambda_3 a_3; \;\lambda_j\in\{0,1\}\right\}=\{a_1,a_2,a_3\}
+\end{equation}
+ \[
+\Sigma_2^{(2)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2+\lambda_3 a_3; \;\lambda_j\in\{0,\frac 12,1\}\right\}=\{a_1,a_2,a_3,a_{12},a_{13},a_{23}\}
+\]
+ \[\begin{array}{rcl}
+ \Sigma_3^{(2)}&=&\displaystyle \left\{ x=\lambda_1 a_1+\lambda_2 a_2+\lambda_3 a_3; \;\lambda_j\in\{0,\frac 13,\frac 23,1\}\right\}\\
+ &=&\{a_1,a_2,a_3,a_{112},a_{122},a_{113},a_{133},a_{223},a_{233},a_0\}
+ \end{array}\]
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Treillis principal d'ordre $k$ en dimension 3}
+\[
+\Sigma_k^{(3)}=\left\{x\in\mathbb{R}^3;\;\lambda_j(x)\in\{0,\frac 1k,\cdots,\frac{k-1}{k},1\}, \;1\leq j\leq 4\right\}
+\]
+  %Pour k=0, on posera
+\[
+\Sigma_0^{(3)}=\left\{x\in\mathbb{R}^3;\;\lambda_1=\lambda_2=\lambda_3=\lambda_4=\frac{1}{4}\right\}=\left\{\frac{a_1+a_2+a_3+a_4}{4}=a_0\right\}
+\]
+\begin{center}
+ \begin{tikzpicture}[scale=0.25]
+ \draw (20,0)--++(6,1)--++(-2,5)--++(-4,-6);
+ \draw[dotted] (20,0)--++(2.5,2)--++(3.5,-1);
+ \draw [dotted] (20,0)--++(2.5,2)--++(1.5,4);
+ \path[fill=orange] (20+3.125,2.25) circle (1.8mm);
+ 
+ \draw (27,0)--++(6,1)--++(-2,5)--++(-4,-6);
+ \draw[dotted] (27,0)--++(2.5,2)--++(3.5,-1);
+ \draw [dotted] (27,0)--++(2.5,2)--++(1.5,4);
+ \path[fill=orange] (27,0) circle (1.8mm);
+ \path[fill=orange] (27+6,1) circle (1.8mm);
+ \path[fill=orange] (27+4,6) circle (1.8mm);
+ \path[fill=orange] (27+2.5,2) circle (1.8mm);
+ 
+ \draw (34,0)--++(6,1)--++(-2,5)--++(-4,-6);
+ \draw[dotted] (34,0)--++(2.5,2)--++(3.5,-1);
+ \draw [dotted] (34,0)--++(2.5,2)--++(1.5,4);
+ \path[fill=orange] (34,0) circle (1.8mm);
+ \path[fill=orange] (34+6,1) circle (1.8mm);
+ \path[fill=orange] (34+4,6) circle (1.8mm);
+ \path[fill=orange] (34+2.5,2) circle (1.8mm);
+ \path[fill=orange] (34+3,0.5) circle (1.8mm);
+ \path[fill=orange] (34+5,3.5) circle (1.8mm);
+ \path[fill=orange] (34+2,3) circle (1.8mm);
+ \path[fill=orange] (34+1.25,1) circle (1.8mm);
+ \path[fill=orange] (34+4.25,1.5) circle (1.8mm);
+ \path[fill=orange] (34+3.25,4) circle (1.8mm);
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\end{tikzpicture}
+ \end{center}
+ \[
+\Sigma_1^{(3)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2+\lambda_3 a_3+\lambda_4 a_4; \;\lambda_j\in\{0,1\}\right\}=\{a_1,a_2,a_3,a_4\}
+\]
+ \[\begin{array}{rcl}
+ \Sigma_2^{(3)}&=&\displaystyle \left\{ x=\lambda_1 a_1+\lambda_2 a_2+\lambda_3 a_3+\lambda_4 a_4; \;\lambda_j\in\{0,\frac 12,1\}\right\}\\
+ &=&\{a_1,a_2,a_3,a_{12},a_{13},a_{14},a_{23},a_{24},a_{34},a_0\}
+ \end{array}\]
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Élément fini $n$-simplexe}
 \begin{itemize}
-\item Pour tout entier $k\geq 0$, l'ensemble $\Sigma_k$ , est $P_k$-unisolvant.
- \item Pour tout $n$-simplexe $K$ de $\mathbb{R}^n$ et pour tout entier   $k\geq 0$,    l'élément fini $(K, P_k, \Sigma_k)$, où $\Sigma_k$ est le treillis principal d'ordre $k$ de $K$, est appelé $n$-simplexe de type ($k$).
+\item Pour tout entier $k\geq 0$, l'ensemble $\Sigma_k^{(n)}$ , est $P_k^{(n)}$-unisolvant.
+ \item Pour tout $n$-simplexe $K^{(n)}$ de $\mathbb{R}^n$ et pour tout entier   $k\geq 0$,    l'élément fini $(K^{(n)}, P_k^{(n)}, \Sigma_k^{(n)})$, où $\Sigma_k^{(n)}$ est le treillis principal d'ordre $k$ de $K^{(n)}$, est appelé $n$-simplexe de type ($k$).
 \item Pour tout entier $k\geq 0$, deux éléments finis $n$-simplexes de type ($k$) sont affine-équivalents.
 
 \end{itemize}
 
 \begin{center}
-\begin{tikzpicture}[domain=0:5,scale=0.5]
+\begin{tikzpicture}[domain=0:5,scale=0.4]
  \pgfmathsetmacro{\alpha}{0.05}
   \pgfmathsetmacro{\a}{0.5}
   \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
@@ -689,7 +946,7 @@ En tenant compte de $\lambda_{n+1}=1-\sum_{j=1}^n\lambda_j$, on vérifie que le 
 
 \end{center}
 
- Il suffira donc d'étudier les propriétés d'un $n$-simplexe de type ($k$) particulier $(\widehat{K} , \widehat{P} , \widehat{\Sigma})$  appelé $n$-simplexe de référence.
+ Il suffira donc d'étudier les propriétés d'un $n$-simplexe de type ($k$) particulier $(\widehat{K_k}^{(n)} , \widehat{P_k}^{(n)} , \widehat{\Sigma}^{(n)}_k)$  appelé $n$-simplexe de référence.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -703,78 +960,46 @@ $\hat{a}_1= (1 , 0, \cdots, 0)$ , $\hat{a}_2= (0,1 , 0, \cdots, 0)$, ... $\hat{a
 \end{equation}
        Considérons un peu plus en détail les éléments finis $(K, P, \Sigma)$ $n$-simplexes de 
 type ($k$) les plus couramment utilisés en pratique.
-\begin{enumerate}
-\item Lorsque $n=1$, $K$ est le segment d'extrémités $a_1$, $a_2$. On pose
+
+%Lorsque $n=1$, $K$ est le segment d'extrémités $a_1$, $a_2$. 
+On pose
 \[\begin{array}{lcll}
 a_{0}&=&\frac{1}{2}(a_1+a_2),&\mbox{ milieu du segment }\\
-a_{112}&=&\frac{1}{3}(2a_1+a_2), & \mbox{ au tiers du segment }\\
-a_{122}&=&\frac{1}{3}(a_1+2a_2), &  \mbox{ au deux-tiers du segment }
+a_{0}&=&\displaystyle \frac{1}{n+1}\sum_{i=1}^{n+1}a_i,&\mbox{ centre de gravité }\\
+a_{iij}&=&\frac{1}{3}(2a_i+a_j), & \mbox{ au tiers du segment }\\
+a_{ijj}&=&\frac{1}{3}(a_i+2a_j), &  \mbox{ au deux-tiers du segment }
 \end{array}
 \]
 
-\begin{center}
- \begin{tikzpicture}[scale=0.25]
- \draw (-7,0)--++(6,0);
- \path[fill=gray] (-7,0) circle (1.8mm);
- \path[fill=gray] (-5,0) circle (1.8mm);
- \path[fill=gray] (-3,0) circle (1.8mm);
- \path[fill=gray] (-1,0) circle (1.8mm);
- \draw (-7,1.5)--++(6,0);
- \path[fill=gray] (-7,1.5) circle (1.8mm);
- \path[fill=gray] (-4,1.5) circle (1.8mm);
- \path[fill=gray] (-1,1.5) circle (1.8mm);
- \draw (-7,3)--++(6,0);
- \path[fill=gray] (-7,3) circle (1.8mm);
- %\path[fill=orange] (-4,3) circle (1.8mm);
- \path[fill=gray] (-1,3) circle (1.8mm);
- 
- \draw (-7,4.5)--++(6,0);
- \path[fill=gray] (-4,4.5) circle (1.8mm);
- \end{tikzpicture}
- \end{center}
-
-\end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{$n=1$}
+\frametitle{Élément fini segment}
 
 \begin{itemize}
-\item  \fbox{$k=0$} , le segment de type (0) correspond à
-    \[\mathbb{P}  = \mathbb{P}_0^{(1)}=\mathbb{R}, \quad \Sigma=\Sigma_0^{(1)} = {a_0}\]
-La fonction de base est la fonction constante définie par
-\[\forall x\in K,\quad p_0(x)=1\]
-\begin{center}
- \begin{tikzpicture}[scale=2]
+\item  \fbox{$n=1$, $k=0$}  Le segment de type (0) correspond à 
+\[(K,P,\Sigma)=([0,1],\;\mathbb{P}_0^{(1)}=\mathbb{R},\;\Sigma_0^{(1)} = \{a_0\})\]
+La fonction de base est $\varphi(\xi)=1$
+\begin{tikzpicture}[scale=1]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
 \draw  [dashed] (0.5,0) -- (0.5,1);
 \node [blue] at (0.5,0) {$\bullet$};
-\node at (0.5,-0.5) {$\scriptstyle  p_1(\xi)=1$};
+%\node at (0.5,-0.5) {$\scriptstyle  p_1(\xi)=1$};
 \draw [orange,domain=0:1] plot(\x,1);
 \node [orange] at (-0.1,1) {$\scriptstyle  1$};
-
 \end{tikzpicture} 
- \end{center}
+\item  \fbox{$n=1$, $k=1$}  Le segment de type (1) correspond à 
+\[(K,P,\Sigma)=([0,1],\;\mathbb{P}_1^{(1)}=\mathbb{R}_1[X],\;\Sigma_1^{(1)} = \{a_1=1,a_2=0\})\]
 
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-%\lipsum[2]
-
-	\begin{itemize}
-  	\item \fbox{$k=1$} le segment de type (1) est obtenu pour
-    \[\mathbb{P}=\mathbb{P}_1^{(1)},\quad \Sigma=\Sigma_1^{(1)} = \{a_1=1,a_2=0\}\]
-Les fonctions de base sont les fonctions coordonnées barycentriques par rapport à $(a_1, a_2)$, i.e.  
+Les fonctions de base sont les fonctions coordonnées barycentriques:
 \[\varphi_1 = \lambda_1=\xi,\quad   \varphi_2 = \lambda_2=1-\xi\]
 
 
   	\begin{center}
   	\begin{tabular}{cc}
-  	\begin{tikzpicture}[scale=2]
+  	\begin{tikzpicture}[scale=1]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
@@ -785,7 +1010,7 @@ Les fonctions de base sont les fonctions coordonnées barycentriques par rapport
 \draw [orange,domain=0:1] plot(\x,\x);
 \end{tikzpicture} 
  &
- \begin{tikzpicture}[scale=2]
+ \begin{tikzpicture}[scale=1]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
@@ -803,26 +1028,23 @@ Les fonctions de base sont les fonctions coordonnées barycentriques par rapport
   \end{itemize}	
  \end{frame}  
 
-
-
-
-
-
-
 \begin{frame}
-\frametitle{$n=1$}
+\frametitle{Élément fini segment}
 
 \begin{itemize}
-
-\item   Pour $k= 2$, le segment de type (2) correspond à
+\item   \fbox{$n=1$, $k=1$}, le segment de type (2) correspond à
     \[\mathbb{P}=\mathbb{P}_2,\quad \Sigma=\Sigma_2 = \{a_1,a_{12},a_2\}\]
 Les fonctions de base sont les fonctions
-\[\varphi_i=\lambda_i(2\lambda_i-1), \quad i=1,2\]
-\[\varphi_{12}=4\lambda_1\lambda_2 \]
+\[\left\{\begin{array}{l}
+\varphi_i=\lambda_i(2\lambda_i-1), \quad i=1,2 \\
+\varphi_{12}=4\lambda_1\lambda_2
+\end{array}\right.
+\]
+\[\varphi_1(\xi)=\xi(2\xi-1),\quad \varphi_2(\xi)=(1-\xi)(2(1-\xi)-1)=(1-\xi)(1-2\xi)\]
 \end{itemize}
   	\begin{center}
   	\begin{tabular}{ccc}
-  	  \begin{tikzpicture}[scale=2]
+  	  \begin{tikzpicture}[scale=1]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
@@ -835,7 +1057,7 @@ Les fonctions de base sont les fonctions
 
 \end{tikzpicture} 
 &
-  \begin{tikzpicture}[scale=2]
+  \begin{tikzpicture}[scale=1]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
@@ -847,7 +1069,7 @@ Les fonctions de base sont les fonctions
 
 \end{tikzpicture} 
 &
- \begin{tikzpicture}[scale=2]
+ \begin{tikzpicture}[scale=1]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
@@ -1032,15 +1254,14 @@ et
 \begin{frame}
 \frametitle{Éléments finis triangles de type (2)}
 
-\begin{itemize}
-
-\item   Pour $k= 2$, le triangle de type (2) correspond à
-    \[\mathbb{P}=\mathbb{P}_2^2,\quad \Sigma=\Sigma_2^2 = \{a_1,a_2,a_3\}\cup \{a_{23},a_{13},a_{12}\}\]
-Les fonctions de base sont les fonctions
-\[\varphi_i=\lambda_i(2\lambda_i-1), \quad 1\leq  i  \leq 3,\]
-%et   
-\[\varphi_{ij}=4\lambda_i\lambda_j, \quad 1\leq  i<j  \leq 3,\]
-\end{itemize}
+\[\begin{array}{l}
+\varphi_1(\xi,\eta)=\xi(2\xi-1)\\
+\varphi_2(\xi,\eta)=\eta(2\eta-1)\\
+\varphi_3(\xi,\eta)=(1-\xi-\eta)(1-2\xi-2\eta)\\
+\varphi_{12}(\xi,\eta)=4\xi\eta\\
+\varphi_{13}(\xi,\eta)=4\xi(1-\xi-\eta)\\
+\varphi_{23}(\xi,\eta)=4\eta(1-\xi-\eta)\\
+\end{array}\]
 
 \begin{center}
  \begin{tikzpicture}[scale=0.5]   
@@ -1115,22 +1336,19 @@ et
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Éléments finis tétraèdre ($n=3$)}
-\begin{itemize}
-
-\item $K$ est le tétraèdre de sommets $a_1$, $a_2$, $a_3$ et $a_4$. On pose
- \[a_0=\frac 14(a_1+a_2+a_3+a_4)\]
- \[a_{ij}=\frac 12(a_i+a_j),\quad 1\leq  i<j  \leq 3\]
-\end{itemize}
+$K$ est le tétraèdre de sommets $a_1$, $a_2$, $a_3$ et $a_4$. On pose
 \begin{itemize}
 \item Pour $k=0$, le tétraèdre de type (0) correspond à
-\[ \mathbb{P} = \mathbb{P}_0^3, \quad \Sigma=\Sigma_0^3 = \{a_0\}\]
-
-
+\[ \mathbb{P} = \mathbb{P}_0^3=\mathbb{R}=vect(\varphi=1), \quad \Sigma=\Sigma_0^3 = \{a_0\}\]
 \item  Pour $k = 1$, le tétraèdre de type (1) est obtenu pour
-\[\mathbb{P}=\mathbb{P}_1^3,\quad \Sigma=\Sigma_1^3 = \{a_i\}_{1\leq i\leq 4}\]
-
+\[\mathbb{P}=\mathbb{P}_1^3=\mathbb{R}_1[X,Y]=vect(\varphi_i=\lambda_i,1\leq i\leq 4),\quad \Sigma=\Sigma_1^3 = \{a_i\}_{1\leq i\leq 4}\]
 \item   Pour $k=2$, le tétraèdre de type (2) est obtenu pour
-\[\mathbb{P}=\mathbb{P}_2,\quad \Sigma=\Sigma_2 = \{a_i\}_{1\leq i\leq 4}\cup \{a_{ij}\}_{1\leq i<j\leq 4}\]
+\[\begin{array}{l  cl}
+\mathbb{P}=\mathbb{P}_2^{(3)}&=&vect(1,\xi,\eta,\nu,\xi^2,\eta^2,\nu^2,\xi\eta,\xi\nu,\eta\nu)\\
+&=&vect(\varphi_i=\lambda_i(2\lambda_i-1),\; \varphi_{ij}=4\lambda_i\lambda_j)\\
+\Sigma=\Sigma_2 &=& \{a_i\}_{1\leq i\leq 4}\cup \{a_{ij}\}_{1\leq i<j\leq 4}
+\end{array}
+\]
 \end{itemize}
 Les expressions des fonctions de base relatives à ces exemples de tétraèdre de type (k) sont formellement identiques à celles donnant les fonctions de base de triangle de type (k) .
 
@@ -1154,6 +1372,12 @@ Les expressions des fonctions de base relatives à ces exemples de tétraèdre d
   \path[fill=red] (16+6,6) circle (1.8mm);
   \path[fill=red] (16+0,6) circle (1.8mm);
   \path[fill=red] (16+3,3) circle (1.8mm);
+  
+  \path[fill=red] (16+0,3) circle (1.8mm);
+  \path[fill=red] (16+3,0) circle (1.8mm);
+  \path[fill=red] (16+3,6) circle (1.8mm);
+  \path[fill=red] (16+6,3) circle (1.8mm);
+  
   \draw (24,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
   \path[fill=red] (24+0,0) circle (1.8mm);
   \path[fill=red] (24+6,0) circle (1.8mm);
@@ -1249,9 +1473,11 @@ Les expressions des fonctions de base relatives à ces exemples de tétraèdre d
   \path[fill=black!60!green] (10+4.2,2.2+4) circle (1.8mm);
   \path[fill=black!60!green] (10+1.1,1.1+4) circle (1.8mm);
   
-  \path[fill=black!60!green] (10+0,2) circle (1.8mm);  
+  \path[fill=black!60!green] (10+0,2) circle (1.8mm); 
+  \path[fill=black!60!red] (10+2,2) circle (1.8mm); 
   \path[fill=black!60!green] (10+4,2) circle (1.8mm);
   \path[fill=black!60!green] (10+6.2,4.2) circle (1.8mm);
+  \path[fill=black!60!red] (10+5.1,4.2) circle (1.8mm);% ici ici
   \path[fill=black!60!green] (10+2.2,4.2) circle (1.8mm);
   
     \draw (20,0)--++(6.2,2.2)--++(0,4)--++(-6.2,-2.2)--++(0,-4);
@@ -1319,25 +1545,186 @@ où les points $\hat{a}_j$,  $1\leq j\leq 2^n$,  sont les sommets de $\widehat{K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Éléments finis parallélotopes}
-Pour tout entier on désigne par $\mathbb{Q}_k$ l'espace des (fonctions) polynômes de degré inférieur ou égal à $k$ par rapport à chaque variable: une fonction $p$ de $\mathbb{R}^n$ dans $\mathbb{R}$ appartient donc à $\mathbb{Q}_k$  si et seulement si il existe des scalaires réels $\alpha_{i_1,...,i_n}$ tels que
+Soit $\mathbb{Q}_k^{(n)}$ l'espace des (fonctions) polynômes de degré inférieur ou égal à $k$ par rapport à chaque variable: 
 \begin{equation}
 \forall x\in \mathbb{R}^n,\quad p(x)=\sum_{0\leq i_1\leq k,...,0\leq i_n\leq k}\alpha_{i_1,...,i_n}x_1^{\alpha_1}...x_n^{\alpha_n}
 \end{equation}
-On remarque que
 \[\dim (\mathbb{Q}_k) = (k+ 1)^n\]
+
+
+\begin{itemize}
+\item $\mathbb{Q}_0^{(n)}=\mathbb{R}$.
+\item $\mathbb{Q}_k^{(1)}=\mathbb{P}_k^{(1)}$.
+\item $\mathbb{Q}_k^{(2)}=vect\{x^iy^j;\; 0\leq i,j \leq k\}$, $\dim \mathbb{Q}_k^{(2)}=(k+1)^2$.
+En particulier: 
+\begin{itemize}
+\item $\mathbb{Q}_1^{(2)}=\{a+bx+cy+dxy;\; a,b,c,d\in \mathbb{R}\}$, $\dim \mathbb{Q}_1^{(2)}=4$.
+\item $\mathbb{Q}_2^{(2)}=vect\{1,x,x^2,y,y^2,xy,xy^2,x^2y,x^2y^2\}$, $\dim \mathbb{Q}_2^{(2)}=9$.
+\end{itemize}
+\item $\mathbb{Q}_k^{(3)}=vect\{x^py^qz^r;\; 0\leq p,q,r \leq k\}$, $\dim \mathbb{Q}_k^{(2)}=(k+1)^3$.
+Et donc: 
+\begin{itemize}
+\item $\mathbb{Q}_1^{(3)}=vect\{1,x,y,z,xy,xz,yz,xyz\}$, $\dim \mathbb{Q}_1^{(2)}=8$.
+\item $\mathbb{Q}_1^{(3)}=vect\left\{
+1,x,x^2,y,y^2,z,z^2,xy,xz,yz,xyz,x^2y,x^2z,x^2yz,xy^2,\right.$
+$\left. ,y^2z,xy^2z,xz^2,yz^2,xyz^2,x^2y^2,x^2z^2,y^2z^2,x^2y^2z,x^2yz^2,xy^2z^2,x^2y^2z^2\right\}$
+$\dim \mathbb{Q}_1^{(2)}=27$.
+\end{itemize}
+\end{itemize}
+
    On prend alors pour domaine $\widehat{K}$ l'hypercube unité $[0, 1]^n$ de $\mathbb{R}^n$ et on définit pour tout entier $k \geq 1$ l'ensemble de points de $\widehat{K}$
 \begin{equation}
 \widehat{\Xi}_k^{(n)}=\left\{\hat{x}=(\hat{x}_i)_{1\leq i\leq n};\, \hat{x}_i\in\left\{0,\frac 1k,...,\frac{k-1}{k},1\right\},\; 1\leq i\leq n\right\}
 \end{equation}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Éléments finis parallélotopes}
+
+
+   On prend alors pour domaine $\widehat{K}$ l'hypercube unité $[0, 1]^n$ de $\mathbb{R}^n$ et on définit pour tout entier $k \geq 1$ l'ensemble de points de $\widehat{K}$
+\begin{equation}
+\widehat{\Xi}_k^{(n)}=\left\{\hat{x}=(\hat{x}_i)_{1\leq i\leq n};\, \hat{x}_i\in\left\{0,\frac 1k,...,\frac{k-1}{k},1\right\},\; 1\leq i\leq n\right\}
+\end{equation}
 Pour $k=0$, on posera  
 \begin{equation}
 \widehat{\Xi}_0^{(n)}=\left\{\left(\frac 1{n+1},...,\frac 1{n+1}\right)\in \mathbb{R}^n \right\}
 \end{equation}
 On a ainsi pour tout entier  $k\geq 1$                                                                                            \[\mbox{card} (\widehat{\Xi}_k) =  (k+ 1)^n\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments finis parallélotopes en dimension 1}
+ $\widehat{K}$ est le segment $[0, 1]$ 
+\[
+\widehat{\Xi}_0^{(1)}=\left\{\frac 1{2}\right\},\quad \mbox{pour }k \geq 1, \; \widehat{\Xi}_k^{(1)}=\left\{0,\frac 1k,...,\frac{k-1}{k},1\right\}
+\]
+ \[\mbox{card} (\widehat{\Xi}_k) =  k+ 1\] En particulier
+ \begin{itemize}
+\item $\widehat{\Xi}_1^{(1)}=\left\{0,1\right\}$, Card$\widehat{\Xi}_1^{(1)}=2$
+\item $\widehat{\Xi}_2^{(1)}=\left\{0,\frac 12,1\right\}$, Card$\widehat{\Xi}_2^{(1)}=3$
+\item $\widehat{\Xi}_3^{(1)}=\left\{0,\frac 13,\frac 23,1\right\}$, Card$\widehat{\Xi}_3^{(1)}=4$
+ \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments finis parallélotopes en dimension 2}
+ $\widehat{K}$ est le carré $[0, 1]^2$. On pose $\hat{a}_1=(0,0)$, $\hat{a}_2=(1,0)$, $\hat{a}_3=(1,1)$, $\hat{a}_4=(0,1)$, 
+\[
+\widehat{\Xi}_0^{(2)}=\left\{(\frac 1{2},\frac 1{2})\right\},\; \mbox{pour }k \geq 1, \; \widehat{\Xi}_k^{(2)}=\left\{(\hat{x}_1,\hat{x}_2);\; \hat{x}_i \in\left\{0,\frac 1k,...,\frac{k-1}{k},1\right\}\right\}
+\]
+ \[\mbox{card} (\widehat{\Xi}_k) =  (k+ 1)^2\] 
+ \begin{itemize}
+\item $\widehat{\Xi}_1^{(2)}=\left\{(\hat{x}_1,\hat{x}_2);\; \hat{x}_i \in\left\{0,1\right\}\right\}=\left\{\hat{a}_1,\hat{a}_2,\hat{a}_3,\hat{a}_4\right\}$, Card$\widehat{\Xi}_2^{(1)}=4$
+\item $\widehat{\Xi}_2^{(1)}=\left\{(\hat{x}_1,\hat{x}_2);\; \hat{x}_i \in\left\{0,\frac 12,1\right\}\right\}=\left\{\hat{a}_0,\hat{a}_1,\hat{a}_2,\hat{a}_3,\hat{a}_4,\hat{a}_{12},\hat{a}_{13},\hat{a}_{14},\hat{a}_{23},\hat{a}_{24},\hat{a}_{34}\right\}$, Card$\widehat{\Xi}_2^{(1)}=9$
+\item $\widehat{\Xi}_3^{(2)}=\left\{(\hat{x}_1,\hat{x}_2);\; \hat{x}_i \in\left\{0,\frac 13,\frac 23,1\right\}\right\}$, Card$\widehat{\Xi}_3^{(2)}=16$
+ \end{itemize}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.2]
+  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (3,3) circle (1.8mm);
+  \draw (8,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (8+0,0) circle (1.8mm);
+  \path[fill=red] (8+6,0) circle (1.8mm);
+  \path[fill=red] (8+6,6) circle (1.8mm);
+  \path[fill=red] (8+0,6) circle (1.8mm);
+  \draw (16,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (16+0,0) circle (1.8mm);
+  \path[fill=red] (16+6,0) circle (1.8mm);
+  \path[fill=red] (16+6,6) circle (1.8mm);
+  \path[fill=red] (16+0,6) circle (1.8mm);
+  \path[fill=red] (16+3,3) circle (1.8mm);
+  
+  \path[fill=red] (16+0,3) circle (1.8mm);
+  \path[fill=red] (16+3,0) circle (1.8mm);
+  \path[fill=red] (16+3,6) circle (1.8mm);
+  \path[fill=red] (16+6,3) circle (1.8mm);
+  
+  \draw (24,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (24+0,0) circle (1.8mm);
+  \path[fill=red] (24+6,0) circle (1.8mm);
+  \path[fill=red] (24+6,6) circle (1.8mm);
+  \path[fill=red] (24+0,6) circle (1.8mm);
+  \path[fill=red] (24+2,0) circle (1.8mm);
+  \path[fill=red] (24+2,6) circle (1.8mm);
+  \path[fill=red] (24+4,0) circle (1.8mm);
+  \path[fill=red] (24+4,6) circle (1.8mm);
+  \path[fill=red] (24+0,2) circle (1.8mm);
+  \path[fill=red] (24+6,2) circle (1.8mm);
+  \path[fill=red] (24+0,4) circle (1.8mm);
+  \path[fill=red] (24+6,4) circle (1.8mm);
+  
+  \path[fill=red] (24+2,2) circle (1.8mm);
+  \path[fill=red] (24+4,2) circle (1.8mm);
+  \path[fill=red] (24+2,4) circle (1.8mm);
+  \path[fill=red] (24+4,4) circle (1.8mm);
+
+ \end{tikzpicture}
+   \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments finis parallélotopes en dimension 3}
+ $\widehat{K}$ est le cube $[0, 1]^3$. On pose $\hat{a}_1=(0,0,0)$, $\hat{a}_2=(1,0,0)$, $\hat{a}_3=(1,1,0)$, $\hat{a}_4=(0,1,0)$, $\hat{a}_5=(0,0,1)$, $\hat{a}_6=(1,0,1)$, $\hat{a}_7=(1,1,1)$, $\hat{a}_8=(0,1,1)$, 
+\[
+\widehat{\Xi}_0^{(3)}=\left\{(\frac 1{2},\frac 1{2},\frac 1{2})\right\},\; \; \widehat{\Xi}_k^{(3)}=\left\{(\hat{x}_1,\hat{x}_2,\hat{x}_3);\; \hat{x}_i \in\left\{0,\frac 1k,...,\frac{k-1}{k},1\right\}\right\}
+\]
+ \[\mbox{card} (\widehat{\Xi}_k) =  (k+ 1)^3\] 
+ \begin{itemize}
+\item $\widehat{\Xi}_1^{(3)}=\left\{(\hat{x}_1,\hat{x}_2,\hat{x}_3);\; \hat{x}_i \in\left\{0,1\right\}\right\}=\left\{\hat{a}_1,\hat{a}_2,\hat{a}_3,\hat{a}_4,\hat{a}_5,\hat{a}_6,\hat{a}_7,\hat{a}_8\right\}$, Card$=8$
+\item $\widehat{\Xi}_2^{(3)}=\left\{(\hat{x}_1,\hat{x}_2,\hat{x}_3));\; \hat{x}_i \in\left\{0,\frac 12,1\right\}\right\}$, Card$\widehat{\Xi}_2^{(3)}=27$
+ \end{itemize}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.2]
+  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (3,3) circle (1.8mm);
+  \draw (8,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (8+0,0) circle (1.8mm);
+  \path[fill=red] (8+6,0) circle (1.8mm);
+  \path[fill=red] (8+6,6) circle (1.8mm);
+  \path[fill=red] (8+0,6) circle (1.8mm);
+  \draw (16,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (16+0,0) circle (1.8mm);
+  \path[fill=red] (16+6,0) circle (1.8mm);
+  \path[fill=red] (16+6,6) circle (1.8mm);
+  \path[fill=red] (16+0,6) circle (1.8mm);
+  \path[fill=red] (16+3,3) circle (1.8mm);
+  
+  \path[fill=red] (16+0,3) circle (1.8mm);
+  \path[fill=red] (16+3,0) circle (1.8mm);
+  \path[fill=red] (16+3,6) circle (1.8mm);
+  \path[fill=red] (16+6,3) circle (1.8mm);
+  
+  \draw (24,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (24+0,0) circle (1.8mm);
+  \path[fill=red] (24+6,0) circle (1.8mm);
+  \path[fill=red] (24+6,6) circle (1.8mm);
+  \path[fill=red] (24+0,6) circle (1.8mm);
+  \path[fill=red] (24+2,0) circle (1.8mm);
+  \path[fill=red] (24+2,6) circle (1.8mm);
+  \path[fill=red] (24+4,0) circle (1.8mm);
+  \path[fill=red] (24+4,6) circle (1.8mm);
+  \path[fill=red] (24+0,2) circle (1.8mm);
+  \path[fill=red] (24+6,2) circle (1.8mm);
+  \path[fill=red] (24+0,4) circle (1.8mm);
+  \path[fill=red] (24+6,4) circle (1.8mm);
+  
+  \path[fill=red] (24+2,2) circle (1.8mm);
+  \path[fill=red] (24+4,2) circle (1.8mm);
+  \path[fill=red] (24+2,4) circle (1.8mm);
+  \path[fill=red] (24+4,4) circle (1.8mm);
+
+ \end{tikzpicture}
+   \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments finis parallélotopes}
+
 \begin{itemize}
 \item Théorème: Pour tout entier $k\geq 0$, l'ensemble $\widehat{\Xi}_k$ est $\mathbb{Q}_k$-unisolvant.
 \item Définition: On appelle $n-$hypercube unité de type ($k$),  l'élément fini $(K, \mathbb{Q}_k, \widehat{\Xi}_k)$. On appelle $n-$parallèlotope de type ($k$) tout élément fini $(K, P, \Sigma)$ affine-équivalent au $n-$hypercube unité de. type ($k$).

@@ -24,7 +24,7 @@
 
 \section{Méthode des différences finies}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- On considère, pour une équation différentielle du second ordre, le problème aux limites suivant
+ On considère le problème aux limites suivant
 \[\left\{\begin{array}{l}
 -\frac{d^2u(x)}{dx^2}+c u(x)=f(x)\quad\mbox{dans }]0,1[\\
 u(0)=u(1)=0
@@ -32,9 +32,6 @@ u(0)=u(1)=0
 \]
 où $c$ est une constante positive, $f(x)$ une fonction continue. Cette équation modélise de nombreux problèmes de statique, par exemple la diffusion de la chaleur dans une barre.
 
-En général les solutions d'une équation
-différentielle ne sont pas exprimables à l'aide des fonctions usuelles, on en calcule seulement des
-approximations en un nombre fini de points, d'où le nom de discrétisation donné à ces approximations.
 On divise l'intervalle $[0; 1]$ selon un pas $h = \frac 1{N+1}$. On appelle nœuds les points de coordonnées $x_i = ih$ où $0\leq i\leq N+1$. L'objectif est de calculer une approximation $u_i$ des valeurs de la solution du problème aux points $x_i$. Il y a donc $N$ valeurs à calculer $u(x_i)$;  $1\leq i\leq N$. 
 
 \begin{enumerate}
@@ -44,7 +41,7 @@ On divise l'intervalle $[0; 1]$ selon un pas $h = \frac 1{N+1}$. On appelle nœu
 
 \item En déduire que la suite $(u(x_i))$ pour $1\leq i\leq N$ peut être approchée par une suite $(u_i)$ vérifiant la relation de récurrence:
 \[\left\{\begin{array}{l}
--\frac{u_{i-1}-2u_i+u_{i+1}}{h^2}+c\,u_i =f_i \quad1\leq i\leq N\\
+\displaystyle -\frac{u_{i-1}-2u_i+u_{i+1}}{h^2}+c\,u_i =f_i \quad1\leq i\leq N\\
 u_0=u_{N+1}=0
 \end{array}\right.
 \]
@@ -56,7 +53,7 @@ où  $f_i=f(x_i)$.
 
 \section{Problème aux limites d'ordre 4}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- On considère, pour une équation différentielle du second ordre, le problème aux limites suivant
+ On considère le problème aux limites d'ordre 4 suivant
 \[\left\{\begin{array}{l}
 \frac{d^4u(x)}{dx^4}=f(x)\quad\mbox{dans }]0,1[\\
 u(0)=u(1)=0\\
@@ -66,15 +63,15 @@ u'(0)=u'(1)=0\\
 où $f(x)$ une fonction continue. Cette équation modélise de nombreux problèmes de statique, par exemple une poutre en flexion simple.
 
 \begin{enumerate}
-\item On subdivise l'intervalle $[0; 1]$ en $N+3$ points d'abscisses $x_i = ih$ où $0\leq i\leq N+2$ et $h = \frac 1{N+2}$.  L'objectif est de calculer une approximation $u_i$ des valeurs de la solution du problème aux points $x_i$. Montrer qu'il y a  $N-1$ valeurs à calculer $u(x_i)$;  $2\leq i\leq N$. 
+\item On subdivise l'intervalle $[0; 1]$ en $N+3$ points d'abscisses $x_i = ih$ où $0\leq i\leq N+2$ et $h = \frac 1{N+2}$.  L'objectif est de calculer une approximation $(u_i)$ des valeurs de la solution du problème aux points $x_i$. Montrer qu'il y a  $N-1$ valeurs à calculer $u(x_i)$;  $2\leq i\leq N$. 
 
 \item On définit l'opérateur linéaire $T_h$ par $T_hf(x)=f(x+h)$ et on approche alors la dérivée par l'opérateur $\Delta$:
 \[\Delta = \frac{T_{\frac h2}-T_{-\frac h2}}{h}\]
 Justifier rapidement l'approximation $\Delta u\simeq u'$ et calculer $\Delta^4$. En déduire une approximation de $\frac{\de^4 u}{\de x^4}(x_i)$.Montrer que cette dernière approximation est  d'ordre 2. 
 
-\item En déduire que la suite $(u(x_i))$ pour $1\leq i\leq N$ peut être approchée par une suite $(u_i)$ vérifiant la relation de récurrence:
+\item En déduire que la suite $(u(x_i))$ pour $2\leq i\leq N$ peut être approchée par une suite $(u_i)$ vérifiant la relation de récurrence d'ordre 4:
 \[\left\{\begin{array}{l}
-\frac{u_{i-2}-4u_{i-1}+6u_i-4u_{i+1}+u_{i+2}}{h^4}=f_i \quad 2\leq i\leq N\\
+\displaystyle \frac{u_{i-2}-4u_{i-1}+6u_i-4u_{i+1}+u_{i+2}}{h^4}=f_i \quad 2\leq i\leq N\\
 u_0=u_{N+2}=0\\
 u_1=u_{N+1}=0
 \end{array}\right.
@@ -145,7 +142,7 @@ u_{i,0} = u_{i,M+1} = u_{0,j} = u_{N+1,j}=0.
 \end{array}
 \end{equation}
 
-\item On note $u_{i,j}=u_m$ avec $m = i + (j-1)N$. Soit le vecteur $U = (u_m)$  Pour $N = M = 3$, écrire le système
+\item On note $u_{i,j}=u_m$ avec $m = i + (j-1)N$. Soit le vecteur $U = (u_m)$.  Pour $N = M = 3$, écrire le système
 sous la forme $AU = F$. Montrer $A$ est inversible et définie positive.
 \item Vérifier que les vecteurs propres de la matrice sont les vecteurs $u(p,q)$ définis par
 \[(u(p,q))_{i,j} = \sin\left(p\pi \frac{i\delta x}{a}\right)\sin\left(q\pi \frac{j\delta y}{b}\right)

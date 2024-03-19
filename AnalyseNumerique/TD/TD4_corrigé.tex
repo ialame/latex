@@ -30,7 +30,7 @@
 %%%%%%%%   bleclercq@adm.estp.fr
 \title{TD4 d'Analyse Numérique (B1-TP1) }
 \author{Ibrahim ALAME}
-\date{14/04/2023}
+\date{19/03/2024}
 \begin{document}
 \maketitle
 
@@ -128,10 +128,10 @@ u'(0)=u'(1)=0\\
 \]
 
 \begin{enumerate}
-\item On a $0=u'(0)\simeq \frac{u(h)-u(0)}{h}\Longrightarrow u_1=u(h)=0$ de même $u_{N+1}=0$. Nous avons donc 4 valeurs de $u$ connues, il reste $N-1$ valeurs de $u_i$ à déterminer pour $i$ allant de 2 à $N$. 
+\item On a $0=u'(0)\simeq \frac{u(h)-u(0)}{h}\Longrightarrow u_1=u(h)=0$ de même $u_{N+1}=0$. Nous avons donc 4 valeurs de $u$ connues, il reste $N-1$ valeurs de $(u_i)$ à déterminer pour $i$ allant de 2 à $N$. 
 
 \item On a
-\[\Delta u(x)= \frac{T_{\frac h2}u(x)-T_{-\frac h2}u(x)}{h}= \frac{u(x+\frac h2)-u(x-\frac h2)}{h}\simeq u'(x)\]
+\[\Delta u(x)= \frac{T_{\frac h2}u(x)-T_{-\frac h2}u(x)}{h}= \frac{u(x+\frac h2)-u(x-\frac h2)}{h}\simeq u'(x)\quad\mbox{ (cf cours)}\]
 On a
 \[\Delta^4=\left(\frac 1h(T_{h/2}-T_{-h/2})\right)^4\]\[=\frac 1{h^4}(T^4_{h/2}-4T^3_{h/2}T_{-h/2}+6T^2_{h/2}T^2_{-h/2}-4T_{h/2}T^3_{-h/2}+T^4_{-h/2})\]
 \[=\frac 1{h^4}(T_{2h}-4T_{3h/2}T_{-h/2}+6T_{h}T_{-h}-4T_{h/2}T_{-3h/2}+T_{-2h})\]
@@ -142,17 +142,17 @@ On a
 
 
 Cette approximation est  d'ordre 2: On fait un développement de Taylor à l'ordre 6 de $u$:
-\[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(x) +\frac{h^5}{120} u^{(5)}(x) +\frac{h^6}{720} u^{(6)}(\xi_1)  ,\]
-\[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(x)-\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(x) -\frac{h^5}{120} u^{(5)}(x) +\frac{h^6}{720} u^{(6)}(\xi_2)  ,\]
-\[u(x+2h)=u(x)+2h u'(x)+2h^2 u''(x)+\frac{4h^3}3 u'''(x)+\frac{2h^4}{3} u^{(4)}(x) +\frac{4h^5}{15} u^{(5)}(x) +\frac{4h^6}{45} u^{(6)}(\xi_3)  ,\]
-\[u(x-2h)=u(x)-2h u'(x)+2h^2 u''(x)-\frac{4h^3}3 u'''(x)+\frac{2h^4}{3} u^{(4)}(x) -\frac{4h^5}{15} u^{(5)}(x) +\frac{4h^6}{45} u^{(6)}(\xi_4)  ,\]
-En faisant une combinaison des 4 dernières lignes: $-4u(x+h)-4u(x-h)+u(x+h)+u(x-h)$, on trouve:
-\[6u(x)+h^4 u^{(4)}(x)+\frac{h^6}{180} \left(-u^{(6)}(\xi_1) - u^{(6)}(\xi_2)+16u^{(6)}(\xi_3) + 16u^{(6)}(\xi_4)\right) ,\]
+\[u(x+h)=u(x)+h u'(x)+\frac{h^2}2 u''(x)+\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(x) +\frac{h^5}{120} u^{(5)}(x) +\frac{h^6}{720} u^{(6)}(x)+o(h^6)  ,\]
+\[u(x-h)=u(x)-h u'(x)+\frac{h^2}2 u''(x)-\frac{h^3}6 u'''(x)+\frac{h^4}{24} u^{(4)}(x) -\frac{h^5}{120} u^{(5)}(x) +\frac{h^6}{720} u^{(6)}(x) +o(h^6) ,\]
+\[u(x+2h)=u(x)+2h u'(x)+2h^2 u''(x)+\frac{4h^3}3 u'''(x)+\frac{2h^4}{3} u^{(4)}(x) +\frac{4h^5}{15} u^{(5)}(x) +\frac{4h^6}{45} u^{(6)}(x) +o(h^6) ,\]
+\[u(x-2h)=u(x)-2h u'(x)+2h^2 u''(x)-\frac{4h^3}3 u'''(x)+\frac{2h^4}{3} u^{(4)}(x) -\frac{4h^5}{15} u^{(5)}(x) +\frac{4h^6}{45} u^{(6)}(x) +o(h^6) ,\]
+En faisant une combinaison des 4 dernières lignes; on trouve:
+\[-4u(x+h)-4u(x-h)+u(x+h)+u(x-h)=6u(x)+h^4 u^{(4)}(x)+\frac{h^6}{6} u^{(6)}(x) +o(h^6) ,\]
 D'où
-\[\left| \frac{u(x-2h)-4u(x-h)+6u(x)-4u(x+h)+u(x+2h)}{h^4}- u^{(4)}(x) \right|\leq \frac{17h^2}{90}\sup_{y\in[0,1]} |u^{(6)}(y)| \]
+\[ \frac{u(x-2h)-4u(x-h)+6u(x)-4u(x+h)+u(x+2h)}{h^4}= u^{(4)}(x) +O(h^2)\]
 \item 
 \[\left\{\begin{array}{l}
-\frac{u_{i-2}-4u_{i-1}+6u_i-4u_{i+1}+u_{i+2}}{h^4}=f_i \quad 2\leq i\leq N\\
+\displaystyle \frac{u_{i-2}-4u_{i-1}+6u_i-4u_{i+1}+u_{i+2}}{h^4}=f_i \quad 2\leq i\leq N\\
 u_0=u_{N+2}=0\\
 u_1=u_{N+1}=0
 \end{array}\right.

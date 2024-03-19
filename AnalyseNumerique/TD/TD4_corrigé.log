@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  15 MAR 2024 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  17 MAR 2024 12:11
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -670,7 +670,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
 (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (4.05865pt too wide) detected at line 145
+Overfull \hbox (34.17627pt too wide) detected at line 145
 \OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.
 95 + \OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 u\OT1/cmr/
 m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 hu[]
@@ -680,11 +680,12 @@ L/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95
  ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr
 /m/n/10.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95
  x\OT1/cmr/m/n/10.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/
-m/it/10.95 ^^X[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
+m/it/10.95 x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 o\OT1/cmr/m/n/10.95 (\OM
+L/cmm/m/it/10.95 h[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
  []
 
 
-Overfull \hbox (4.05865pt too wide) detected at line 146
+Overfull \hbox (34.17627pt too wide) detected at line 146
 \OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10
 .95 ^^@ \OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 u\OT1/c
 mr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@
@@ -695,11 +696,12 @@ mr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@
 T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95
  ^^@ []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr
 /m/n/10.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95
- ^^X[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
+ x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 o\OT1/cmr/m/n/10.95 (\OML/cmm/m/it
+/10.95 h[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
  []
 
 
-Overfull \hbox (29.25165pt too wide) detected at line 147
+Overfull \hbox (59.36926pt too wide) detected at line 147
 \OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.
 95 + 2\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 u\OT1/cmr
 /m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + 2\OML/cmm/m/it/10.95 hu
@@ -709,11 +711,12 @@ t/10.95 h[]u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + [
 0.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1
 /cmr/m/n/10.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
 0.95 x\OT1/cmr/m/n/10.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/
-cmm/m/it/10.95 ^^X[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
+cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 o\OT1/cmr/m/n/10.95 
+(\OML/cmm/m/it/10.95 h[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
  []
 
 
-Overfull \hbox (29.25165pt too wide) detected at line 148
+Overfull \hbox (59.36926pt too wide) detected at line 148
 \OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10
 .95 ^^@ \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ) = \OML/cm
 m/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OM
@@ -724,14 +727,9 @@ T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95
 /m/n/10.95 ) + []\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95
  x\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ []\OML/cmm/m/it/10.95 u[]\OT1/cm
 r/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + []\OML/cmm/m/it/10.95 
-u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^X[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/
-it/10.95 ;
- []
-
-
-Overfull \hbox (41.87933pt too wide) detected at line 152
-[] \OMS/cmsy/m/n/10.95 ^^T [] [] j\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 (\O
-ML/cmm/m/it/10.95 y\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 j
+u[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/i
+t/10.95 o\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h[]\OT1/cmr/m/n/10.95 )\OML/cm
+m/m/it/10.95 ;
  []
 
 [3] [4] [5] [6] [7] [8] [9]
@@ -763,17 +761,16 @@ ic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
 msfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/sym
-bols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super
-/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/s
-frm1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfr
-m1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1
-728.pfb>
-Output written on TD4_corrigé.pdf (12 pages, 218361 bytes).
+/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-sup
+er/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super
+/sfrm1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/s
+frm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfr
+m1728.pfb>
+Output written on TD4_corrigé.pdf (12 pages, 210124 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
