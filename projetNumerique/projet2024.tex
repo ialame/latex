@@ -506,33 +506,27 @@ et de $n'$ segments qui représentent les barres articulées.
 \[Barres=\left([p_i,p_j]\right)_{(i,j)\in G}\]
 où le graphe $G$ est une partie de $[0,n-1]\times [0,n-1]$ contenant les couples des indices des points liés par une barre. En python $N$ et $B$ sont codés par les deux listes suivantes:
 \begin{verbatim}
-L = .7
 Points = [[0, 0], [0, L], [L, 0]]
 Barres = [[0, 1], [1, 2], [2, 0]]
-
-n = len(Points)
-Forces = [[0,0]]*n
-Conditions = [[1,1]]*n
 \end{verbatim}
-Un nœud peut être articulé en un point fixe qui empêche tout déplacement  $u_1=u_2=0$, ou un appui simple horizontal ($u_2=0$) ou vertical ($u_1=0$). On représente la fixation d'un nœud par un couple $\left(\alpha_i,\beta_i\right)$ au point $i$  considéré,  où $\alpha_i$ est un boolean qui vaut 1 si le déplacement horizontal est libre, 0 sinon, et $\beta_i$ est un boolean qui vaut 1 si le déplacement vertical est libre, 0 sinon. Pour notre exemple:
+Un nœud peut être articulé en un point fixe qui empêche tout déplacement  $u_x=u_y=0$, ou un appui simple horizontal ($u_y=0$) ou vertical ($u_x=0$). On représente la fixation d'un nœud par un triplet $\left(i,\alpha_i,\beta_i\right)$ où  $i$  est le nœud considéré,  $\alpha_i$ est un boolean qui vaut 1 si le déplacement horizontal est libre, 0 sinon, et $\beta_i$ est un boolean qui vaut 1 si le déplacement vertical est libre, 0 sinon. Pour notre exemple:
 \begin{verbatim}
 #  Conditions aux appuis
-Conditions[0] = [0,0]
-Conditions[2] = [0,1]
+Conditions=[[0,0,0],[2,0,1]]
 \end{verbatim}
-Les forces exercées en chaque nœud  $i$ sont représentées par des couples $(f_{i}^x,f_i^y)$ où $f_i^x$ est la composante horizontale et $f_i^y$ est la composante verticale de la force appliquée au nœud $i$:
+Les forces exercées en chaque nœud  $i$ sont représentées par des triplets $(i,f_{x}^i,f_y^i)$ où $f_x^i$ est la composante horizontale et $f_y^i$ est la composante verticale de la force appliquée au nœud $i$:
 \begin{verbatim}
 #  Forces extérieurs
-Forces[2] = [0,-P]
+Forces=[[2,0,-P]]
 \end{verbatim}
 \subsubsection{Les constantes et grandeurs physiques}
 La section des barres $A$ exprimée en $\mbox{m}^2$. Les longueurs des barres $L_i$ sont calculées à partir des coordonnées des points d'articulation et exprimées en mètre (m). Le module de Young $E$ est exprimé en Pascal (Pa) . Les forces extérieurs nodales sont exprimées en Newton (N).
 
 Pour notre exemple nous avons:
-$L=0.2$m, $A=100\mbox{mm}^2$, $E=200000$MPa, et $P=-10000$N.
+$L=2$m, $A=100\mbox{mm}^2$, $E=200000$MPa, et $P=-10000$N.
 \begin{verbatim}
-L = 0.2
-EA = 2.1 * 1E7
+L = 2
+EA = 2.0 * 1E7
 P = -10000
 \end{verbatim}
 \subsubsection{Matrice de rigidité}
@@ -626,7 +620,6 @@ N = n * 2
 M = np.zeros((N, N), dtype=float)
 T = np.zeros(N, dtype=float)
 F = np.zeros(N, dtype=float) 
-
 # Assemblage de la matrice globale
 for p, q in Barres:
     x1,y1 = Points[p]
@@ -638,25 +631,31 @@ for p, q in Barres:
     CS = np.mat([c, s, -c, -s], dtype=float) # Matrice ligne $CS=(\cos\theta\; \sin\theta\; -\cos\theta\; -\sin\theta)$
     CSt = np.transpose(CS)
     m = np.dot(CSt, CS)*A*E/ell # $m = \frac{EA}{\ell} CS^tCS$
-    
-    f0, f1 = Forces[p]
-    f2, f3 = Forces[q]
-    f=[f0, f1, f2, f3]
-    
+    # Connectivité de degrés de liberté: deux ddl par extrémité
     connectivite=[2 * p, 2 * p + 1, 2 * q, 2 * q + 1]
-    
+    # Boucles sur les 4 lignes et 4 colonnes de la matrice élémentaire
     for i in range(4):
        I=connectivite[i]
-       F[I] += f[i]
        for j in range(4):
              J=connectivite[j]
              M[I, J] += m[i, j]
+# Le second membre             
+for p, fx, fy in Forces:
+    F[2*p]=fx
+    F[2*p+1]=fy         
 \end{minted}
 Les conditions aux appuis impose un ou deux déplacements nuls. On retire donc du système matriciel  les lignes et colonnes correspondants, soit en python:
 
-\begin{verbatim}
+\begin{minted}[
+mathescape,
+framesep=2mm,
+baselinestretch=1.2,
+%fontsize=\footnotesize,
+%bgcolor=LightGray,
+linenos
+]{python}
 l = []
-for p, [a, b] in enumerate(Conditions):
+for p, a, b in Conditions:
     if a == 0:
         l.append(2 * p)
     if b == 0:
@@ -668,7 +667,7 @@ for i in l:
     M = np.delete(M, i, axis=0)
     M = np.delete(M, i, axis=1)
     F = np.delete(F, i)
-\end{verbatim}
+\end{minted}
 
  
  

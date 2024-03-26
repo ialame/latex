@@ -21,7 +21,7 @@
 
 \title{TD 1 Analyse numérique (B1-TP1)}
 \author{Ibrahim ALAME}
-\date{03/02/2023}
+\date{23/03/2024}
 \begin{document}
 \maketitle
 \section{Interpolation}
@@ -184,21 +184,79 @@ D'où le polynôme:
 
 \end{center}
 
-\section{Intégration numérique}
+%\section{Intégration numérique}
+%
+%\begin{enumerate}
+%\item \[\int_1^2\frac 1x\de x=\ln 2\simeq 0.693\]
+%\item On a $h=\frac 13$ et $x_i=1+i/3$ donc
+%\[x_0=1,\, x_1=\frac 43,\,x_2=\frac 53,\, x_3=2\]
+%\[\int_a^bf(x)\de x=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1}f(x_i)\right)\]
+%\[\int_1^2\frac 1x\de x\simeq h\left(\frac{f(1)+f(2)}{2}+f(\frac 43)+f(\frac 53)\right)=\frac 13\left(\frac{1+\frac 12}{2}+\frac 34+\frac 35\right)=\frac 13(\frac 34+\frac 34+\frac 35)=\frac 7{10}=0.7\]
+%\item La fonction $x\mapsto \frac 1x$ étant convexe, la méthode donne alors une valeur approchée par excès.
+%\item \[\left|\frac{(b-a)^4}{12n^2}f''(\xi)\right|\leq 10^{-4}\]
+%Donc 
+% \[\left|\frac{1}{12n^2}2\right|\leq 10^{-4}\]
+% \[n^2\geq 10000/6\]
+% \[n\geq 100/\sqrt 6\]
+% \[n\geq 41\]
+%\end{enumerate}
+
+\section*{Exercice n°4 : Intégration numérique (retranscrit par Léo Shi)}
+
+On considère l'intégrale : $$I = \int^2_1 \dfrac{1}{x}\text{d}x$$
 
 \begin{enumerate}
-\item \[\int_1^2\frac 1x\de x=\ln 2\simeq 0.693\]
-\item On a $h=\frac 13$ et $x_i=1+i/3$ donc
-\[x_0=1,\, x_1=\frac 43,\,x_2=\frac 53,\, x_3=2\]
-\[\int_a^bf(x)\de x=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{i=1}^{n-1}f(x_i)\right)\]
-\[\int_1^2\frac 1x\de x\simeq h\left(\frac{f(1)+f(2)}{2}+f(\frac 43)+f(\frac 53)\right)=\frac 13\left(\frac{1+\frac 12}{2}+\frac 34+\frac 35\right)=\frac 13(\frac 34+\frac 34+\frac 35)=\frac 7{10}=0.7\]
-\item La fonction $x\mapsto \frac 1x$ étant convexe, la méthode donne alors une valeur approchée par excès.
-\item \[\left|\frac{(b-a)^4}{12n^2}f''(\xi)\right|\leq 10^{-4}\]
-Donc 
- \[\left|\frac{1}{12n^2}2\right|\leq 10^{-4}\]
- \[n^2\geq 10000/6\]
- \[n\geq 100/\sqrt 6\]
- \[n\geq 41\]
+\item On calcule la valeur exacte de $I$ : $$ I = \int^2_1 \dfrac{1}{x}\text{d}x = \left[\ln (x)\right]^2_1 = \ln 2
+$$
+\item Par la méthode des trapèzes : 
+\begin{center}
+\begin{tikzpicture}
+\draw[thick,-] (0,0) -- (6,0);
+
+\draw (0,-1pt) -- (0,1pt) node[anchor=north] {$x_0=1$};
+\draw (2,-1pt) -- (2,1pt) node[anchor=north] {$\dfrac{4}{3}$};
+\draw (4,-1pt) -- (4,1pt) node[anchor=north] {$\dfrac{5}{3}$};
+\draw (6,-1pt) -- (6,1pt) node[anchor=north] {$x_3=2$};
+\draw[thick,<->] (2,0.5) -- (4,0.5) node[anchor=south] {$h = \dfrac{1}{3}$};
+\end{tikzpicture}
+\end{center}
+
+$$
+\int^b_a f(x) \text{d}x = h\left[ \dfrac{f(a)+f(b)}{2} + \sum^2_{i=1} f(x_i) \right] = \dfrac{1}{3}\left[ \dfrac{1+\frac{1}{2}}{2} + \dfrac{3}{4} + \dfrac{3}{5} \right] = \dfrac{7}{10} = 0,7
+$$
+
+\item On s'aide d'un dessin : 
+
+\begin{center}
+\begin{tikzpicture}
+%\draw[step=1cm,gray,very thin] (-1,-1) grid (5,4);
+\draw[thick,->] (0,0) -- (4,0) node[anchor=north] {$x$};
+\draw[thick,->] (0,0) -- (0,3) node[anchor=west] {$y$};
+\filldraw [fill=gray!20,draw=black]
+(1,0) -- (1,1)
+-- plot [domain=1:2] (\x,1/\x)
+-- (2,0) -- cycle;
+\draw [domain=0.4:3] plot(\x,1/\x) node[anchor=south west] {$y=\dfrac{1}{x}$};
+\draw (0,-1pt) -- (0,1pt) node[anchor=north] {0};
+\draw (1,-1pt) -- (1,1pt) node[anchor=north] {1};
+\draw (2,-1pt) -- (2,1pt) node[anchor=north] {2};
+\draw[thick,-, draw=blue] (1,1) -- (2,0.5);
+\draw[thick,-, draw=blue] (2,0.5) -- (2,0);
+\draw[thick,-, draw=blue] (1,1) -- (1,0);
+
+\end{tikzpicture}
+
+On a $x \mapsto \dfrac{1}{x}$ qui est \textbf{convexe}, donc la courbe est en dessous de la droite.
+\end{center}
+
+\item \fbox{$E=\dfrac{(b-a)^4}{12n^2}f''(\xi)$} avec $\xi\in ]a,b[$, on cherche $n$ tel que $E\leq 10^{-4}$. On a $b=2$ et $a=1$ :
+$$
+1<\xi<2 \implies \dfrac{1}{2}<\dfrac{1}{\xi} <1 \implies \dfrac{1}{8}<\dfrac{1}{\xi^3} <1
+$$
+$$
+\dfrac{(2-1)^4}{12n^2}\times \dfrac{2}{\xi^3}\leq 10^{-4} \implies \dfrac{2}{8} \times \dfrac{1}{12n^2} \leq \dfrac{1}{12n^2} \times \dfrac{2}{\xi^3} \leq 10^{-4}
+$$
+D'où $\dfrac{1}{96n^2}\leq 10^{-4}$, soit \fbox{$n\geq 10$}
 \end{enumerate}
 \section*{5}
 \section*{6}
@@ -206,7 +264,94 @@ Donc
 \section*{8}
 \section*{9}
 \section*{10}
-\section*{11}
+\section*{Exercice n°11 : Formule de Quadrature(retranscrit par Léo Shi)}
+
+Soit la formule de quadrature, avec $\alpha \in ]0,1[$ : 
+
+\begin{align*}
+\int^1_{-1} f(x) \text{d}x = w_1 f(-\alpha)+w_2 f(\alpha) \qquad (R)
+\end{align*}
+
+\begin{enumerate}
+\item $(R)$ vraie sur $\mathbb{R}_n[X]$ si et seulement si elle est vraie sur la base $(1,X,X^2, ..., X^n)$, donc pour $n=1$, la relation $(R)$ est vraie si et seulement si elle est vraie sur la base $(1,X)$. 
+\begin{itemize}
+\item Pour 1, on a alors : 
+\begin{align*}
+\int^1_{-1}1 \text{d}x = w_1 + w_2 \implies w_1 + w_2 = 2
+\end{align*}
+\item Pour $X$, on a : 
+\begin{align*}
+\int^1_{-1} x \text{d}x = w_1(-\alpha) + w_2(\alpha) \implies w_1(-\alpha) + w_2(\alpha) = 0 \implies w_1 = w_2
+\end{align*}
+\end{itemize}
+
+Soit finalement, on obtient $w_1 = w_2 = 1$, d'où: 
+\begin{align*}
+  \int^1_{-1} f(x) \text{d}x = f(-\alpha) + f(\alpha)
+\end{align*}
+
+\item Lorsque $\alpha = 1$, on a : 
+\begin{align*}
+\int^1_{-1} f(x) \text{d}x = f(-1) + f(1)
+\end{align*}
+Pour les polynômes de $\mathbb{R}_2[X] = \mathbb{R}_1[X] + X^2$, d'où pour $f(x)=x^2$ : 
+\begin{align*}
+\int^1_{-1} x^2 \text{d}x = \dfrac{2}{3}
+\end{align*}
+Or $f(-1) + f(1) = 2$ et $2 \neq  \dfrac{2}{3}$, donc \underline{la formule n'est pas exacte sur $\mathbb{R}_2[X]$}
+
+
+\item On a $\dfrac{2}{3} = \alpha^2 \times 2 \implies \alpha = + \sqrt{\dfrac{1}{3}}$ car $\alpha > 0$ ($\alpha \in ]0,1[$). La formule exacte est alors : 
+\begin{align*}
+\int^1_{-1} f(x) \text{d}x = f\left(\dfrac{-1}{\sqrt{3}} \right) + f\left(\dfrac{1}{\sqrt{3}}\right)
+\end{align*}
+
+\item Si $f(x)=x^3$, alors 
+\begin{align*}
+\int^1_{-1} x^3 \text{d}x = 0 \qquad \text{et} \qquad \left( \dfrac{-1}{\sqrt{3}}\right)^3 + \left( \dfrac{1}{\sqrt{3}}\right)^3 = 0
+\end{align*}
+
+Donc \underline{la formule est exacte sur $\mathbb{R}_3[X]$}. La dernière question n'est pas toujours valable, vérifions donc la formule sur $\mathbb{R}_4[X]$ : 
+
+\begin{align*}
+\int^1_{-1} x^4 \text{d}x = \dfrac{2}{5} \qquad \text{et} \qquad \left( \dfrac{-1}{\sqrt{3}}\right)^4 + \left( \dfrac{1}{\sqrt{3}}\right)^4 = \dfrac{2}{9}
+\end{align*}
+Etant donné que $\dfrac{2}{9}\neq \dfrac{2}{5}$, la formule \textbf{n'est pas exacte} pour $\mathbb{R}_4[X]$ (comme prédit ...)
+
+\item \textbf{On cherche une relation entre $\xi$ sur l'intervalle $[-1,1]$ et $x$ sur l'intervalle $[a,b]$}. On suppose que la relation entre $x$ et $\xi$ est \textbf{affine}: 
+
+\begin{align*}
+x=\lambda \xi + \mu
+\end{align*}
+
+
+
+$$
+\left\{
+    \begin{array}{l}
+        a= -\lambda + \mu   \\ 
+		b=  \lambda + \mu 
+    \end{array}
+\right. 
+\Longleftrightarrow
+\left\{
+    \begin{array}{ll}
+        \mu = \dfrac{a+b}{2} \\ 
+		\lambda = \dfrac{b-a}{2}
+    \end{array}
+\right.
+$$
+
+
+
+On pose $x = \dfrac{a+b}{2} + \dfrac{b-a}{2} \xi$, on a donc avec $\xi = \pm \dfrac{1}{\sqrt{3}} $
+\begin{align*}
+\int^b_a f(x) \text{d}x & = \int^1_{-1} \left( \dfrac{b-a}{2} \right) f\left( \dfrac{a+b}{2} + \dfrac{b-a}{2} \xi\right) \text{d}\xi \\
+& = \dfrac{b-a}{2} \left[ f\left( \dfrac{a+b}{2} + \dfrac{b-a}{2\sqrt{3}}\right) + f\left( \dfrac{a+b}{2} - \dfrac{b-a}{2\sqrt{3}}\right) \right]
+\end{align*}
+
+\end{enumerate}
+
 \section*{12}{\bf Intégration numérique : }
 \[\int_{-1}^1f(x)\de x\simeq\frac 43f\left(-\frac{\xi}{2}\right)+\frac 23f\left(\xi\right)\]
 \begin{enumerate}

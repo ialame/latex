@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  21 MAR 2024 09:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  26 MAR 2024 06:23
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -648,7 +648,7 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count336
 \l__pdf_internal_box=\box69
 )
-No file livrables.aux.
+(./livrables.aux)
 \openout1 = `livrables.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -667,6 +667,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Info: Redefining \degres on input line 31.
 LaTeX Info: Redefining \up on input line 31.
+
 No file pythontex-files-livrables/livrables.pytxmcr.
 Run PythonTeX to create it.
 Package newfloat Info: New float `listing' with options `fileext=lopytx' on inp
@@ -792,9 +793,9 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ) in font nullfont!
 [4] [5] (./livrables.aux) ) 
 Here is how much of TeX's memory you used:
- 19652 strings out of 478268
- 384539 string characters out of 5846348
- 692014 words of memory out of 5000000
+ 19654 strings out of 478268
+ 384567 string characters out of 5846348
+ 692004 words of memory out of 5000000
  37501 multiletter control sequences out of 15000+600000
  482741 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -811,7 +812,7 @@ sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sf
 rm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm
 1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt10
 00.pfb>
-Output written on livrables.pdf (5 pages, 157244 bytes).
+Output written on livrables.pdf (5 pages, 156987 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream

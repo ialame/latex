@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  21 MAR 2024 09:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  25 MAR 2024 19:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -935,12 +935,20 @@ d.
 
  (./projet2024.out.pyg
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 8.
- [6]) [7] [8] [9]
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 7.
+ [6])
+\openout3 = `projet2024.pyg'.
+
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl=False -P mathescape=True -o projet2024.out.pyg projet2024.pyg)...execute
+d.
+
+ (./projet2024.out.pyg)
+[7] [8] [9]
 <portique.png, id=54, 880.28876pt x 364.36125pt>
 File: portique.png Graphic file (type png)
 <use portique.png>
-Package pdftex.def Info: portique.png  used on input line 1012.
+Package pdftex.def Info: portique.png  used on input line 1011.
 (pdftex.def)             Requested size: 264.08865pt x 109.3092pt.
  [10 <./portique.png>] [11] (./projet2024.aux)
 runsystem(rm projet2024.pyg)...executed.
@@ -949,13 +957,13 @@ runsystem(rm projet2024.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 23211 strings out of 478268
- 482819 string characters out of 5846348
+ 23213 strings out of 478268
+ 482857 string characters out of 5846348
  887142 words of memory out of 5000000
  40960 multiletter control sequences out of 15000+600000
  485286 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,10n,89p,500b,892s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,10n,89p,508b,892s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
@@ -975,7 +983,7 @@ ve/2022/texmf-dist/fonts/type1/public/cm-super/sfit1000.pfb></usr/local/texlive
 2/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on projet2024.pdf (11 pages, 369889 bytes).
+Output written on projet2024.pdf (11 pages, 375042 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  86 compressed objects within 1 object stream

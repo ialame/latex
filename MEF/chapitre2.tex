@@ -15,6 +15,7 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 %\usetikzlibrary{intersections}
+\usepackage{multicol}
 
 \usepackage{stmaryrd}
 %\usepackage{tikz}
@@ -213,7 +214,9 @@ $(\lambda,\mu,\nu)$ Coordonnées barycentriques de $M$ dans le système $\{A,B,C
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Rappel: Interpolation linéaire}
-
+	\begin{block}{Théorème}	
+		L'application $f : E \to E'$ est affine si et seulement si, $f$ conserve les barycentres.
+	\end{block}
 \begin{center}
  \begin{tikzpicture}[scale=0.7]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (6,0) node[right] {$\scriptstyle x$};
@@ -277,15 +280,12 @@ $(\lambda,\mu,\nu)$ Coordonnées barycentriques de $M$ dans le système $\{A,B,C
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
 	\frametitle{Rappel: Interpolation de Lagrange}
-	\begin{block}{Théorème}
-	
+	\begin{block}{Théorème}	
 		Soit $f : [a, b] \to \mathbb{R}$ une fonction continue et $x_0<x_1<\cdots <x_n$, 
 $n + 1$ points distincts de $[a, b]$. Il existe un unique $P \in \mathbb{R}_n[X]$ tel que $P(x_i) = f(x_i)$ pour $i = 0, 1, ..., n$.
 De plus, $P$ est donné par :
 \[\myredbox{P(x)=\sum_{i=0}^nf(x_i) L_i(x)}\]
 où les polynômes $L_i$ sont définis par : $L_i(x)=\prod_{j=0,j\neq i}^n\frac{x-x_j}{x_i-x_j}$
-
-	
 	
 	\end{block}
 \begin{center}
@@ -583,11 +583,14 @@ $\binom {n+k-1}k$, nombre de combinaisons avec répétitions de longueur $k$ for
 \[
 \forall x\in\mathbb{R},\quad p(x)=\sum_{i=0}^k\alpha_{i}x^{i},
 \]
-\[\mathbb{P}_k^{(1)}=vect\{1,x,x^2,\cdots,x^k\},\quad \dim \mathbb{P}_k^{(1)}=k+1\]
-En particuler
-\[\mathbb{P}_0^{(1)}=vect\{1\}=\mathbb{R} ,\quad \dim \mathbb{P}_0^{(1)}=1\]
-\[\mathbb{P}_1^{(1)}=\{ax+b; a\in\mathbb{R}\mbox{ et }b\in\mathbb{R}\},\quad \dim \mathbb{P}_1^{(1)}=2\]
-\[\mathbb{P}_2^{(1)}=\{ax^2+bx+c; a,b,c\in\mathbb{R}\},\quad \dim \mathbb{P}_1^{(1)}=3\]
+\[\myredbox{\mathbb{P}_k^{(1)}=vect\{1,x,x^2,\cdots,x^k\},\quad \dim \mathbb{P}_k^{(1)}=k+1}\]
+En particulier
+\[\begin{array}{lll}
+k=0,\quad & \mathbb{P}_0^{(1)}=vect\{{\color{red} 1}\}=\mathbb{R}  & \dim \mathbb{P}_0^{(1)}=1\\
+k=1, & \mathbb{P}_1^{(1)}=\{{\color{red}ax+b}; a\in\mathbb{R}\mbox{ et }b\in\mathbb{R}\}, & \dim \mathbb{P}_1^{(1)}=2 \\
+k=2, & \mathbb{P}_2^{(1)}=\{{\color{red}ax^2+bx+c}; a,b,c\in\mathbb{R}\}, & \dim \mathbb{P}_1^{(1)}=3
+\end{array}  \]
+
 \end{itemize}
 
 \end{frame}
@@ -602,11 +605,13 @@ En particuler
 \[
 \forall (x,y)\in\mathbb{R},\quad p(x,y)=\sum_{0\leq i+j\leq k}\alpha_{ij}x^{i}y^j,
 \]
-\[\mathbb{P}_k^{(2)}=vect\{x^iy^j;\; 0\leq i+j \leq k\}, \quad \dim \mathbb{P}_k^{(2)}=\frac{(k+1)(k+2)}{2}\]
+\[\myredbox{\mathbb{P}_k^{(2)}=vect\{x^iy^j;\; 0\leq i+j \leq k\}, \quad \dim \mathbb{P}_k^{(2)}=\frac{(k+1)(k+2)}{2}}\]
 En particuler
-\[\mathbb{P}_0^{(2)}=vect\{1\}=\mathbb{R} ,\quad \dim \mathbb{P}_0^{(2)}=1\]
-\[\mathbb{P}_1^{(2)}=vect\{1,x,y\},\quad \dim \mathbb{P}_1^{(2)}=3\]
-\[\mathbb{P}_2^{(2)}=vect\{1,x,x^2,y,y^2,xy\},\quad \dim \mathbb{P}_2^{(2)}=6\]
+\[\begin{array}{lll}
+k=0, & \mathbb{P}_0^{(2)}=vect\{{\color{red}1}\}=\mathbb{R} ,&  \dim \mathbb{P}_0^{(2)}=1\\
+k=1, & \mathbb{P}_1^{(2)}=vect\{{\color{red}1,x,y}\},& \dim \mathbb{P}_1^{(2)}=3\\
+k=2, & \mathbb{P}_2^{(2)}=vect\{{\color{red}1,x,x^2,y,y^2,xy}\},& \dim \mathbb{P}_2^{(2)}=6
+\end{array}  \]
 \end{itemize}
 
 \end{frame}
@@ -622,36 +627,18 @@ En particuler
 \[
 \forall (x,y,z)\in\mathbb{R},\quad p(x,y,z)=\sum_{0\leq p+q+r\leq k}\alpha_{pqr}x^{p}y^qz^r,
 \]
-\[\mathbb{P}_k^{(3)}=vect\{x^{p}y^qz^r; 0\leq p+q+r \leq k\}, \dim \mathbb{P}_k^{(3)}=\frac{(k+1)(k+2)(k+3)}{6}\]
+\[\myredbox{\mathbb{P}_k^{(3)}=vect\{x^{p}y^qz^r; 0\leq p+q+r \leq k\}, \dim =\frac{(k+1)(k+2)(k+3)}{6}}\]
 En particuler
-\[\mathbb{P}_0^{(3)}=vect\{1\}=\mathbb{R} ,\quad \dim \mathbb{P}_0^{(3)}=1\]
-\[\mathbb{P}_1^{(3)}=vect\{1,x,y,z\},\quad \dim \mathbb{P}_1^{(3)}=4\]
-\[\mathbb{P}_2^{(3)}=vect\{1,x,x^2,y,y^2,z,z^2,xy,xz,yz\},\quad \dim \mathbb{P}_2^{(3)}=10\]
+\[\begin{array}{lll}
+k=0, & \mathbb{P}_0^{(3)}=vect\{{\color{red}1}\}=\mathbb{R} ,&\dim \mathbb{P}_0^{(3)}=1\\
+k=1, & \mathbb{P}_1^{(3)}=vect\{{\color{red}1,x,y,z}\},& \dim \mathbb{P}_1^{(3)}=4\\
+k=2, & \mathbb{P}_2^{(3)}=vect\{{\color{red}1,x,x^2,y,y^2,z,z^2,xy,xz,yz}\},& \dim \mathbb{P}_2^{(3)}=10
+\end{array}  \]
 \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Espace de polynômes d'interpolation}
-
-\begin{itemize}
-\item $\mathbb{P}_k^{(1)}=vect\{1,x,x^2,\cdots,x^k\}$, $\dim \mathbb{P}_k^{(1)}=k+1$.
-\item $\mathbb{P}_k^{(2)}=vect\{x^iy^j;\; 0\leq i+j \leq k\}$, $\dim \mathbb{P}_k^{(2)}=\frac{(k+1)(k+2)}{2}$.
-\item $\mathbb{P}_k^{(3)}=vect\{x^iy^jx^k;\; 0\leq i+j+k \leq k\}$, $\dim \mathbb{P}_k^{(2)}=\frac{(k+1)(k+2)(k+3)}{6}$.
-\end{itemize}
-
-
-\hrule
-
-
-\begin{itemize}
-\item $\mathbb{Q}_k^{(1)}=\mathbb{P}_k^{(1)}$.
-\item $\mathbb{Q}_k^{(2)}=vect\{x^iy^j;\; 0\leq i,j \leq k\}$, $\dim \mathbb{Q}_k^{(2)}=(k+1)^2$.
-\item $\mathbb{Q}_k^{(3)}=vect\{x^iy^jx^k;\; 0\leq i,j,k \leq k\}$, $\dim \mathbb{Q}_k^{(2)}=(k+1)^3$.
-\end{itemize}
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Treillis principal d'ordre $k$}
@@ -785,15 +772,12 @@ En tenant compte de $\lambda_{n+1}=1-\sum_{j=1}^n\lambda_j$, on vérifie que le 
 \end{tikzpicture}
  \end{center}
  En particulier
- \begin{equation}
-\Sigma_1^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,1\}\right\}=\{a_1,a_2\}
-\end{equation}
- \begin{equation}
-\Sigma_2^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,\frac 12,1\}\right\}=\{a_1,a_2,a_0\}
-\end{equation}
- \begin{equation}
-\Sigma_3^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,\frac 13,\frac 23,1\}\right\}=\{a_1,a_2,a_{112},a_{122}\}
-\end{equation}
+\[\begin{array}{ll}
+k=0, & \Sigma_0^{(1)}=\left\{ a_0\right\}\\
+k=1, & \Sigma_1^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,1\}\right\}=\{a_1,a_2\} \\
+k=2, & \Sigma_2^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,\frac 12,1\}\right\}=\{a_1,a_2,a_0\}\\
+k=3, & \Sigma_3^{(1)}=\left\{ x=\lambda_1 a_1+\lambda_2 a_2; \;\lambda_j\in\{0,\frac 13,\frac 23,1\}\right\}=\{a_1,a_2,a_{112},a_{122}\}
+\end{array}  \]
 
 \end{frame}
 
@@ -1032,7 +1016,7 @@ Les fonctions de base sont les fonctions coordonnées barycentriques:
 \frametitle{Élément fini segment}
 
 \begin{itemize}
-\item   \fbox{$n=1$, $k=1$}, le segment de type (2) correspond à
+\item   \fbox{$n=1$, $k=2$}, le segment de type (2) correspond à
     \[\mathbb{P}=\mathbb{P}_2,\quad \Sigma=\Sigma_2 = \{a_1,a_{12},a_2\}\]
 Les fonctions de base sont les fonctions
 \[\left\{\begin{array}{l}
@@ -1044,44 +1028,122 @@ Les fonctions de base sont les fonctions
 \end{itemize}
   	\begin{center}
   	\begin{tabular}{ccc}
-  	  \begin{tikzpicture}[scale=1]
+  	  \begin{tikzpicture}[scale=1.5]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
 \draw  [dashed] (1,0) -- (1,1);
-\node [blue] at (0,0) {$\bullet$};
-\node [blue] at (0.5,0) {$\bullet$};
-\node [blue] at (1,0) {$\bullet$};
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (0.5,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
 \node at (0.5,-0.5) {$\scriptstyle  \varphi_1= \xi(2\xi-1)$};
 \draw [orange,domain=0:1] plot(\x,{\x*(2*\x-1)});
 
 \end{tikzpicture} 
 &
-  \begin{tikzpicture}[scale=1]
+  \begin{tikzpicture}[scale=1.5]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
-\node [blue] at (0,0) {$\bullet$};
-\node [blue] at (0.5,0) {$\bullet$};
-\node [blue] at (1,0) {$\bullet$};
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (0.5,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
 \node at (0.5,-0.5) {$\scriptstyle  \varphi_{12}=4\xi(1-\xi) $};
 \draw [orange,domain=0:1] plot(\x,{4*\x*(1-\x)});
 
 \end{tikzpicture} 
 &
- \begin{tikzpicture}[scale=1]
+ \begin{tikzpicture}[scale=1.5]
 \draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
 \draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
 \draw  [line width=1pt] (0,0) -- (1,0);
 \draw  [dashed] (0,0) -- (0,1);
-\node [blue] at (0,0) {$\bullet$};
-\node [blue] at (0.5,0) {$\bullet$};
-\node [blue] at (1,0) {$\bullet$};
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (0.5,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
 \node at (0.5,-0.5) {$\scriptstyle \varphi_2=(1-\xi)(1-2\xi) $};
 \draw [orange,domain=0:1] plot(\x,{(2*\x-1)*(\x-1)});
 %\caption{$ p_1=(1-\xi)(1-2\xi) $}
 \end{tikzpicture} 
 
+\end{tabular}
+  	\end{center}
+	
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Élément fini segment}
+
+\begin{itemize}
+\item   \fbox{$n=1$, $k=3$}, le segment de type (3) correspond à
+    \[\mathbb{P}=\mathbb{P}_3,\quad \Sigma=\Sigma_3 = \{a_1,a_{112},a_{122},a_2\}\]
+Les fonctions de base sont les fonctions
+\[\left\{\begin{array}{l}
+\varphi_1=\frac 12x(3x-1)(3x-2), \\
+\varphi_2=\frac 12(1-x)(1-3x)(2-3x), \\
+\varphi_{112}=\frac 92x(1-x)(3x-1) \\
+\varphi_{122}=\frac 92x(1-x)(2-3x)
+\end{array}\right.
+\]
+\end{itemize}
+  	\begin{center}
+  	\begin{tabular}{cccc}
+  	  \begin{tikzpicture}[scale=1.5]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
+\draw  [line width=1pt] (0,0) -- (1,0);
+\draw  [dashed] (1,0) -- (1,1);
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (1/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (2/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
+\node at (0.5,-0.5) {$\scriptstyle  \varphi_1$};
+\draw [orange,domain=0:1] plot(\x,{1/2*\x*(3*\x-1)*(3*\x-2)});
+
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[scale=1.5]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
+\draw  [line width=1pt] (0,0) -- (1,0);
+\draw  [dashed] (2/3,0) -- (2/3,1);
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (1/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (2/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
+\node at (0.5,-0.5) {$\scriptstyle  \varphi_{112}$};
+\draw [orange,domain=0:1, samples=50] plot(\x,{4.5*\x*(1-\x)*(3*\x-1)});
+
+\end{tikzpicture} 
+&
+ \begin{tikzpicture}[scale=1.5]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
+\draw  [line width=1pt] (0,0) -- (1,0);
+\draw  [dashed] (1/3,0) -- (1/3,1);
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (1/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (2/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
+\node at (0.5,-0.5) {$\scriptstyle \varphi_{122}$};
+\draw [orange,domain=0:1, samples=50] plot(\x,{4.5*\x*(1-\x)*(2-3*\x)});
+%\caption{$ p_1=(1-\xi)(1-2\xi) $}
+\end{tikzpicture} 
+&
+ \begin{tikzpicture}[scale=1.5]
+\draw  [very thin, gray] [->]  (-0.2,0) -- (1.2,0); 
+\draw  [very thin, gray] [->] (0,-0.2) -- (0,1.2);
+\draw  [line width=1pt] (0,0) -- (1,0);
+\draw  [dashed] (0,0) -- (0,1);
+\node [blue] at (0,0) {$\scriptstyle \bullet$};
+\node [blue] at (1/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (2/3,0) {$\scriptstyle \bullet$};
+\node [blue] at (1,0) {$\scriptstyle \bullet$};
+\node at (0.5,-0.5) {$\scriptstyle \varphi_2$};
+\draw [orange,domain=0:1] plot(\x,{1/2*(1-\x)*(3*\x-1)*(3*\x-2)});
+%\caption{$ p_1=(1-\xi)(1-2\xi) $}
+\end{tikzpicture} 
 \end{tabular}
   	\end{center}
 	
@@ -1183,6 +1245,7 @@ Les fonctions de base sont les fonctions coordonnées barycentriques par rapport
    
    \draw[fill=gray!20]  (0,0)--(4.5,0.5)--(6,2.25)--(0,0);
   \draw  [dashed,->] (4.5,-1.5) -- ++(0,2);
+  \node at (1.5,-2) {$\scriptstyle \varphi_1=x$};
 \end{tikzpicture}
 &
 \begin{tikzpicture}[scale=0.39]
@@ -1196,6 +1259,7 @@ Les fonctions de base sont les fonctions coordonnées barycentriques par rapport
    
    \draw[fill=gray!20]  (0,0)--(4.5,-1.5)--(6,4.25)--(0,0);
   \draw  [dashed,->] (6,2.25) -- ++(0,2);
+    \node at (1.5,-2) {$\scriptstyle \varphi_2=y$};
 \end{tikzpicture}
 &
 \begin{tikzpicture}[scale=0.39]
@@ -1209,6 +1273,7 @@ Les fonctions de base sont les fonctions coordonnées barycentriques par rapport
    
    \draw[fill=gray!20]  (0,2)--(4.5,-1.5)--(6,2.25)--(0,2);
   \draw  [dashed,->] (0,0) -- ++(0,2);
+      \node at (1.5,-2) {$\scriptstyle \varphi_3=1-x-y$};
 \end{tikzpicture}
 \end{tabular}
  \end{center}
@@ -1311,12 +1376,12 @@ et
  \[\mathbb{P}=\mathbb{P}_3^2,\quad \Sigma=\Sigma_3^2 = \{a_1,a_2,a_3\}\cup \{a_{112},a_{113},a_{221},a_{223},a_{331},a_{332}\}\cup \{a_{0}\}\]
 Les fonctions de base sont les fonctions
 \[\varphi_i=\frac 12\lambda_i(3\lambda_i-1)(3\lambda_i-2), \quad 1\leq  i  \leq 3,\] 
-\[\varphi_{iij}=\frac 94\lambda_i\lambda_j(3\lambda_i-1) \quad 1\leq  i,j  \leq 3, i\neq j\]
+\[\varphi_{iij}=\frac 92\lambda_i\lambda_j(3\lambda_i-1) \quad 1\leq  i,j  \leq 3, i\neq j\]
 et
   \[\varphi_0 = 27\lambda_1\lambda_2\lambda_3\]
 \end{itemize}
 \begin{center}
- \begin{tikzpicture}[scale=0.25]   
+ \begin{tikzpicture}[scale=0.3]   
    \draw (15,0)--++(4,1)--++(-1,4)--++(-3,-5);
    \path[fill=orange] (15,0) circle (1.8mm);
    \path[fill=orange] (19,1) circle (1.8mm);
@@ -1463,22 +1528,27 @@ Les expressions des fonctions de base relatives à ces exemples de tétraèdre d
   \path[fill=black!60!green] (10+6.2,6.2) circle (1.8mm);
   \path[fill=black!60!green] (10+2.2,6.2) circle (1.8mm);
   
-  \path[fill=black!60!green] (10+2,0) circle (1.8mm);  
-  \path[fill=black!60!green] (10+4+1.1,0+1.1) circle (1.8mm);
-  \path[fill=black!60!green] (10+4.2,2.2) circle (1.8mm);
-  \path[fill=black!60!green] (10+1.1,1.1) circle (1.8mm);
+  \path[fill=blue] (10+2,0) circle (1.8mm);  
+  \path[fill=blue] (10+4+1.1,0+1.1) circle (1.8mm);
+  \path[fill=blue] (10+4.2,2.2) circle (1.8mm);
+  \path[fill=blue] (10+1.1,1.1) circle (1.8mm);
   
-  \path[fill=black!60!green] (10+2,4) circle (1.8mm);  
-  \path[fill=black!60!green] (10+4+1.1,0+1.1+4) circle (1.8mm);
-  \path[fill=black!60!green] (10+4.2,2.2+4) circle (1.8mm);
-  \path[fill=black!60!green] (10+1.1,1.1+4) circle (1.8mm);
+  \path[fill=blue] (10+2,4) circle (1.8mm);  
+  \path[fill=blue] (10+4+1.1,0+1.1+4) circle (1.8mm);%3
+  \path[fill=blue] (10+4.2,2.2+4) circle (1.8mm);%2
+  \path[fill=blue] (10+1.1,1.1+4) circle (1.8mm);%1
+  \path[fill=red] (10+3.1,5.2) circle (1.8mm);% ici ici
+  \path[fill=red] (10+3.1,1.2) circle (1.8mm);% ici ici
+  \path[fill=black] (10+3.1,3.2) circle (1.8mm);% ici ici
   
-  \path[fill=black!60!green] (10+0,2) circle (1.8mm); 
-  \path[fill=black!60!red] (10+2,2) circle (1.8mm); 
-  \path[fill=black!60!green] (10+4,2) circle (1.8mm);
-  \path[fill=black!60!green] (10+6.2,4.2) circle (1.8mm);
-  \path[fill=black!60!red] (10+5.1,4.2) circle (1.8mm);% ici ici
-  \path[fill=black!60!green] (10+2.2,4.2) circle (1.8mm);
+  \path[fill=blue] (10+0,2) circle (1.8mm); 
+  \path[fill=red] (10+2,2) circle (1.8mm); 
+  \path[fill=blue] (10+4,2) circle (1.8mm);
+  \path[fill=blue] (10+6.2,4.2) circle (1.8mm);
+  \path[fill=red] (10+5.1,3.1) circle (1.8mm);% ici ici
+  \path[fill=blue] (10+2.2,4.2) circle (1.8mm);
+  \path[fill=red] (10+4.1,4.2) circle (1.8mm);% ici ici
+  \path[fill=red] (10+1.1,3.2) circle (1.8mm);% ici ici
   
     \draw (20,0)--++(6.2,2.2)--++(0,4)--++(-6.2,-2.2)--++(0,-4);
     \draw (20+2.2,6.2)--++(-2.3,-2.3);
@@ -1565,7 +1635,7 @@ En particulier:
 Et donc: 
 \begin{itemize}
 \item $\mathbb{Q}_1^{(3)}=vect\{1,x,y,z,xy,xz,yz,xyz\}$, $\dim \mathbb{Q}_1^{(2)}=8$.
-\item $\mathbb{Q}_1^{(3)}=vect\left\{
+\item $\mathbb{Q}_2^{(3)}=vect\left\{
 1,x,x^2,y,y^2,z,z^2,xy,xz,yz,xyz,x^2y,x^2z,x^2yz,xy^2,\right.$
 $\left. ,y^2z,xy^2z,xz^2,yz^2,xyz^2,x^2y^2,x^2z^2,y^2z^2,x^2y^2z,x^2yz^2,xy^2z^2,x^2y^2z^2\right\}$
 $\dim \mathbb{Q}_1^{(2)}=27$.
@@ -1679,45 +1749,60 @@ On a ainsi pour tout entier  $k\geq 1$                                          
 \item $\widehat{\Xi}_2^{(3)}=\left\{(\hat{x}_1,\hat{x}_2,\hat{x}_3));\; \hat{x}_i \in\left\{0,\frac 12,1\right\}\right\}$, Card$\widehat{\Xi}_2^{(3)}=27$
  \end{itemize}
  \begin{center}
- \begin{tikzpicture}[scale=0.2]
-  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
-  \path[fill=red] (3,3) circle (1.8mm);
-  \draw (8,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
-  \path[fill=red] (8+0,0) circle (1.8mm);
-  \path[fill=red] (8+6,0) circle (1.8mm);
-  \path[fill=red] (8+6,6) circle (1.8mm);
-  \path[fill=red] (8+0,6) circle (1.8mm);
-  \draw (16,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
-  \path[fill=red] (16+0,0) circle (1.8mm);
-  \path[fill=red] (16+6,0) circle (1.8mm);
-  \path[fill=red] (16+6,6) circle (1.8mm);
-  \path[fill=red] (16+0,6) circle (1.8mm);
-  \path[fill=red] (16+3,3) circle (1.8mm);
+ \begin{tikzpicture}[scale=0.25]
+  \draw (0,0)--++(4,0)--++(2.2,2.2)--++(0,4)--++(-4,0)--++(-2.2,-2.2)--++(4,0)--++(0,-4);
+  \draw (0,0)--++(0,4)--++(4,0)--++(2.2,2.2);
+  \draw[dotted,->] (2.2,2.2)--++(-3.3,-3.3);
+  \draw[dotted,->] (2.2,2.2)--++(5.3,0);
+  \draw[dotted,->] (2.2,2.2)--++(0,5.3);
+   \path[fill=black!60!green] (0,0) circle (1.8mm);  
+  \path[fill=black!60!green] (4,0) circle (1.8mm);
+  \path[fill=black!60!green] (6.2,2.2) circle (1.8mm);
+  \path[fill=black!60!green] (2.2,2.2) circle (1.8mm);
   
-  \path[fill=red] (16+0,3) circle (1.8mm);
-  \path[fill=red] (16+3,0) circle (1.8mm);
-  \path[fill=red] (16+3,6) circle (1.8mm);
-  \path[fill=red] (16+6,3) circle (1.8mm);
+  \path[fill=black!60!green] (0,4) circle (1.8mm);  
+  \path[fill=black!60!green] (4,4) circle (1.8mm);
+  \path[fill=black!60!green] (6.2,6.2) circle (1.8mm);
+  \path[fill=black!60!green] (2.2,6.2) circle (1.8mm);
   
-  \draw (24,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
-  \path[fill=red] (24+0,0) circle (1.8mm);
-  \path[fill=red] (24+6,0) circle (1.8mm);
-  \path[fill=red] (24+6,6) circle (1.8mm);
-  \path[fill=red] (24+0,6) circle (1.8mm);
-  \path[fill=red] (24+2,0) circle (1.8mm);
-  \path[fill=red] (24+2,6) circle (1.8mm);
-  \path[fill=red] (24+4,0) circle (1.8mm);
-  \path[fill=red] (24+4,6) circle (1.8mm);
-  \path[fill=red] (24+0,2) circle (1.8mm);
-  \path[fill=red] (24+6,2) circle (1.8mm);
-  \path[fill=red] (24+0,4) circle (1.8mm);
-  \path[fill=red] (24+6,4) circle (1.8mm);
+  \draw (10,0)--++(4,0)--++(2.2,2.2)--++(0,4)--++(-4,0)--++(-2.2,-2.2)--++(4,0)--++(0,-4);
+  \draw (10,0)--++(0,4)--++(4,0)--++(2.2,2.2);
+  \draw[dotted,->] (10+2.2,2.2)--++(-3.3,-3.3);
+  \draw[dotted,->] (10+2.2,2.2)--++(5.3,0);
+  \draw[dotted,->] (10+2.2,2.2)--++(0,5.3);
   
-  \path[fill=red] (24+2,2) circle (1.8mm);
-  \path[fill=red] (24+4,2) circle (1.8mm);
-  \path[fill=red] (24+2,4) circle (1.8mm);
-  \path[fill=red] (24+4,4) circle (1.8mm);
-
+  \path[fill=black!60!green] (10+0,0) circle (1.8mm);  
+  \path[fill=black!60!green] (10+4,0) circle (1.8mm);
+  \path[fill=black!60!green] (10+6.2,2.2) circle (1.8mm);
+  \path[fill=black!60!green] (10+2.2,2.2) circle (1.8mm);
+  
+  \path[fill=black!60!green] (10+0,4) circle (1.8mm);  
+  \path[fill=black!60!green] (10+4,4) circle (1.8mm);
+  \path[fill=black!60!green] (10+6.2,6.2) circle (1.8mm);
+  \path[fill=black!60!green] (10+2.2,6.2) circle (1.8mm);
+  
+  \path[fill=blue] (10+2,0) circle (1.8mm);  
+  \path[fill=blue] (10+4+1.1,0+1.1) circle (1.8mm);
+  \path[fill=blue] (10+4.2,2.2) circle (1.8mm);
+  \path[fill=blue] (10+1.1,1.1) circle (1.8mm);
+  
+  \path[fill=blue] (10+2,4) circle (1.8mm);  
+  \path[fill=blue] (10+4+1.1,0+1.1+4) circle (1.8mm);%3
+  \path[fill=blue] (10+4.2,2.2+4) circle (1.8mm);%2
+  \path[fill=blue] (10+1.1,1.1+4) circle (1.8mm);%1
+  \path[fill=red] (10+3.1,5.2) circle (1.8mm);% ici ici
+  \path[fill=red] (10+3.1,1.2) circle (1.8mm);% ici ici
+  \path[fill=black] (10+3.1,3.2) circle (1.8mm);% ici ici
+  
+  \path[fill=blue] (10+0,2) circle (1.8mm); 
+  \path[fill=red] (10+2,2) circle (1.8mm); 
+  \path[fill=blue] (10+4,2) circle (1.8mm);
+  \path[fill=blue] (10+6.2,4.2) circle (1.8mm);
+  \path[fill=red] (10+5.1,3.1) circle (1.8mm);% ici ici
+  \path[fill=blue] (10+2.2,4.2) circle (1.8mm);
+  \path[fill=red] (10+4.1,4.2) circle (1.8mm);% ici ici
+  \path[fill=red] (10+1.1,3.2) circle (1.8mm);% ici ici
+  
  \end{tikzpicture}
    \end{center}
 \end{frame}
@@ -1753,53 +1838,113 @@ cet espace $\mathbb{P}$ ne coïncide avec l'espace $\mathbb{Q}_k$ que dans le ca
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Éléments finis parallélotopes}
-  Dans le cas $n = 2$;  $\widehat{K}$ est le carré unité de $\mathbb{R}^2$. Nous noterons $(\hat{x}_1, \hat{x}_2)$ les coordonnées cartésiennes du point courant $\hat{x}$ de $\widehat{K}$, de sommets
-
-\begin{equation}
-\hat{a}_1=(0,0),\quad \hat{a}_2=(1,0),\quad \hat{a}_3=(1,1),\quad \hat{a}_4=(0,1)
-\end{equation} 
-Il sera commode de poser
-\begin{equation}
-\hat{x}_3=1-\hat{x}_1,\quad \hat{x}_4=1-\hat{x}_2
-\end{equation}
+\frametitle{Éléments finis parallélotopes ($n = 2$)}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.5]
+  \draw[fill=blue!30]  (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+   \draw(0,0) node[below left] {$\scriptstyle \hat{a}_1=(0,0)$};
+   \draw(6,0) node[below right] {$\scriptstyle \hat{a}_2=(1,0)$};
+   \draw(6,6) node[above right] {$\scriptstyle \hat{a}_3=(1,1)$};
+   \draw(0,6) node[above left] {$\scriptstyle \hat{a}_4=(0,1)$};
+  \draw[olive] (-1,-0.05)--++(11,0)  node[right] {$(\hat{x}_2=0)$}; 
+    \draw[olive] (-1,6.05)--++(11,0)  node[right] {$(\hat{x}_4=0)$}; 
+     \draw[olive] (-0.05,-1)--++(0,10)  node[right] {$(\hat{x}_1=0)$}; 
+   \draw[olive] (6.05,-1)--++(0,10)  node[right] {$(\hat{x}_3=0)$}; 
+   
+    \draw[orange,->] (0,0)--++(8,0)  node[above] {$\hat{x}$};
+ \draw[orange,->] (0,0)--++(0,8)  node[left] {$\hat{y}$};
+   \end{tikzpicture}
+   \end{center}
+Il sera commode de poser $\hat{x}_3=1-\hat{x}_1$, $\hat{x}_4=1-\hat{x}_2$
 et d'associer à tout entier $i$ l'entier $\bar{i}$ congru à $i$ modulo 4 et compris entre 1 et 4.  En particulier, un sommet $\hat{a}_i$, $1\leq i \leq  4$, est alors défini par les relations
-\[\hat{x}_{\bar{i}}=\hat{x}_{\overline{i+1}}=0\]
+\[\myredbox{\hat{a}_i:\;\hat{x}_{\bar{i}}=\hat{x}_{\overline{i+1}}=0}\]
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Éléments finis parallélotopes}
-  Explicitons les fonctions de base de l'élément fini $(\widehat{K},\widehat{\mathbb{P}},\widehat{\Sigma})$ carré unité de type ($k$), pour les premières valeurs de $k$.
+\frametitle{Éléments finis carré de type ($k=0$)}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.4]
+  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (3,3) circle (1.8mm);
+     \end{tikzpicture}
+   \end{center}
+
 \begin{itemize}
 \item Pour $k=0$, le carré unité de type (0) est obtenu pour
-\[\widehat{\mathbb{P}} = \mathbb{Q}_0, = P_0 ,\quad \widehat{\Sigma} =\widehat{\Xi}_0=\{\hat{a}_0\}\]
+\[\widehat{\mathbb{P}} = \mathbb{Q}_0, = P_0=\mathbb{R} ,\quad \widehat{\Sigma} =\widehat{\Xi}_0=\{\hat{a}_0\}\]
 où $\hat{a}_0$ est le centre du carré, $\hat{a}_0=\frac 14(\hat{a}_1+\hat{a}_2+\hat{a}_3+\hat{a}_4)$. La fonction de base $\widehat{\varphi}_0$, est la fonction constante égale à 1.
+\[\myredbox{\varphi_0(\hat{x})=1}\]
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Le carré de type (1) ou (2)}
+\frametitle{Éléments finis carré de type ($k=1$)}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.3]
+  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (0,0) circle (1.8mm);
+    \path[fill=red] (6,0) circle (1.8mm);
+      \path[fill=red] (6,6) circle (1.8mm);
+        \path[fill=red] (0,6) circle (1.8mm);
+     \end{tikzpicture}
+   \end{center}
   \begin{itemize}
 \item  Pour $k = 1$, le carré de type (1) correspond à
-\[\widehat{\mathbb{P}} = \mathbb{Q}_1,\quad \widehat{\Sigma} =\widehat{\Xi}_1^{(2)}=\{\hat{a}_i\}_{1\leq i\leq 4}\]
+\[\widehat{\mathbb{P}} = \mathbb{Q}_1,\quad \widehat{\Sigma} =\widehat{\Xi}_1^{(2)}=\{\hat{a}_1,\hat{a}_2,\hat{a}_3,\hat{a}_4\}\]
 Les fonctions de base s'écrivent
-\[\widehat{\varphi}_i(\hat{x})=\hat{x}_{\overline{i+2}}\hat{x}_{\overline{i+3}},\quad 1\leq i\leq 4\]
+\[\myredbox{\widehat{\varphi}_i(\hat{x})=\hat{x}_{\overline{i+2}}\hat{x}_{\overline{i+3}},\quad 1\leq i\leq 4}\]
+\[\left\{\begin{array}{l}
+\widehat{\varphi}_1(\hat{x})=\hat{x}_{\overline{3}}\hat{x}_{\overline{4}}=\hat{x}_{3}\hat{x}_{4}=(1-\hat{x}_1)(1-\hat{x}_2)\\
+\widehat{\varphi}_2(\hat{x})=\hat{x}_{\overline{4}}\hat{x}_{\overline{5}}=\hat{x}_{4}\hat{x}_{1}=\hat{x}_1(1-\hat{x}_2)\\
+\widehat{\varphi}_3(\hat{x})=\hat{x}_{\overline{5}}\hat{x}_{\overline{6}}=\hat{x}_{1}\hat{x}_{2}\\
+\widehat{\varphi}_4(\hat{x})=\hat{x}_{\overline{6}}\hat{7}_{\overline{5}}=\hat{x}_{2}\hat{x}_{3}=\hat{x}_2(1-\hat{x}_1)
+\end{array}\right.
+\]
 
-\item  Pour $k=2$, le carré de type (2) est obtenu pour
-\[\widehat{\mathbb{P}} = \mathbb{Q}_2, = P_0 ,\quad \widehat{\Sigma} =\widehat{\Xi}_2^{(2)}=\{\hat{a}_i\}_{1\leq i\leq 9}\]
-où les points $\hat{a}_i$ , $5\leq i \leq 8$, sont les milieux des côtés $[\hat{a}_i \hat{a}_{i+1}]$ et le point $\hat{a}_9$ est le centre du carré. Les fonctions de base sont
-
-\begin{equation}
-  \begin{array}{l}
-  \widehat{\varphi}_i(\hat{x})=\hat{x}_{\overline{i+2}}(2\hat{x}_{\overline{i+2}}-1)\hat{x}_{\overline{i+3}}(2\hat{x}_{\overline{i+3}}-1),\quad 1\leq i\leq 4,\\
-  \widehat{\varphi}_i(\hat{x})=-4\hat{x}_{\overline{i+2}}(\hat{x}_{\overline{i+2}}-1)\hat{x}_{\overline{i+3}}(2\hat{x}_{\overline{i+3}}-1),\quad 5\leq i\leq 8,\\
-  \widehat{\varphi}_9(\hat{x})=16 \hat{x}_1\hat{x}_2\hat{x}_3\hat{x}_4.
-\end{array}              
-\end{equation}
 \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Éléments finis carré de type ($k=2$)}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.2]
+  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (0,0) circle (1.8mm);
+  \path[fill=red] (6,0) circle (1.8mm);
+  \path[fill=red] (6,6) circle (1.8mm);
+  \path[fill=red] (0,6) circle (1.8mm);
+  \path[fill=red] (3,3) circle (1.8mm);
+    \path[fill=red] (0,3) circle (1.8mm);
+  \path[fill=red] (3,0) circle (1.8mm);
+  \path[fill=red] (3,6) circle (1.8mm);
+  \path[fill=red] (6,3) circle (1.8mm);
+  \draw(8,5) node[right]{$\widehat{\mathbb{P}} = \mathbb{Q}_2$ , $\widehat{\Sigma} =\widehat{\Xi}_2^{(2)}=\{\hat{a}_i\}_{0\leq i\leq 8}$ où $\hat{a}_0$ est le centre};
+    \draw(8,1) node[right]{de l'élément carré et si $i\geq 5$, $\hat{a}_i$  milieu de $[\hat{a}_i \hat{a}_{i+1}]$ .};
+     \end{tikzpicture}
+   \end{center}  
+\[\myredbox{\begin{array}{l}
+ \widehat{\varphi}_0(\hat{x})=16 \hat{x}_1\hat{x}_2\hat{x}_3\hat{x}_4.\\
+  \widehat{\varphi}_i(\hat{x})=\hat{x}_{\overline{i+2}}(2\hat{x}_{\overline{i+2}}-1)\hat{x}_{\overline{i+3}}(2\hat{x}_{\overline{i+3}}-1),\quad 1\leq i\leq 4,\\
+  \widehat{\varphi}_i(\hat{x})=-4\hat{x}_{\overline{i+2}}(\hat{x}_{\overline{i+2}}-1)\hat{x}_{\overline{i+3}}(2\hat{x}_{\overline{i+3}}-1),\quad 5\leq i\leq 8
+\end{array}  }            
+\]
+\[\left\{\begin{array}{l}
+ \widehat{\varphi}_0(\hat{x})=16 \hat{x}_1\hat{x}_2(1-\hat{x}_1)(1-\hat{x}_2)\\
+  \widehat{\varphi}_1(\hat{x})=(\hat{x}_1-1)(\hat{x}_2-1)(2\hat{x}_1-1)(2\hat{x}_2-1)\\
+  \widehat{\varphi}_2(\hat{x})=\hat{x}_1(2\hat{x}_1-1)(\hat{x}_2-1)(2\hat{x}_2-1)\\
+  \widehat{\varphi}_3(\hat{x})=\hat{x}_1\hat{x}_2(2\hat{x}_1-1)(2\hat{x}_2-1)\\
+  \widehat{\varphi}_4(\hat{x})=(\hat{x}_1-1)\hat{x}_2(2\hat{x}_1-1)(2\hat{x}_2-1)\\
+  \widehat{\varphi}_5(\hat{x})=-4\hat{x}_1(\hat{x}_1-1)(\hat{x}_2-1)(2\hat{x}_2-1)\\
+    \widehat{\varphi}_6(\hat{x})=-4\hat{x}_1\hat{x}_2(2\hat{x}_1-1)(\hat{x}_2-1)\\
+      \widehat{\varphi}_7(\hat{x})=-4\hat{x}_1(\hat{x}_1-1)(\hat{x}_2-1)(2\hat{x}_2-1)\\
+    \widehat{\varphi}_8(\hat{x})=-4(\hat{x}_1-1)(2\hat{x}_1-1)\hat{x}_2(\hat{x}_2-1)\\
+\end{array}\right.            
+\]
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1807,15 +1952,13 @@ où les points $\hat{a}_i$ , $5\leq i \leq 8$, sont les milieux des côtés $[\h
 \begin{frame}
 \frametitle{Éléments finis parallélotopes}
 A partir des deux derniers exemples de carré unité, 
-on peut construire des éléments fini qui seront de mise en œuvre informatique 
-plus simple sans que cela nuise à la précision. l'élément fini $(\widehat{K},\widehat{\mathbb{P}},\widehat{\Sigma})$ obtenu vérifiera
-\[\widehat{\Sigma}=\widehat{\Xi}_2\cap \partial \widehat{K}\quad \mbox{ et }\quad\mathbb{P}_2 \subset \widehat{\mathbb{P}} \subset \widehat{\mathbb{Q}}_2\]
- On pose
+on peut construire des éléments finis qui seront de mise en œuvre informatique 
+plus simple sans que cela nuise à la précision. On pose
 \begin{equation}
 \left\{
 \begin{array}{l}
-\widehat{\Sigma}=\widehat{\Xi}_2^\star=\{\hat{a}_i\}_{1\leq i\leq 8}\\
-\widehat{\mathbb{P}}=\widehat{\mathbb{Q}}_2^\star=\{q(x)+\alpha_1x_1^2x_2+\alpha_2x_1x_2^2,\quad q\in\mathbb{P}_2,\quad (\alpha_1, \alpha_2)\in \mathbb{R}^2\}
+\widehat{\Xi}_2^\star=\widehat{\Xi}_2\cap \partial \widehat{K}=\{\hat{a}_i\}_{1\leq i\leq 8}\\
+\widehat{\mathbb{Q}}_2^\star=\{q(x)+\alpha_1x_1^2x_2+\alpha_2x_1x_2^2,\quad q\in\mathbb{P}_2,\quad (\alpha_1, \alpha_2)\in \mathbb{R}^2\}
 \end{array} \right.
 \end{equation}
 On remarque que l'espace $\mathbb{Q}_2 = \mathbb{Q}_2^\star \oplus vect\{x_1^2x_2^2\}$% est somme directe de $\mathbb{Q}_2^\star$ et de l'espace engendré par le monôme $x_1^2x_2^2$.
@@ -1833,6 +1976,43 @@ sont les fonctions de base de $(\widehat{K},\mathbb{Q}_2^\star,\widehat{\Sigma}_
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Éléments finis parallélotopes}
+ \begin{center}
+ \begin{tikzpicture}[scale=0.4]
+  \draw (0,0)--++(6,0)--++(0,6)--++(-6,0)--++(0,-6);
+  \path[fill=red] (0,0) circle (1.8mm);
+  \path[fill=red] (6,0) circle (1.8mm);
+  \path[fill=red] (6,6) circle (1.8mm);
+  \path[fill=red] (0,6) circle (1.8mm);
+    \path[fill=red] (0,3) circle (1.8mm);
+  \path[fill=red] (3,0) circle (1.8mm);
+  \path[fill=red] (3,6) circle (1.8mm);
+  \path[fill=red] (6,3) circle (1.8mm);
+     \end{tikzpicture}
+   \end{center} 
+\begin{equation}
+\left\{
+\begin{array}{l}
+\widehat{\Xi}_2^\star=\widehat{\Xi}_2\cap \partial \widehat{K}=\{\hat{a}_i\}_{1\leq i\leq 8}\\
+\widehat{\mathbb{Q}}_2^\star=\mathbb{Q}_2^{(2)}=vect\{1,x,x^2,y,y^2,xy,xy^2,x^2y\}
+\end{array} \right.
+\end{equation}
+
+\[
+\left\{\begin{array}{lcl}
+\varphi_1=-(x-1)(y-1)(2x+2y-1)&,\qquad & \varphi_5=4x(x-1)(y-1)\\
+\varphi_2=x(y-1)(2x-2y-1)&,\qquad & \varphi_6=-4xy(y-1)\\
+\varphi_3=xy(2x+2y-3)&,\qquad & \varphi_7=-4xy(x-1)\\
+\varphi_4=(x-1)y(2x-2y-1)&,\qquad & \varphi_8=4(x-1)y(y-1)\\
+\end{array}\right.
+\]
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Éléments finis parallélotopes}
@@ -2191,24 +2371,6 @@ $\{K_1, . . .,K_{Nel}\}$ (fermés par convention) formant une partition de $\Ome
 
 \begin{frame}
 \frametitle{Échelles de longueur (1)}
-\begin{itemize}
-\item On introduit pour chaque maille $K_i$ deux échelles de longueur
-\begin{itemize}
-\item son diamètre $h_i$
-\item le diamètre de son cercle inscrit $\rho_i$
-\end{itemize}
-
-\item On a $h_i/\rho_i \geq 1$  et $h_i/\rho_i >> 1$ lorsque le triangle $K_i$ est très  aplati
-\begin{center}
-\includegraphics[scale=0.25]{maillage02.png} 
-\end{center}
-\item On a $h_i/\rho_i \leq \frac{2}{\sin\theta_i}$ $\theta_i$ est le plus petit angle du triangle $K_i$
-\end{itemize}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Échelles de longueur (2)}
 \begin{itemize}
 \item On introduit pour chaque maille $K_i$ deux échelles de longueur
 \begin{itemize}
