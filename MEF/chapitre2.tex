@@ -2105,10 +2105,9 @@ Un élément fini d'Hermite est un triplet $(K,\Sigma,P)$ tel que :
 \end{itemize}
 
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Éléments unidimensionnels}
+\frametitle{Élément d'Hermite cubique de classe $\mathcal{C}^1$ et $H^2$}
 
 \begin{center}
 \begin{tikzpicture}[domain=0:5,scale=0.50]
@@ -2117,65 +2116,17 @@ Un élément fini d'Hermite est un triplet $(K,\Sigma,P)$ tel que :
 \draw (0,0) circle (0.3);
   \node [gray] at (6,0) {$\bullet$};
 \draw (6,0) circle (0.3);
-
-  \draw[-] (8,0) -- ++(6,0);
-  \node [gray] at (8,0) {$\bullet$};
-\draw (8,0) circle (0.3);
-\draw (8,0) circle (0.5);
-  \node [gray] at (8+6,0) {$\bullet$};
-\draw (8+6,0) circle (0.3);
-\draw (8+6,0) circle (0.5);
 \end{tikzpicture}
 
 \end{center}
 
-\begin{center}
-\includegraphics[scale=0.3]{hermite3-5.png} 
-\end{center}
-\begin{center}
-\includegraphics[scale=0.3]{hermiteTriangle1.png} 
-\end{center}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Élément triangle}
-
-
-\begin{center}
-\includegraphics[scale=0.3]{hermiteTriangleUN.png} 
-\end{center}
-\begin{center}
-\includegraphics[scale=0.3]{hermiteTriangle1.png} 
-\end{center}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Éléments bidimensionnels}
-\begin{center}
-\includegraphics[scale=0.2]{elementsHermite.png} 
-\end{center}
-\begin{center}
-\includegraphics[scale=0.25]{hermiteBidim1.png} 
-\end{center}
-\begin{center}
-\includegraphics[scale=0.25]{hermiteBidim2.png} 
-\end{center}
-
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Les fonctions de base}
-
 \begin{itemize}
-\item $\Phi_{i}(x)$ les fonctions de base associées aux valeurs nodales de la fonction $v_{i}$.
-\item $\Psi_{i}(x)$ les fonctions de base associées aux valeurs nodales de la dérivée $(\frac{dv}{dx})_{i}$,
+\item $K=[0,h], \quad \Sigma=\{p(a),p'(a),p(b),p'(b)\},  \quad \mathbb{P}=\mathbb{P}_3^{(1)}=\mathbb{R}_3[X]$
+\item Interpolation
+\[\Pi v (x)=\sum_{i=1}^{n}v_{i}\Phi_{i}(x)+\sum_{i=1}^{n}(\frac{dv}{dx})_{i}\Psi_{i}(x)\]
+\item $\Phi_{i}(x)$ les fonctions de base associées aux valeurs nodales $v_{i}$.
+\item $\Psi_{i}(x)$ les fonctions de base associées aux dérivées nodales $(\frac{dv}{dx})_{i}$,
 \end{itemize}
-
-
-\begin{displaymath}
-\Pi v (x)=\sum_{i=1}^{n}v_{i}\Phi_{i}(x)+\sum_{i=1}^{n}(\frac{dv}{dx})_{i}\Psi_{i}(x)\end{displaymath}
 
 Sur un élément $[x_{1},x_{2}]$, cette approximation s'écrit:
 
@@ -2187,12 +2138,11 @@ $\Phi_{i}$ et $\Psi_i$ vérifient les conditions:
 \Phi_{i}(x_j)=\delta_{ij}\quad \Phi'_{i}(x_j)=0\\
 \Psi_{i}(x_j)=0\quad \Psi'_{i}(x_j)=\delta_{ij}
 \end{array} \right. \]
+
 \end{frame}
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Les fonctions de base}
+\frametitle{Élément d'Hermite cubique de classe $\mathcal{C}^1$ et $H^2$}
 \[\left\{\begin{array}{l}
 \Phi_i(x) = \left[1-2(x-x_i)\lambda'_i(x_i)\right]\lambda^2_i(x) \\
 \Psi_i(x) = (x-x_i)\lambda^2_i(x) 
@@ -2214,118 +2164,68 @@ $\Phi_{i}$ et $\Psi_i$ vérifient les conditions:
  \end{itemize}
 
 \end{frame}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Erreur d'interpolation}
-Soit $(K,\mathbb{P},\Sigma)$ un élément fini $n$-simplexe ou $n$-palallélotope de type ($k$). On suppose
-\[n\leq 3\quad \mbox{ et }\quad k\geq 1\]
-Alors il existe une constante $C$ qui ne dépend que de $n$ et de $k$ telle que pour tout entier $m$, $0\leq m\leq k$, on a
-\[\forall v\in H^{k+1}(K),\quad |v-\Pi v|_{m,k}\leq \frac{h_K^{k+1}}{\rho_K^m}|v|_{k+1,K}\]
+\frametitle{Élément d'Hermite quintique de classe $\mathcal{C}^2$ et $H^3$}
+
 \begin{center}
-\begin{tikzpicture}
-\draw [orange] (1,1) circle (1cm);
-\draw (0,0) -- (0,2.655);
-\draw (0,0) -- (5.2,0);
-\draw [domain=0:5.2] plot(\x,-\x/2+2.6355);
-\draw [olive,domain=0.1:5.35,<->] plot(\x,-\x/2+3);
-\draw [olive,<->](0,1) -- (1,1);
- \draw[->] (0.5,0.8) node{$\rho$};
- \draw (2.5,2) node{$h$};
-\end{tikzpicture}
-\end{center}
- 
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}
-\frametitle{Intégration numérique}
-\[a(\varphi_j,\varphi_i)=\sum_{l,m}^2\left(a_{lm}\sum_{K\in{\cal T}_h}\int_K\frac{\partial \varphi_j}{\partial x_m}\frac{\partial \varphi_i}{\partial x_l}\de x\right)\]
-\begin{itemize}
-\item Les fonctions de base appartiennent à $\mathbb{P}_k$ donc le produit $\frac{\partial \varphi_j}{\partial x_m}\frac{\partial \varphi_i}{\partial x_l}$ coïncide avec un polynôme de $\mathbb{P}_{2k-2}$.
-\item Soit $F_K:\hat{x}\mapsto F_K(\hat{x})=B_K \hat{x}+b$ une bijection affine du triangle unité $\widehat{K}$ sur le triangle $K$;  det$(B_K)>0$. 
-\begin{center}
-\begin{tikzpicture}[domain=0:5,scale=0.35]
- \pgfmathsetmacro{\alpha}{0.05}
-  \pgfmathsetmacro{\a}{0.5}
-  \draw[->] (0,0) -- (5,0)  node[right] {$\xi$};
-  \draw[->] (0,0) -- (0,5) node[left] {$\eta$};
-  \draw (3,0)  node[above right] {$\scriptstyle  \widehat{a}_1$};
-  \draw (0,3)  node[above right] {$\scriptstyle  \widehat{a}_2$};
-  \draw (0,0)  node[above left] {$\scriptstyle  \widehat{a}_3$};
-  \draw (0.8,1.5)  node {$\scriptstyle  \widehat{x}$};
-  \draw (12.2,2.4)  node {$\scriptstyle  x$};
- \draw[->] (8,0) -- ++(7,0)  node[right] {$x$};
-  \draw[->] (8,0) --++ (0,5) node[left] {$y$};
-   \draw[blue,thick,fill=blue!30, fill opacity=0.6](10,2)-- ++(3,-1)-- ++(0,3)-- ++(-3,-2);
-
-\path[fill=gray] (10,2) circle (1.0mm)node[left,below] {$\scriptstyle  a_3$};
-\path[fill=gray] (13,1) circle (1.0mm)node[left,below] {$\scriptstyle  a_1$};
-\path[fill=gray] (13,4) circle (1.0mm)node[right] {$\scriptstyle  a_2$};
-
-
-\draw[fill=orange!30, fill opacity=0.6] (0,0) -- ++(3,0) -- ++(-3,3) -- ++(0,-3) ;
-%\draw (2,-0.5)  node[below] {$\scriptstyle  \widehat{x} =\lambda_1\widehat{a}_1+\lambda_2\widehat{a}_2+\lambda_3\widehat{a}_3$};
-%\draw (11,-0.5)  node[below] {$\scriptstyle  x =\lambda_1 a_1+\lambda_2 a_2+\lambda_3 a_3$};
- \draw [->, >=latex,olive] (1,1.5) arc (120:70:13) ;
+\begin{tikzpicture}[domain=0:5,scale=0.50]
+  \draw[-] (8,0) -- ++(6,0);
+  \node [gray] at (8,0) {$\bullet$};
+\draw (8,0) circle (0.3);
+\draw (8,0) circle (0.5);
+  \node [gray] at (8+6,0) {$\bullet$};
+\draw (8+6,0) circle (0.3);
+\draw (8+6,0) circle (0.5);
 \end{tikzpicture}
 
 \end{center}
-Alors on a pour toute fonction $\varphi=\widehat{\varphi}\circ F_K$ continue sur $K$:
-\[\int_K\psi(x)\de x =\mbox{dét}(B_K)\int_{\widehat{K}}\widehat{\psi}(\hat{x})\de \hat{x}\]
-\end{itemize}
 
-
-
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Intégration de $a(\varphi_j,\varphi_i)$}
-On a 
-\[\mbox{dét}(B_K)=\frac{\mbox{mes}(K)}{\mbox{mes}(\widehat{K})}=2\mbox{mes}(K)\]
-On prend $\psi=\frac{\partial \varphi_j}{\partial x_m}\frac{\partial \varphi_i}{\partial x_l}\in \mathbb{P}_{2k-2}$. On se ramène à $\widehat{\psi}\in \mathbb{P}_{2k-2}$ sur le triangle unité. Or pour tout monôme $\hat{x}_1^{k_1}\hat{x}_2^{k_2}$:
-\[\int_{\widehat{K}}\hat{x}_1^{k_1}\hat{x}_2^{k_2}\de \hat{x}=\frac{k_1!k_2!}{(k_1+k_2+2)!}\]
-plus généralement
-\[\int_{\widehat{K}}\hat{x}_1^{k_1}\hat{x}_2^{k_2}(1-\hat{x}_1-\hat{x}_2)^{k_3}\de \hat{x}=\frac{k_1!k_2!k_3!}{(k_1+k_2+k_3+2)!}\]
-En coordonnées barycentriques
-\[\int_{\widehat{K}}\lambda_1^{k_1}\lambda_2^{k_2}\lambda_3^{k_3}\de \hat{x}=2\mbox{mes}(K)\frac{k_1!k_2!k_3!}{(k_1+k_2+k_3+2)!}\]
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Intégration de $\ell(\varphi_i)$}
-\[\ell(\varphi_i)=\sum_{K\in{\cal T}_h}\int_K f \varphi_i\,\de x\]
-Formule de quadrature: $\int_K f \psi(x)\,\de x\simeq \sum_{i=1}^N\omega_{l,K}\psi(b_{i,K})$
 \begin{itemize}
-\item $k=0$: 
-\[\int_K \psi(x)\,\de x\simeq \mbox{mes}(K) \psi(a_{0,K})\]
-\item $k=1$: 
-\[\int_K \psi(x)\,\de x\simeq \frac 13\mbox{mes}(K) \sum_{i=1}^3\psi(a_{i,K})\]
-\item $k=2$: 
-\[\int_K \psi(x)\,\de x\simeq \frac 13\mbox{mes}(K) \sum_{i=4}^6\psi(a_{i,K})\]
+\item $K=[0,h],\quad\Sigma=\{p(a),p'(a),p''(a),p(b),p'(b),p''(b)\}$, $\mathbb{P}=\mathbb{R}_5[X]$
+\[\Pi v (x)=\sum_{i=1}^{n}v_{i}\Phi_{i}(x)+\sum_{i=1}^{n}(\frac{\de v_i}{dx})\Psi_{i}(x)+\sum_{i=1}^{n}(\frac{\de ^2v_i}{\de x^2})\chi_{i}(x)\]
+\item $\Phi_{i}(x)$ les fonctions de base associées aux valeurs nodales $v_{i}$.
+\item $\Psi_{i}(x)$ les fonctions de base associées aux dérivées nodales $\frac{\de v_i}{\de x}$,
+\item $\chi_{i}(x)$ Fonctions de base associées aux dérivées secondes nodales $\frac{\de ^2v_i}{\de x^2}$
 \end{itemize}
+Sur un élément $[x_{1},x_{2}]$, cette approximation s'écrit:
+\begin{displaymath}
+v^{h}(x)=v_{1}\Phi_{1}+\frac{\de v_1}{dx}\Psi_{1}+\frac{\de ^2v_i}{\de x^2}\chi_1+v_{2}\Phi_{2}+\frac{\de v_2}{dx}\Psi_{2}+\frac{\de ^2v_2}{\de x^2}\chi_2 \end{displaymath}
+$\Phi_{i}$, $\Psi_i$ et $\chi_i$  vérifient les conditions:
+\[\left\{\begin{array}{l}
+\Phi_{i}(x_j)=\delta_{ij}\quad \Phi'_{i}(x_j)=0\quad \Phi''_{i}(x_j)=0\\
+\Psi_{i}(x_j)=0\quad \Psi'_{i}(x_j)=\delta_{ij}\quad \Psi''_{i}(x_j)=0\\
+\chi_{i}(x_j)=0\quad \chi'_{i}(x_j)=0\quad \chi''_{i}(x_j)=\delta_{ij}\\
+\end{array} \right. \]
+
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Intégration de $\ell(\varphi_i)$}
-\[\ell(\varphi_i)=\sum_{K\in{\cal T}_h}\int_K f \varphi_i\,\de x\]
-Formule de quadrature: $\int_K f \psi(x)\,\de x\simeq \sum_{i=1}^N\omega_{l,K}\psi(b_{i,K})$
-\begin{itemize}
-\item $k=0$: 
-\[\int_K \psi(x)\,\de x\simeq \mbox{mes}(K) \psi(a_{0,K})\]
-\item $k=1$: 
-\[\int_K \psi(x)\,\de x\simeq \frac 13\mbox{mes}(K) \sum_{i=1}^3\psi(a_{i,K})\]
-\item $k=2$: 
-\[\int_K \psi(x)\,\de x\simeq \frac 13\mbox{mes}(K) \sum_{i=4}^6\psi(a_{i,K})\]
-\end{itemize}
+\frametitle{Éléments bidimensionnels}
+\begin{center}
+\includegraphics[scale=0.2]{elementsHermite.png} 
+\end{center}
+\begin{center}
+\includegraphics[scale=0.25]{hermiteBidim1.png} 
+\end{center}
+\begin{center}
+\includegraphics[scale=0.25]{hermiteBidim2.png} 
+\end{center}
+
 \end{frame}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}

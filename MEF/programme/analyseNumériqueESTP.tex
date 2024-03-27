@@ -1,0 +1,154 @@
+% Tout ce qui est compris entre le caractère % et une fin de ligne est un
+% commentaire ignoré par LaTeX
+
+% Un fichier LaTeX commence par une commande \documentclass qui déclare le type
+% de document
+
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+% Ici, et jusqu'au \begin{document} ci-dessous, c'est le préambule : on y met
+% les déclarations de style, les définitions de macros, etc.
+
+%%%% Personnalisation du style défaut
+
+% Fichiers de style utilisés ; les déclarations se font au moyen de la commande
+% \usepackage
+
+\usepackage{fullpage} % Agrandit les dimensions du texte (hauteur, largeur,
+                      % etc.) par rapport à celles par défaut. Attention
+                      % ce package ne se trouve pas dans toutes les
+                      % distributions LaTeX
+
+\usepackage[french]{babel} % Pour adopter les règles de typographie française
+
+\usepackage[utf8]{inputenc} % Prévenir LaTeX de l'encodage
+
+\usepackage{amsmath} % Les bibliothèques LaTeX de l'American
+                     % Mathematical Society sont pleines de macros
+                     % intéressantes (voire indispensables).
+
+%%%% Déclaration d'environnements
+
+% Les définitions, théorèmes et autres lemmes, corollaires, propositions,
+% exemples, se déclarent au moyen de \newtheorem
+
+\newtheorem{de}{Définition}[subsection] % les définitions et les théorèmes sont
+\newtheorem{theo}{Théorème}[section]    % numérotés par section
+\newtheorem{prop}[theo]{Proposition}    % Les propositions ont le même compteur
+                                        % que les théorèmes
+
+%%%% Notations
+
+% Ici l'on définit les notations que l'on utilisera, au moyen de la macro
+% \newcommand
+
+\newcommand{\ordmult}{\mathop{.}} % \ordmult est l'opérateur de multiplication
+                                  % d'ordinaux
+
+% Voici une notation qui prend des paramètres
+
+\newcommand{\expo}[2]{#1^{#2}}
+
+%%%% déclarations pour le titre
+
+\author{
+  Ibrahim ALAME
+}
+
+\title{L'enseignement des matières scientifiques de base à l'ESTP\\
+       \small (Rapport confidentiel) }
+       %adressé a Mme ALLAG AIT MOKHTAR Khedidja\\
+       %Responsable Département Sciences et Techniques de base de l'Ingénieur
+%\date{}
+
+%%%% fin du préambule, on passe au contenu : tout le texte entre
+%%%% \begin{document} et \end{document} 
+
+\begin{document}
+%\maketitle
+
+% Un petit résumé
+%\begin{abstract}
+%  Dans ce rapport on va montrer qu'aussi surprenant que cela puisse paraître,
+%  toute suite de Goodstein est ultimement stationnaire et qu'Hercule finit par
+%  vaincre l'hydre.
+%\end{abstract}
+
+% Les commandes de sectionnement (\chapter, \section, \subsection, \etc.)
+% sont automatiquement numérotés, et permettent de produire facilement
+% une table des matières au moyen de :
+%\tableofcontents
+
+
+%\subsection{Informatique (ou Programmation numérique - Analyse des données)}
+\noindent 
+\begin{tabular}{|l|l|l|}
+   \hline
+   \multicolumn{2}{|l|}{Matière  : \hspace{1cm} Analyse numérique\hspace{7cm} } & Volume horaire 30h\\
+   \hline
+   Niveau : ING& Code & Coefficient : 1 \\
+   \hline
+   \multicolumn{3}{|l|}{ Langue d'enseignement : Français }\\
+   \hline
+    \multicolumn{3}{|l|}{ Professeur : Ibrahim ALAME }\\
+   \hline
+\end{tabular}
+
+\subsubsection*{Présentation générale:}
+Ce cours s'adresse aux étudiants de première année des écoles d'ingénieurs. Il traite de l'analyse numérique, une discipline carrefour entre les sciences de l'ingénieur, les mathématiques et l'informatique. C'est l'art de concevoir et d'étudier des méthodes de résolution de certains problèmes mathématiques,  issus de la modélisation de problèmes scientifiques et dont on cherche à calculer la solution à l'aide d'un ordinateur.
+\subsubsection*{Objectif d'apprentissage:}
+A l'issue de ce cours,  les étudiants devraient être capables de :
+\begin{itemize}
+\item Déterminer la bonne méthode à mettre en œuvre pour chaque problème modélisé;
+\item Écrire les schémas de la résolution avec une bonne estimation de l'erreur;
+\item Mettre en œuvre pratique les méthode et bien utiliser l'outil  informatique;
+\item Savoir analyser, critiquer et interpréter les résultats obtenus.
+\end{itemize}
+
+\subsubsection*{Compétences Visées}
+Ce cours vise à donner aux élèves les bonnes pratiques des méthodes de calcul approché  que l'on rencontre dans la plupart des disciplines et qui sont abordées tout au long du cursus et dans la vie professionnelle.
+\subsubsection*{Compétences Requises}
+Le cours de mathématiques et d'informatique en classes préparatoires.
+\subsubsection*{Programme}
+\begin{enumerate}
+\item Approximation polynomiale et calcul intégrale (3h)
+\begin{itemize}
+\item Interpolation de Lagrange et Hermite, Splines linéaire et cubique. 
+\item Approximation par la méthode de moindre carré.
+\item Formule de quadrature, formules composites, évaluation de l'erreur.
+\item Polynômes orthogoneaux, Méthode de Gauss.
+\end{itemize}
+\item Analyse numérique matricielle (3h)
+	\begin{itemize}
+		\item Résolution directe des système linéaires: factorisation LU et de Cholesky, conditionnement.
+		\item Méthodes itératives de systèmes linéaires: méthodes de Jacobi, de Gauss-Seidel et de relaxation.
+		\item Méthode de gradient conjugué et optimisation.
+		\item Calcul des valeurs propres et vecteurs propres: méthodes de puissances itérées et de Givens-Householder.
+	\end{itemize}
+\item Équations différentielles (3h)
+\begin{itemize}
+\item Méthodes à un pas, méthode de Runge et Kutta, méthodes multipas, notion de consistance, stabilité et convergence.
+\end{itemize}
+\item Équations aux dérivées partielles  (3h)
+\begin{itemize}
+   \item Différentiation numérique d'ordre un et deux. Méthode des différences finies.
+   \item Approximation des équations elliptiques. Problème de Dirichlet.
+   \item Approximation de problèmes paraboliques. Équation de la chaleur.
+   \item Approximation des problèmes hyperboliques. Équation de transport et équation des ondes.
+\end{itemize}
+\end{enumerate}
+\subsubsection*{Contrôle}
+\begin{itemize}
+\item Compte-rendu des séances de TP,
+\item Un examen écrit.
+\end{itemize}
+\subsubsection*{Bibliographie}
+\begin{itemize}
+\item Cours polycopié,
+\item Support de cours (PTT).
+\item Corrigé des exercices du polycopié.
+\end{itemize}
+\end{document}
+

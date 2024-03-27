@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  25 MAR 2024 18:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  26 MAR 2024 23:03
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1928,121 +1928,86 @@ Overfull \vbox (1.74644pt too high) detected at line 1948
 
 ] [51
 
-]
-<hermite3-5.png, id=1441, 1125.20375pt x 224.84pt>
-File: hermite3-5.png Graphic file (type png)
-<use hermite3-5.png>
-Package pdftex.def Info: hermite3-5.png  used on input line 2138.
-(pdftex.def)             Requested size: 337.56374pt x 67.45251pt.
-<hermiteTriangle1.png, id=1442, 737.75626pt x 245.91875pt>
-File: hermiteTriangle1.png Graphic file (type png)
-<use hermiteTriangle1.png>
-Package pdftex.def Info: hermiteTriangle1.png  used on input line 2138.
-(pdftex.def)             Requested size: 221.32858pt x 73.77618pt.
- [52
+] [52
 
- <./hermite3-5.png> <./hermiteTriangle1.png>]
-<hermiteTriangleUN.png, id=1471, 406.51875pt x 399.4925pt>
-File: hermiteTriangleUN.png Graphic file (type png)
-<use hermiteTriangleUN.png>
-Package pdftex.def Info: hermiteTriangleUN.png  used on input line 2150.
-(pdftex.def)             Requested size: 121.95656pt x 119.84866pt.
-File: hermiteTriangle1.png Graphic file (type png)
-<use hermiteTriangle1.png>
-Package pdftex.def Info: hermiteTriangle1.png  used on input line 2150.
-(pdftex.def)             Requested size: 221.32858pt x 73.77618pt.
+]
+<HermiteBasis.png, id=1468, 441.65pt x 353.32pt>
+File: HermiteBasis.png Graphic file (type png)
+<use HermiteBasis.png>
+Package pdftex.def Info: HermiteBasis.png  used on input line 2166.
+(pdftex.def)             Requested size: 110.41222pt x 88.32977pt.
+
+Overfull \vbox (4.97931pt too high) detected at line 2166
+ []
 
 [53
 
- <./hermiteTriangleUN.png>]
-<elementsHermite.png, id=1499, 1552.80125pt x 418.56375pt>
-File: elementsHermite.png Graphic file (type png)
-<use elementsHermite.png>
-Package pdftex.def Info: elementsHermite.png  used on input line 2164.
-(pdftex.def)             Requested size: 310.55475pt x 83.71126pt.
-<hermiteBidim1.png, id=1500, 1384.17125pt x 245.91875pt>
-File: hermiteBidim1.png Graphic file (type png)
-<use hermiteBidim1.png>
-Package pdftex.def Info: hermiteBidim1.png  used on input line 2164.
-(pdftex.def)             Requested size: 346.04196pt x 61.47952pt.
-
-Overfull \hbox (3.74666pt too wide) in paragraph at lines 2164--2164
- [] 
- []
-
-<hermiteBidim2.png, id=1501, 1064.97874pt x 257.96375pt>
-File: hermiteBidim2.png Graphic file (type png)
-<use hermiteBidim2.png>
-Package pdftex.def Info: hermiteBidim2.png  used on input line 2164.
-(pdftex.def)             Requested size: 266.24403pt x 64.49077pt.
-
-Overfull \vbox (12.51762pt too high) detected at line 2164
+ <./HermiteBasis.png>]
+Overfull \vbox (8.41832pt too high) detected at line 2201
  []
 
 [54
 
- <./elementsHermite.png> <./hermiteBidim1.png> <./hermiteBidim2.png>]
+]
+<elementsHermite.png, id=1524, 1552.80125pt x 418.56375pt>
+File: elementsHermite.png Graphic file (type png)
+<use elementsHermite.png>
+Package pdftex.def Info: elementsHermite.png  used on input line 2216.
+(pdftex.def)             Requested size: 310.55475pt x 83.71126pt.
+<hermiteBidim1.png, id=1525, 1384.17125pt x 245.91875pt>
+File: hermiteBidim1.png Graphic file (type png)
+<use hermiteBidim1.png>
+Package pdftex.def Info: hermiteBidim1.png  used on input line 2216.
+(pdftex.def)             Requested size: 346.04196pt x 61.47952pt.
+
+Overfull \hbox (3.74666pt too wide) in paragraph at lines 2216--2216
+ [] 
+ []
+
+<hermiteBidim2.png, id=1526, 1064.97874pt x 257.96375pt>
+File: hermiteBidim2.png Graphic file (type png)
+<use hermiteBidim2.png>
+Package pdftex.def Info: hermiteBidim2.png  used on input line 2216.
+(pdftex.def)             Requested size: 266.24403pt x 64.49077pt.
+
+Overfull \vbox (12.51762pt too high) detected at line 2216
+ []
+
 [55
 
-]
-<HermiteBasis.png, id=1559, 441.65pt x 353.32pt>
-File: HermiteBasis.png Graphic file (type png)
-<use HermiteBasis.png>
-Package pdftex.def Info: HermiteBasis.png  used on input line 2216.
-(pdftex.def)             Requested size: 110.41222pt x 88.32977pt.
+ <./elementsHermite.png> <./hermiteBidim1.png> <./hermiteBidim2.png>]
+<maillage01.png, id=1558, 1091.07625pt x 416.55624pt>
+File: maillage01.png Graphic file (type png)
+<use maillage01.png>
+Package pdftex.def Info: maillage01.png  used on input line 2248.
+(pdftex.def)             Requested size: 272.76839pt x 104.1388pt.
 
-Overfull \vbox (4.97931pt too high) detected at line 2216
+Overfull \vbox (0.86534pt too high) detected at line 2248
  []
 
 [56
 
- <./HermiteBasis.png>] [57
+ <./maillage01.png>] [57
 
 ]
-Overfull \vbox (5.36702pt too high) detected at line 2285
- []
-
-[58
-
-] [59
-
-] [60
-
-] [61
-
-]
-<maillage01.png, id=1722, 1091.07625pt x 416.55624pt>
-File: maillage01.png Graphic file (type png)
-<use maillage01.png>
-Package pdftex.def Info: maillage01.png  used on input line 2348.
-(pdftex.def)             Requested size: 272.76839pt x 104.1388pt.
-
-Overfull \vbox (0.86534pt too high) detected at line 2348
- []
-
-[62
-
- <./maillage01.png>] [63
-
-]
-<maillage02.png, id=1777, 996.72375pt x 293.095pt>
+<maillage02.png, id=1612, 996.72375pt x 293.095pt>
 File: maillage02.png Graphic file (type png)
 <use maillage02.png>
-Package pdftex.def Info: maillage02.png  used on input line 2387.
+Package pdftex.def Info: maillage02.png  used on input line 2287.
 (pdftex.def)             Requested size: 249.18033pt x 73.27356pt.
- [64
+ [58
 
  <./maillage02.png>]
-<maillage03.png, id=1804, 484.81125pt x 473.77pt>
+<maillage03.png, id=1639, 484.81125pt x 473.77pt>
 File: maillage03.png Graphic file (type png)
 <use maillage03.png>
-Package pdftex.def Info: maillage03.png  used on input line 2410.
+Package pdftex.def Info: maillage03.png  used on input line 2310.
 (pdftex.def)             Requested size: 106.6588pt x 104.22972pt.
 
-Overfull \vbox (23.09892pt too high) detected at line 2410
+Overfull \vbox (23.09892pt too high) detected at line 2310
  []
 
-[65
+[59
 
  <./maillage03.png>]
 \tf@nav=\write8
@@ -2062,10 +2027,10 @@ Package rerunfilecheck Info: File `chapitre2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 41961 strings out of 478268
- 867134 string characters out of 5846348
- 1225915 words of memory out of 5000000
- 59186 multiletter control sequences out of 15000+600000
+ 41854 strings out of 478268
+ 865183 string characters out of 5846348
+ 1225699 words of memory out of 5000000
+ 59094 multiletter control sequences out of 15000+600000
  498932 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,668b,871s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2073,35 +2038,35 @@ Here is how much of TeX's memory you used:
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pf
 b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2022/texmf
--dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-d
-ist/fonts/type1/public/cm-super/sfsx1000.pfb>
-Output written on chapitre2.pdf (65 pages, 1336226 bytes).
+></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
+live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/tex
+live/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive
+/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/local/texlive/202
+2/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022/texm
+f-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/cm-super/sfsx1000.pfb>
+Output written on chapitre2.pdf (59 pages, 1190432 bytes).
 PDF statistics:
- 1981 PDF objects out of 2073 (max. 8388607)
- 1788 compressed objects within 18 object streams
- 136 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1815 PDF objects out of 2073 (max. 8388607)
+ 1635 compressed objects within 17 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 214 words of extra memory for PDF output out of 10000 (max. 10000000)
 

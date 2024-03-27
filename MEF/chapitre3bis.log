@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  11 MAR 2024 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.7)  26 MAR 2024 19:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1660,46 +1660,44 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 115
-.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 115
-.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
+
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 11
-5.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95
+.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-15.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 9
+5.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 
-115.
+95.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 115.
+ut line 95.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-)
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-[2
+) [2
 
 ]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
+Overfull \vbox (5.36702pt too high) detected at line 139
+ []
+
 [3
 
 ] [4
@@ -1707,6 +1705,22 @@ Missing character: There is no ; in font nullfont!
 ] [5
 
 ] [6
+
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[7
+
+]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[8
+
+] [9
+
+] [10
+
+] [11
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1732,111 +1746,78 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-)) [7
-
-] [8
-
-]
-[9
-
-] [10
-
-] [11
-
-] [12
+)) [12
 
 ] [13
 
 ]
-\openout4 = `Chapitre3bis.vrb'.
+[14
 
- (./Chapitre3bis.vrb) [14
+] [15
 
-]
-\openout4 = `Chapitre3bis.vrb'.
+] [16
 
- (./Chapitre3bis.vrb) [15
-
-]
-\openout4 = `Chapitre3bis.vrb'.
-
-
-(./Chapitre3bis.vrb) [16
-
-]
-\openout4 = `Chapitre3bis.vrb'.
-
- (./Chapitre3bis.vrb) [17
+] [17
 
 ] [18
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
 
- (./Chapitre3bis.vrb
+ (./Chapitre3bis.vrb) [19
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb)
+[20
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [21
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [22
+
+] [23
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+
+(./Chapitre3bis.vrb
 \openout5 = `Chapitre3bis.pyg'.
 
 runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
-
-(./Chapitre3bis.out.pyg)) [19
+ (./Chapitre3bis.out.pyg)) [24
 
 ]
-<codePython02.png, id=555, 923.45pt x 598.235pt>
+<codePython02.png, id=688, 923.45pt x 598.235pt>
 File: codePython02.png Graphic file (type png)
 <use codePython02.png>
-Package pdftex.def Info: codePython02.png  used on input line 773.
+Package pdftex.def Info: codePython02.png  used on input line 883.
 (pdftex.def)             Requested size: 313.96884pt x 203.3972pt.
- [20
+ [25
 
  <./codePython02.png>]
-Overfull \vbox (7.83032pt too high) detected at line 804
+Overfull \vbox (7.83032pt too high) detected at line 914
  []
 
-[21
+[26
 
-] [22
+] [27
 
-] [23
+] [28
 
-] [24
+] [29
 
-] [25
-
-]
-\openout4 = `Chapitre3bis.vrb'.
-
- (./Chapitre3bis.vrb) [26
-
-]
-\openout4 = `Chapitre3bis.vrb'.
-
- (./Chapitre3bis.vrb)
-[27
-
-]
-\openout4 = `Chapitre3bis.vrb'.
-
- (./Chapitre3bis.vrb) [28
-
-]
-Overfull \hbox (14.8556pt too wide) detected at line 1093
-[] \OT1/cmss/m/n/10.95 = [] [] \OMS/cmsy/m/n/10.95 ^^B []
- []
-
-
-Overfull \vbox (0.59349pt too high) detected at line 1093
- []
-
-[29
-
-]
-Overfull \vbox (11.7092pt too high) detected at line 1129
- []
-
-[30
+] [30
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1846,7 +1827,40 @@ Overfull \vbox (11.7092pt too high) detected at line 1129
 ]
 \openout4 = `Chapitre3bis.vrb'.
 
- (./Chapitre3bis.vrb) [32
+ (./Chapitre3bis.vrb)
+[32
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [33
+
+]
+Overfull \hbox (14.8556pt too wide) detected at line 1203
+[] \OT1/cmss/m/n/10.95 = [] [] \OMS/cmsy/m/n/10.95 ^^B []
+ []
+
+
+Overfull \vbox (0.59349pt too high) detected at line 1203
+ []
+
+[34
+
+]
+Overfull \vbox (11.7092pt too high) detected at line 1239
+ []
+
+[35
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [36
+
+]
+\openout4 = `Chapitre3bis.vrb'.
+
+ (./Chapitre3bis.vrb) [37
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1860,15 +1874,15 @@ T1/cmss/m/n/10.95 = []
  []
 
 )
-Overfull \vbox (19.61958pt too high) detected at line 1208
+Overfull \vbox (19.61958pt too high) detected at line 1318
  []
 
-[33
+[38
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
 
- (./Chapitre3bis.vrb) [34
+ (./Chapitre3bis.vrb) [39
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1881,7 +1895,7 @@ tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
  (./Chapitre3bis.out.pyg))
-[35
+[40
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1893,7 +1907,7 @@ runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -P s
 tripnl=False -P mathescape=True -o Chapitre3bis.out.pyg Chapitre3bis.pyg)...exe
 cuted.
 
- (./Chapitre3bis.out.pyg)) [36
+ (./Chapitre3bis.out.pyg)) [41
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1907,10 +1921,10 @@ cuted.
 
 
 (./Chapitre3bis.out.pyg))
-Overfull \vbox (5.87073pt too high) detected at line 1339
+Overfull \vbox (5.87073pt too high) detected at line 1449
  []
 
-[37
+[42
 
 ]
 \openout4 = `Chapitre3bis.vrb'.
@@ -1946,62 +1960,62 @@ Missing character: There is no 6 in font nullfont!
 Missing character: There is no 2 in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no ) in font nullfont!
-) [38
+) [43
 
 ]
-Overfull \vbox (0.73694pt too high) detected at line 1454
+Overfull \vbox (0.73694pt too high) detected at line 1564
  []
 
-[39
+[44
 
-] [40
+] [45
 
-] [41
-
-]
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 1551.
-
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 1551.
-
-[42
-
-] [43
-
-] [44
+] [46
 
 ]
-Overfull \hbox (20.50963pt too wide) detected at line 1673
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 1661.
+
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 1661.
+
+[47
+
+] [48
+
+] [49
+
+]
+Overfull \hbox (20.50963pt too wide) detected at line 1783
 []
  []
 
 
-Overfull \hbox (1.26445pt too wide) detected at line 1673
+Overfull \hbox (1.26445pt too wide) detected at line 1783
 [][]
  []
 
 
-Overfull \vbox (1.76656pt too high) detected at line 1673
+Overfull \vbox (1.76656pt too high) detected at line 1783
  []
 
-[45
+[50
 
-] [46
+] [51
 
-] [47
+] [52
 
 ]
-Overfull \hbox (16.67177pt too wide) in paragraph at lines 1775--1775
+Overfull \hbox (16.67177pt too wide) in paragraph at lines 1885--1885
  [] 
  []
 
 
-Overfull \hbox (2.30267pt too wide) in paragraph at lines 1775--1775
+Overfull \hbox (2.30267pt too wide) in paragraph at lines 1885--1885
  [] 
  []
 
-[48
+[53
 
 ]
 \tf@nav=\write9
@@ -2025,10 +2039,10 @@ runsystem(rm Chapitre3bis.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 42343 strings out of 478268
- 883433 string characters out of 5846348
- 1340694 words of memory out of 5000000
- 59526 multiletter control sequences out of 15000+600000
+ 42429 strings out of 478268
+ 884932 string characters out of 5846348
+ 1341382 words of memory out of 5000000
+ 59602 multiletter control sequences out of 15000+600000
  505303 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,23n,122p,11919b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2038,40 +2052,41 @@ Here is how much of TeX's memory you used:
 b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8
 .pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cm
 ex9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6
-.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.p
-fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2022/texmf
--dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/texlive/2022/texmf-d
-ist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022/texmf-dis
-t/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2022/texmf-dist/
-fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2022/texmf-dist/font
-s/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/
-type1/public/cm-super/sftt1095.pfb>
-Output written on Chapitre3bis.pdf (48 pages, 583945 bytes).
+10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+2.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
+local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
+live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/local/texlive/202
+2/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/texlive/2022/texm
+f-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2022/texmf-dist
+/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2022/texmf-dist/f
+onts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2022/texmf-dist/fon
+ts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts
+/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
+ype1/public/cm-super/sftt1095.pfb>
+Output written on Chapitre3bis.pdf (53 pages, 611432 bytes).
 PDF statistics:
- 1507 PDF objects out of 1728 (max. 8388607)
- 1355 compressed objects within 14 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 1645 PDF objects out of 1728 (max. 8388607)
+ 1485 compressed objects within 15 object streams
+ 108 named destinations out of 1000 (max. 500000)
  100 words of extra memory for PDF output out of 10000 (max. 10000000)
 

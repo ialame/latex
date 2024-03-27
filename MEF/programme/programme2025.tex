@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{pythontex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{hmargin=2.3cm,vmargin=1.5cm}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{intersections}
+\usetikzlibrary{calc} 
+%\usepackage{tkz-tab}
+\usepackage{stmaryrd}
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{array}
+\usepackage{pstricks}
+\usepackage{pst-3dplot}
+\usepackage{pst-tree}
+\usepackage{pstricks-add}
+\usepackage{upgreek}
+%\usepackage{epstopdf}
+\usepackage{eolgrab}
+\usepackage{chngpage}
+ \usepackage{calrsfs}
+ % Appel du package pythontex 
+\usepackage{pythontex}
+ \usepackage{enumitem}
+\usetikzlibrary{decorations.pathmorphing}
+\def \de {{\rm d}}
+\def \ch {{\rm ch}}
+\def \sh {{\rm sh}}
+\def \th {{\rm th}}
+
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{xcolor}
+\newsavebox\MBox
+\newcommand\Cline[2][red]{{\sbox\MBox{#2}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+\newcommand{\mybox}[1]{\fbox{$\displaystyle#1$}}
+\newcommand{\myredbox}[1]{\fcolorbox{red}{white}{$\displaystyle#1$}}
+\newcommand{\mydoublebox}[1]{\fbox{\fbox{$\displaystyle#1$}}}
+\newcommand{\myreddoublebox}[1]{\fcolorbox{red}{white}{\fcolorbox{red}{white}{$\displaystyle#1$}}}
+
+\definecolor{greenESTP}{RGB}{71, 146, 128}
+\definecolor{purple2}{RGB}{153,0,153} % there's actually no standard purple
+\definecolor{green2}{RGB}{0,153,0} % a darker green
+
+
+
+\usepackage{amsmath} 
+\renewcommand{\overrightarrow}[1]{\vbox{\halign{##\cr 
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  $#1\mskip2mu$\cr}}}
+
+\newcommand{\Coord}[3]{% 
+  \ensuremath{\overrightarrow{#1}\, 
+    \begin{pmatrix} 
+      #2\\ 
+      #3 
+    \end{pmatrix}}}
+
+\newcommand{\norme}[1]{\left\lVert\overrightarrow{#1}\right\rVert}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+  \title{Enseignement de la Méthode des Éléments Finis en tronc commun à l'ESTP}
+  %\author{ \textsc{Ibrahim ALAME}}
+%\date{23/04/2021}
+\begin{document}
+%\maketitle
+
+\noindent
+\begin{tabular}{|m{3cm}|>{\centering}p{7cm}|>{\centering}p{4cm}|}\hline
+\multirow{4}{|c|}{\includegraphics[scale=0.34]{logoESTP.jpg}} &
+\multirow{4}{|c|}{\textbf{Fiche module \\ \large  Méthode des éléments finis}}	&
+%\begin{tabular}{m{4cm}}
+A \\ \hline
+B \\ \hline
+C \\ \hline
+D \\ \hline
+%\end{tabular}
+	\tabularnewline \hline
+\end{tabular}\\ 
+%\textbf{Masse (en nombre de terre)}
+
+\noindent
+{\bf Langue d’enseignement :} Français\\
+{\bf Nombre d’heures :} 21.5 heures - (CM :  9 h - TD :  7.5 h - TP: 5h - Evaluation :  2 h)
+\section*{\Cline[greenESTP]{Descriptif et modalités d’évaluation {\em \normalsize (Course Description and Assignments)}}}
+Ce cours est une introduction de la méthode des éléments finis pour la résolution des problèmes qui se posent dans les différentes disciplines de l'ingénieur et comporte  principalement deux aspects :  les concepts de base de la technique des éléments finis et l'implémentation efficace de la méthode dans un outil de calcul scientifique.
+\subsection*{CM1: Formulation variationnelle et approximation}
+\begin{itemize}[label=\textbullet, font=\small \color{greenESTP}]
+\item {\em Outils d'analyse fonctionnelle: } Distributions, Espaces de Sobolev,Théorème de trace.
+\item {\em Formulation variationnelle} Formule de Green, Problèmes aux limites elliptiques. Problèmes variationnels abstraits. Théorème de Lax-Milgram. Application à l'élasticité: Barres, Poutres, Plaques minces (Contraintes planes) et équation de Stokes.
+\item {\em Approximation variationnelle.} Méthode de Galerkin, problème approché, résolution numérique, convergence de la méthode et précision.
+\end{itemize}
+{\bf TD1} Étude de deux problèmes aux limites elliptiques en dimension 1; Problème de Dirichlet et Problème de Neumann: Formulation variationnelle, approximation dans un espace $V_h$ de dimension finie. Base $(\varphi_i)_i$, obtention du système linéaire d'approximation $Au=f$, propriétés de la matrice $A$, résolution à la main dans un cas simple et comparaison avec la solution exacte.
+\subsection*{CM2: Éléments finis $(K,P_k,\Sigma_k)$}
+\begin{itemize}[label=\textbullet, font=\small \color{greenESTP}]
+\item {\em Éléments finis simpliciaux de Lagrange  dans $\mathbb{R}^n$:}  
+\begin{itemize}
+\item En dim1: Segment de type $k=0,1,2,3$
+\item En dim2: Triangle de type $k=0,1,2,3$
+\item En dim3: Tétraèdre de type $k=0,1,2$
+\end{itemize}
+\item {\em Éléments finis parallélotopes de Lagrange dans $\mathbb{R}^n$:}
+\begin{itemize}
+\item En dim2: carré de type $k=0,1,2$
+\item En dim3: cube de type $k=0,1,2$
+\end{itemize}
+\item {\em Éléments finis d'Hermite,}% Exemples.
+\begin{itemize}
+\item En dim1: Segment cubique $H^2$ de classe $\mathcal{C}^1$ et segment quintique $H^3$ de classe $\mathcal{C}^2$
+\item En dim2: Triangle cubique $H^1$ de classe $\mathcal{C}^0$,  Triangle quintique d'Argyris $H^2$ de classe $\mathcal{C}^1$ et carré $Q_3$ de classe $\mathcal{C}^1$.  
+\end{itemize}
+\end{itemize}
+{\bf TD2} Étude d'une poutre à section variable en deux problèmes:
+\begin{enumerate}
+\item Poutre en compression-traction: Modélisation. Formulation variationnelle. Calcul de la matrice élémentaire selon le choix de l'élément fini de Lagrange: segment de type $k=0,1,2$. Système linéaire dans les trois cas. Exemple numérique.
+\item Poutre en flexion: Modélisation mécanique. Formulation variationnelle. Utilisation de l'élément fini cubique d'Hermite. Matrice élémentaire. Assemblage et résolution d'une poutre encastrée dans un cas simple.
+\end{enumerate}
+ 
+\subsection*{CM3: Mise en œuvre pratique de la méthode des éléments finis}
+\begin{itemize}[label=\textbullet, font=\small \color{greenESTP}]
+\item {\em Maillage:} Nœuds. Éléments. Tableau de coordonnées. Tableau de connectivité.
+\item {\em Calcul de $a(\varphi_i,\varphi_j)$} se ramenant à l'élément fini de référence: cas d'un segment, triangle et carré. Formules d'intégration exacte remarquables et formules d'intégration approchée en dimension 1,2 et 3.
+\item {\em Algorithme d'assemblage} Cas général et exemples en dimension 1 et 2.
+\item {\em Analyse de la méthode des éléments finis:} Cas d'un ouvert $\Omega$ polyédrique. Cas d'un ouvert $\Omega$  à frontière courbe. Convergence de la méthode des éléments finis.
+\item Présentation du logiciel d'éléments finis CAST3M.
+\end{itemize}
+{\bf TD3} Résolution d'une equation aux dérivées partielles elliptique en dimension $n=2$ avec conditions aux limites de Dirichlet. 
+\begin{enumerate}
+\item Formulation variationnelle. Maillage en triangles rectangle isocèle. Numérotations des nœuds et éléments. Tableau de coordonnées et connectivité. Calcul des coefficients du système linéaire. résolution dans un cas simple (9 nœuds). Comparaisons avec la solution exacte donnée.
+\item En deuxième partie de l'étude, on change de maillage et on utilise un élément fini parallèlopade carré de type 1. On recalcule le système linéaire et on compare avec la première méthode.
+\item Dans cette dernière partie on modifie le domaine initiale et on choisit pour la résolution un élément fini triangle équilatéral.  
+\end{enumerate}
+\noindent
+{\bf TP1} L'objectif de ce premier TP est de programmer, à l'aide de python, la méthode des éléments finis de A à Z dans deux cas:
+\begin{enumerate}
+\item Étude d'un pont à treillis formé par un agencement triangulaire d'éléments linéaires dont les extrémités sont reliées au niveau de points d'assemblage appelés nœuds. Le sujet présente les données nécessaires à l'écriture d'un code python permettant de définir la géométrie de la structure, de calculer pour chaque élément sa matrice élémentaire, d'assembler la matrice globale, de résoudre le système linéaire et enfin de représenter graphiquement la structure déformée.
+\item Le deuxième problème de ce TP consiste à écrire le code python d'un problème en dimension 2 vu en TD3.
+\end{enumerate}
+\noindent
+{\bf TP2} Ce TP sera consacré à l'apprentissage de CAST3M et l'application de la méthode des éléments finis à deux cas en dimension 2 et 3: 
+\begin{itemize}
+\item Une structure de portique en traction-compression et flexion.
+\item Un pont soumis à des chargements linéairement réparties.
+\end{itemize}
+\section*{\Cline[greenESTP]{Acquis d’apprentissage visés {\em \normalsize (Learning Outcomes).}  {\normalsize \normalfont Échelle dans la taxonomie de Bloom:}} } 
+
+A l'issue de cet enseignement, les élèves ingénieurs seront aptes à :
+\begin{itemize}[label=\textbullet, font=\small \color{greenESTP}]
+\item (2)  comprendre la méthode des éléments finis;
+\item  (3) devenir des utilisateurs avertis des outils informatiques de simulation numérique par éléments finis en mécanique des structures;
+\item (4)  identifier les problèmes numériques qui peuvent se poser en mécanique de milieux continus et résistance des matériaux et de choisir la méthode la plus adaptée et d'estimer la validité des résultats produits par l'ordinateur;
+\item (4)  choisir une méthode en tenant compte d'exigences de précision et de complexité;
+\item (5)  réaliser un petit programme python implémentant la résolution complète d'un problème par la méthode des éléments finis dans les différentes disciplines de l'ingénierie;
+\item (6) certifier et valider le résultat de la simulation ainsi obtenue.
+\end{itemize}
+
+\noindent
+{\bf La note de l'évaluation} de l'étudiant ingénieur est la moyenne des deux notes de TP et la note de la composition finale.
+\section*{\Cline[greenESTP]{Compétences requises {\em \normalsize (Prerequisites)}}}
+\begin{itemize}[label=\textbullet, font=\small \color{greenESTP}]
+\item Mathématiques de l’ingénieur
+\item Analyse Numérique
+\item Programmation Numérique et Analyse des Données
+\item Mécanique des milieux continus
+\item Résistance des matériaux
+\end{itemize}
+
+\section*{\Cline[greenESTP]{Bibliographie et ressources complémentaires {\em \normalsize (Learning Material)}}}
+\begin{itemize}[label=\textbullet, font=\small \color{greenESTP}]
+\item P.-A. Raviart, J.-M. Thomas Introduction à l'analyse numérique des EDP, DUNOD, 2004.
+\item J.-L. Batoz, G. Dhatt, Modélisation des structures par éléments finis -Tome 1 et 2. HERMES, 1990.
+\item Michel Cazenave, Méthode des éléments finis, DUNOD, 2017.
+\end{itemize}
+
+ \end{document}
